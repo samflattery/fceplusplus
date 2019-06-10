@@ -15,6 +15,7 @@
 		0A38A08F22AA8DAA009D12D5 /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A38A08E22AA8DAA009D12D5 /* output.json */; };
 		0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */; };
 		0A38A09322ABB706009D12D5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A09222ABB706009D12D5 /* SearchViewController.swift */; };
+		0A38A09522ABE6BE009D12D5 /* HTMLtest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A09422ABE6BE009D12D5 /* HTMLtest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0A38A08E22AA8DAA009D12D5 /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = "../../../../dev/FCE++/docs/output.json"; sourceTree = "<group>"; };
 		0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewController.swift; sourceTree = "<group>"; };
 		0A38A09222ABB706009D12D5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0A38A09422ABE6BE009D12D5 /* HTMLtest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLtest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				0A38A06A22A98E63009D12D5 /* FCEViewController.swift */,
 				0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */,
 				0A38A09222ABB706009D12D5 /* SearchViewController.swift */,
+				0A38A09422ABE6BE009D12D5 /* HTMLtest.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A38A09322ABB706009D12D5 /* SearchViewController.swift in Sources */,
+				0A38A09522ABE6BE009D12D5 /* HTMLtest.swift in Sources */,
 				0A38A07B22A99CB2009D12D5 /* JSONInfo.swift in Sources */,
 				0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */,
 				0A38A06B22A98E63009D12D5 /* FCEViewController.swift in Sources */,
