@@ -12,10 +12,36 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var courses: [Course]!
+    var comments: [Comment]?
+    
+    func getCourseJSON() -> [Course] {
+        if let url = Bundle.main.url(forResource: "output", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url, options: .mappedIfSafe)
+                let decoder = JSONDecoder()
+                let result = try decoder.decode([Course].self, from: data)
+                return result
+            } catch {
+                print("Error getting file: \(error)")
+                return []
+            }
+        }
+        return []
+    }
+    
+    func getComments() {
+        let queue = DispatchQueue.global()
+        queue.async {
+            self.comments = Comments.getComments()
+            return
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        courses = getCourseJSON()
+        getComments()
         return true
     }
 
