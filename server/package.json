@@ -1,0 +1,10 @@
+{
+  "name": "fceplusplus",
+  "description": "parse-server for FCE++",
+  "scripts": {
+    "start": "parse-server config.json"
+  },
+  "dependencies": {
+    "parse-server": "^2.0.0"
+  }
+}

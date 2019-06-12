@@ -1,0 +1,4291 @@
+[
+    {
+        "courseName": "10-601",
+        "comments": []
+    },
+    {
+        "courseName": "10-701",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "10-703"
+    },
+    {
+        "comments": [],
+        "courseName": "10-715"
+    },
+    {
+        "comments": [],
+        "courseName": "10-725"
+    },
+    {
+        "comments": [],
+        "courseName": "11-344"
+    },
+    {
+        "courseName": "11-411",
+        "comments": []
+    },
+    {
+        "courseName": "11-601",
+        "comments": []
+    },
+    {
+        "courseName": "11-611",
+        "comments": []
+    },
+    {
+        "courseName": "11-631",
+        "comments": []
+    },
+    {
+        "courseName": "11-632",
+        "comments": []
+    },
+    {
+        "courseName": "11-641",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "11-642"
+    },
+    {
+        "courseName": "11-661",
+        "comments": []
+    },
+    {
+        "courseName": "11-663",
+        "comments": []
+    },
+    {
+        "courseName": "11-690",
+        "comments": []
+    },
+    {
+        "courseName": "11-700",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "11-711"
+    },
+    {
+        "courseName": "11-731",
+        "comments": []
+    },
+    {
+        "courseName": "11-751",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "11-761"
+    },
+    {
+        "courseName": "11-777",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "11-785"
+    },
+    {
+        "comments": [],
+        "courseName": "11-910"
+    },
+    {
+        "courseName": "11-927",
+        "comments": []
+    },
+    {
+        "courseName": "12-100",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-201"
+    },
+    {
+        "courseName": "12-212",
+        "comments": []
+    },
+    {
+        "courseName": "12-215",
+        "comments": []
+    },
+    {
+        "courseName": "12-301",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-335"
+    },
+    {
+        "courseName": "12-336",
+        "comments": []
+    },
+    {
+        "courseName": "12-355",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-356"
+    },
+    {
+        "courseName": "12-401",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-411"
+    },
+    {
+        "comments": [],
+        "courseName": "12-421"
+    },
+    {
+        "courseName": "12-600",
+        "comments": []
+    },
+    {
+        "courseName": "12-606",
+        "comments": []
+    },
+    {
+        "courseName": "12-629",
+        "comments": []
+    },
+    {
+        "courseName": "12-635",
+        "comments": []
+    },
+    {
+        "courseName": "12-645",
+        "comments": []
+    },
+    {
+        "courseName": "12-659",
+        "comments": []
+    },
+    {
+        "courseName": "12-702",
+        "comments": []
+    },
+    {
+        "courseName": "12-703",
+        "comments": []
+    },
+    {
+        "courseName": "12-704",
+        "comments": []
+    },
+    {
+        "courseName": "12-706",
+        "comments": []
+    },
+    {
+        "courseName": "12-709",
+        "comments": []
+    },
+    {
+        "courseName": "12-712",
+        "comments": []
+    },
+    {
+        "courseName": "12-720",
+        "comments": []
+    },
+    {
+        "courseName": "12-729",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-740"
+    },
+    {
+        "courseName": "12-741",
+        "comments": []
+    },
+    {
+        "courseName": "12-746",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-747"
+    },
+    {
+        "comments": [],
+        "courseName": "12-748"
+    },
+    {
+        "courseName": "12-751",
+        "comments": []
+    },
+    {
+        "courseName": "12-755",
+        "comments": []
+    },
+    {
+        "courseName": "12-766",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "12-780"
+    },
+    {
+        "comments": [],
+        "courseName": "12-783"
+    },
+    {
+        "comments": [],
+        "courseName": "12-790"
+    },
+    {
+        "courseName": "12-794",
+        "comments": []
+    },
+    {
+        "courseName": "12-798",
+        "comments": []
+    },
+    {
+        "courseName": "14-642",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "14-740"
+    },
+    {
+        "courseName": "14-741",
+        "comments": []
+    },
+    {
+        "courseName": "14-761",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "14-774"
+    },
+    {
+        "comments": [],
+        "courseName": "14-775"
+    },
+    {
+        "courseName": "14-798",
+        "comments": []
+    },
+    {
+        "courseName": "14-809",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "14-815"
+    },
+    {
+        "courseName": "14-823",
+        "comments": []
+    },
+    {
+        "courseName": "14-829",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "14-840"
+    },
+    {
+        "comments": [],
+        "courseName": "14-848"
+    },
+    {
+        "comments": [],
+        "courseName": "15-051"
+    },
+    {
+        "comments": [],
+        "courseName": "15-104"
+    },
+    {
+        "courseName": "15-110",
+        "comments": []
+    },
+    {
+        "courseName": "15-112",
+        "comments": []
+    },
+    {
+        "courseName": "15-121",
+        "comments": []
+    },
+    {
+        "courseName": "15-122",
+        "comments": [
+            "Great class",
+            "Nice"
+        ]
+    },
+    {
+        "courseName": "15-150",
+        "comments": [
+            "Prof Erdmann is the best"
+        ]
+    },
+    {
+        "courseName": "15-151",
+        "comments": []
+    },
+    {
+        "courseName": "15-210",
+        "comments": []
+    },
+    {
+        "courseName": "15-213",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-251"
+    },
+    {
+        "courseName": "15-294",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-295"
+    },
+    {
+        "comments": [],
+        "courseName": "15-300"
+    },
+    {
+        "comments": [],
+        "courseName": "15-312"
+    },
+    {
+        "comments": [],
+        "courseName": "15-316"
+    },
+    {
+        "courseName": "15-317",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-319"
+    },
+    {
+        "courseName": "15-322",
+        "comments": []
+    },
+    {
+        "courseName": "15-351",
+        "comments": []
+    },
+    {
+        "courseName": "15-354",
+        "comments": []
+    },
+    {
+        "courseName": "15-387",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-388"
+    },
+    {
+        "comments": [],
+        "courseName": "15-394"
+    },
+    {
+        "comments": [],
+        "courseName": "15-410"
+    },
+    {
+        "comments": [],
+        "courseName": "15-411"
+    },
+    {
+        "comments": [],
+        "courseName": "15-418"
+    },
+    {
+        "comments": [],
+        "courseName": "15-424"
+    },
+    {
+        "courseName": "15-440",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-441"
+    },
+    {
+        "courseName": "15-445",
+        "comments": []
+    },
+    {
+        "courseName": "15-451",
+        "comments": []
+    },
+    {
+        "courseName": "15-453",
+        "comments": []
+    },
+    {
+        "courseName": "15-455",
+        "comments": []
+    },
+    {
+        "courseName": "15-462",
+        "comments": []
+    },
+    {
+        "courseName": "15-463",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-513"
+    },
+    {
+        "courseName": "15-605",
+        "comments": []
+    },
+    {
+        "courseName": "15-611",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-618"
+    },
+    {
+        "courseName": "15-619",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-640"
+    },
+    {
+        "courseName": "15-641",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-645"
+    },
+    {
+        "comments": [],
+        "courseName": "15-650"
+    },
+    {
+        "courseName": "15-651",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-662"
+    },
+    {
+        "courseName": "15-666",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-688"
+    },
+    {
+        "courseName": "15-740",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-746"
+    },
+    {
+        "comments": [],
+        "courseName": "15-814"
+    },
+    {
+        "courseName": "15-826",
+        "comments": []
+    },
+    {
+        "courseName": "15-853",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "15-857"
+    },
+    {
+        "comments": [],
+        "courseName": "15-859"
+    },
+    {
+        "courseName": "15-883",
+        "comments": []
+    },
+    {
+        "courseName": "16-161",
+        "comments": []
+    },
+    {
+        "courseName": "16-223",
+        "comments": []
+    },
+    {
+        "courseName": "16-362",
+        "comments": []
+    },
+    {
+        "courseName": "16-384",
+        "comments": []
+    },
+    {
+        "courseName": "16-385",
+        "comments": []
+    },
+    {
+        "courseName": "16-450",
+        "comments": []
+    },
+    {
+        "courseName": "16-622",
+        "comments": []
+    },
+    {
+        "courseName": "16-642",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "16-650"
+    },
+    {
+        "comments": [],
+        "courseName": "16-682"
+    },
+    {
+        "comments": [],
+        "courseName": "16-698"
+    },
+    {
+        "courseName": "16-720",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "16-722"
+    },
+    {
+        "courseName": "16-741",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "16-782"
+    },
+    {
+        "courseName": "16-791",
+        "comments": []
+    },
+    {
+        "courseName": "16-811",
+        "comments": []
+    },
+    {
+        "courseName": "16-822",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "16-831"
+    },
+    {
+        "comments": [],
+        "courseName": "16-833"
+    },
+    {
+        "courseName": "16-861",
+        "comments": []
+    },
+    {
+        "courseName": "16-867",
+        "comments": []
+    },
+    {
+        "courseName": "16-868",
+        "comments": []
+    },
+    {
+        "courseName": "16-899",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "17-214"
+    },
+    {
+        "courseName": "17-437",
+        "comments": []
+    },
+    {
+        "courseName": "17-514",
+        "comments": []
+    },
+    {
+        "courseName": "17-611",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "17-630"
+    },
+    {
+        "courseName": "17-637",
+        "comments": []
+    },
+    {
+        "courseName": "17-651",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "17-652"
+    },
+    {
+        "courseName": "17-653",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "17-656"
+    },
+    {
+        "courseName": "17-658",
+        "comments": []
+    },
+    {
+        "courseName": "17-662",
+        "comments": []
+    },
+    {
+        "courseName": "17-673",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "17-681"
+    },
+    {
+        "comments": [],
+        "courseName": "17-682"
+    },
+    {
+        "comments": [],
+        "courseName": "18-090"
+    },
+    {
+        "comments": [],
+        "courseName": "18-100"
+    },
+    {
+        "courseName": "18-200",
+        "comments": []
+    },
+    {
+        "courseName": "18-202",
+        "comments": []
+    },
+    {
+        "courseName": "18-213",
+        "comments": []
+    },
+    {
+        "courseName": "18-220",
+        "comments": []
+    },
+    {
+        "courseName": "18-240",
+        "comments": []
+    },
+    {
+        "courseName": "18-290",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-300"
+    },
+    {
+        "comments": [],
+        "courseName": "18-341"
+    },
+    {
+        "courseName": "18-349",
+        "comments": []
+    },
+    {
+        "courseName": "18-370",
+        "comments": []
+    },
+    {
+        "courseName": "18-372",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-492"
+    },
+    {
+        "comments": [],
+        "courseName": "18-500"
+    },
+    {
+        "courseName": "18-600",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-601"
+    },
+    {
+        "comments": [],
+        "courseName": "18-613"
+    },
+    {
+        "courseName": "18-614",
+        "comments": []
+    },
+    {
+        "courseName": "18-618",
+        "comments": []
+    },
+    {
+        "courseName": "18-631",
+        "comments": []
+    },
+    {
+        "courseName": "18-641",
+        "comments": []
+    },
+    {
+        "courseName": "18-642",
+        "comments": []
+    },
+    {
+        "courseName": "18-643",
+        "comments": []
+    },
+    {
+        "courseName": "18-644",
+        "comments": []
+    },
+    {
+        "courseName": "18-645",
+        "comments": []
+    },
+    {
+        "courseName": "18-648",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-650"
+    },
+    {
+        "courseName": "18-652",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-654"
+    },
+    {
+        "courseName": "18-655",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-656"
+    },
+    {
+        "comments": [],
+        "courseName": "18-658"
+    },
+    {
+        "courseName": "18-664",
+        "comments": []
+    },
+    {
+        "courseName": "18-687",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-715"
+    },
+    {
+        "courseName": "18-730",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-731"
+    },
+    {
+        "comments": [],
+        "courseName": "18-746"
+    },
+    {
+        "courseName": "18-747",
+        "comments": []
+    },
+    {
+        "courseName": "18-749",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-751"
+    },
+    {
+        "courseName": "18-755",
+        "comments": []
+    },
+    {
+        "courseName": "18-756",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-758"
+    },
+    {
+        "comments": [],
+        "courseName": "18-765"
+    },
+    {
+        "courseName": "18-771",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-781"
+    },
+    {
+        "courseName": "18-785",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-792"
+    },
+    {
+        "courseName": "18-793",
+        "comments": []
+    },
+    {
+        "courseName": "18-794",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-797"
+    },
+    {
+        "comments": [],
+        "courseName": "18-799"
+    },
+    {
+        "courseName": "18-843",
+        "comments": []
+    },
+    {
+        "courseName": "18-847",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "18-858"
+    },
+    {
+        "comments": [],
+        "courseName": "18-859"
+    },
+    {
+        "courseName": "18-883",
+        "comments": []
+    },
+    {
+        "courseName": "19-101",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-201"
+    },
+    {
+        "courseName": "19-301",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-421"
+    },
+    {
+        "comments": [],
+        "courseName": "19-424"
+    },
+    {
+        "courseName": "19-452",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-473"
+    },
+    {
+        "courseName": "19-608",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-624"
+    },
+    {
+        "comments": [],
+        "courseName": "19-656"
+    },
+    {
+        "courseName": "19-670",
+        "comments": []
+    },
+    {
+        "courseName": "19-671",
+        "comments": []
+    },
+    {
+        "courseName": "19-672",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-673"
+    },
+    {
+        "comments": [],
+        "courseName": "19-684"
+    },
+    {
+        "courseName": "19-687",
+        "comments": []
+    },
+    {
+        "courseName": "19-689",
+        "comments": []
+    },
+    {
+        "courseName": "19-694",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-701"
+    },
+    {
+        "courseName": "19-705",
+        "comments": []
+    },
+    {
+        "courseName": "19-707",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "19-740"
+    },
+    {
+        "courseName": "19-786",
+        "comments": []
+    },
+    {
+        "courseName": "19-881",
+        "comments": []
+    },
+    {
+        "courseName": "21-101",
+        "comments": []
+    },
+    {
+        "courseName": "21-111",
+        "comments": []
+    },
+    {
+        "courseName": "21-112",
+        "comments": []
+    },
+    {
+        "courseName": "21-120",
+        "comments": []
+    },
+    {
+        "courseName": "21-122",
+        "comments": []
+    },
+    {
+        "courseName": "21-124",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-127"
+    },
+    {
+        "courseName": "21-128",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-228"
+    },
+    {
+        "comments": [],
+        "courseName": "21-235"
+    },
+    {
+        "courseName": "21-237",
+        "comments": []
+    },
+    {
+        "courseName": "21-240",
+        "comments": []
+    },
+    {
+        "courseName": "21-241",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-242"
+    },
+    {
+        "courseName": "21-256",
+        "comments": []
+    },
+    {
+        "courseName": "21-259",
+        "comments": []
+    },
+    {
+        "courseName": "21-260",
+        "comments": []
+    },
+    {
+        "courseName": "21-268",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-295"
+    },
+    {
+        "comments": [],
+        "courseName": "21-300"
+    },
+    {
+        "courseName": "21-301",
+        "comments": []
+    },
+    {
+        "courseName": "21-325",
+        "comments": []
+    },
+    {
+        "courseName": "21-341",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-355"
+    },
+    {
+        "courseName": "21-356",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-366"
+    },
+    {
+        "courseName": "21-369",
+        "comments": []
+    },
+    {
+        "courseName": "21-370",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-373"
+    },
+    {
+        "comments": [],
+        "courseName": "21-378"
+    },
+    {
+        "courseName": "21-393",
+        "comments": []
+    },
+    {
+        "courseName": "21-441",
+        "comments": []
+    },
+    {
+        "courseName": "21-632",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "21-651"
+    },
+    {
+        "comments": [],
+        "courseName": "21-701"
+    },
+    {
+        "courseName": "21-720",
+        "comments": []
+    },
+    {
+        "courseName": "21-801",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-101"
+    },
+    {
+        "comments": [],
+        "courseName": "24-104"
+    },
+    {
+        "courseName": "24-200",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-202"
+    },
+    {
+        "comments": [],
+        "courseName": "24-221"
+    },
+    {
+        "courseName": "24-261",
+        "comments": []
+    },
+    {
+        "courseName": "24-281",
+        "comments": []
+    },
+    {
+        "courseName": "24-302",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-322"
+    },
+    {
+        "courseName": "24-334",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-351"
+    },
+    {
+        "comments": [],
+        "courseName": "24-352"
+    },
+    {
+        "courseName": "24-354",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-370"
+    },
+    {
+        "comments": [],
+        "courseName": "24-441"
+    },
+    {
+        "courseName": "24-451",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-452"
+    },
+    {
+        "courseName": "24-614",
+        "comments": []
+    },
+    {
+        "courseName": "24-632",
+        "comments": []
+    },
+    {
+        "courseName": "24-643",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-650"
+    },
+    {
+        "courseName": "24-658",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-671"
+    },
+    {
+        "courseName": "24-672",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-680"
+    },
+    {
+        "courseName": "24-686",
+        "comments": []
+    },
+    {
+        "courseName": "24-688",
+        "comments": []
+    },
+    {
+        "courseName": "24-691",
+        "comments": []
+    },
+    {
+        "courseName": "24-692",
+        "comments": []
+    },
+    {
+        "courseName": "24-703",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-704"
+    },
+    {
+        "courseName": "24-711",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-718"
+    },
+    {
+        "comments": [],
+        "courseName": "24-722"
+    },
+    {
+        "courseName": "24-740",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-751"
+    },
+    {
+        "courseName": "24-755",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-771"
+    },
+    {
+        "comments": [],
+        "courseName": "24-774"
+    },
+    {
+        "courseName": "24-780",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "24-787"
+    },
+    {
+        "courseName": "27-100",
+        "comments": []
+    },
+    {
+        "courseName": "27-201",
+        "comments": []
+    },
+    {
+        "courseName": "27-210",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "27-215"
+    },
+    {
+        "courseName": "27-301",
+        "comments": []
+    },
+    {
+        "courseName": "27-401",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "27-411"
+    },
+    {
+        "courseName": "27-432",
+        "comments": []
+    },
+    {
+        "courseName": "27-515",
+        "comments": []
+    },
+    {
+        "courseName": "27-702",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "27-709"
+    },
+    {
+        "courseName": "27-740",
+        "comments": []
+    },
+    {
+        "courseName": "27-766",
+        "comments": []
+    },
+    {
+        "courseName": "27-788",
+        "comments": []
+    },
+    {
+        "courseName": "27-796",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "27-797"
+    },
+    {
+        "courseName": "27-798",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "27-799"
+    },
+    {
+        "comments": [],
+        "courseName": "33-100"
+    },
+    {
+        "comments": [],
+        "courseName": "33-101"
+    },
+    {
+        "comments": [],
+        "courseName": "33-104"
+    },
+    {
+        "comments": [],
+        "courseName": "33-115"
+    },
+    {
+        "courseName": "33-121",
+        "comments": []
+    },
+    {
+        "courseName": "33-122",
+        "comments": []
+    },
+    {
+        "courseName": "33-124",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "33-141"
+    },
+    {
+        "courseName": "33-142",
+        "comments": []
+    },
+    {
+        "courseName": "33-151",
+        "comments": []
+    },
+    {
+        "courseName": "33-201",
+        "comments": []
+    },
+    {
+        "courseName": "33-211",
+        "comments": []
+    },
+    {
+        "courseName": "33-224",
+        "comments": []
+    },
+    {
+        "courseName": "33-225",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "33-231"
+    },
+    {
+        "courseName": "33-241",
+        "comments": []
+    },
+    {
+        "courseName": "33-301",
+        "comments": []
+    },
+    {
+        "courseName": "33-331",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "33-338"
+    },
+    {
+        "comments": [],
+        "courseName": "33-341"
+    },
+    {
+        "comments": [],
+        "courseName": "33-355"
+    },
+    {
+        "courseName": "33-445",
+        "comments": []
+    },
+    {
+        "courseName": "33-467",
+        "comments": []
+    },
+    {
+        "courseName": "33-650",
+        "comments": []
+    },
+    {
+        "courseName": "33-755",
+        "comments": []
+    },
+    {
+        "courseName": "33-761",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "33-775"
+    },
+    {
+        "courseName": "33-778",
+        "comments": []
+    },
+    {
+        "courseName": "33-783",
+        "comments": []
+    },
+    {
+        "courseName": "36-200",
+        "comments": []
+    },
+    {
+        "courseName": "36-202",
+        "comments": []
+    },
+    {
+        "courseName": "36-217",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "36-220"
+    },
+    {
+        "comments": [],
+        "courseName": "36-225"
+    },
+    {
+        "courseName": "36-309",
+        "comments": []
+    },
+    {
+        "courseName": "36-315",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "36-350"
+    },
+    {
+        "comments": [],
+        "courseName": "36-401"
+    },
+    {
+        "courseName": "36-461",
+        "comments": []
+    },
+    {
+        "courseName": "36-462",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "36-601"
+    },
+    {
+        "courseName": "36-607",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "36-611"
+    },
+    {
+        "comments": [],
+        "courseName": "36-617"
+    },
+    {
+        "courseName": "36-650",
+        "comments": []
+    },
+    {
+        "courseName": "36-661",
+        "comments": []
+    },
+    {
+        "courseName": "36-662",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "36-700"
+    },
+    {
+        "courseName": "36-705",
+        "comments": []
+    },
+    {
+        "courseName": "36-707",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "36-749"
+    },
+    {
+        "courseName": "36-750",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "38-101"
+    },
+    {
+        "courseName": "39-109",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "39-220"
+    },
+    {
+        "courseName": "39-310",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "39-402"
+    },
+    {
+        "comments": [],
+        "courseName": "39-610"
+    },
+    {
+        "comments": [],
+        "courseName": "39-613"
+    },
+    {
+        "comments": [],
+        "courseName": "39-660"
+    },
+    {
+        "courseName": "39-699",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "42-101"
+    },
+    {
+        "courseName": "42-201",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "42-202"
+    },
+    {
+        "comments": [],
+        "courseName": "42-203"
+    },
+    {
+        "comments": [],
+        "courseName": "42-341"
+    },
+    {
+        "courseName": "42-401",
+        "comments": []
+    },
+    {
+        "courseName": "42-444",
+        "comments": []
+    },
+    {
+        "courseName": "42-611",
+        "comments": []
+    },
+    {
+        "courseName": "42-620",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "42-631"
+    },
+    {
+        "courseName": "42-640",
+        "comments": []
+    },
+    {
+        "courseName": "42-673",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "42-674"
+    },
+    {
+        "comments": [],
+        "courseName": "42-677"
+    },
+    {
+        "comments": [],
+        "courseName": "42-702"
+    },
+    {
+        "courseName": "42-744",
+        "comments": []
+    },
+    {
+        "courseName": "46-901",
+        "comments": []
+    },
+    {
+        "courseName": "46-904",
+        "comments": []
+    },
+    {
+        "courseName": "46-906",
+        "comments": []
+    },
+    {
+        "courseName": "46-915",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "46-921"
+    },
+    {
+        "comments": [],
+        "courseName": "46-923"
+    },
+    {
+        "courseName": "46-926",
+        "comments": []
+    },
+    {
+        "courseName": "46-929",
+        "comments": []
+    },
+    {
+        "courseName": "46-936",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "46-941"
+    },
+    {
+        "comments": [],
+        "courseName": "46-950"
+    },
+    {
+        "comments": [],
+        "courseName": "46-955"
+    },
+    {
+        "courseName": "46-956",
+        "comments": []
+    },
+    {
+        "courseName": "46-972",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "46-973"
+    },
+    {
+        "courseName": "46-975",
+        "comments": []
+    },
+    {
+        "courseName": "46-976",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "46-977"
+    },
+    {
+        "comments": [],
+        "courseName": "46-979"
+    },
+    {
+        "comments": [],
+        "courseName": "46-980"
+    },
+    {
+        "comments": [],
+        "courseName": "46-982"
+    },
+    {
+        "comments": [],
+        "courseName": "47-892"
+    },
+    {
+        "comments": [],
+        "courseName": "48-025"
+    },
+    {
+        "comments": [],
+        "courseName": "48-100"
+    },
+    {
+        "comments": [],
+        "courseName": "48-116"
+    },
+    {
+        "courseName": "48-200",
+        "comments": []
+    },
+    {
+        "courseName": "48-215",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-250"
+    },
+    {
+        "comments": [],
+        "courseName": "48-300"
+    },
+    {
+        "comments": [],
+        "courseName": "48-315"
+    },
+    {
+        "comments": [],
+        "courseName": "48-432"
+    },
+    {
+        "courseName": "48-545",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-555"
+    },
+    {
+        "courseName": "48-568",
+        "comments": []
+    },
+    {
+        "courseName": "48-630",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-634"
+    },
+    {
+        "comments": [],
+        "courseName": "48-635"
+    },
+    {
+        "courseName": "48-689",
+        "comments": []
+    },
+    {
+        "courseName": "48-705",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-707"
+    },
+    {
+        "comments": [],
+        "courseName": "48-714"
+    },
+    {
+        "comments": [],
+        "courseName": "48-716"
+    },
+    {
+        "courseName": "48-718",
+        "comments": []
+    },
+    {
+        "courseName": "48-722",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-725"
+    },
+    {
+        "courseName": "48-727",
+        "comments": []
+    },
+    {
+        "courseName": "48-729",
+        "comments": []
+    },
+    {
+        "courseName": "48-734",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-740"
+    },
+    {
+        "comments": [],
+        "courseName": "48-750"
+    },
+    {
+        "courseName": "48-753",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "48-756"
+    },
+    {
+        "courseName": "48-783",
+        "comments": []
+    },
+    {
+        "courseName": "48-795",
+        "comments": []
+    },
+    {
+        "courseName": "49-300",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "49-313"
+    },
+    {
+        "courseName": "49-700",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "49-701"
+    },
+    {
+        "courseName": "49-702",
+        "comments": []
+    },
+    {
+        "courseName": "49-703",
+        "comments": []
+    },
+    {
+        "courseName": "49-710",
+        "comments": []
+    },
+    {
+        "courseName": "49-712",
+        "comments": []
+    },
+    {
+        "courseName": "49-713",
+        "comments": []
+    },
+    {
+        "courseName": "49-715",
+        "comments": []
+    },
+    {
+        "courseName": "49-733",
+        "comments": []
+    },
+    {
+        "courseName": "49-740",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "49-747"
+    },
+    {
+        "courseName": "49-750",
+        "comments": []
+    },
+    {
+        "courseName": "49-752",
+        "comments": []
+    },
+    {
+        "courseName": "49-760",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "49-761"
+    },
+    {
+        "courseName": "49-770",
+        "comments": []
+    },
+    {
+        "courseName": "49-774",
+        "comments": []
+    },
+    {
+        "courseName": "49-775",
+        "comments": []
+    },
+    {
+        "courseName": "49-786",
+        "comments": []
+    },
+    {
+        "courseName": "49-787",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "49-794"
+    },
+    {
+        "courseName": "49-800",
+        "comments": []
+    },
+    {
+        "courseName": "49-802",
+        "comments": []
+    },
+    {
+        "courseName": "49-853",
+        "comments": []
+    },
+    {
+        "courseName": "49-854",
+        "comments": []
+    },
+    {
+        "courseName": "49-855",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "49-856"
+    },
+    {
+        "courseName": "51-101",
+        "comments": []
+    },
+    {
+        "courseName": "51-121",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-171"
+    },
+    {
+        "comments": [],
+        "courseName": "51-173"
+    },
+    {
+        "comments": [],
+        "courseName": "51-221"
+    },
+    {
+        "comments": [],
+        "courseName": "51-225"
+    },
+    {
+        "comments": [],
+        "courseName": "51-227"
+    },
+    {
+        "comments": [],
+        "courseName": "51-229"
+    },
+    {
+        "comments": [],
+        "courseName": "51-231"
+    },
+    {
+        "comments": [],
+        "courseName": "51-242"
+    },
+    {
+        "courseName": "51-245",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-247"
+    },
+    {
+        "comments": [],
+        "courseName": "51-265"
+    },
+    {
+        "courseName": "51-267",
+        "comments": []
+    },
+    {
+        "courseName": "51-271",
+        "comments": []
+    },
+    {
+        "courseName": "51-323",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-341"
+    },
+    {
+        "comments": [],
+        "courseName": "51-343"
+    },
+    {
+        "courseName": "51-363",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-367"
+    },
+    {
+        "courseName": "51-371",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-451"
+    },
+    {
+        "courseName": "51-481",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-601"
+    },
+    {
+        "courseName": "51-611",
+        "comments": []
+    },
+    {
+        "courseName": "51-625",
+        "comments": []
+    },
+    {
+        "courseName": "51-631",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-671"
+    },
+    {
+        "courseName": "51-701",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-705"
+    },
+    {
+        "comments": [],
+        "courseName": "51-711"
+    },
+    {
+        "courseName": "51-725",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "51-729"
+    },
+    {
+        "comments": [],
+        "courseName": "51-825"
+    },
+    {
+        "comments": [],
+        "courseName": "51-831"
+    },
+    {
+        "courseName": "52-190",
+        "comments": []
+    },
+    {
+        "courseName": "52-401",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "52-402"
+    },
+    {
+        "courseName": "53-312",
+        "comments": []
+    },
+    {
+        "courseName": "53-353",
+        "comments": []
+    },
+    {
+        "courseName": "53-451",
+        "comments": []
+    },
+    {
+        "courseName": "53-600",
+        "comments": []
+    },
+    {
+        "courseName": "53-604",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "53-608"
+    },
+    {
+        "courseName": "53-610",
+        "comments": []
+    },
+    {
+        "courseName": "53-612",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "53-630"
+    },
+    {
+        "comments": [],
+        "courseName": "53-642"
+    },
+    {
+        "courseName": "53-700",
+        "comments": []
+    },
+    {
+        "courseName": "53-711",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "53-831"
+    },
+    {
+        "courseName": "54-011",
+        "comments": []
+    },
+    {
+        "courseName": "54-101",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-107"
+    },
+    {
+        "courseName": "54-109",
+        "comments": []
+    },
+    {
+        "courseName": "54-110",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-121"
+    },
+    {
+        "courseName": "54-123",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-157"
+    },
+    {
+        "courseName": "54-169",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-171"
+    },
+    {
+        "courseName": "54-175",
+        "comments": []
+    },
+    {
+        "courseName": "54-177",
+        "comments": []
+    },
+    {
+        "courseName": "54-190",
+        "comments": []
+    },
+    {
+        "courseName": "54-191",
+        "comments": []
+    },
+    {
+        "courseName": "54-200",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-221"
+    },
+    {
+        "courseName": "54-231",
+        "comments": []
+    },
+    {
+        "courseName": "54-239",
+        "comments": []
+    },
+    {
+        "courseName": "54-271",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-273"
+    },
+    {
+        "courseName": "54-281",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-284"
+    },
+    {
+        "courseName": "54-333",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-339"
+    },
+    {
+        "comments": [],
+        "courseName": "54-381"
+    },
+    {
+        "comments": [],
+        "courseName": "54-453"
+    },
+    {
+        "courseName": "54-455",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-464"
+    },
+    {
+        "courseName": "54-500",
+        "comments": []
+    },
+    {
+        "courseName": "54-785",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "54-831"
+    },
+    {
+        "courseName": "54-839",
+        "comments": []
+    },
+    {
+        "courseName": "54-884",
+        "comments": []
+    },
+    {
+        "courseName": "57-008",
+        "comments": []
+    },
+    {
+        "courseName": "57-015",
+        "comments": []
+    },
+    {
+        "courseName": "57-031",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-101"
+    },
+    {
+        "comments": [],
+        "courseName": "57-117"
+    },
+    {
+        "courseName": "57-120",
+        "comments": []
+    },
+    {
+        "courseName": "57-121",
+        "comments": []
+    },
+    {
+        "courseName": "57-149",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-152"
+    },
+    {
+        "courseName": "57-161",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-163"
+    },
+    {
+        "comments": [],
+        "courseName": "57-171"
+    },
+    {
+        "courseName": "57-173",
+        "comments": []
+    },
+    {
+        "courseName": "57-180",
+        "comments": []
+    },
+    {
+        "courseName": "57-183",
+        "comments": []
+    },
+    {
+        "courseName": "57-185",
+        "comments": []
+    },
+    {
+        "courseName": "57-188",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-189"
+    },
+    {
+        "courseName": "57-191",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-209"
+    },
+    {
+        "courseName": "57-211",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-227"
+    },
+    {
+        "comments": [],
+        "courseName": "57-257"
+    },
+    {
+        "courseName": "57-289",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-299"
+    },
+    {
+        "comments": [],
+        "courseName": "57-337"
+    },
+    {
+        "comments": [],
+        "courseName": "57-338"
+    },
+    {
+        "courseName": "57-347",
+        "comments": []
+    },
+    {
+        "courseName": "57-417",
+        "comments": []
+    },
+    {
+        "courseName": "57-418",
+        "comments": []
+    },
+    {
+        "courseName": "57-420",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-480"
+    },
+    {
+        "courseName": "57-500",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-523"
+    },
+    {
+        "comments": [],
+        "courseName": "57-605"
+    },
+    {
+        "comments": [],
+        "courseName": "57-606"
+    },
+    {
+        "comments": [],
+        "courseName": "57-737"
+    },
+    {
+        "courseName": "57-751",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-818"
+    },
+    {
+        "courseName": "57-826",
+        "comments": []
+    },
+    {
+        "courseName": "57-846",
+        "comments": []
+    },
+    {
+        "courseName": "57-901",
+        "comments": []
+    },
+    {
+        "courseName": "57-905",
+        "comments": []
+    },
+    {
+        "courseName": "57-909",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "57-934"
+    },
+    {
+        "comments": [],
+        "courseName": "57-947"
+    },
+    {
+        "comments": [],
+        "courseName": "60-101"
+    },
+    {
+        "comments": [],
+        "courseName": "60-105"
+    },
+    {
+        "comments": [],
+        "courseName": "60-131"
+    },
+    {
+        "courseName": "60-150",
+        "comments": []
+    },
+    {
+        "courseName": "60-157",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-202"
+    },
+    {
+        "comments": [],
+        "courseName": "60-205"
+    },
+    {
+        "courseName": "60-210",
+        "comments": []
+    },
+    {
+        "courseName": "60-212",
+        "comments": []
+    },
+    {
+        "courseName": "60-220",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-223"
+    },
+    {
+        "courseName": "60-250",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-251"
+    },
+    {
+        "courseName": "60-350",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-398"
+    },
+    {
+        "comments": [],
+        "courseName": "60-401"
+    },
+    {
+        "courseName": "60-403",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-405"
+    },
+    {
+        "courseName": "60-415",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-424"
+    },
+    {
+        "courseName": "60-430",
+        "comments": []
+    },
+    {
+        "courseName": "60-431",
+        "comments": []
+    },
+    {
+        "courseName": "60-433",
+        "comments": []
+    },
+    {
+        "courseName": "60-451",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-474"
+    },
+    {
+        "courseName": "60-701",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "60-791"
+    },
+    {
+        "comments": [],
+        "courseName": "62-141"
+    },
+    {
+        "comments": [],
+        "courseName": "62-150"
+    },
+    {
+        "courseName": "62-225",
+        "comments": []
+    },
+    {
+        "courseName": "62-242",
+        "comments": []
+    },
+    {
+        "courseName": "62-371",
+        "comments": []
+    },
+    {
+        "courseName": "62-478",
+        "comments": []
+    },
+    {
+        "courseName": "66-103",
+        "comments": []
+    },
+    {
+        "courseName": "66-106",
+        "comments": []
+    },
+    {
+        "courseName": "66-107",
+        "comments": []
+    },
+    {
+        "courseName": "66-109",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "66-161"
+    },
+    {
+        "courseName": "66-202",
+        "comments": []
+    },
+    {
+        "courseName": "66-221",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "67-262"
+    },
+    {
+        "courseName": "67-324",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "67-329"
+    },
+    {
+        "courseName": "67-364",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-100"
+    },
+    {
+        "courseName": "70-122",
+        "comments": []
+    },
+    {
+        "courseName": "70-201",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-207"
+    },
+    {
+        "courseName": "70-208",
+        "comments": []
+    },
+    {
+        "courseName": "70-257",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-311"
+    },
+    {
+        "courseName": "70-318",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-321"
+    },
+    {
+        "courseName": "70-332",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-340"
+    },
+    {
+        "courseName": "70-345",
+        "comments": []
+    },
+    {
+        "courseName": "70-350",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-365"
+    },
+    {
+        "comments": [],
+        "courseName": "70-371"
+    },
+    {
+        "courseName": "70-381",
+        "comments": []
+    },
+    {
+        "courseName": "70-391",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-395"
+    },
+    {
+        "comments": [],
+        "courseName": "70-401"
+    },
+    {
+        "courseName": "70-415",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-424"
+    },
+    {
+        "courseName": "70-428",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-430"
+    },
+    {
+        "comments": [],
+        "courseName": "70-440"
+    },
+    {
+        "courseName": "70-443",
+        "comments": []
+    },
+    {
+        "courseName": "70-447",
+        "comments": []
+    },
+    {
+        "courseName": "70-453",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-455"
+    },
+    {
+        "courseName": "70-460",
+        "comments": []
+    },
+    {
+        "courseName": "70-481",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "70-482"
+    },
+    {
+        "courseName": "70-483",
+        "comments": []
+    },
+    {
+        "courseName": "70-485",
+        "comments": []
+    },
+    {
+        "courseName": "70-495",
+        "comments": []
+    },
+    {
+        "courseName": "70-497",
+        "comments": []
+    },
+    {
+        "courseName": "73-102",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "73-103"
+    },
+    {
+        "courseName": "73-210",
+        "comments": []
+    },
+    {
+        "courseName": "73-230",
+        "comments": []
+    },
+    {
+        "courseName": "73-240",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "73-265"
+    },
+    {
+        "comments": [],
+        "courseName": "73-270"
+    },
+    {
+        "courseName": "73-347",
+        "comments": []
+    },
+    {
+        "courseName": "73-348",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "73-352"
+    },
+    {
+        "comments": [],
+        "courseName": "73-365"
+    },
+    {
+        "courseName": "73-374",
+        "comments": []
+    },
+    {
+        "courseName": "73-421",
+        "comments": []
+    },
+    {
+        "courseName": "73-497",
+        "comments": []
+    },
+    {
+        "courseName": "76-100",
+        "comments": []
+    },
+    {
+        "courseName": "76-101",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-102"
+    },
+    {
+        "comments": [],
+        "courseName": "76-106"
+    },
+    {
+        "comments": [],
+        "courseName": "76-107"
+    },
+    {
+        "courseName": "76-108",
+        "comments": []
+    },
+    {
+        "courseName": "76-221",
+        "comments": []
+    },
+    {
+        "courseName": "76-239",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-241"
+    },
+    {
+        "courseName": "76-245",
+        "comments": []
+    },
+    {
+        "courseName": "76-260",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-265"
+    },
+    {
+        "courseName": "76-269",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-270"
+    },
+    {
+        "courseName": "76-271",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-294"
+    },
+    {
+        "comments": [],
+        "courseName": "76-302"
+    },
+    {
+        "comments": [],
+        "courseName": "76-319"
+    },
+    {
+        "comments": [],
+        "courseName": "76-339"
+    },
+    {
+        "comments": [],
+        "courseName": "76-364"
+    },
+    {
+        "courseName": "76-365",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-372"
+    },
+    {
+        "comments": [],
+        "courseName": "76-373"
+    },
+    {
+        "courseName": "76-389",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-390"
+    },
+    {
+        "comments": [],
+        "courseName": "76-391"
+    },
+    {
+        "comments": [],
+        "courseName": "76-460"
+    },
+    {
+        "comments": [],
+        "courseName": "76-462"
+    },
+    {
+        "courseName": "76-702",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-789"
+    },
+    {
+        "courseName": "76-790",
+        "comments": []
+    },
+    {
+        "courseName": "76-791",
+        "comments": []
+    },
+    {
+        "courseName": "76-854",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "76-870"
+    },
+    {
+        "comments": [],
+        "courseName": "76-884"
+    },
+    {
+        "courseName": "76-885",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-104"
+    },
+    {
+        "courseName": "79-200",
+        "comments": []
+    },
+    {
+        "courseName": "79-205",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-206"
+    },
+    {
+        "courseName": "79-211",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-229"
+    },
+    {
+        "courseName": "79-234",
+        "comments": []
+    },
+    {
+        "courseName": "79-240",
+        "comments": []
+    },
+    {
+        "courseName": "79-245",
+        "comments": []
+    },
+    {
+        "courseName": "79-259",
+        "comments": []
+    },
+    {
+        "courseName": "79-262",
+        "comments": []
+    },
+    {
+        "courseName": "79-264",
+        "comments": []
+    },
+    {
+        "courseName": "79-266",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-270"
+    },
+    {
+        "courseName": "79-275",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-300"
+    },
+    {
+        "courseName": "79-303",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-315"
+    },
+    {
+        "courseName": "79-316",
+        "comments": []
+    },
+    {
+        "courseName": "79-327",
+        "comments": []
+    },
+    {
+        "courseName": "79-330",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "79-333"
+    },
+    {
+        "comments": [],
+        "courseName": "79-355"
+    },
+    {
+        "comments": [],
+        "courseName": "79-364"
+    },
+    {
+        "comments": [],
+        "courseName": "79-375"
+    },
+    {
+        "courseName": "79-382",
+        "comments": []
+    },
+    {
+        "courseName": "79-388",
+        "comments": []
+    },
+    {
+        "courseName": "79-390",
+        "comments": []
+    },
+    {
+        "courseName": "79-395",
+        "comments": []
+    },
+    {
+        "courseName": "79-400",
+        "comments": []
+    },
+    {
+        "courseName": "79-449",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "80-100"
+    },
+    {
+        "comments": [],
+        "courseName": "80-130"
+    },
+    {
+        "courseName": "80-136",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "80-180"
+    },
+    {
+        "courseName": "80-210",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "80-220"
+    },
+    {
+        "comments": [],
+        "courseName": "80-226"
+    },
+    {
+        "courseName": "80-244",
+        "comments": []
+    },
+    {
+        "courseName": "80-249",
+        "comments": []
+    },
+    {
+        "courseName": "80-271",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "80-282"
+    },
+    {
+        "courseName": "80-284",
+        "comments": []
+    },
+    {
+        "courseName": "80-305",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "80-310"
+    },
+    {
+        "courseName": "80-335",
+        "comments": []
+    },
+    {
+        "courseName": "80-348",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "80-381"
+    },
+    {
+        "comments": [],
+        "courseName": "80-600"
+    },
+    {
+        "comments": [],
+        "courseName": "80-711"
+    },
+    {
+        "comments": [],
+        "courseName": "80-814"
+    },
+    {
+        "courseName": "82-101",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-102"
+    },
+    {
+        "comments": [],
+        "courseName": "82-103"
+    },
+    {
+        "comments": [],
+        "courseName": "82-111"
+    },
+    {
+        "comments": [],
+        "courseName": "82-115"
+    },
+    {
+        "courseName": "82-119",
+        "comments": []
+    },
+    {
+        "courseName": "82-121",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-122"
+    },
+    {
+        "comments": [],
+        "courseName": "82-131"
+    },
+    {
+        "courseName": "82-132",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-133"
+    },
+    {
+        "courseName": "82-134",
+        "comments": []
+    },
+    {
+        "courseName": "82-135",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-137"
+    },
+    {
+        "courseName": "82-141",
+        "comments": []
+    },
+    {
+        "courseName": "82-142",
+        "comments": []
+    },
+    {
+        "courseName": "82-143",
+        "comments": []
+    },
+    {
+        "courseName": "82-161",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-171"
+    },
+    {
+        "courseName": "82-172",
+        "comments": []
+    },
+    {
+        "courseName": "82-173",
+        "comments": []
+    },
+    {
+        "courseName": "82-174",
+        "comments": []
+    },
+    {
+        "courseName": "82-191",
+        "comments": []
+    },
+    {
+        "courseName": "82-201",
+        "comments": []
+    },
+    {
+        "courseName": "82-202",
+        "comments": []
+    },
+    {
+        "courseName": "82-215",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-221"
+    },
+    {
+        "courseName": "82-222",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-231"
+    },
+    {
+        "comments": [],
+        "courseName": "82-232"
+    },
+    {
+        "courseName": "82-235",
+        "comments": []
+    },
+    {
+        "courseName": "82-241",
+        "comments": []
+    },
+    {
+        "courseName": "82-242",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-271"
+    },
+    {
+        "courseName": "82-273",
+        "comments": []
+    },
+    {
+        "courseName": "82-278",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-283"
+    },
+    {
+        "courseName": "82-301",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-303"
+    },
+    {
+        "courseName": "82-304",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-311"
+    },
+    {
+        "courseName": "82-320",
+        "comments": []
+    },
+    {
+        "courseName": "82-331",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-333"
+    },
+    {
+        "courseName": "82-338",
+        "comments": []
+    },
+    {
+        "courseName": "82-342",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-343"
+    },
+    {
+        "comments": [],
+        "courseName": "82-344"
+    },
+    {
+        "comments": [],
+        "courseName": "82-345"
+    },
+    {
+        "courseName": "82-371",
+        "comments": []
+    },
+    {
+        "courseName": "82-373",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-415"
+    },
+    {
+        "courseName": "82-473",
+        "comments": []
+    },
+    {
+        "courseName": "82-780",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "82-783"
+    },
+    {
+        "comments": [],
+        "courseName": "82-793"
+    },
+    {
+        "comments": [],
+        "courseName": "82-888"
+    },
+    {
+        "courseName": "82-893",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "84-104"
+    },
+    {
+        "courseName": "84-326",
+        "comments": []
+    },
+    {
+        "courseName": "84-330",
+        "comments": []
+    },
+    {
+        "courseName": "84-346",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "84-360"
+    },
+    {
+        "comments": [],
+        "courseName": "84-362"
+    },
+    {
+        "courseName": "84-369",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "84-388"
+    },
+    {
+        "comments": [],
+        "courseName": "84-450"
+    },
+    {
+        "courseName": "84-605",
+        "comments": []
+    },
+    {
+        "courseName": "84-688",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "84-722"
+    },
+    {
+        "courseName": "84-725",
+        "comments": []
+    },
+    {
+        "courseName": "84-736",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "85-102"
+    },
+    {
+        "comments": [],
+        "courseName": "85-211"
+    },
+    {
+        "comments": [],
+        "courseName": "85-213"
+    },
+    {
+        "comments": [],
+        "courseName": "85-219"
+    },
+    {
+        "comments": [],
+        "courseName": "85-221"
+    },
+    {
+        "comments": [],
+        "courseName": "85-241"
+    },
+    {
+        "courseName": "85-251",
+        "comments": []
+    },
+    {
+        "courseName": "85-293",
+        "comments": []
+    },
+    {
+        "courseName": "85-310",
+        "comments": []
+    },
+    {
+        "courseName": "85-320",
+        "comments": []
+    },
+    {
+        "courseName": "85-340",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "85-370"
+    },
+    {
+        "comments": [],
+        "courseName": "85-375"
+    },
+    {
+        "courseName": "85-377",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "85-390"
+    },
+    {
+        "comments": [],
+        "courseName": "85-406"
+    },
+    {
+        "comments": [],
+        "courseName": "85-408"
+    },
+    {
+        "comments": [],
+        "courseName": "85-414"
+    },
+    {
+        "courseName": "85-442",
+        "comments": []
+    },
+    {
+        "courseName": "85-444",
+        "comments": []
+    },
+    {
+        "courseName": "85-705",
+        "comments": []
+    },
+    {
+        "courseName": "85-738",
+        "comments": []
+    },
+    {
+        "courseName": "85-765",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "86-375"
+    },
+    {
+        "comments": [],
+        "courseName": "86-631"
+    },
+    {
+        "comments": [],
+        "courseName": "88-120"
+    },
+    {
+        "courseName": "88-150",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "88-230"
+    },
+    {
+        "comments": [],
+        "courseName": "88-251"
+    },
+    {
+        "courseName": "88-275",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "88-281"
+    },
+    {
+        "comments": [],
+        "courseName": "88-302"
+    },
+    {
+        "comments": [],
+        "courseName": "88-365"
+    },
+    {
+        "courseName": "88-367",
+        "comments": []
+    },
+    {
+        "courseName": "88-406",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "88-418"
+    },
+    {
+        "courseName": "88-702",
+        "comments": []
+    },
+    {
+        "courseName": "90-703",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-704"
+    },
+    {
+        "comments": [],
+        "courseName": "90-705"
+    },
+    {
+        "courseName": "90-707",
+        "comments": []
+    },
+    {
+        "courseName": "90-709",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-710"
+    },
+    {
+        "courseName": "90-711",
+        "comments": []
+    },
+    {
+        "courseName": "90-716",
+        "comments": []
+    },
+    {
+        "courseName": "90-717",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-718"
+    },
+    {
+        "courseName": "90-721",
+        "comments": []
+    },
+    {
+        "courseName": "90-725",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-728"
+    },
+    {
+        "courseName": "90-730",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-736"
+    },
+    {
+        "comments": [],
+        "courseName": "90-737"
+    },
+    {
+        "courseName": "90-739",
+        "comments": []
+    },
+    {
+        "courseName": "90-743",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-748"
+    },
+    {
+        "comments": [],
+        "courseName": "90-752"
+    },
+    {
+        "courseName": "90-763",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-777"
+    },
+    {
+        "courseName": "90-782",
+        "comments": []
+    },
+    {
+        "courseName": "90-798",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-801"
+    },
+    {
+        "comments": [],
+        "courseName": "90-808"
+    },
+    {
+        "courseName": "90-812",
+        "comments": []
+    },
+    {
+        "courseName": "90-823",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-836"
+    },
+    {
+        "courseName": "90-845",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-872"
+    },
+    {
+        "courseName": "90-882",
+        "comments": []
+    },
+    {
+        "courseName": "90-888",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-894"
+    },
+    {
+        "courseName": "90-896",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-901"
+    },
+    {
+        "comments": [],
+        "courseName": "90-906"
+    },
+    {
+        "courseName": "90-908",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "90-918"
+    },
+    {
+        "courseName": "91-800",
+        "comments": []
+    },
+    {
+        "courseName": "91-801",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "91-804"
+    },
+    {
+        "comments": [],
+        "courseName": "91-820"
+    },
+    {
+        "courseName": "93-703",
+        "comments": []
+    },
+    {
+        "courseName": "93-717",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "93-808"
+    },
+    {
+        "comments": [],
+        "courseName": "93-811"
+    },
+    {
+        "courseName": "93-813",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "93-828"
+    },
+    {
+        "comments": [],
+        "courseName": "93-831"
+    },
+    {
+        "courseName": "93-861",
+        "comments": []
+    },
+    {
+        "courseName": "94-700",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-701"
+    },
+    {
+        "courseName": "94-702",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-705"
+    },
+    {
+        "comments": [],
+        "courseName": "94-707"
+    },
+    {
+        "courseName": "94-718",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-774"
+    },
+    {
+        "courseName": "94-800",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-801"
+    },
+    {
+        "comments": [],
+        "courseName": "94-802"
+    },
+    {
+        "courseName": "94-803",
+        "comments": []
+    },
+    {
+        "courseName": "94-806",
+        "comments": []
+    },
+    {
+        "courseName": "94-808",
+        "comments": []
+    },
+    {
+        "courseName": "94-811",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-813"
+    },
+    {
+        "comments": [],
+        "courseName": "94-814"
+    },
+    {
+        "comments": [],
+        "courseName": "94-823"
+    },
+    {
+        "courseName": "94-824",
+        "comments": []
+    },
+    {
+        "courseName": "94-828",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-832"
+    },
+    {
+        "comments": [],
+        "courseName": "94-834"
+    },
+    {
+        "comments": [],
+        "courseName": "94-840"
+    },
+    {
+        "courseName": "94-842",
+        "comments": []
+    },
+    {
+        "courseName": "94-843",
+        "comments": []
+    },
+    {
+        "courseName": "94-845",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-850"
+    },
+    {
+        "courseName": "94-854",
+        "comments": []
+    },
+    {
+        "courseName": "94-866",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "94-870"
+    },
+    {
+        "comments": [],
+        "courseName": "94-874"
+    },
+    {
+        "comments": [],
+        "courseName": "94-880"
+    },
+    {
+        "courseName": "95-702",
+        "comments": []
+    },
+    {
+        "courseName": "95-703",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-705"
+    },
+    {
+        "courseName": "95-706",
+        "comments": []
+    },
+    {
+        "courseName": "95-710",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-712"
+    },
+    {
+        "courseName": "95-713",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-715"
+    },
+    {
+        "courseName": "95-716",
+        "comments": []
+    },
+    {
+        "courseName": "95-717",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-718"
+    },
+    {
+        "comments": [],
+        "courseName": "95-722"
+    },
+    {
+        "courseName": "95-723",
+        "comments": []
+    },
+    {
+        "courseName": "95-729",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-733"
+    },
+    {
+        "comments": [],
+        "courseName": "95-736"
+    },
+    {
+        "comments": [],
+        "courseName": "95-737"
+    },
+    {
+        "courseName": "95-743",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-744"
+    },
+    {
+        "courseName": "95-748",
+        "comments": []
+    },
+    {
+        "courseName": "95-752",
+        "comments": []
+    },
+    {
+        "courseName": "95-758",
+        "comments": []
+    },
+    {
+        "courseName": "95-760",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-771"
+    },
+    {
+        "comments": [],
+        "courseName": "95-775"
+    },
+    {
+        "comments": [],
+        "courseName": "95-778"
+    },
+    {
+        "comments": [],
+        "courseName": "95-791"
+    },
+    {
+        "comments": [],
+        "courseName": "95-794"
+    },
+    {
+        "courseName": "95-796",
+        "comments": []
+    },
+    {
+        "courseName": "95-797",
+        "comments": []
+    },
+    {
+        "courseName": "95-799",
+        "comments": []
+    },
+    {
+        "courseName": "95-808",
+        "comments": []
+    },
+    {
+        "courseName": "95-813",
+        "comments": []
+    },
+    {
+        "courseName": "95-819",
+        "comments": []
+    },
+    {
+        "courseName": "95-833",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-845"
+    },
+    {
+        "courseName": "95-851",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-855"
+    },
+    {
+        "comments": [],
+        "courseName": "95-865"
+    },
+    {
+        "comments": [],
+        "courseName": "95-866"
+    },
+    {
+        "courseName": "95-869",
+        "comments": []
+    },
+    {
+        "courseName": "95-874",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-881"
+    },
+    {
+        "comments": [],
+        "courseName": "95-882"
+    },
+    {
+        "courseName": "95-883",
+        "comments": []
+    },
+    {
+        "courseName": "95-884",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-885"
+    },
+    {
+        "courseName": "95-888",
+        "comments": []
+    },
+    {
+        "courseName": "95-900",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "95-922"
+    },
+    {
+        "comments": [],
+        "courseName": "99-101"
+    },
+    {
+        "comments": [],
+        "courseName": "99-153"
+    },
+    {
+        "comments": [],
+        "courseName": "99-190"
+    },
+    {
+        "courseName": "99-352",
+        "comments": []
+    },
+    {
+        "courseName": "99-353",
+        "comments": []
+    },
+    {
+        "courseName": "99-355",
+        "comments": []
+    },
+    {
+        "comments": [],
+        "courseName": "99-358"
+    },
+    {
+        "comments": [],
+        "courseName": "99-359"
+    }
+]
