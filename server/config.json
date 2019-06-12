@@ -1,7 +1,0 @@
-{
-  "appId": "WSZULXBChgYEtHhSHK8iOQWb51M0lIGXcVD2THaP",
-  "masterKey": "fRTMoiuaiNBt2F9EjF2aicgaciiKB2kDkEEbuPeT",
-  "appName": "FCE++",
-  "cloud": "./cloud/main",
-  "databaseURI": "mongodb://127.0.0.1:27017/parse"
-}

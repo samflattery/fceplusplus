@@ -1,1 +1,0 @@
-{"message":"Parse error: Object not found.","code":101,"level":"error","stack":"Error: Object not found.\n    at _rest.default.get.then.response (/usr/local/lib/node_modules/parse-server/lib/Routers/ClassesRouter.js:82:15)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","timestamp":"2019-06-12T10:28:53.777Z"}
