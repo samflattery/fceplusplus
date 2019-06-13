@@ -59,20 +59,19 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         for instructor in course.instructors {
             instructorInfo.append(getInstructorData(instructor))
         }
-        
     }
     
     @objc func refreshComments() {
         print("pressed button")
         self.commentObj?.fetchInBackground(block: { (object: PFObject?, error: Error?) in
-            self.courseComments = object?["comments"] as! courseComment
+            self.courseComments = (object?["comments"] as! courseComment)
             self.tableView.reloadData()
         })
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if segmentControl.selectedSegmentIndex == 2 && indexPath.row == 0 {
-            return 150
+            return 200
         } else {
             return UITableView.automaticDimension
         }

@@ -20,12 +20,21 @@ class SignUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func pressedSignUp(_ sender: Any) {
-        signUp()
+    @IBAction func loginPressed(_ sender: Any) {
+        PFUser.logInWithUsername(inBackground: andrewIDField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
+            if user != nil {
+                self.performSegue(withIdentifier: "LoggedIn", sender: nil)
+            } else {
+                let alert = UIAlertController(title: "Login Failed", message: "Invalid username/password.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                // The login failed. Check error to see why.
+                print(error?.localizedDescription)
+            }
+        }
     }
     
-    func signUp() {
+    @IBAction func signUpPressed(_ sender: Any) {
         let user = PFUser()
         let andrewID = andrewIDField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -39,9 +48,9 @@ class SignUpViewController: UIViewController {
             } else {
                 print("signed up")
                 // Hooray! Let them use the app now.
+                // alert - tell them to confirm email and login
             }
-        }
-    }
+        }    }
     
     /*
     // MARK: - Navigation

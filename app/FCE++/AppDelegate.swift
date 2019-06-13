@@ -31,18 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return []
     }
     
-//    func getComments() {
-//        let queue = DispatchQueue.global()
-//        queue.async {
-//            self.comments = Comments.getComments()
-//            return
-//        }
-//    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         courses = getCourseJSON()
-//        getComments()
         
         let parseConfig = ParseClientConfiguration {
             $0.applicationId = "fceplusplus"
@@ -50,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = "https://fceplusplus.herokuapp.com/parse"
         }
         Parse.initialize(with: parseConfig)
+        PFUser.logOut()
+        print(PFUser.current())
+        if PFUser.current() == nil {
+            print("here")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
+            self.window?.rootViewController = vc
+        }
         
         return true
     }

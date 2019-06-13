@@ -36,17 +36,32 @@
                             <action selector="postButtonPressed:" destination="8iU-ly-aDT" eventType="touchUpInside" id="qFp-lU-AGZ"/>
                         </connections>
                     </button>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vV5-fX-HCi">
+                        <rect key="frame" x="16" y="102.5" width="51" height="31"/>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post anonymously?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="167-bq-2iz">
+                        <rect key="frame" x="73" y="109.5" width="125" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="9Rg-jS-ubU" secondAttribute="bottom" constant="10" id="0GW-p6-oEE"/>
+                    <constraint firstItem="vV5-fX-HCi" firstAttribute="leading" secondItem="4vM-jh-Ojx" secondAttribute="leading" constant="16" id="BWJ-ed-u1n"/>
                     <constraint firstAttribute="trailing" secondItem="6Zb-7a-N7d" secondAttribute="trailing" constant="16" id="K4w-Me-yz4"/>
                     <constraint firstAttribute="bottom" secondItem="6Zb-7a-N7d" secondAttribute="bottom" constant="16" id="bN1-zP-IkG"/>
+                    <constraint firstItem="167-bq-2iz" firstAttribute="leading" secondItem="vV5-fX-HCi" secondAttribute="trailing" constant="8" id="i3b-bA-1g4"/>
+                    <constraint firstAttribute="bottom" secondItem="vV5-fX-HCi" secondAttribute="bottom" constant="16" id="lru-NM-5sX"/>
                     <constraint firstAttribute="trailing" secondItem="9Rg-jS-ubU" secondAttribute="trailing" constant="16" id="q0K-s6-fPq"/>
                     <constraint firstItem="9Rg-jS-ubU" firstAttribute="leading" secondItem="4vM-jh-Ojx" secondAttribute="leading" constant="16" id="wJe-7T-GoH"/>
+                    <constraint firstItem="167-bq-2iz" firstAttribute="centerY" secondItem="vV5-fX-HCi" secondAttribute="centerY" id="wsC-gN-2MA"/>
                     <constraint firstItem="9Rg-jS-ubU" firstAttribute="top" secondItem="4vM-jh-Ojx" secondAttribute="top" constant="10" id="xLC-Qd-dji"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="anonymousLabel" destination="167-bq-2iz" id="ft6-6a-tL6"/>
+                <outlet property="anonymousSwitch" destination="vV5-fX-HCi" id="8Vr-2y-qIU"/>
                 <outlet property="postButton" destination="6Zb-7a-N7d" id="IGn-eH-OnI"/>
                 <outlet property="textView" destination="9Rg-jS-ubU" id="eZJ-P3-NIo"/>
             </connections>
