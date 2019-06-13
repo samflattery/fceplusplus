@@ -8,29 +8,39 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 typealias courseComment = [[String: Any]]
 
 class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func segmentControlValueChanged(_ sender: Any) {
-        
-        let query = PFQuery(className:"Comments")
-        query.whereKey("courseNumber", equalTo: course.number)
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-            if let error = error {
-                // Log details of the failure
-                print(error.localizedDescription)
-            } else if let objects = objects {
-                // Do something with the found objects
-                for object in objects {
-                    self.courseComments = (object["comments"] as! courseComment)
-                    self.commentObj = object
-                    let newCommentCell = self.view.viewWithTag(1001) as? NewCommentTableViewCell
-                    newCommentCell?.commentObj = object
-                    self.tableView.reloadData()
+        if segmentControl.selectedSegmentIndex == 2 {
+            SVProgressHUD.show()
+            tableView.reloadData()
+            let query = PFQuery(className:"Comments")
+            query.whereKey("courseNumber", equalTo: course.number)
+            query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+                if let error = error {
+                    // Log details of the failure
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: "Failed to load comments")
+                    SVProgressHUD.dismiss(withDelay: 1)
+                    print(error.localizedDescription)
+                } else if let objects = objects {
+                    // Do something with the found objects
+                    for object in objects {
+                        self.courseComments = (object["comments"] as! courseComment)
+                        self.commentObj = object
+                        let newCommentCell = self.view.viewWithTag(1001) as? NewCommentTableViewCell
+                        newCommentCell?.commentObj = object
+                        SVProgressHUD.dismiss()
+                        self.tableView.reloadData()
+                    }
                 }
             }
+        } else {
+            tableView.reloadData()
         }
     }
     
@@ -55,6 +65,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         cellNib = UINib(nibName: "CommentCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "CommentCell")
         
+        cellNib = UINib(nibName: "DescriptionCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "DescriptionCell")
+        
         courseInfo = getCourseData(course)
         for instructor in course.instructors {
             instructorInfo.append(getInstructorData(instructor))
@@ -62,7 +75,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     }
     
     @objc func refreshComments() {
-        print("pressed button")
         self.commentObj?.fetchInBackground(block: { (object: PFObject?, error: Error?) in
             self.courseComments = (object?["comments"] as! courseComment)
             self.tableView.reloadData()
@@ -80,7 +92,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if segmentControl.selectedSegmentIndex == 1{
+        if segmentControl.selectedSegmentIndex == 1 {
             return instructorInfo.count
         } else {
             return 1
@@ -95,7 +107,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             return 11
         } else {
             if let comments = courseComments {
-                print(comments.count + 1)
                 return comments.count + 1
             } else {
                 return 1
@@ -109,6 +120,14 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         let j = indexPath.section
         
         if segmentControl.selectedSegmentIndex == 0 {
+            if i == 6 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath)
+                let textLabel = cell.viewWithTag(15) as! UILabel
+                textLabel.text = infoTitles[i]
+                let detailLabel = cell.viewWithTag(16) as! UILabel
+                detailLabel.text = courseInfo[i]
+                return cell
+            }
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel!.text = infoTitles[i]
             cell.detailTextLabel!.text = courseInfo[i]
@@ -119,7 +138,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         } else {
             if i == 0 {
                 let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewComment", for: indexPath) as! NewCommentTableViewCell
-//                newCommentCell.comments = comments
                 newCommentCell.courseNumber = course.number
                 newCommentCell.commentObj = commentObj
                 let button = self.view.viewWithTag(120) as! UIButton

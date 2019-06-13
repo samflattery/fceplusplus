@@ -58,7 +58,6 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
         comments.insert(commentData, at: 0)
         commentObj["comments"] = comments
         
-        
         commentObj.saveInBackground {
             (success: Bool, error: Error?) in
             if (success) {

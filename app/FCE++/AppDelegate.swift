@@ -41,9 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: parseConfig)
         PFUser.logOut()
-        print(PFUser.current())
         if PFUser.current() == nil {
-            print("here")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
             self.window?.rootViewController = vc

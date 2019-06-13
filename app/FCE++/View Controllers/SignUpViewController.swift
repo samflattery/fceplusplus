@@ -8,49 +8,62 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class SignUpViewController: UIViewController {
-    
     
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     @IBAction func loginPressed(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Logging in...")
         PFUser.logInWithUsername(inBackground: andrewIDField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if user != nil {
+                SVProgressHUD.dismiss()
+                SVProgressHUD.showSuccess(withStatus: "Logged in!")
+                SVProgressHUD.dismiss(withDelay: 1)
                 self.performSegue(withIdentifier: "LoggedIn", sender: nil)
             } else {
-                let alert = UIAlertController(title: "Login Failed", message: "Invalid username/password.", preferredStyle: .alert)
+                SVProgressHUD.dismiss()
+                let alert = UIAlertController(title: "Login Failed", message: error?.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-                // The login failed. Check error to see why.
-                print(error?.localizedDescription)
             }
         }
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Signing up...")
         let user = PFUser()
         let andrewID = andrewIDField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         user.username = andrewID
         user.password = password
         user.email = andrewID + "@andrew.cmu.edu"
+        
         user.signUpInBackground { (success: Bool, error: Error?) in
-            if let error = error {
-                print(error)
-                // Show the errorString somewhere and let the user try again.
+            if success {
+                SVProgressHUD.dismiss()
+                let alert = UIAlertController(title: "Signed up!", message: "You should get a verification email on \(andrewID).andrew.cmu.edu shortly. Login when you have verified your email!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } else {
-                print("signed up")
-                // Hooray! Let them use the app now.
-                // alert - tell them to confirm email and login
+                if let error = error {
+                    SVProgressHUD.dismiss()
+                    let alert = UIAlertController(title: "Sign up Failed", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "Sign up Failed", message: "Please try again", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
-        }    }
+        }
+    }
     
     /*
     // MARK: - Navigation
