@@ -7,16 +7,45 @@
 //
 
 import UIKit
+import Parse
 
 class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postButton: UIButton!
-    var comments: [Comment]!
-    var courseTitle: String!
+    var courseNumber: String!
+    var commentObj: PFObject!
     
     @IBAction func postButtonPressed(_ sender: Any) {
-        Comments.addNewComment(&comments, toCourse: courseTitle, withText: textView.text)
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .medium
+        
+        let timePosted = formatter.string(from: currentDateTime)
+        
+        if let comment = commentObj {
+            comment.fetchInBackground()
+        }
+        
+        let commentData = ["commentText": textView.text!, "timePosted": timePosted, "poster": "Anonymous"] as [String : Any]
+        var comments = commentObj["comments"] as! [[String : Any]]
+        comments.insert(commentData, at: 0)
+        commentObj["comments"] = comments
+        
+        
+        commentObj.saveInBackground {
+            (success: Bool, error: Error?) in
+            if (success) {
+                print("saved")
+                let tableView = self.superview! as! UITableView
+                tableView.reloadData()
+            } else {
+                print("not saved")
+                print(error ?? "Failed to save w/o error")
+            }
+        }
+        
         textView.resignFirstResponder()
         textView.text = "Leave a comment!"
         textView.textColor = .lightGray

@@ -66,6 +66,7 @@ struct Course: Decodable {
 }
 
 func getCourseData(_ course: Course) -> [String] {
+    //returns the dictionary of a course as an array for table indexing
     var data = [String]()
     let none = "Not available"
     for i in 0..<9 {
@@ -96,6 +97,7 @@ func getCourseData(_ course: Course) -> [String] {
 }
 
 func getInstructorData(_ instructor: Instructor) -> [String] {
+    //returns the dictionary of an instuctor as an array for table indexing
     var data = [String]()
     for i in 0..<11 {
         switch i {

@@ -7,24 +7,39 @@
 //
 
 import UIKit
+import Parse
+
+typealias courseComment = [[String: Any]]
 
 class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func segmentControlValueChanged(_ sender: Any) {
-        tableView.reloadData()
+        
+        let query = PFQuery(className:"Comments")
+        query.whereKey("courseNumber", equalTo: course.number)
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if let error = error {
+                // Log details of the failure
+                print(error.localizedDescription)
+            } else if let objects = objects {
+                // Do something with the found objects
+                for object in objects {
+                    self.courseComments = (object["comments"] as! courseComment)
+                    self.commentObj = object
+                    let newCommentCell = self.view.viewWithTag(1001) as? NewCommentTableViewCell
+                    newCommentCell?.commentObj = object
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     var course: Course!
-    var instructorInfo: [[String]]! = []
+    var instructorInfo: [[String]] = []
     var courseInfo: [String]!
-    var comments: [Comment]?
-    var courseComments: Comment?
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    
-    @IBOutlet weak var postButton: UIBarButtonItem!
-    @IBAction func postButtonPressed(_ sender: Any) {
-    }
+    var courseComments: courseComment?
+    var commentObj: PFObject?
+    var button: UIButton?
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
@@ -45,12 +60,14 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             instructorInfo.append(getInstructorData(instructor))
         }
         
-        comments = appDelegate.comments
-        if let comments = comments {
-            courseComments = Comments.getCommentsForCourse(comments, for: course.number)
-        } else {
-            courseComments = nil
-        }
+    }
+    
+    @objc func refreshComments() {
+        print("pressed button")
+        self.commentObj?.fetchInBackground(block: { (object: PFObject?, error: Error?) in
+            self.courseComments = object?["comments"] as! courseComment
+            self.tableView.reloadData()
+        })
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,7 +96,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             return 11
         } else {
             if let comments = courseComments {
-                return comments.comments.count + 1
+                print(comments.count + 1)
+                return comments.count + 1
             } else {
                 return 1
             }
@@ -102,26 +120,25 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         } else {
             if i == 0 {
                 let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewComment", for: indexPath) as! NewCommentTableViewCell
-                newCommentCell.comments = comments
-                newCommentCell.courseTitle = course.number
+//                newCommentCell.comments = comments
+                newCommentCell.courseNumber = course.number
+                newCommentCell.commentObj = commentObj
+                let button = self.view.viewWithTag(120) as! UIButton
+                button.addTarget(self, action: #selector(refreshComments), for: .touchUpInside)
                 return newCommentCell
             } else {
                 cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath)
-                let textField = cell.viewWithTag(100) as! UITextView
-                textField.text = courseComments?.comments[indexPath.row-1]
+                if let commentInfo = courseComments?[indexPath.row - 1] {
+                    let commentTextView = cell.viewWithTag(100) as! UITextView
+                    commentTextView.text = commentInfo["commentText"] as? String
+                    let dateLabel = cell.viewWithTag(175) as! UILabel
+                    dateLabel.text = commentInfo["timePosted"] as? String
+                    let posterLabel = cell.viewWithTag(150) as! UILabel
+                    posterLabel.text = commentInfo["poster"] as? String
+                }
             }
         }
         return cell
     }
- 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-    
-    //MARK:- Text Field Methods
-    
-    
 
 }

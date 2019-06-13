@@ -18,25 +18,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="176.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="150" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Time + date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-Ya-Xg8">
-                        <rect key="frame" x="16" y="139.5" width="103.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="150" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-Ya-Xg8">
+                        <rect key="frame" x="16" y="143.5" width="42" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Comment text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qaE-C0-i0H">
-                        <rect key="frame" x="16" y="16" width="382" height="113.5"/>
+                        <rect key="frame" x="16" y="16" width="382" height="117.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="175" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date/time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mn-Vs-8Ti">
+                        <rect key="frame" x="335" y="143.5" width="63" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="t5e-Ya-Xg8" firstAttribute="top" secondItem="qaE-C0-i0H" secondAttribute="bottom" constant="10" id="9fG-jo-Lcb"/>
                     <constraint firstAttribute="trailing" secondItem="qaE-C0-i0H" secondAttribute="trailing" constant="16" id="UMp-4n-uPH"/>
                     <constraint firstItem="t5e-Ya-Xg8" firstAttribute="leading" secondItem="Uea-y9-NXX" secondAttribute="leading" constant="16" id="Vun-rP-nky"/>
+                    <constraint firstAttribute="trailing" secondItem="3mn-Vs-8Ti" secondAttribute="trailing" constant="16" id="WZm-p0-4Os"/>
                     <constraint firstItem="qaE-C0-i0H" firstAttribute="top" secondItem="Uea-y9-NXX" secondAttribute="top" constant="16" id="c7G-eJ-jaO"/>
                     <constraint firstItem="qaE-C0-i0H" firstAttribute="leading" secondItem="Uea-y9-NXX" secondAttribute="leading" constant="16" id="ilf-Uh-in8"/>
+                    <constraint firstAttribute="bottom" secondItem="3mn-Vs-8Ti" secondAttribute="bottom" constant="16" id="t20-1x-pfZ"/>
+                    <constraint firstItem="3mn-Vs-8Ti" firstAttribute="top" secondItem="qaE-C0-i0H" secondAttribute="bottom" constant="10" id="v85-0G-ehf"/>
                     <constraint firstAttribute="bottom" secondItem="t5e-Ya-Xg8" secondAttribute="bottom" constant="16" id="zGh-HD-uEd"/>
                 </constraints>
             </tableViewCellContentView>

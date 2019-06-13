@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var courses: [Course]!
-    public var comments: [Comment]?
+//    public var comments: [Comment]?
     
     func getCourseJSON() -> [Course] {
         if let url = Bundle.main.url(forResource: "output", withExtension: "json") {
@@ -30,18 +31,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return []
     }
     
-    func getComments() {
-        let queue = DispatchQueue.global()
-        queue.async {
-            self.comments = Comments.getComments()
-            return
-        }
-    }
+//    func getComments() {
+//        let queue = DispatchQueue.global()
+//        queue.async {
+//            self.comments = Comments.getComments()
+//            return
+//        }
+//    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         courses = getCourseJSON()
-        getComments()
+//        getComments()
+        
+        let parseConfig = ParseClientConfiguration {
+            $0.applicationId = "fceplusplus"
+            $0.clientKey = "client"
+            $0.server = "https://fceplusplus.herokuapp.com/parse"
+        }
+        Parse.initialize(with: parseConfig)
+        
         return true
     }
 
