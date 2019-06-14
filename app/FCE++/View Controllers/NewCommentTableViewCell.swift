@@ -53,7 +53,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
         
         let user = PFUser.current()!
         
-        let commentData = ["commentText": textView.text!, "timePosted": timePosted, "poster": user.username!, "anonymous": anonymousSwitch.isOn] as [String : Any]
+        let commentData = ["commentText": textView.text!, "timePosted": timePosted, "andrewID": user.username!, "anonymous": anonymousSwitch.isOn] as [String : Any]
         var comments = commentObj["comments"] as! [[String : Any]]
         comments.insert(commentData, at: 0)
         commentObj["comments"] = comments

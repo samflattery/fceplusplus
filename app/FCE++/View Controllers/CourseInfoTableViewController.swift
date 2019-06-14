@@ -68,6 +68,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         cellNib = UINib(nibName: "DescriptionCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "DescriptionCell")
         
+        cellNib = UINib(nibName: "GuestComment", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "GuestComment")
+        
         courseInfo = getCourseData(course)
         for instructor in course.instructors {
             instructorInfo.append(getInstructorData(instructor))
@@ -81,11 +84,23 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         })
     }
     
+    @objc func showLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if segmentControl.selectedSegmentIndex == 2 && indexPath.row == 0 {
+        if segmentControl.selectedSegmentIndex == 2 && indexPath.row == 0 && PFUser.current() != nil {
             return 200
         } else {
             return UITableView.automaticDimension
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if PFUser.current() == nil && indexPath.row == 0 {
+            showLoginScreen()
         }
     }
 
@@ -136,13 +151,18 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             cell.textLabel!.text = instructorTitles[i]
             cell.detailTextLabel!.text = instructorInfo[j][i]
         } else {
-            if i == 0 {
+            if i == 0 && PFUser.current() != nil {
                 let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewComment", for: indexPath) as! NewCommentTableViewCell
                 newCommentCell.courseNumber = course.number
                 newCommentCell.commentObj = commentObj
                 let button = self.view.viewWithTag(120) as! UIButton
                 button.addTarget(self, action: #selector(refreshComments), for: .touchUpInside)
                 return newCommentCell
+            } else if i == 0 && PFUser.current() == nil {
+                let guestCommentCell = tableView.dequeueReusableCell(withIdentifier: "GuestComment", for: indexPath)
+                let button = guestCommentCell.viewWithTag(65) as! UIButton
+                button.addTarget(self, action: #selector(showLoginScreen), for: .touchUpInside)
+                return guestCommentCell
             } else {
                 cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath)
                 if let commentInfo = courseComments?[indexPath.row - 1] {
@@ -150,12 +170,17 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
                     commentTextView.text = commentInfo["commentText"] as? String
                     let dateLabel = cell.viewWithTag(175) as! UILabel
                     dateLabel.text = commentInfo["timePosted"] as? String
-                    let posterLabel = cell.viewWithTag(150) as! UILabel
-                    posterLabel.text = commentInfo["poster"] as? String
+                    let andrewIDLabel = cell.viewWithTag(150) as! UILabel
+                    if commentInfo["anonymous"] as! Bool {
+                        andrewIDLabel.text = "Anonymous"
+                    } else {
+                        andrewIDLabel.text = commentInfo["andrewID"] as? String
+                    }
                 }
             }
         }
         return cell
     }
+
 
 }
