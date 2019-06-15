@@ -17,57 +17,60 @@ Uses Scottylab's cmu_course_api to scrape course descriptions and prereqs
 The goal is to get a json like:
 [
     {
-        "15-122": {
-            "hours per week": 13.8,
-            "overall course rate": 3.9,
-            "desc": "For students with a basic understanding of programming...",
-            "prereqs": "15-112",
-            "prereqs_obj": {
-                "invert": false,
-                "reqs_list": [
-                    [
-                        "15-112"
-                    ]
+        "number": "15-122"
+        "hours per week": 13.8,
+        "overall course rate": 3.9,
+        "desc": "For students with a basic understanding of programming...",
+        "prereqs": "15-112",
+        "prereqs_obj": {
+            "invert": false,
+            "reqs_list": [
+                [
+                    "15-112"
                 ]
-            },
-            "coreqs": "21-127 or 15-151",
-            "coreqs_obj": {
-                "invert": false,
-                "reqs_list": [
-                    [
-                        "21-127",
-                        "15-151"
-                    ]
-                ]
-            },
-            "name": "Principles of Imperative Computation",
-            "units": 10.0,
-            "department": "SCS: Computer Science",
-            "instructors": [
-                {
-                    "CERVESATO, ILIANO": {
-                        "Hours per week": 13.0,
-                        "Interest in student learning": 3.8,
-                        "Clearly explain course requirements": 3.8,
-                        "Clear learning objectives & goals": 3.9,
-                        "Instructor provides feedback to students to improve": 3.4,
-                        "Demonstrate importance of subject matter": 4.1,
-                        "Explains subject matter of course": 3.7,
-                        "Show respect for all students": 4.0,
-                        "Overall teaching rate": 3.5,
-                        "Overall course rate": 3.8
-                    }
-                },
-                {
-                    "KAYNAR, DILSUN": {
-                        "Hours per week": 13.2,
-                        ...
-                    }
-                },
-                ...
             ]
-        }
-    }
+        },
+        "coreqs": "21-127 or 15-151",
+        "coreqs_obj": {
+            "invert": false,
+            "reqs_list": [
+                [
+                    "21-127",
+                    "15-151"
+                ]
+            ]
+        },
+        "name": "Principles of Imperative Computation",
+        "units": 10.0,
+        "department": "SCS: Computer Science",
+        "instructors": [
+            {
+                "Instructor name": "CERVESATO, ILIANO"
+                "Hours per week": 13.0,
+                "Interest in student learning": 3.8,
+                "Clearly explain course requirements": 3.8,
+                "Clear learning objectives & goals": 3.9,
+                "Instructor provides feedback to students to improve": 3.4,
+                "Demonstrate importance of subject matter": 4.1,
+                "Explains subject matter of course": 3.7,
+                "Show respect for all students": 4.0,
+                "Overall teaching rate": 3.5,
+                "Overall course rate": 3.8
+                }
+            },
+            {
+                "Instructor name": "KAYNAR, DILSUN"
+                "Hours per week": 13.2,
+                ...
+            },
+            ...
+        ]
+    },
+    {
+        "number": "xx-xxx",
+        ...
+    },
+    ...
 ]    
 """
 

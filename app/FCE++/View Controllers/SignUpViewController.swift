@@ -15,11 +15,31 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+//    let network: NetworkManager = NetworkManager.sharedInstance
+    
+    var reachability: Reachability!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBAction func loginPressed(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Logging in...")
+        
+        reachability = Reachability()!
+        if reachability.connection == .none {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.showError(withStatus: "No internet connection")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
+
+//        NetworkManager.isUnreachable { _ in
+//            SVProgressHUD.dismiss()
+//            SVProgressHUD.showError(withStatus: "No internet connection")
+//            return
+//        }
+//
         PFUser.logInWithUsername(inBackground: andrewIDField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if user != nil {
                 SVProgressHUD.dismiss()
@@ -37,6 +57,13 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpPressed(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Signing up...")
+        reachability = Reachability()!
+        if reachability.connection == .none {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.showError(withStatus: "No internet connection")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
         let user = PFUser()
         let andrewID = andrewIDField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)

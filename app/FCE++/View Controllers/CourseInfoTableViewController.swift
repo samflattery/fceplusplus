@@ -14,19 +14,35 @@ typealias courseComment = [[String: Any]]
 
 class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate {
     
+    var query: PFQuery<PFObject>?
+    var reachability: Reachability!
+    
     @IBAction func segmentControlValueChanged(_ sender: Any) {
+        query?.cancel()
+        SVProgressHUD.dismiss()
         if segmentControl.selectedSegmentIndex == 2 {
+            reachability = Reachability()!
+            if reachability.connection == .none {
+                SVProgressHUD.showError(withStatus: "No internet connection")
+                SVProgressHUD.dismiss(withDelay: 1)
+                courseComments = nil
+                commentObj = nil
+                return
+            }
+            
             SVProgressHUD.show()
             tableView.reloadData()
-            let query = PFQuery(className:"Comments")
-            query.whereKey("courseNumber", equalTo: course.number)
-            query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            query = PFQuery(className:"Comments")
+            print(type(of: query))
+            query!.whereKey("courseNumber", equalTo: course.number)
+            query!.cachePolicy = .networkElseCache
+            query!.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
                 if let error = error {
                     // Log details of the failure
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "Failed to load comments")
-                    SVProgressHUD.dismiss(withDelay: 1)
-                    print(error.localizedDescription)
+                    SVProgressHUD.showError(withStatus: "Failed to load comments.")
+                    SVProgressHUD.dismiss(withDelay: 2)
+                    print("failed in segment value changed", error.localizedDescription)
                 } else if let objects = objects {
                     // Do something with the found objects
                     for object in objects {
@@ -75,6 +91,12 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         for instructor in course.instructors {
             instructorInfo.append(getInstructorData(instructor))
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        query?.cancel()
+        SVProgressHUD.dismiss()
     }
     
     @objc func refreshComments() {
