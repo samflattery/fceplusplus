@@ -34,12 +34,6 @@ class SignUpViewController: UIViewController {
             return
         }
 
-//        NetworkManager.isUnreachable { _ in
-//            SVProgressHUD.dismiss()
-//            SVProgressHUD.showError(withStatus: "No internet connection")
-//            return
-//        }
-//
         PFUser.logInWithUsername(inBackground: andrewIDField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if user != nil {
                 SVProgressHUD.dismiss()

@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
     
@@ -18,6 +19,8 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
     
     var courseNumber: String!
     var commentObj: PFObject!
+    
+    var reachability: Reachability!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +43,14 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
+        reachability = Reachability()!
+        
+        if reachability.connection == .none {
+            SVProgressHUD.showError(withStatus: "No internet connection")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
+        
         let currentDateTime = Date()
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -61,12 +72,11 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
         commentObj.saveInBackground {
             (success: Bool, error: Error?) in
             if (success) {
-                print("saved")
                 let tableView = self.superview! as! UITableView
                 tableView.reloadData()
             } else {
-                print("not saved")
-                print(error ?? "Failed to save w/o error")
+                SVProgressHUD.showError(withStatus: "Failed to post comment")
+                SVProgressHUD.dismiss(withDelay: 1)
             }
         }
         

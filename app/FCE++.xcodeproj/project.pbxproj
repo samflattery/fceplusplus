@@ -17,6 +17,8 @@
 		0A38A07022A98E65009D12D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A38A06F22A98E65009D12D5 /* Assets.xcassets */; };
 		0A38A07B22A99CB2009D12D5 /* JSONInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A07A22A99CB2009D12D5 /* JSONInfo.swift */; };
 		0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */; };
+		0A55E90922B52ED6004FE7DE /* FailedToLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */; };
+		0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90B22B57432004FE7DE /* LoadingCell.xib */; };
 		0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDC22B1669F00FDB1AF /* output.json */; };
 		0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */; };
 		0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */; };
@@ -37,14 +39,17 @@
 		0A38A06D22A98E63009D12D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A38A06F22A98E65009D12D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		0A38A07422A98E65009D12D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		0A38A07A22A99CB2009D12D5 /* JSONInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONInfo.swift; sourceTree = "<group>"; };
+		0A38A07A22A99CB2009D12D5 /* JSONInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONInfo.swift; path = ../Assets/JSONInfo.swift; sourceTree = "<group>"; };
 		0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewController.swift; sourceTree = "<group>"; };
+		0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailedToLoad.xib; sourceTree = "<group>"; };
+		0A55E90B22B57432004FE7DE /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		0AFB3DDC22B1669F00FDB1AF /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = ../../../backend/docs/output.json; sourceTree = "<group>"; };
 		0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		0AFB3DE222B3016800FDB1AF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFB3DE422B3CA0300FDB1AF /* GuestComment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GuestComment.xib; path = "../View Controllers/GuestComment.xib"; sourceTree = "<group>"; };
-		0AFB3DE622B5078800FDB1AF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		0AFB3DE622B5078800FDB1AF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
+		0AFB3DE822B522AA00FDB1AF /* FCE++.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FCE++.entitlements"; sourceTree = "<group>"; };
 		6EAD5FD7D3BAC07002977587 /* Pods_FCE__.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCE__.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76035EA46EA6BE58047936E7 /* Pods-FCE++.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCE++.release.xcconfig"; path = "Target Support Files/Pods-FCE++/Pods-FCE++.release.xcconfig"; sourceTree = "<group>"; };
 		9A13AA5031FC23DE9F1DBFFB /* Pods-FCE++.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCE++.debug.xcconfig"; path = "Target Support Files/Pods-FCE++/Pods-FCE++.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				0A14937F22AEE147008CF495 /* StartScreen.xib */,
+				0A55E90B22B57432004FE7DE /* LoadingCell.xib */,
+				0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */,
 				0A14938222B01AA0008CF495 /* NewComment.xib */,
 				0A14938622B02664008CF495 /* CommentCell.xib */,
 				0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */,
@@ -95,13 +102,14 @@
 		0A38A06722A98E63009D12D5 /* FCE++ */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB3DE822B522AA00FDB1AF /* FCE++.entitlements */,
 				0A38A06822A98E63009D12D5 /* AppDelegate.swift */,
 				0A38A06C22A98E63009D12D5 /* Main.storyboard */,
-				0AFB3DE622B5078800FDB1AF /* Reachability.swift */,
 				0AFB3DE222B3016800FDB1AF /* LaunchScreen.storyboard */,
 				0A38A08822AA7255009D12D5 /* View Controllers */,
 				0A14938122B01A80008CF495 /* Nibs */,
 				0A38A08922AA72D1009D12D5 /* Assets */,
+				0A55E90A22B53E40004FE7DE /* New Group */,
 			);
 			path = "FCE++";
 			sourceTree = "<group>";
@@ -120,12 +128,20 @@
 		0A38A08922AA72D1009D12D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				0A38A07A22A99CB2009D12D5 /* JSONInfo.swift */,
 				0AFB3DDC22B1669F00FDB1AF /* output.json */,
 				0A38A06F22A98E65009D12D5 /* Assets.xcassets */,
 				0A38A07422A98E65009D12D5 /* Info.plist */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		0A55E90A22B53E40004FE7DE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				0A38A07A22A99CB2009D12D5 /* JSONInfo.swift */,
+				0AFB3DE622B5078800FDB1AF /* Reachability.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		45989FA52D657EFEA1A0CC38 /* Frameworks */ = {
@@ -179,6 +195,11 @@
 				TargetAttributes = {
 					0A38A06422A98E63009D12D5 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -210,10 +231,12 @@
 				0AFB3DE322B3016800FDB1AF /* LaunchScreen.storyboard in Resources */,
 				0A38A06E22A98E63009D12D5 /* Main.storyboard in Resources */,
 				0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */,
+				0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */,
 				0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */,
 				0A14938322B01AA0008CF495 /* NewComment.xib in Resources */,
 				0A14938722B02664008CF495 /* CommentCell.xib in Resources */,
 				0A14938022AEE147008CF495 /* StartScreen.xib in Resources */,
+				0A55E90922B52ED6004FE7DE /* FailedToLoad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,13 +434,15 @@
 			baseConfigurationReference = 9A13AA5031FC23DE9F1DBFFB /* Pods-FCE++.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FCE++/FCE++.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FW7C822H9W;
 				INFOPLIST_FILE = "FCE++/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samflattery.FCE--";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samflattery.fce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -429,13 +454,15 @@
 			baseConfigurationReference = 76035EA46EA6BE58047936E7 /* Pods-FCE++.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FCE++/FCE++.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FW7C822H9W;
 				INFOPLIST_FILE = "FCE++/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samflattery.FCE--";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samflattery.fce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
