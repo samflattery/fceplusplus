@@ -14,9 +14,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-//    let network: NetworkManager = NetworkManager.sharedInstance
-    
+        
     var reachability: Reachability!
     
     override func viewDidLoad() {
@@ -36,15 +34,23 @@ class SignUpViewController: UIViewController {
 
         PFUser.logInWithUsername(inBackground: andrewIDField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if user != nil {
+                // login succeeds
                 SVProgressHUD.dismiss()
                 SVProgressHUD.showSuccess(withStatus: "Logged in!")
                 SVProgressHUD.dismiss(withDelay: 1)
                 self.performSegue(withIdentifier: "LoggedIn", sender: nil)
             } else {
                 SVProgressHUD.dismiss()
-                let alert = UIAlertController(title: "Login Failed", message: error?.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                // login failed
+                if let error = error {
+                    // if there was an error, show it
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
+                    SVProgressHUD.dismiss(withDelay: 1.5)
+                } else {
+                    // else just show a generic error message
+                    SVProgressHUD.showError(withStatus: "Login failed")
+                    SVProgressHUD.dismiss(withDelay: 1)
+                }
             }
         }
     }
@@ -72,28 +78,15 @@ class SignUpViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
+                SVProgressHUD.dismiss()
                 if let error = error {
-                    SVProgressHUD.dismiss()
-                    let alert = UIAlertController(title: "Sign up Failed", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
+                    SVProgressHUD.dismiss(withDelay: 1.5)
                 } else {
-                    let alert = UIAlertController(title: "Sign up Failed", message: "Please try again", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    SVProgressHUD.showError(withStatus: "Sign up failed")
                 }
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

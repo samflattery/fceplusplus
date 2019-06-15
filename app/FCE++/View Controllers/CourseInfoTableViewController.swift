@@ -10,79 +10,27 @@ import UIKit
 import Parse
 import SVProgressHUD
 
-typealias courseComment = [[String: Any]]
+typealias courseComments = [[String: Any]] // comments are stored as a list of dictionaries
 
 class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate {
     
-    var query: PFQuery<PFObject>?
-    var reachability: Reachability!
+    var query: PFQuery<PFObject>? // the currently active comment query
+    var reachability: Reachability! // the user's internet status
     
-    var course: Course!
-    var instructorInfo: [[String]] = []
-    var courseInfo: [String]!
-    var courseComments: courseComment?
-    var commentObj: PFObject?
-    var button: UIButton?
+    var course: Course!  // the course being displayed
+    var instructorInfo: [[String]] = []  // the instructors json in the form of an array
+                                         // for table indexing
+    var courseInfo: [String]!  // as above but with the course information
+    var courseComments: courseComments?  // the list of comments to be displayed,
+                                         // can be nil if unable to load
+    var commentObj: PFObject?  // the comments as an object to be passed to the newComment cell
     
-    var hasLoadedComments = false
-    var failedToLoad = false
-    var hasPostedComment = false
+    var hasLoadedComments = false // have the comments already been loaded in the background?
+    var failedToLoad = false  // the user has no internet, show them the failed to load cell
+    var hasPostedComment = false  // if the user posts a new comment, show loading cell
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    
     let refreshController = UIRefreshControl()
-    
-    @IBAction func segmentControlValueChanged(_ sender: Any) {
-        SVProgressHUD.dismiss()
-        if segmentControl.selectedSegmentIndex == 2 {
-            if !hasLoadedComments {
-                query = PFQuery(className:"Comments")
-                query!.whereKey("courseNumber", equalTo: course.number)
-
-                reachability = Reachability()!
-                if reachability.connection == .none && !query!.hasCachedResult {
-                    tableView.reloadData()
-                    failedToLoad = true
-                    SVProgressHUD.showError(withStatus: "No internet connection")
-                    SVProgressHUD.dismiss(withDelay: 1)
-                    courseComments = nil
-                    commentObj = nil
-                    return
-                }
-                SVProgressHUD.show()
-                tableView.refreshControl = refreshController
-                refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
-                
-                tableView.reloadData()
-                query!.cachePolicy = .networkElseCache
-                query!.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-                    if let error = error {
-                        // Log details of the failure
-                        SVProgressHUD.dismiss()
-                        SVProgressHUD.showError(withStatus: "Failed to load comments.")
-                        SVProgressHUD.dismiss(withDelay: 2)
-                        print("failed in segment value changed", error.localizedDescription)
-                    } else if let objects = objects {
-                        // Do something with the found objects
-                        self.hasLoadedComments = true
-                        for object in objects {
-                            self.courseComments = (object["comments"] as! courseComment)
-                            self.commentObj = object
-                            let newCommentCell = self.view.viewWithTag(1001) as? NewCommentTableViewCell
-                            newCommentCell?.commentObj = object
-                            SVProgressHUD.dismiss()
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            } else {
-                tableView.reloadData()
-            }
-        } else {
-            tableView.reloadData()
-        }
-    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +38,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         self.hasLoadedComments = false
         tableView.estimatedRowHeight = 60
         
+        //Register all of the cell nibs
         var cellNib = UINib(nibName: "NewComment", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "NewComment")
         
@@ -108,34 +57,91 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
         
+        // get info as lists instead of dictionaries
         courseInfo = getCourseData(course)
         for instructor in course.instructors {
             instructorInfo.append(getInstructorData(instructor))
         }
     }
     
+    @IBAction func segmentControlValueChanged(_ sender: Any) {
+        SVProgressHUD.dismiss() // if the user leaves comments when loading, dismiss
+        tableView.refreshControl = nil // remove the pull to refresh
+        if segmentControl.selectedSegmentIndex == 2 { // comments segment
+            tableView.refreshControl = refreshController
+            refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
+            if !hasLoadedComments {
+                query = PFQuery(className:"Comments")
+                query!.whereKey("courseNumber", equalTo: course.number)
+                
+                reachability = Reachability()!
+                if reachability.connection == .none && !query!.hasCachedResult {
+                    tableView.reloadData()
+                    failedToLoad = true
+                    SVProgressHUD.showError(withStatus: "No internet connection")
+                    SVProgressHUD.dismiss(withDelay: 1)
+                    courseComments = nil
+                    commentObj = nil
+                    return
+                }
+                SVProgressHUD.show()
+                
+                tableView.reloadData()
+                query!.cachePolicy = .networkElseCache // first try network to get up to date, then cache
+                query!.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+                    if let error = error {
+                        // failed to get comments for some reason
+                        SVProgressHUD.dismiss()
+                        self.courseComments = nil
+                        self.commentObj = nil
+                        SVProgressHUD.showError(withStatus: "Failed to load comments.")
+                        SVProgressHUD.dismiss(withDelay: 1)
+                        print("failed in segment value changed", error.localizedDescription)
+                    } else if let objects = objects {
+                        // found objects
+                        self.hasLoadedComments = true
+                        let object = objects[0] // should only return one object
+                        self.courseComments = (object["comments"] as! courseComments)
+                        self.commentObj = object
+                        SVProgressHUD.dismiss()
+                        self.tableView.reloadData()
+                    }
+                }
+            } else {
+                tableView.reloadData() // if the comments are already loaded, just reload table
+            }
+        } else {
+            tableView.reloadData() // if it isn't the comment segment, just reload table
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // cancel any queries running in background and dismiss any progress huds
         query?.cancel()
         SVProgressHUD.dismiss()
     }
     
     @objc func postClicked() {
+        // called when the post new comment button has been pressed
         hasPostedComment = true
-        tableView.reloadData()
+        tableView.reloadData() // reload to get loading comment
         refreshComments()
     }
     
     @objc func refreshComments() {
+        // called when post clicked or when pulled to refresh
         reachability = Reachability()!
         if reachability.connection == .none {
             if let rC = self.refreshControl {
+                // if there's no internet but there is a refresh bar, end the refreshing
                 rC.endRefreshing()
             }
             return
         }
         self.commentObj?.fetchInBackground(block: { (object: PFObject?, error: Error?) in
-            self.courseComments = (object?["comments"] as! courseComment)
+            // fetch new comments in the background and update the comment array
+            self.courseComments = (object?["comments"] as! courseComments)
             self.refreshControl?.endRefreshing()
             if self.hasPostedComment {
                 self.hasPostedComment = false
@@ -145,6 +151,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     }
     
     @objc func showLoginScreen() {
+        // called when the guest pressed 'login to comment'
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
         navigationController?.pushViewController(vc, animated: true)
@@ -152,6 +159,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if segmentControl.selectedSegmentIndex == 2 && indexPath.row == 0 && PFUser.current() != nil {
+            // the new comment cell
             return 200
         } else {
             return UITableView.automaticDimension
@@ -160,14 +168,15 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if PFUser.current() == nil && indexPath.row == 0 {
+            // take the guest back to login screen
             showLoginScreen()
         }
     }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         if segmentControl.selectedSegmentIndex == 1 {
+            // one segment for each instructor
             return instructorInfo.count
         } else {
             return 1
@@ -176,17 +185,17 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentControl.selectedSegmentIndex == 0 {
-            return 9
+            return 9 // one for each piece of course info
         } else if segmentControl.selectedSegmentIndex == 1 {
-            return 11
+            return 11 // one for each piece of instructor info
         } else {
             if let comments = courseComments {
                 if hasPostedComment {
-                    return comments.count + 2
+                    return comments.count + 2 // 2 extra for new comment and loading comment cells
                 }
                 return comments.count + 1
             } else {
-                return 1
+                return 1 // failed to load cell
             }
         }
     }
@@ -197,11 +206,13 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         let j = indexPath.section
         
         if failedToLoad && segmentControl.selectedSegmentIndex == 2 {
+            // only display the failed to load cell
             return tableView.dequeueReusableCell(withIdentifier: "FailedToLoad", for: indexPath)
         }
         
         if segmentControl.selectedSegmentIndex == 0 {
             if i == 6 {
+                // the description cell is different
                 cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath)
                 let textLabel = cell.viewWithTag(15) as! UILabel
                 textLabel.text = infoTitles[i]
@@ -212,28 +223,38 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel!.text = infoTitles[i]
             cell.detailTextLabel!.text = courseInfo[i]
-        } else if segmentControl.selectedSegmentIndex == 1 {
+        }
+        else if segmentControl.selectedSegmentIndex == 1 {
+            // instructor cells
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel!.text = instructorTitles[i]
             cell.detailTextLabel!.text = instructorInfo[j][i]
-        } else {
+        }
+        else {
             if i == 0 && PFUser.current() != nil {
+                // if there is a user, display the new comment cell first
                 let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewComment", for: indexPath) as! NewCommentTableViewCell
                 newCommentCell.courseNumber = course.number
                 newCommentCell.commentObj = commentObj
                 let button = self.view.viewWithTag(120) as! UIButton
                 button.addTarget(self, action: #selector(postClicked), for: .touchUpInside)
                 return newCommentCell
-            } else if i == 0 && PFUser.current() == nil {
+            }
+            else if i == 0 && PFUser.current() == nil {
+                // if there is no user, display the cell with the login button
                 let guestCommentCell = tableView.dequeueReusableCell(withIdentifier: "GuestComment", for: indexPath)
                 let button = guestCommentCell.viewWithTag(65) as! UIButton
                 button.addTarget(self, action: #selector(showLoginScreen), for: .touchUpInside)
                 return guestCommentCell
-            } else if i == 1 && hasPostedComment {
+            }
+            else if i == 1 && hasPostedComment {
+                // if the user posted a new comment, display the loading cell
                 cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
                 let activitySpinner = cell.viewWithTag(121) as! UIActivityIndicatorView
                 activitySpinner.startAnimating()
-            } else {
+            }
+            else {
+                // display comments
                 let indexRow = hasPostedComment ? indexPath.row - 2 : indexPath.row - 1
                 cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath)
                 if let commentInfo = courseComments?[indexRow] {
