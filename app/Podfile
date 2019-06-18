@@ -8,5 +8,6 @@ target 'FCE++' do
   # Pods for FCE++
 pod 'Parse'
 pod 'SVProgressHUD'
+pod 'RSSelectionMenu'
 
 end

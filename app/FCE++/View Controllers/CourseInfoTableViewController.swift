@@ -10,18 +10,19 @@ import UIKit
 import Parse
 import SVProgressHUD
 
-typealias courseComments = [[String: Any]] // comments are stored as a list of dictionaries
+typealias CourseComments = [[String: Any]] // comments are stored as a list of dictionaries
 
-class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate {
+class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate, NewCommentViewControllerDelegate {
     
     var query: PFQuery<PFObject>? // the currently active comment query
     var reachability: Reachability! // the user's internet status
     
     var course: Course!  // the course being displayed
-    var instructorInfo: [[String]] = []  // the instructors json in the form of an array
+    var instructorInfo = [[String]]()  // the instructors json in the form of an array
                                          // for table indexing
     var courseInfo: [String]!  // as above but with the course information
-    var courseComments: courseComments?  // the list of comments to be displayed,
+    
+    var courseComments: CourseComments?  // the list of comments to be displayed,
                                          // can be nil if unable to load
     var commentObj: PFObject?  // the comments as an object to be passed to the newComment cell
     
@@ -33,6 +34,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     let refreshController = UIRefreshControl()
     
     override func viewDidLoad() {
+        print("viewDidLoad")
         super.viewDidLoad()
         self.failedToLoad = false
         self.hasLoadedComments = false
@@ -101,7 +103,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
                         // found objects
                         self.hasLoadedComments = true
                         let object = objects[0] // should only return one object
-                        self.courseComments = (object["comments"] as! courseComments)
+                        self.courseComments = (object["comments"] as! CourseComments)
                         self.commentObj = object
                         SVProgressHUD.dismiss()
                         self.tableView.reloadData()
@@ -112,6 +114,15 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             }
         } else {
             tableView.reloadData() // if it isn't the comment segment, just reload table
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NewComment" {
+            let vc = segue.destination as! NewCommentViewController
+            vc.commentObj = commentObj
+            vc.courseNumber = course.number
+            vc.delegate = self
         }
     }
     
@@ -141,7 +152,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         }
         self.commentObj?.fetchInBackground(block: { (object: PFObject?, error: Error?) in
             // fetch new comments in the background and update the comment array
-            self.courseComments = (object?["comments"] as! courseComments)
+            self.courseComments = (object?["comments"] as! CourseComments)
             self.refreshControl?.endRefreshing()
             if self.hasPostedComment {
                 self.hasPostedComment = false
@@ -158,12 +169,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if segmentControl.selectedSegmentIndex == 2 && indexPath.row == 0 && PFUser.current() != nil {
-            // the new comment cell
-            return 200
-        } else {
-            return UITableView.automaticDimension
-        }
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -171,9 +177,12 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             // take the guest back to login screen
             showLoginScreen()
         }
+        else if PFUser.current() != nil && indexPath.row == 0 {
+            performSegue(withIdentifier: "NewComment", sender: nil)
+        }
     }
 
-    // MARK: - Table view data source
+    //MARK: - Table view delegates
     override func numberOfSections(in tableView: UITableView) -> Int {
         if segmentControl.selectedSegmentIndex == 1 {
             // one segment for each instructor
@@ -198,6 +207,13 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
                 return 1 // failed to load cell
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if segmentControl.selectedSegmentIndex == 1 {
+            return instructorInfo[section][0]
+        }
+        return super.tableView(tableView, titleForHeaderInSection: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -232,13 +248,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
         }
         else {
             if i == 0 && PFUser.current() != nil {
-                // if there is a user, display the new comment cell first
-                let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewComment", for: indexPath) as! NewCommentTableViewCell
-                newCommentCell.courseNumber = course.number
-                newCommentCell.commentObj = commentObj
-                let button = self.view.viewWithTag(120) as! UIButton
-                button.addTarget(self, action: #selector(postClicked), for: .touchUpInside)
+                let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "CreatePost", for: indexPath)
                 return newCommentCell
+
             }
             else if i == 0 && PFUser.current() == nil {
                 // if there is no user, display the cell with the login button
@@ -255,24 +267,42 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate 
             }
             else {
                 // display comments
+                // if the user has just posted a comment, there is a temporary cell with a loading
+                // spinner, so in this case each cell must be shifted forward by one to fit this
                 let indexRow = hasPostedComment ? indexPath.row - 2 : indexPath.row - 1
-                cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath)
+                let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
                 if let commentInfo = courseComments?[indexRow] {
-                    let commentTextView = cell.viewWithTag(100) as! UITextView
-                    commentTextView.text = commentInfo["commentText"] as? String
-                    let dateLabel = cell.viewWithTag(175) as! UILabel
-                    dateLabel.text = commentInfo["timePosted"] as? String
-                    let andrewIDLabel = cell.viewWithTag(150) as! UILabel
+                    commentCell.headerLabel.text = commentInfo["header"] as? String
+                    commentCell.commentLabel.text = commentInfo["commentText"] as? String
+                    commentCell.dateLabel.text = commentInfo["timePosted"] as? String
                     if commentInfo["anonymous"] as! Bool {
-                        andrewIDLabel.text = "Anonymous"
+                        commentCell.andrewIDLabel.text = "Anonymous"
                     } else {
-                        andrewIDLabel.text = commentInfo["andrewID"] as? String
+                        commentCell.andrewIDLabel.text = commentInfo["andrewID"] as? String
                     }
                 }
+                return commentCell
             }
         }
         return cell
+    } // end of cellForIndexAt
+    
+    //MARK:- NewCommentViewControllerDelegate
+    func didPostComment(_ commentData: [String : Any]) {
+        print("didPostComment")
+        hasPostedComment = true
+        tableView.reloadData() // reload to get loading comment
+        refreshComments()
     }
+  
+    
+} // end of class
 
-
+class CommentCell: UITableViewCell {
+    
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var andrewIDLabel: UILabel!
+    
 }

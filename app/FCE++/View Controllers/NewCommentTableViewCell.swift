@@ -64,10 +64,14 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
         
         let user = PFUser.current()! // there will always be a user if this cell is active
         
-        
         // format the comment data as it is in the database
-        let commentData = ["commentText": textView.text!, "timePosted": timePosted, "andrewID": user.username!,
-                           "anonymous": anonymousSwitch.isOn] as [String : Any]
+        let commentData = ["commentText": textView.text!,
+                           "timePosted": timePosted,
+                           "andrewID": user.username!,
+                           "anonymous": anonymousSwitch.isOn,
+                           "header": "test",
+                           "courseNumber": courseNumber!
+                          ] as [String : Any]
         //get the old comments and insert the new comment at index 0
         var comments = commentObj["comments"] as! [[String : Any]]
         comments.insert(commentData, at: 0)

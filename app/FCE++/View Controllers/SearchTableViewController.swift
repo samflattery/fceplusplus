@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Parse
+import SVProgressHUD
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
     var courses: [Course]! // the array of courses taken from output.json
     var filteredCourses = [Course]() // the filtered courses to be shown to the user
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var favouriteCourses: [String]?
+    var commentsToShow: CourseComments? // holds the first three comments of favourited courses
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -25,6 +29,19 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         courses = appDelegate.courses // the AppDelegate loads the courses upon launching
         tableView.reloadData()
         configureSearchController()
+        
+//        do {
+//            try PFUser.current()?.fetch() // refresh the user's favourite courses if cached
+//        } catch {
+//            print("failed")
+//        }
+        
+        if let user = PFUser.current() {
+            favouriteCourses = (user["courses"] as! [String])
+        }
+        
+        getComments()
+        
         let cellNib = UINib(nibName: "StartScreen", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "StartScreen")
         definesPresentationContext = true
@@ -42,6 +59,48 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.sizeToFit()
     }
     
+    func getComments() {
+//        for courseNumber in favouriteCourses! {
+        let query = PFQuery(className:"Comments")
+        query.whereKey("courseNumber", containedIn: favouriteCourses!)
+        
+//            reachability = Reachability()!
+//            if reachability.connection == .none && !query!.hasCachedResult {
+//                tableView.reloadData()
+//                failedToLoad = true
+//                SVProgressHUD.showError(withStatus: "No internet connection")
+//                SVProgressHUD.dismiss(withDelay: 1)
+//                courseComments = nil
+//                commentObj = nil
+//                return
+//            }
+        SVProgressHUD.show()
+        
+        query.cachePolicy = .networkElseCache // first try network to get up to date, then cache
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if let error = error {
+                // failed to get comments for some reason
+                SVProgressHUD.dismiss()
+//                self.courseComments = nil
+//                self.commentObj = nil
+                SVProgressHUD.showError(withStatus: "Failed to load comments.")
+                SVProgressHUD.dismiss(withDelay: 1)
+                print(error)
+            } else if let objects = objects {
+                print("test")
+                // found objects
+                SVProgressHUD.dismiss()
+                self.commentsToShow = []
+                for object in objects {
+                    let courseComments = object["comments"] as! CourseComments
+                    let firstThreeComments = Array(courseComments.prefix(3)) // :CourseComments
+                    self.commentsToShow! += firstThreeComments
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CourseInfo" {
             // send the course that is pressed on to the CourseInfo view
@@ -53,14 +112,32 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     //MARK:- Table View Delegates
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !isSearching {
-            return 1 // just the home page
+            if let comments = commentsToShow { // if there are comments, show them
+                return comments.count
+            } else {
+                return 1 // a cell that redirects to login
+            }
         } else {
-            return filteredCourses.count
+            return filteredCourses.count // the number of search results
         }
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if !isSearching {
+            return "Comments for you"
+        }
+        return "Search results"
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if !isSearching {
+            if commentsToShow != nil {
+                return UITableView.automaticDimension
+            }
             return tableView.bounds.height - 50 // custom height for the homepage to fill screen
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
@@ -68,10 +145,23 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if !isSearching {
+            
+            if commentsToShow != nil { // show the comment preview cells
+                let i = indexPath.row
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CommentPreview", for: indexPath) as! CommentPreviewCell
+                cell.headerLabel.text = commentsToShow?[i]["header"] as? String
+                cell.courseNumberLabel.text = commentsToShow?[i]["courseNumber"] as? String
+                cell.commentLabel.text = commentsToShow?[i]["commentText"] as? String
+                return cell
+            }
+            
+            // show a default cell to prompt the user to login
+            // THIS NEEDS TO BE CHANGED *******
             let cell = tableView.dequeueReusableCell(withIdentifier: "StartScreen", for: indexPath)
             return cell
+            
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Course Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
         let cellInfo = filteredCourses[indexPath.row]
         cell.textLabel!.text = cellInfo.number
         if let name = cellInfo.name {
@@ -123,6 +213,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         tableView.reloadData()
     }
+}
 
-  
+class CommentPreviewCell: UITableViewCell {
+    
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var courseNumberLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    
 }

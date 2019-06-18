@@ -46,6 +46,7 @@ def store_comments_locally(app_ID):
     # returns a json like:
     # { results : [array of comment data] }
     comments = response_json["results"]
+    print(comments)
     with open("./docs/comments.json", "w") as f:
         print("Writing to file...")
         json.dump(comments, f, indent=4)

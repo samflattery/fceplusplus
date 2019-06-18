@@ -9,21 +9,31 @@
 import UIKit
 import Parse
 import SVProgressHUD
+import RSSelectionMenu
 
 class SignUpViewController: UIViewController {
     
+    // the text fields for user data
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
         
     var reachability: Reachability!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var courses: [Course]! // array of courses to display upon signup
+    var selectedCourses = [String]() // the array of courses numbers selected when signing up
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        courses = appDelegate.courses
     }
     
     @IBAction func loginPressed(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Logging in...")
-        
+                
+        let andrewID = andrewIDField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+
         reachability = Reachability()!
         if reachability.connection == .none {
             SVProgressHUD.dismiss()
@@ -32,7 +42,7 @@ class SignUpViewController: UIViewController {
             return
         }
 
-        PFUser.logInWithUsername(inBackground: andrewIDField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
+        PFUser.logInWithUsername(inBackground: andrewID, password: password) { (user: PFUser?, error: Error?) in
             if user != nil {
                 // login succeeds
                 SVProgressHUD.dismiss()
@@ -55,8 +65,49 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    @IBAction func signUpPressed(_ sender: Any) {
+    func showCourseSelection() {
+        // setup the selection menu
+        let selectionMenu = RSSelectionMenu(selectionStyle: .multiple, dataSource: courses, cellType: .subTitle) { (cell, element: Course, indexPath) in
+            
+            // populate it with the course information
+            cell.textLabel?.text = element.number
+            cell.detailTextLabel?.text = element.name
+            
+        }
+        selectionMenu.cellSelectionStyle = .checkbox // checkbox or tickmark
+        
+        selectionMenu.onDismiss = { [weak self] selectedItems in
+            // selected items is the array of courses that are selected in the menu
+            for course in selectedItems {
+                // selected courses is the array of course numbers to be stored in the cloud
+                self?.selectedCourses.append(course.number)
+            }
+            self?.signUserUpWithSelectedCourses()
+        }
+        
+        selectionMenu.showSearchBar { (searchTerm) -> ([Course]) in
+            if let _ = Int(searchTerm) { // if it's a number
+                if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
+                    // if it's in the form xxxxx then convert to xx-xxx
+                    let firstTwoIndex = searchTerm.index(searchTerm.startIndex, offsetBy: 2)
+                    let hyphenatedSearchTerm = searchTerm[..<firstTwoIndex] + "-" + searchTerm[firstTwoIndex...]
+                    return self.courses.filter { $0.number.contains(hyphenatedSearchTerm) }
+                } else { // just filter by course number
+                    return self.courses.filter { $0.number.contains(searchTerm) }
+                }
+            } else { // if it's not a number, filter by course name
+                return self.courses.filter { $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false }
+            }
+            
+        }
+        //        selectionMenu.show(style: .alert(title: "Select", action: "Done", height: nil), from: self)
+        selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
+        //        selectionMenu.show(style: .popover(sourceView: self.view, size: nil), from: self)
+    }
+    
+    func signUserUpWithSelectedCourses() {
         SVProgressHUD.show(withStatus: "Signing up...")
+        
         reachability = Reachability()!
         if reachability.connection == .none {
             SVProgressHUD.dismiss()
@@ -70,6 +121,7 @@ class SignUpViewController: UIViewController {
         user.username = andrewID
         user.password = password
         user.email = andrewID + "@andrew.cmu.edu"
+        user["courses"] = selectedCourses
         
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
@@ -87,6 +139,10 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func signUpPressed(_ sender: Any) {
+        showCourseSelection()
     }
 
 }

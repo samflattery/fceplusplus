@@ -19,6 +19,7 @@
 		0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */; };
 		0A55E90922B52ED6004FE7DE /* FailedToLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */; };
 		0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90B22B57432004FE7DE /* LoadingCell.xib */; };
+		0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */; };
 		0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDC22B1669F00FDB1AF /* output.json */; };
 		0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */; };
 		0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */; };
@@ -43,6 +44,7 @@
 		0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewController.swift; sourceTree = "<group>"; };
 		0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailedToLoad.xib; sourceTree = "<group>"; };
 		0A55E90B22B57432004FE7DE /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 		0AFB3DDC22B1669F00FDB1AF /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = ../../../backend/docs/output.json; sourceTree = "<group>"; };
 		0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
@@ -117,9 +119,10 @@
 		0A38A08822AA7255009D12D5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */,
 				0A38A06A22A98E63009D12D5 /* SearchTableViewController.swift */,
 				0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */,
-				0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */,
+				0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */,
 				0A14938422B01C87008CF495 /* NewCommentTableViewCell.swift */,
 			);
 			path = "View Controllers";
@@ -294,6 +297,7 @@
 				0A38A07B22A99CB2009D12D5 /* JSONInfo.swift in Sources */,
 				0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */,
 				0A38A06B22A98E63009D12D5 /* SearchTableViewController.swift in Sources */,
+				0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */,
 				0A14938522B01C87008CF495 /* NewCommentTableViewCell.swift in Sources */,
 				0A38A06922A98E63009D12D5 /* AppDelegate.swift in Sources */,
 			);

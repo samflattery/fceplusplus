@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RSSelectionMenu
 
 struct reqObj: Decodable {
     let invert: Bool?
@@ -41,7 +42,7 @@ struct Instructor: Decodable {
     }
 }
 
-struct Course: Decodable {
+struct Course: Decodable, UniquePropertyDelegate {
     let number: String
     let hours: Double
     let rate: Double
@@ -62,6 +63,10 @@ struct Course: Decodable {
         case rate = "overall course rate"
         case prereqsObj = "prereqs_obj"
         case coreqsObj = "coreqs_obj"
+    }
+    
+    func getUniquePropertyName() -> String {
+        return "number"
     }
 }
 
