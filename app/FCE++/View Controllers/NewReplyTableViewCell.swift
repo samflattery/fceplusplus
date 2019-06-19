@@ -10,21 +10,29 @@ import UIKit
 import Parse
 import SVProgressHUD
 
-class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
+protocol NewReplyTableViewCellDelegate {
+    func didPostReply(withData data: [String: Any])
+}
+
+class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var anonymousSwitch: UISwitch!
     @IBOutlet weak var anonymousLabel: UILabel!
     
-    var courseNumber: String!
+    var delegate: NewReplyTableViewCellDelegate!
+    
     var commentObj: PFObject!
+    var comments: CourseComments!
+    var indexOfComment: Int!
     
     var reachability: Reachability!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         textView.delegate = self
+        textView.text = "Leave a reply!"
         textView.textColor = .lightGray
         
         postButton.isHidden = true
@@ -58,42 +66,22 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
         formatter.dateStyle = .medium
         let timePosted = formatter.string(from: currentDateTime)
         
-        if let comment = commentObj {
-            comment.fetchInBackground()
-        }
-        
         let user = PFUser.current()! // there will always be a user if this cell is active
         
         // format the comment data as it is in the database
-        let commentData = ["commentText": textView.text!,
-                           "timePosted": timePosted,
-                           "andrewID": user.username!,
-                           "anonymous": anonymousSwitch.isOn,
-                           "header": "test",
-                           "courseNumber": courseNumber!
-                          ] as [String : Any]
-        //get the old comments and insert the new comment at index 0
-        var comments = commentObj["comments"] as! [[String : Any]]
-        comments.insert(commentData, at: 0)
-        commentObj["comments"] = comments
+        let replyData = ["replyText": textView.text!,
+                         "timePosted": timePosted,
+                         "andrewID": user.username!,
+                         "anonymous": anonymousSwitch.isOn] as [String : Any] //to append to replies
         
-        commentObj.saveInBackground {
-            (success: Bool, error: Error?) in
-            if (success) {
-                // if it succeeds, reload the table to show the new comment
-                let tableView = self.superview! as! UITableView
-                tableView.reloadData()
-            } else {
-                SVProgressHUD.showError(withStatus: "Failed to post comment")
-                SVProgressHUD.dismiss(withDelay: 1)
-            }
-        }
+        delegate.didPostReply(withData: replyData)
         
         // reset the text view to its default
         textView.resignFirstResponder()
-        textView.text = "Leave a comment!"
+        textView.text = "Leave a reply!"
         textView.textColor = .lightGray
         postButton.isHidden = true
+        
     }
 
     //MARK:- Text Field Delegates
@@ -112,7 +100,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         // remove the default text
-        if textView.text == "Leave a comment!" && textView.textColor == .lightGray {
+        if textView.text == "Leave a reply!" && textView.textColor == .lightGray {
             textView.text = ""
             textView.textColor = .black
         }
@@ -125,7 +113,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextViewDelegate {
         anonymousSwitch.isHidden = true
         anonymousLabel.isHidden = true
         if textView.text == "" {
-            textView.text = "Leave a comment!"
+            textView.text = "Leave a reply!"
             textView.textColor = .lightGray
         }
         textView.resignFirstResponder()

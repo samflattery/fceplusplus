@@ -87,7 +87,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 SVProgressHUD.dismiss(withDelay: 1)
                 print(error)
             } else if let objects = objects {
-                print("test")
                 // found objects
                 SVProgressHUD.dismiss()
                 self.commentsToShow = []

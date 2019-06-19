@@ -11,9 +11,10 @@ import Parse
 import SVProgressHUD
 
 typealias CourseComments = [[String: Any]] // comments are stored as a list of dictionaries
+typealias CourseComment = [String: Any]
 
 class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate, NewCommentViewControllerDelegate {
-    
+
     var query: PFQuery<PFObject>? // the currently active comment query
     var reachability: Reachability! // the user's internet status
     
@@ -119,10 +120,15 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewComment" {
-            let vc = segue.destination as! NewCommentViewController
-            vc.commentObj = commentObj
-            vc.courseNumber = course.number
-            vc.delegate = self
+            let controller = segue.destination as! NewCommentViewController
+            controller.commentObj = commentObj
+            controller.courseNumber = course.number
+            controller.delegate = self
+        } else if segue.identifier == "ShowReplies" {
+            let controller = segue.destination as! CommentRepliesViewController
+            controller.commentObj = commentObj
+            let commentIndex = sender as! Int
+            controller.commentIndex = commentIndex
         }
     }
     
@@ -173,12 +179,16 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if PFUser.current() == nil && indexPath.row == 0 {
-            // take the guest back to login screen
-            showLoginScreen()
-        }
-        else if PFUser.current() != nil && indexPath.row == 0 {
-            performSegue(withIdentifier: "NewComment", sender: nil)
+        if segmentControl.selectedSegmentIndex == 2 {
+            if PFUser.current() == nil && indexPath.row == 0 {
+                // take the guest back to login screen
+                showLoginScreen()
+            } else if PFUser.current() != nil && indexPath.row == 0 {
+                performSegue(withIdentifier: "NewComment", sender: nil)
+            } else {
+                performSegue(withIdentifier: "ShowReplies", sender: indexPath.row - 1)
+                // the create new comment cell is first so it must be offset by one
+            }
         }
     }
 
@@ -289,12 +299,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     //MARK:- NewCommentViewControllerDelegate
     func didPostComment(_ commentData: [String : Any]) {
-        print("didPostComment")
         hasPostedComment = true
         tableView.reloadData() // reload to get loading comment
         refreshComments()
     }
-  
     
 } // end of class
 

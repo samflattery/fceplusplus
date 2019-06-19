@@ -30,7 +30,11 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureTextViews()
+    }
+    
+    func configureTextViews() {
+        // sets up delegates, default text, colors and borders
         headerTextView.delegate = self
         commentTextView.delegate = self
         
@@ -50,12 +54,10 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         self.commentTextView.layer.borderColor = borderColor.cgColor
         self.commentTextView.layer.borderWidth = 0.8
         self.commentTextView.layer.cornerRadius = 5
-        
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
-        
-        // post the comment to the server as in the NewCommentCell
+        // posts the comment to the server when post button is pressed
         reachability = Reachability()!
         
         // if there's no internet connection, inform the user with an alert
@@ -77,7 +79,7 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
             comment.fetchInBackground()
         }
         
-        let user = PFUser.current()! // there will always be a user if this cell is active
+        let user = PFUser.current()! // the user will never be nil if this segue happens
         
         // format the comment data as it is in the database
         let commentData = ["commentText": commentTextView.text!,
@@ -85,10 +87,12 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
                            "andrewID": user.username!,
                            "anonymous": anonymousSwitch.isOn,
                            "header": headerTextView.text!,
-                           "courseNumber": courseNumber! ] as [String : Any]
+                           "courseNumber": courseNumber!,
+                           "replies": []] as [String : Any]
         
-        //get the old comments and insert the new comment at the beginning
+        //get the old comments
         var comments = commentObj["comments"] as! [[String : Any]]
+        // insert the new comment at the beginning and rewrite the old comments
         comments.insert(commentData, at: 0)
         commentObj["comments"] = comments
         
@@ -98,11 +102,15 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
             (success: Bool, error: Error?) in
             if success {
                 SVProgressHUD.dismiss()
-                self.delegate.didPostComment(commentData)
+                self.delegate.didPostComment(commentData) // refreshes the table view in previous view
                 self.navigationController?.popViewController(animated: true)
             } else {
                 SVProgressHUD.dismiss()
-                SVProgressHUD.showError(withStatus: "Failed to post comment")
+                if let error = error {
+                    SVProgressHUD.show(withStatus: error.localizedDescription)
+                } else {
+                    SVProgressHUD.showError(withStatus: "Failed to post comment")
+                }
                 SVProgressHUD.dismiss(withDelay: 1)
             }
         }
