@@ -45,6 +45,7 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         commentTextView.text = "Body (optional)"
         postButton.isEnabled = false
         
+        // borders for textViews
         let borderColor = UIColor.init(red: 212/255, green: 212/255, blue: 212/255, alpha: 0.5)
         
         self.headerTextView.layer.borderColor = borderColor.cgColor

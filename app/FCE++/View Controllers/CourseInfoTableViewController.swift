@@ -220,37 +220,45 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!
+//        var cell: UITableViewCell!
         let i = indexPath.row
         let j = indexPath.section
         
         if failedToLoad && segmentControl.selectedSegmentIndex == 2 {
             // only display the failed to load cell
-            return tableView.dequeueReusableCell(withIdentifier: "FailedToLoad", for: indexPath)
+            let failedToLoadCell = tableView.dequeueReusableCell(withIdentifier: "FailedToLoad", for: indexPath)
+            return failedToLoadCell
         }
-        
+
         if segmentControl.selectedSegmentIndex == 0 {
+            // the course information segment's cells
             if i == 6 {
                 // the description cell is different
-                cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath)
-                let textLabel = cell.viewWithTag(15) as! UILabel
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath)
+                let textLabel = descriptionCell.viewWithTag(15) as! UILabel
                 textLabel.text = infoTitles[i]
-                let detailLabel = cell.viewWithTag(16) as! UILabel
+                let detailLabel = descriptionCell.viewWithTag(16) as! UILabel
                 detailLabel.text = courseInfo[i]
-                return cell
+                return descriptionCell
+            } else {
+                // just a normal course info cell
+                let infoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath)
+                infoCell.textLabel!.text = infoTitles[i] // the title of the info field
+                infoCell.detailTextLabel!.text = courseInfo[i] // the info itself
+                return infoCell
             }
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel!.text = infoTitles[i]
-            cell.detailTextLabel!.text = courseInfo[i]
         }
         else if segmentControl.selectedSegmentIndex == 1 {
-            // instructor cells
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel!.text = instructorTitles[i]
-            cell.detailTextLabel!.text = instructorInfo[j][i]
+            // the instructor segment's cells
+            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath)
+            instructorCell.textLabel!.text = instructorTitles[i] // title of instructor field
+            instructorCell.detailTextLabel!.text = instructorInfo[j][i] // the instructor info
+            return instructorCell
         }
         else {
+            // the comment segment's cells
             if i == 0 && PFUser.current() != nil {
+                // show the new comment cell as the first cell
                 let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "CreatePost", for: indexPath)
                 return newCommentCell
 
@@ -287,7 +295,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 return commentCell
             }
         }
-        return cell
     } // end of cellForIndexAt
     
     //MARK:- NewCommentViewControllerDelegate
