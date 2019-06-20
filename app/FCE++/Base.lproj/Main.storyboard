@@ -95,6 +95,7 @@
                     <navigationItem key="navigationItem" title="(Search Bar)" id="fK4-7w-Os5"/>
                     <connections>
                         <segue destination="yYW-RS-tm2" kind="show" identifier="CourseInfo" id="iQg-M2-WZw"/>
+                        <segue destination="YhK-5T-Bu6" kind="show" identifier="ShowReplyFromHome" id="IEO-sG-2BC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2t-c4-i6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -412,5 +413,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="c43-4J-BWc"/>
+        <segue reference="IEO-sG-2BC"/>
     </inferredMetricsTieBreakers>
 </document>

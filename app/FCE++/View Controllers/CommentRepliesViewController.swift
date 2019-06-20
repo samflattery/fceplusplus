@@ -34,17 +34,18 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         cellNib = UINib(nibName: "CommentCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "CommentCell")
         
+        cellNib = UINib(nibName: "LoadingCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
+        
         setFieldsFromObject(commentObj)
 
     }
     
     func setFieldsFromObject(_ commentObj: PFObject) {
-        
         let allComments = commentObj["comments"]! as! NSArray // the commentObj is a dictonary with
         // keys "comments" and "courseNumber"
         self.comment = (allComments[commentIndex] as! CourseComment) // just get the comment that was tapped on
         self.commentReplies = (self.comment["replies"] as! CommentReplies) // get replies of that comment
-        
     }
     
     //MARK:- Table View Delegates
@@ -94,12 +95,19 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             return commentCell
         } else if indexPath.section == 1 { // the new comment cell
             let newReplyCell = tableView.dequeueReusableCell(withIdentifier: "NewReply", for: indexPath) as! NewReplyTableViewCell
-            newReplyCell.commentObj = self.commentObj
             newReplyCell.delegate = self
             return newReplyCell
         } else { // display the replies
+            
+            if indexPath.row == 0 && isLoadingComment {
+                let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+                loadingCell.spinner.startAnimating()
+                return loadingCell
+            }
+            
+            let indexRow = isLoadingComment ? indexPath.row - 1 : indexPath.row
             let replyCell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath) as! CommentReplyCell
-            let commentReply = commentReplies[indexPath.row]
+            let commentReply = commentReplies[indexRow]
             replyCell.replyLabel.text = commentReply["replyText"] as? String
             replyCell.dateLabel.text = commentReply["timePosted"] as? String
             if commentReply["anonymous"] as! Bool {
@@ -114,6 +122,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     //MARK:- NewReplyTableViewCellDelegate
     func didStartReplying() {
         isLoadingComment = true
+        tableView.reloadData()
     }
     
     func didPostReply(withData data: [String : Any]) {
@@ -121,6 +130,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         // was replied to
         // get the old replies from the single comment
         isLoadingComment = true
+        tableView.reloadData()
         commentObj.fetchInBackground { (object: PFObject?, error: Error?) in
             if let object = object {
                 var comments = (object["comments"] as! CourseComments)
@@ -153,9 +163,6 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             }
         }
     }
-    
-   
-    
 
 } // end of class
 
@@ -165,4 +172,8 @@ class CommentReplyCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var andrewIDLabel: UILabel!
     
+}
+
+class LoadingCell: UITableViewCell {
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
 }

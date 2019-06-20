@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var courses: [Course]!
-//    public var comments: [Comment]?
     
     func getCourseJSON() -> [Course] {
+        // parses output.json into an array of course dictionaries
         if let url = Bundle.main.url(forResource: "output", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url, options: .mappedIfSafe)

@@ -27,9 +27,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                                          // can be nil if unable to load
     var commentObj: PFObject?  // the comments as an object to be passed to the newComment cell
     
-    var hasLoadedComments = false // have the comments already been loaded in the background?
+    var hasDownloadedComments = false // have the comments already been loaded in the background?
     var failedToLoad = false  // the user has no internet, show them the failed to load cell
-    var hasPostedComment = false  // if the user posts a new comment, show loading cell
+    var isLoadingComment = false  // if the user posts a new comment, show loading cell
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     let refreshController = UIRefreshControl()
@@ -38,7 +38,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         print("viewDidLoad")
         super.viewDidLoad()
         self.failedToLoad = false
-        self.hasLoadedComments = false
+        self.hasDownloadedComments = false
         tableView.estimatedRowHeight = 60
         
         //Register all of the cell nibs
@@ -73,7 +73,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 2 { // comments segment
             tableView.refreshControl = refreshController
             refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
-            if !hasLoadedComments {
+            if !hasDownloadedComments {
                 query = PFQuery(className:"Comments")
                 query!.whereKey("courseNumber", equalTo: course.number)
                 
@@ -102,7 +102,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                         print("failed in segment value changed", error.localizedDescription)
                     } else if let objects = objects {
                         // found objects
-                        self.hasLoadedComments = true
+                        self.hasDownloadedComments = true
                         let object = objects[0] // should only return one object
                         self.courseComments = (object["comments"] as! CourseComments)
                         self.commentObj = object
@@ -139,14 +139,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         SVProgressHUD.dismiss()
     }
     
-    @objc func postClicked() {
-        // called when the post new comment button has been pressed
-        hasPostedComment = true
-        tableView.reloadData() // reload to get loading comment
-        refreshComments()
-    }
-    
-    @objc func refreshComments() {
+    @objc func refreshComments() { // needs to be objc for the refreshControl
         // called when post clicked or when pulled to refresh
         reachability = Reachability()!
         if reachability.connection == .none {
@@ -160,8 +153,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             // fetch new comments in the background and update the comment array
             self.courseComments = (object?["comments"] as! CourseComments)
             self.refreshControl?.endRefreshing()
-            if self.hasPostedComment {
-                self.hasPostedComment = false
+            if self.isLoadingComment {
+                self.isLoadingComment = false
             }
             self.tableView.reloadData()
         })
@@ -209,7 +202,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             return 11 // one for each piece of instructor info
         } else {
             if let comments = courseComments {
-                if hasPostedComment {
+                if isLoadingComment {
                     return comments.count + 2 // 2 extra for new comment and loading comment cells
                 }
                 return comments.count + 1
@@ -269,17 +262,17 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 button.addTarget(self, action: #selector(showLoginScreen), for: .touchUpInside)
                 return guestCommentCell
             }
-            else if i == 1 && hasPostedComment {
+            else if i == 1 && isLoadingComment {
                 // if the user posted a new comment, display the loading cell
-                cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
-                let activitySpinner = cell.viewWithTag(121) as! UIActivityIndicatorView
-                activitySpinner.startAnimating()
+                let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+                loadingCell.spinner.startAnimating()
+                return loadingCell
             }
             else {
                 // display comments
                 // if the user has just posted a comment, there is a temporary cell with a loading
                 // spinner, so in this case each cell must be shifted forward by one to fit this
-                let indexRow = hasPostedComment ? indexPath.row - 2 : indexPath.row - 1
+                let indexRow = isLoadingComment ? indexPath.row - 2 : indexPath.row - 1
                 let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
                 if let commentInfo = courseComments?[indexRow] {
                     commentCell.headerLabel.text = commentInfo["header"] as? String
@@ -298,15 +291,43 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     } // end of cellForIndexAt
     
     //MARK:- NewCommentViewControllerDelegate
-    func didPostComment(_ commentData: [String : Any]) {
-        hasPostedComment = true
-        tableView.reloadData() // reload to get loading comment
-        refreshComments()
+    func didPostComment(withData data: [String : Any]) {
+        isLoadingComment = true
+        tableView.reloadData() // display loading cell
+        commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
+            if let object = object { // if it succeeds to fetch any updates
+                var comments = object["comments"] as! [[String : Any]] // the current comments
+                // insert the new comment at the beginning and rewrite the old comments
+                comments.insert(data, at: 0)
+                object["comments"] = comments
+                
+                object.saveInBackground(block: { (success: Bool, error: Error?) in
+                    if success {
+                        self.isLoadingComment = false // remove the loading cell
+                        // update the courseComments with the new comments
+                        self.courseComments = (object["comments"] as! CourseComments)
+                        self.tableView.reloadData()
+                    } else if let error = error {
+                        SVProgressHUD.showError(withStatus: error.localizedDescription)
+                        SVProgressHUD.dismiss(withDelay: 1)
+                    } else {
+                        SVProgressHUD.showError(withStatus: "Something went wrong")
+                        SVProgressHUD.dismiss(withDelay: 1)
+                    }
+                })
+            } else if let error = error {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                SVProgressHUD.dismiss(withDelay: 1.5)
+            } else {
+                SVProgressHUD.showError(withStatus: "Something went wrong")
+                SVProgressHUD.dismiss(withDelay: 1)
+            }
+        }
     }
     
 } // end of class
 
-class CommentCell: UITableViewCell {
+class CommentCell: UITableViewCell { // the cell that displays a comment
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!

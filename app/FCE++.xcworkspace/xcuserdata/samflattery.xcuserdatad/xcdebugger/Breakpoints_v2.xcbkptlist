@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCE++/View Controllers/CourseInfoTableViewController.swift"
-            timestampString = "582650496.457104"
+            timestampString = "582737965.886067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>

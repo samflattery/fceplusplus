@@ -11,7 +11,7 @@ import Parse
 import SVProgressHUD
 
 protocol NewCommentViewControllerDelegate {
-    func didPostComment(_ commentData: [String: Any])
+    func didPostComment(withData data: [String: Any])
 }
 
 class NewCommentViewController: UIViewController, UITextViewDelegate {
@@ -74,11 +74,6 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         formatter.dateStyle = .medium
         let timePosted = formatter.string(from: currentDateTime)
         
-        // refresh the comment object before updating in case new comments have been posted
-        if let comment = commentObj {
-            comment.fetchInBackground()
-        }
-        
         let user = PFUser.current()! // the user will never be nil if this segue happens
         
         // format the comment data as it is in the database
@@ -90,30 +85,8 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
                            "courseNumber": courseNumber!,
                            "replies": []] as [String : Any]
         
-        //get the old comments
-        var comments = commentObj["comments"] as! [[String : Any]]
-        // insert the new comment at the beginning and rewrite the old comments
-        comments.insert(commentData, at: 0)
-        commentObj["comments"] = comments
-        
-        SVProgressHUD.show(withStatus: "Posting...")
-        
-        commentObj.saveInBackground {
-            (success: Bool, error: Error?) in
-            if success {
-                SVProgressHUD.dismiss()
-                self.delegate.didPostComment(commentData) // refreshes the table view in previous view
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                SVProgressHUD.dismiss()
-                if let error = error {
-                    SVProgressHUD.show(withStatus: error.localizedDescription)
-                } else {
-                    SVProgressHUD.showError(withStatus: "Failed to post comment")
-                }
-                SVProgressHUD.dismiss(withDelay: 1)
-            }
-        }
+        self.navigationController?.popViewController(animated: true)
+        delegate.didPostComment(withData: commentData)
     }
     
     //MARK:- Text Field Delegates

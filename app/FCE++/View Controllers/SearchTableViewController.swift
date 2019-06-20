@@ -14,7 +14,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     var courses: [Course]! // the array of courses taken from output.json
     var filteredCourses = [Course]() // the filtered courses to be shown to the user
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var favouriteCourses: [String]?
     var commentsToShow: CourseComments? // holds the first three comments of favourited courses
     
@@ -26,17 +25,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         courses = appDelegate.courses // the AppDelegate loads the courses upon launching
         tableView.reloadData()
         configureSearchController()
         
-//        do {
-//            try PFUser.current()?.fetch() // refresh the user's favourite courses if cached
-//        } catch {
-//            print("failed")
-//        }
-        
         if let user = PFUser.current() {
+            //if someone is signed in, get their favourite courses
             favouriteCourses = (user["courses"] as! [String])
         }
         
@@ -60,7 +55,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     func getComments() {
-//        for courseNumber in favouriteCourses! {
         let query = PFQuery(className:"Comments")
         query.whereKey("courseNumber", containedIn: favouriteCourses!)
         
@@ -81,21 +75,23 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             if let error = error {
                 // failed to get comments for some reason
                 SVProgressHUD.dismiss()
-//                self.courseComments = nil
-//                self.commentObj = nil
-                SVProgressHUD.showError(withStatus: "Failed to load comments.")
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
                 SVProgressHUD.dismiss(withDelay: 1)
                 print(error)
             } else if let objects = objects {
                 // found objects
                 SVProgressHUD.dismiss()
                 self.commentsToShow = []
-                for object in objects {
+                for object in objects { // each object is a course and its comments
                     let courseComments = object["comments"] as! CourseComments
                     let firstThreeComments = Array(courseComments.prefix(3)) // :CourseComments
                     self.commentsToShow! += firstThreeComments
                 }
                 self.tableView.reloadData()
+            } else {
+                SVProgressHUD.dismiss()
+                SVProgressHUD.showError(withStatus: "Failed to load comments")
+                SVProgressHUD.dismiss(withDelay: 1)
             }
         }
     }
@@ -175,6 +171,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if isSearching {
             let course = filteredCourses[indexPath.row]
             performSegue(withIdentifier: "CourseInfo", sender: course)
+        } else {
+            // perform the segue to the comment replies
         }
     }
     

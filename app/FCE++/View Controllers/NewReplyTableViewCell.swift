@@ -22,11 +22,7 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var anonymousLabel: UILabel!
     
     var delegate: NewReplyTableViewCellDelegate!
-    
-    var commentObj: PFObject!
-    var comments: CourseComments!
-    var indexOfComment: Int!
-    
+
     var reachability: Reachability!
     
     override func awakeFromNib() {
