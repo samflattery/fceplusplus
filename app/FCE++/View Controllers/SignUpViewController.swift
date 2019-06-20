@@ -72,8 +72,8 @@ class SignUpViewController: UIViewController {
             // populate it with the course information
             cell.textLabel?.text = element.number
             cell.detailTextLabel?.text = element.name
-            
         }
+        
         selectionMenu.cellSelectionStyle = .checkbox // checkbox or tickmark
         
         selectionMenu.onDismiss = { [weak self] selectedItems in

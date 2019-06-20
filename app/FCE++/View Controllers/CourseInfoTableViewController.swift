@@ -35,7 +35,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     let refreshController = UIRefreshControl()
     
     override func viewDidLoad() {
-        print("viewDidLoad")
         super.viewDidLoad()
         self.failedToLoad = false
         self.hasDownloadedComments = false
