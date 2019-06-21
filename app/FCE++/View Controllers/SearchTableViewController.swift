@@ -28,7 +28,7 @@ struct CommentsToShow {
     }
 }
 
-class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, InfoPageViewControllerDelegate {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, InfoPageViewControllerDelegate, GuestCommentCellDelegate {
     
     var courses: [Course]! // the array of courses taken from output.json
     var filteredCourses = [Course]() // the filtered courses to be shown to the user
@@ -214,17 +214,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if !isSearching {
-            return "Comments for you"
+            if PFUser.current() == nil {
+                return nil
+            } else {
+                return "Comments for you"
+            }
         }
         return "Search results"
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if !isSearching {
-            if commentsToShow != nil || isLoadingComments {
-                return UITableView.automaticDimension
-            }
-            return tableView.bounds.height - 50 // custom height for the homepage to fill screen
+            return UITableView.automaticDimension
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
@@ -250,9 +251,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 }
 
             // show a default cell to prompt the user to login
-            // THIS NEEDS TO BE CHANGED *******
-            let cell = tableView.dequeueReusableCell(withIdentifier: "StartScreen", for: indexPath)
-            return cell
+            let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginCell", for: indexPath) as! GuestCommentCell
+            loginCell.delegate = self
+            return loginCell
         } else {
             // Show the search result cells
             let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
@@ -272,8 +273,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             let course = filteredCourses[indexPath.row]
             performSegue(withIdentifier: "CourseInfo", sender: course)
         } else {
-            // perform the segue to the comment replies
-            performSegue(withIdentifier: "ShowRepliesFromHome", sender: indexPath.row)
+            if PFUser.current() == nil {
+                // if the guest wants to login, return them to login screen
+                showLoginScreen()
+            } else {
+                // perform the segue to the comment replies
+                performSegue(withIdentifier: "ShowRepliesFromHome", sender: indexPath.row)
+            }
         }
     }
     
@@ -328,6 +334,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     func highlightedCoursesDidChange(to newCourses: [String]) {
         self.highlightedCourses = newCourses
         getCommentsToDisplay(toReload: false)
+    }
+    
+    //MARK:- GuestCommentCellDelegate
+    func showLoginScreen() {
+        // called when the guest pressed 'login to comment'
+        // instantiate a new signupscreen and push it to navigation stack
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
+        vc.hasComeFromGuest = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

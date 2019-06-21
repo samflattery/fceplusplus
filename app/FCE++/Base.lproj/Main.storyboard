@@ -86,6 +86,29 @@
                                     <outlet property="headerLabel" destination="W9a-GW-Ots" id="BT1-Vo-UrV"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" rowHeight="67" id="dNZ-fq-RoN" customClass="GuestCommentCell" customModule="FCE__" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="262.5" width="375" height="67"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dNZ-fq-RoN" id="3BM-5I-DJZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojo-ZO-zhQ">
+                                            <rect key="frame" x="168" y="18" width="38" height="30"/>
+                                            <state key="normal" title="Login"/>
+                                            <connections>
+                                                <action selector="loginPressed:" destination="dNZ-fq-RoN" eventType="touchUpInside" id="ZLS-eq-ntL"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ojo-ZO-zhQ" firstAttribute="leading" secondItem="3BM-5I-DJZ" secondAttribute="leadingMargin" constant="152" id="TYh-DW-fPt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ojo-ZO-zhQ" secondAttribute="bottom" constant="8" id="Vzh-E4-4aM"/>
+                                        <constraint firstItem="ojo-ZO-zhQ" firstAttribute="top" secondItem="3BM-5I-DJZ" secondAttribute="topMargin" constant="7" id="hbD-kw-3E4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ojo-ZO-zhQ" secondAttribute="trailing" constant="153" id="tmw-82-q4q"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="KDz-kr-j3c" id="RZt-i7-fea"/>
@@ -160,7 +183,10 @@
                         <viewLayoutGuide key="safeArea" id="fMK-7M-BNy"/>
                     </view>
                     <connections>
+                        <outlet property="highlightedCoursesButton" destination="vt0-9m-tDH" id="zDR-3c-gAU"/>
+                        <outlet property="logoutButton" destination="TWN-Sb-M5y" id="rUQ-0Y-NYp"/>
                         <segue destination="fsI-7I-Q4g" kind="presentation" identifier="Logout" id="xpD-W6-LlI"/>
+                        <segue destination="fsI-7I-Q4g" kind="show" identifier="Login" id="Ucy-pN-Ceb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSb-So-eye" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,6 +506,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="lwZ-0G-G9s"/>
+        <segue reference="Ucy-pN-Ceb"/>
         <segue reference="IEO-sG-2BC"/>
     </inferredMetricsTieBreakers>
 </document>

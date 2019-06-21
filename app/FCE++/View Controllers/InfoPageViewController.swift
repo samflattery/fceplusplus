@@ -18,13 +18,41 @@ protocol InfoPageViewControllerDelegate {
 
 class InfoPageViewController: UIViewController {
     
+    // needs to be changed to a login button when there is no user
+    @IBOutlet weak var logoutButton: UIButton!
+    // needs to be hidden when there is no user
+    @IBOutlet weak var highlightedCoursesButton: UIButton!
+    
     var highlightedCourses: [String]! // the user's current highlighted courses
     var courses: [Course]! // all of the courses to populate selection menu with
     var newHighlightedCourses = [String]() // the user's new highlighted courses
     var delegate: InfoPageViewControllerDelegate!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if PFUser.current() == nil {
+            // if there is no user, hide the courses button and set logout to login
+            highlightedCoursesButton.isHidden = true
+            logoutButton.setTitle("Login", for: .normal)
+        } else {
+            highlightedCoursesButton.isHidden = false
+            logoutButton.setTitle("Logout", for: .normal)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Logout" {
+            PFUser.logOut()
+        }
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
-        performSegue(withIdentifier: "Logout", sender: nil)
+        if PFUser.current() != nil {
+            performSegue(withIdentifier: "Logout", sender: nil)
+        } else {
+            performSegue(withIdentifier: "Login", sender: nil)
+        }
     }
 
     @IBAction func showCourses(_ sender: Any) {
@@ -102,16 +130,6 @@ class InfoPageViewController: UIViewController {
             }
         }
         return defaults
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Logout" {
-            PFUser.logOut()
-        }
     }
 
 }
