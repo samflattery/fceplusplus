@@ -84,7 +84,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if PFUser.current() == nil && indexPath.section == 1 {
-            loginPressed()
+            showLoginScreen()
         }
     }
     

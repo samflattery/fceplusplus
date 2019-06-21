@@ -167,7 +167,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 2 {
             if PFUser.current() == nil && indexPath.row == 0 {
                 // take the guest back to login screen
-                loginPressed()
+                showLoginScreen()
             } else if PFUser.current() != nil && indexPath.row == 0 {
                 performSegue(withIdentifier: "NewComment", sender: nil)
             } else {

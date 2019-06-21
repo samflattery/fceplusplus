@@ -17,7 +17,7 @@ class GuestCommentCell: UITableViewCell {
     var delegate: GuestCommentCellDelegate!
     
     @IBAction func loginPressed(_ sender: Any) {
-        delegate.showLoginScreen()()
+        delegate.showLoginScreen()
     }
     
     override func awakeFromNib() {
