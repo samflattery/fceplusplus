@@ -121,7 +121,7 @@ class SignUpViewController: UIViewController {
         user.username = andrewID
         user.password = password
         user.email = andrewID + "@andrew.cmu.edu"
-        user["courses"] = selectedCourses
+        user["highlightedCourses"] = selectedCourses
         
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {

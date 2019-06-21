@@ -14,12 +14,12 @@ struct CommentsToShow {
     // need the comments to be shown on the table
     var comments: CourseComments!
     
-    // need to objects and indexes of comments to be passed to CommentReplyViewController
-    // a course's comments are stored in an array, so in order to
-    // perform a segue to the comment a user selects, we need to know
-    // which index of the array the comment that they pressed on is at
+    // array of comment objects to be passed to CommentReplyViewController
     var objects: [PFObject]!
-    var indexes: [Int]!
+    
+    // the first element of the tuple is the index of the selected object in the object array
+    // the second element is the index of the selected comment in that course's comments
+    var indexes: [(Int, Int)]!
     
     init() {
         comments = []
@@ -28,23 +28,22 @@ struct CommentsToShow {
     }
 }
 
-class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, InfoPageViewControllerDelegate {
     
     var courses: [Course]! // the array of courses taken from output.json
     var filteredCourses = [Course]() // the filtered courses to be shown to the user
-    var favouriteCourses: [String]?
+    var highlightedCourses: [String]?
     
     var commentsToShow: CommentsToShow?
-
-//    var commentsToShow: CourseComments? // holds the first three comments of favourited courses
-//    var commentObjects: [PFObject]? // the PFObjects of the commentsToShow to be used in segue
-//    var commentIndexes: [Int]? // the index of each comment inside the course's overall comments
+    var isLoadingComments = false
     
     let searchController = UISearchController(searchResultsController: nil)
     
     var isSearching: Bool { // is the user currently typing a search
         return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
     }
+    
+    var infoBarButtonItem: UIBarButtonItem! // the info button to be put in the navigation bar
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,14 +54,30 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         if let user = PFUser.current() {
             //if someone is signed in, get their favourite courses
-            favouriteCourses = (user["courses"] as! [String])
+            highlightedCourses = (user["highlightedCourses"] as! [String])
         }
         
-        let cellNib = UINib(nibName: "StartScreen", bundle: nil)
+        var cellNib = UINib(nibName: "StartScreen", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "StartScreen")
+        
+        cellNib = UINib(nibName: "LoadingCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
+        
         definesPresentationContext = true
         
-        getCommentsToDisplay()
+        getCommentsToDisplay(toReload: true)
+        
+        // Create the info button
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(showInfoScreen), for: .touchUpInside)
+        // Create a bar button item using the info button as its custom view
+        infoBarButtonItem = UIBarButtonItem(customView: infoButton)
+        navigationItem.leftBarButtonItem = infoBarButtonItem
+
+    }
+    
+    @objc func showInfoScreen() {
+        performSegue(withIdentifier: "ShowInfo", sender: nil)
     }
     
     func configureSearchController() {
@@ -77,54 +92,77 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.sizeToFit()
     }
     
-    func getCommentsToDisplay() {
+    func getCommentsToDisplay(toReload reload: Bool) {
         let query = PFQuery(className:"Comments")
         // get all objects where the course name is in the user's favourite courses
-        query.whereKey("courseNumber", containedIn: favouriteCourses!)
+        query.whereKey("courseNumber", containedIn: highlightedCourses!)
         
         let reachability = Reachability()!
         if reachability.connection == .none && !query.hasCachedResult {
+            commentsToShow = nil
             tableView.reloadData()
             SVProgressHUD.showError(withStatus: "Could not display comments - no internet connection")
             SVProgressHUD.dismiss(withDelay: 1)
-            commentsToShow = nil
             return
         }
         
-        SVProgressHUD.show()
+        if reload {
+            // if new highlightedCourses have been selected, the table view will have already
+            // reloaded before this point, so no need to do it again
+            isLoadingComments = true
+            tableView.reloadData()
+        }
         
         query.cachePolicy = .networkElseCache // first try network to get up to date, then cache
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            self.isLoadingComments = false
             if let objects = objects {
                 // found objects
-                SVProgressHUD.dismiss()
                 self.commentsToShow = CommentsToShow() // initialize a new struct
-                for object in objects { // each object is a course and its comments
+                
+                /* when performing the segue to CommentReplyViewController, we need to pass the
+                 object and the index of the comment that was pressed on in that object
+                 
+                 it was not possible to loop through using for i in 0..<objects.count because some
+                 of the objects are empty and thus this gave indexing errors
+                 
+                 the end results is as follows:
+                 objects = [Object0, Object1, Object2, ...]
+                 comments = [Comment0.0, Comment0.1, Comment1.0, Comment2.0, ...]
+                 indexes = [(0,0), (0,1), (1,0), (2,0), ...]
+                 
+                 the indices line up with the comments and show the relative index of the object to
+                 which the comment belongs, and the comment's index in that object's comment array
+ 
+                */
+                var objectIndex = -1 // the index of the object in the object array
+                
+                for object in objects {
                     let courseComments = object["comments"] as! CourseComments
                     if courseComments.count == 0 {
-                        continue
+                        continue // if there are no comments in the object, don't add anything
                     }
+                    objectIndex += 1
+            
                     self.commentsToShow!.objects.append(object) // add each object
-                
                     let firstThreeComments: CourseComments = Array(courseComments.prefix(3))
-                    for i in 0..<firstThreeComments.count {
-    
-                        self.commentsToShow!.indexes.append(i)
+                    for j in 0..<firstThreeComments.count {
+                        // append the indices for each comment
+                        self.commentsToShow!.indexes.append((objectIndex, j))
                     }
                     self.commentsToShow!.comments += firstThreeComments
                 }
-                self.tableView.reloadData()
             } else if let error = error {
                 // failed to get comments for some reason
-                SVProgressHUD.dismiss()
+                // show a tap to refresh button or something?????
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
                 SVProgressHUD.dismiss(withDelay: 1)
                 print(error)
             } else {
-                SVProgressHUD.dismiss()
                 SVProgressHUD.showError(withStatus: "Failed to load comments")
                 SVProgressHUD.dismiss(withDelay: 1)
             }
+            self.tableView.reloadData()
         }
     }
     
@@ -135,19 +173,34 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             controller.course = sender as? Course
         } else if segue.identifier == "ShowRepliesFromHome" {
             let controller = segue.destination as! CommentRepliesViewController
-            let index = sender as! Int
-            controller.commentObj = commentsToShow!.objects[index]
-            controller.commentIndex = commentsToShow!.indexes[index]
+            let senderIndex = sender as! Int // the index of the comment in global array
+            
+            // get the relevant object and comment indexes
+            let commentIndexes = commentsToShow!.indexes[senderIndex]
+            let objectIndex = commentIndexes.0
+            let commentIndex = commentIndexes.1
+            
+            controller.commentObj = commentsToShow!.objects[objectIndex]
+            controller.commentIndex = commentIndex
+        } else if segue.identifier == "ShowInfo" {
+            let controller = segue.destination as! InfoPageViewController
+            controller.highlightedCourses = self.highlightedCourses
+            controller.courses = self.courses
+            controller.delegate = self
         }
     }
 
     //MARK:- Table View Delegates
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !isSearching {
-            if let comments = commentsToShow { // if there are comments, show them
+            if isLoadingComments {
+                // if the comments are being loaded, just display one loading cell
+                return 1
+            } else if let comments = commentsToShow {
+                // if there are comments, show them
                 return comments.comments.count
             } else {
-                return 1 // a cell that redirects to login
+                return 1 // a cell that redirects to login / FAILED TO LOAD CELL??
             }
         } else {
             return filteredCourses.count // the number of search results
@@ -167,7 +220,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if !isSearching {
-            if commentsToShow != nil {
+            if commentsToShow != nil || isLoadingComments {
                 return UITableView.automaticDimension
             }
             return tableView.bounds.height - 50 // custom height for the homepage to fill screen
@@ -178,30 +231,39 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if !isSearching {
             
-            if commentsToShow != nil { // show the comment preview cells
-                let i = indexPath.row
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CommentPreview", for: indexPath) as! CommentPreviewCell
-                cell.headerLabel.text = commentsToShow?.comments[i]["header"] as? String
-                cell.courseNumberLabel.text = commentsToShow?.comments[i]["courseNumber"] as? String
-                cell.commentLabel.text = commentsToShow?.comments[i]["commentText"] as? String
-                return cell
+            if isLoadingComments {
+                // if new comments are being loaded, display the comment loading cell
+                let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+                loadingCell.spinner.startAnimating()
+                return loadingCell
             }
             
+            if commentsToShow != nil {
+                // show the comment preview cells
+                let i = indexPath.row
+                let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentPreview", for: indexPath) as! CommentPreviewCell
+                commentCell.headerLabel.text = commentsToShow?.comments[i]["header"] as? String
+                commentCell.courseNumberLabel.text = commentsToShow?.comments[i]["courseNumber"] as? String
+                commentCell.commentLabel.text = commentsToShow?.comments[i]["commentText"] as? String
+                return commentCell
+                }
+
             // show a default cell to prompt the user to login
             // THIS NEEDS TO BE CHANGED *******
             let cell = tableView.dequeueReusableCell(withIdentifier: "StartScreen", for: indexPath)
             return cell
-            
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
-        let cellInfo = filteredCourses[indexPath.row]
-        cell.textLabel!.text = cellInfo.number
-        if let name = cellInfo.name {
-            cell.detailTextLabel!.text = name
         } else {
-            cell.detailTextLabel!.text = "No name available"
+            // Show the search result cells
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
+            let cellInfo = filteredCourses[indexPath.row]
+            cell.textLabel!.text = cellInfo.number
+            if let name = cellInfo.name {
+                cell.detailTextLabel!.text = name
+            } else {
+                cell.detailTextLabel!.text = "No name available"
+            }
+            return cell
         }
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -216,6 +278,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     //MARK:- Search Delegates
     func updateSearchResults(for searchController: UISearchController) {
+        //UNCOMMENT THIS TO REMOVE LEFT BAR BUTTON WHEN SEARCHING
+//        navigationItem.setLeftBarButton(nil, animated: false)
+//        if !searchController.isActive {
+//            navigationItem.setLeftBarButton(infoBarButtonItem, animated: true)
+//
+//        }
         // called every time the search text is changed
         filterContentForSearchText(searchController.searchBar.text!)
     }
@@ -248,6 +316,22 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         tableView.reloadData()
     }
+    
+    //MARK:- InfoPageViewControllerDelegate
+    
+    func highlightedCoursesWillChange() {
+        print("reloading table with loading cells")
+        self.isLoadingComments = true
+        tableView.reloadData()
+    }
+    
+    func highlightedCoursesDidChange(to newCourses: [String]) {
+        print("old highlighted courses in Search: ", self.highlightedCourses)
+        self.highlightedCourses = newCourses
+        print("new highlighted courses in Search: ", self.highlightedCourses)
+        getCommentsToDisplay(toReload: false)
+    }
+    
 }
 
 class CommentPreviewCell: UITableViewCell {

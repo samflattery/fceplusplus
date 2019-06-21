@@ -21,6 +21,7 @@
 		0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90B22B57432004FE7DE /* LoadingCell.xib */; };
 		0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */; };
 		0AE667A722B970C000F0CC28 /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */; };
+		0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */; };
 		0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDC22B1669F00FDB1AF /* output.json */; };
 		0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */; };
 		0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */; };
@@ -47,6 +48,7 @@
 		0A55E90B22B57432004FE7DE /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 		0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
+		0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
 		0AFB3DDC22B1669F00FDB1AF /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = ../../../backend/docs/output.json; sourceTree = "<group>"; };
 		0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */,
 				0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */,
 				0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */,
+				0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				0AFB3DE722B5078800FDB1AF /* Reachability.swift in Sources */,
 				0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */,
 				0A38A07B22A99CB2009D12D5 /* JSONInfo.swift in Sources */,
+				0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */,
 				0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */,
 				0A38A06B22A98E63009D12D5 /* SearchTableViewController.swift in Sources */,
 				0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */,
