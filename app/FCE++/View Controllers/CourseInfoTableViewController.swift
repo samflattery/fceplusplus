@@ -13,7 +13,7 @@ import SVProgressHUD
 typealias CourseComments = [[String: Any]] // comments are stored as a list of dictionaries
 typealias CourseComment = [String: Any]
 
-class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate, NewCommentViewControllerDelegate {
+class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate, NewCommentViewControllerDelegate, GuestCommentCellDelegate {
 
     var query: PFQuery<PFObject>? // the currently active comment query
     var reachability: Reachability! // the user's internet status
@@ -159,13 +159,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         })
     }
     
-    @objc func showLoginScreen() {
-        // called when the guest pressed 'login to comment'
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -174,7 +167,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 2 {
             if PFUser.current() == nil && indexPath.row == 0 {
                 // take the guest back to login screen
-                showLoginScreen()
+                loginPressed()
             } else if PFUser.current() != nil && indexPath.row == 0 {
                 performSegue(withIdentifier: "NewComment", sender: nil)
             } else {
@@ -264,9 +257,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             }
             else if i == 0 && PFUser.current() == nil {
                 // if there is no user, display the cell with the login button
-                let guestCommentCell = tableView.dequeueReusableCell(withIdentifier: "GuestComment", for: indexPath)
-                let button = guestCommentCell.viewWithTag(65) as! UIButton
-                button.addTarget(self, action: #selector(showLoginScreen), for: .touchUpInside)
+                let guestCommentCell = tableView.dequeueReusableCell(withIdentifier: "GuestComment", for: indexPath) as! GuestCommentCell
+                guestCommentCell.delegate = self
                 return guestCommentCell
             }
             else if i == 1 && isLoadingComment {
@@ -329,6 +321,16 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 SVProgressHUD.dismiss(withDelay: 1)
             }
         }
+    }
+    
+    //MARK:- GuestCommentCellDelegate
+    func loginPressed() {
+        // called when the guest pressed 'login to comment'
+        // instantiate a new signupscreen and push it to navigation stack
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
+        vc.hasComeFromGuest = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 } // end of class

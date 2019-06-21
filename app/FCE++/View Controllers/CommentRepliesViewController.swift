@@ -12,7 +12,7 @@ import SVProgressHUD
 
 typealias CommentReplies = [[String: Any]]
 
-class CommentRepliesViewController: UITableViewController, NewReplyTableViewCellDelegate {
+class CommentRepliesViewController: UITableViewController, NewReplyTableViewCellDelegate, GuestCommentCellDelegate {
 
     // passed down from CourseInfoTableViewController in segue
     var commentObj: PFObject! // the object that the comment belongs to, will be updated on
@@ -36,6 +36,9 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         
         cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
+        
+        cellNib = UINib(nibName: "GuestComment", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "GuestComment")
         
         setFieldsFromObject(commentObj)
 
@@ -62,7 +65,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 {
+        if indexPath.section == 1 && PFUser.current() != nil {
             return 200
         } else {
             return UITableView.automaticDimension
@@ -76,6 +79,12 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             return "Replies"
         } else {
             return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if PFUser.current() == nil && indexPath.section == 1 {
+            loginPressed()
         }
     }
     
@@ -94,9 +103,15 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             }
             return commentCell
         } else if indexPath.section == 1 { // the new comment cell
-            let newReplyCell = tableView.dequeueReusableCell(withIdentifier: "NewReply", for: indexPath) as! NewReplyTableViewCell
-            newReplyCell.delegate = self
-            return newReplyCell
+            if PFUser.current() != nil {
+                let newReplyCell = tableView.dequeueReusableCell(withIdentifier: "NewReply", for: indexPath) as! NewReplyTableViewCell
+                newReplyCell.delegate = self
+                return newReplyCell
+            } else {
+                let guestCell = tableView.dequeueReusableCell(withIdentifier: "GuestComment", for: indexPath) as! GuestCommentCell
+                guestCell.delegate = self
+                return guestCell
+            }
         } else { // display the replies
             
             if indexPath.row == 0 && isLoadingComment {
@@ -162,6 +177,16 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 
             }
         }
+    }
+
+    //MARK:- GuestCommentCellDelegate
+    func loginPressed() {
+        // called when the guest pressed 'login to comment'
+        // instantiate a new signupscreen and push it to navigation stack
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
+        vc.hasComeFromGuest = true
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 } // end of class

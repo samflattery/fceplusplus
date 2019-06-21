@@ -22,6 +22,7 @@
 		0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */; };
 		0AE667A722B970C000F0CC28 /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */; };
 		0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */; };
+		0AE667AB22BD404800F0CC28 /* GuestCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */; };
 		0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDC22B1669F00FDB1AF /* output.json */; };
 		0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */; };
 		0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */; };
@@ -49,6 +50,7 @@
 		0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 		0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
 		0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
+		0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCommentCell.swift; sourceTree = "<group>"; };
 		0AFB3DDC22B1669F00FDB1AF /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = ../../../backend/docs/output.json; sourceTree = "<group>"; };
 		0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				0A38A06C22A98E63009D12D5 /* Main.storyboard */,
 				0AFB3DE222B3016800FDB1AF /* LaunchScreen.storyboard */,
 				0A38A08822AA7255009D12D5 /* View Controllers */,
+				0AE667AC22BD405500F0CC28 /* Table View Cells */,
 				0A14938122B01A80008CF495 /* Nibs */,
 				0A38A08922AA72D1009D12D5 /* Assets */,
 				0A55E90A22B53E40004FE7DE /* New Group */,
@@ -128,7 +131,6 @@
 				0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */,
 				0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */,
 				0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */,
-				0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */,
 				0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */,
 			);
 			path = "View Controllers";
@@ -151,6 +153,15 @@
 				0AFB3DE622B5078800FDB1AF /* Reachability.swift */,
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0AE667AC22BD405500F0CC28 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */,
+				0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		45989FA52D657EFEA1A0CC38 /* Frameworks */ = {
@@ -304,6 +315,7 @@
 				0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */,
 				0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */,
 				0A38A06B22A98E63009D12D5 /* SearchTableViewController.swift in Sources */,
+				0AE667AB22BD404800F0CC28 /* GuestCommentCell.swift in Sources */,
 				0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */,
 				0A14938522B01C87008CF495 /* NewReplyTableViewCell.swift in Sources */,
 				0A38A06922A98E63009D12D5 /* AppDelegate.swift in Sources */,

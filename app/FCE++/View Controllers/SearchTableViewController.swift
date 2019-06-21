@@ -49,13 +49,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         courses = appDelegate.courses // the AppDelegate loads the courses upon launching
-        tableView.reloadData()
-        configureSearchController()
-        
-        if let user = PFUser.current() {
-            //if someone is signed in, get their favourite courses
-            highlightedCourses = (user["highlightedCourses"] as! [String])
-        }
+        configureSearchController() // setup the search controller
         
         var cellNib = UINib(nibName: "StartScreen", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "StartScreen")
@@ -63,9 +57,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
         
-        definesPresentationContext = true
+        tableView.reloadData()
         
-        getCommentsToDisplay(toReload: true)
+        if let user = PFUser.current() {
+            //if someone is signed in, get their favourite courses
+            highlightedCourses = (user["highlightedCourses"] as! [String])
+            getCommentsToDisplay(toReload: true)
+        }
+
+        
+        definesPresentationContext = true
         
         // Create the info button
         let infoButton = UIButton(type: .infoLight)
@@ -320,15 +321,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     //MARK:- InfoPageViewControllerDelegate
     
     func highlightedCoursesWillChange() {
-        print("reloading table with loading cells")
         self.isLoadingComments = true
         tableView.reloadData()
     }
     
     func highlightedCoursesDidChange(to newCourses: [String]) {
-        print("old highlighted courses in Search: ", self.highlightedCourses)
         self.highlightedCourses = newCourses
-        print("new highlighted courses in Search: ", self.highlightedCourses)
         getCommentsToDisplay(toReload: false)
     }
     

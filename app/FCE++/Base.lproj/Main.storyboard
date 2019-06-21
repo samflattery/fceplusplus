@@ -449,6 +449,8 @@
                     </view>
                     <connections>
                         <outlet property="andrewIDField" destination="5wE-4p-Wsb" id="OLb-j8-RsG"/>
+                        <outlet property="guestButton" destination="To4-SO-XWQ" id="oWi-i3-cdO"/>
+                        <outlet property="guestLabel" destination="sO6-SN-G0R" id="eYi-Kj-uKy"/>
                         <outlet property="passwordField" destination="bEW-yK-K0d" id="vHL-dg-5ey"/>
                         <segue destination="HjV-fH-R29" kind="show" identifier="LoggedIn" id="lwZ-0G-G9s"/>
                     </connections>

@@ -16,6 +16,14 @@ class SignUpViewController: UIViewController {
     // the text fields for user data
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var guestLabel: UILabel!
+    @IBOutlet weak var guestButton: UIButton!
+    
+    // true if this view controller has been instantiated by a guest asking for login
+    // if true, do not show them the option of signing in as a guest as this could cause
+    // a loop
+    var hasComeFromGuest = false
         
     var reachability: Reachability!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,6 +34,13 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         courses = appDelegate.courses
+        
+        print(hasComeFromGuest)
+        
+        if hasComeFromGuest {
+            guestLabel.isHidden = true
+            guestButton.isHidden = true
+        }
     }
     
     @IBAction func loginPressed(_ sender: Any) {
