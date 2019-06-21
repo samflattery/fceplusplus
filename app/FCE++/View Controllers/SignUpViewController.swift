@@ -35,8 +35,6 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         courses = appDelegate.courses
         
-        print(hasComeFromGuest)
-        
         if hasComeFromGuest {
             guestLabel.isHidden = true
             guestButton.isHidden = true

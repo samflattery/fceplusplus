@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GuestCommentCellDelegate {
-    func loginPressed()
+    func showLoginScreen()
 }
 
 class GuestCommentCell: UITableViewCell {
@@ -17,7 +17,7 @@ class GuestCommentCell: UITableViewCell {
     var delegate: GuestCommentCellDelegate!
     
     @IBAction func loginPressed(_ sender: Any) {
-        delegate.loginPressed()
+        delegate.showLoginScreen()()
     }
     
     override func awakeFromNib() {

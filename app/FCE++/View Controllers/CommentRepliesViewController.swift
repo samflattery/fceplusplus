@@ -180,7 +180,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     }
 
     //MARK:- GuestCommentCellDelegate
-    func loginPressed() {
+    func showLoginScreen() {
         // called when the guest pressed 'login to comment'
         // instantiate a new signupscreen and push it to navigation stack
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
