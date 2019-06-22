@@ -32,6 +32,7 @@ class InfoPageViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
+        extendedLayoutIncludesOpaqueBars = true
         
         if PFUser.current() == nil {
             // if there is no user, hide the courses button and set logout to login

@@ -42,6 +42,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         
         self.hideKeyboardWhenTappedAround()
 
+        extendedLayoutIncludesOpaqueBars = true
         
         //Register all of the cell nibs
         var cellNib = UINib(nibName: "NewComment", bundle: nil)

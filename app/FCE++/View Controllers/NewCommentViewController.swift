@@ -31,6 +31,8 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextViews()
+        
+        extendedLayoutIncludesOpaqueBars = true
     }
     
     func configureTextViews() {

@@ -55,6 +55,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         self.hideKeyboardWhenTappedAround()
         
+        extendedLayoutIncludesOpaqueBars = true
+        
         var cellNib = UINib(nibName: "StartScreen", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "StartScreen")
         

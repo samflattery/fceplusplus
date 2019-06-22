@@ -40,6 +40,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboardWhenTappedAround()
         
+        // fixes weird error where black bars would appear under navigation bar
+        // because navigation bar is not translucent
+        extendedLayoutIncludesOpaqueBars = true
+        
         setupTextFields()
         setupSegmentControl()
         
@@ -247,6 +251,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK:- TextFieldDelegates
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.returnKeyType = .next
+
+        return true
+    }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == andrewIDField {
@@ -271,6 +281,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         } else {
             loginButton.isHidden = false
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == andrewIDField {
+            passwordField.becomeFirstResponder()
+        } else {
+            if textField.text == "" {
+                return true
+            } else {
+                loginPressed(self)
+            }
+        }
+        return true
     }
 
 } // end of class

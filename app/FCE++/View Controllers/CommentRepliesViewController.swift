@@ -31,6 +31,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
+        extendedLayoutIncludesOpaqueBars = true
         
         tableView.refreshControl = refreshController
         refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
