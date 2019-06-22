@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import SVProgressHUD
+import RSSelectionMenu
 
 struct CommentsToShow {
     // need the comments to be shown on the table
@@ -44,6 +45,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     var infoBarButtonItem: UIBarButtonItem! // the info button to be put in the navigation bar
+    var sortBarButtonItem: UIBarButtonItem! // the sort button for nav bar
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +76,59 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(showInfoScreen), for: .touchUpInside)
         // Create a bar button item using the info button as its custom view
+
+        sortBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(showCourseSorter))
+        
         infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.leftBarButtonItem = infoBarButtonItem
 
+    }
+    
+    @objc func showCourseSorter() {
+        // show a popup that allows user to sort the courses by alphabetical by number,
+        // alphabetical by name, least and most hours per week
+        let sortOptions = ["By Course Number", "By Course Name", "Increasing Hours per Week", "Decreasing Hours per Week"]
+        
+        let selectionMenu = RSSelectionMenu(dataSource: sortOptions) { (cell, item, indexPath) in
+            cell.textLabel?.text = item
+        }
+        
+        selectionMenu.cellSelectionStyle = .checkbox
+        
+        selectionMenu.onDismiss = { selectedItems in
+            switch selectedItems[0]{
+            case "By Course Number":
+                self.filteredCourses.sort(by: { $0.number < $1.number } )
+            case "By Course Name":
+                self.filteredCourses.sort(by: {
+                    switch ($0.name == nil, $1.name == nil){
+                    // 4 cases: neither have names, both have names,
+                    // or one has name and other doesn't
+                    // prioritize having a name
+                    case (true, true):
+                        return $0.number < $1.number
+                    case (false, true):
+                        return false
+                    case (true, false):
+                        return true
+                    case (false, false):
+                        return $0.name! < $1.name!
+                    }
+                })
+            case "Increasing Hours per Week":
+                self.filteredCourses.sort(by: { $0.hours < $1.hours })
+            case "Decreasing Hours per Week":
+                self.filteredCourses.sort(by: { $0.hours > $1.hours })
+            default:
+                break
+            }
+            self.tableView.reloadData()
+        }
+
+       
+        // show as PresentationStyle = push
+        selectionMenu.show(style: .alert(title: "Sort by", action: "Done", height: nil), from: self)
+        return
     }
     
     @objc func showInfoScreen() {
@@ -287,12 +339,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     //MARK:- Search Delegates
     func updateSearchResults(for searchController: UISearchController) {
-        //UNCOMMENT THIS TO REMOVE LEFT BAR BUTTON WHEN SEARCHING
-//        navigationItem.setLeftBarButton(nil, animated: false)
-//        if !searchController.isActive {
-//            navigationItem.setLeftBarButton(infoBarButtonItem, animated: true)
-//
-//        }
+        if !isSearching {
+            // if the user is not searching, show the info button
+            navigationItem.leftBarButtonItem = infoBarButtonItem
+        } else {
+            // show the sort button
+            navigationItem.leftBarButtonItem = sortBarButtonItem
+        }
         // called every time the search text is changed
         filterContentForSearchText(searchController.searchBar.text!)
     }
