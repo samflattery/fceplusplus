@@ -11,20 +11,23 @@ import Parse
 import SVProgressHUD
 import RSSelectionMenu
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // the text fields for user data
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    @IBOutlet weak var guestLabel: UILabel!
+    // the button for guest login
     @IBOutlet weak var guestButton: UIButton!
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var buttonBar: UIView!
+    @IBOutlet weak var buttonBarLeftConstraint: NSLayoutConstraint!
+    
     // true if this view controller has been instantiated by a guest asking for login
-    // if true, do not show them the option of signing in as a guest as this could cause
-    // a loop
+    // if true, do not show them the option of signing in as a guest
     var hasComeFromGuest = false
-        
+    
     var reachability: Reachability!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -37,15 +40,96 @@ class SignUpViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
+        setupTextFields()
+        setupSegmentControl()
+        
+        loginButton.isHidden = true
+        
         if hasComeFromGuest {
-            guestLabel.isHidden = true
             guestButton.isHidden = true
         }
     }
     
     @IBAction func loginPressed(_ sender: Any) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            login()
+        } else {
+            signUp()
+        }
+    }
+    
+    @IBAction func segmentControlValueChanged(_ sender: Any) {
+        view.layoutIfNeeded() // ensure the previous animation is finished
+        UIView.animate(withDuration: 0.3) {
+            // the new origin for the bar is the bottom left corner of the selected segment
+            let originX = (self.segmentControl.frame.width / CGFloat(self.segmentControl.numberOfSegments)) * CGFloat(self.segmentControl.selectedSegmentIndex) + self.segmentControl.frame.minX
+            self.buttonBarLeftConstraint.constant = originX
+            self.view.layoutIfNeeded()
+        }
+        
+        if segmentControl.selectedSegmentIndex == 0 {
+            loginButton.setTitle("Login", for: .normal)
+        } else {
+            loginButton.setTitle("Sign Up", for: .normal)
+        }
+        
+    }
+    
+    func setupSegmentControl() {
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        // This needs to be false since we are using auto layout constraints
+        buttonBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        // setup the constraints of the bar under the segment control
+        buttonBar.backgroundColor = UIColor.white
+        buttonBar.topAnchor.constraint(equalTo: segmentControl.bottomAnchor).isActive = true
+        buttonBar.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        // Constrain the button bar to the left side of the segmented control
+        buttonBarLeftConstraint.constant = segmentControl.frame.origin.x
+        
+        // Constrain the button bar to the width of the segmented control divided by the number of segments
+        buttonBar.widthAnchor.constraint(equalTo: segmentControl.widthAnchor, multiplier: 1 / CGFloat(segmentControl.numberOfSegments)).isActive = true
+
+        // the segment control should only be text
+        segmentControl.backgroundColor = .clear
+        segmentControl.tintColor = .clear
+        segmentControl.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "IowanOldStyleW01-Roman", size: 20)!,
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray
+            ], for: .normal)
+        
+        segmentControl.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "IowanOldStyleW01-Roman", size: 20)!,
+            NSAttributedString.Key.foregroundColor: UIColor.white
+            ], for: .selected)
+    }
+    
+    func setupTextFields() {
+        // changes the border of the text field to a single white line underneath
+        let andrewBottomLine = CALayer()
+        andrewBottomLine.frame = CGRect.init(x: 0, y: andrewIDField.frame.size.height - 1, width: andrewIDField.frame.size.width, height: 2)
+        andrewBottomLine.backgroundColor = UIColor.white.cgColor
+        
+        let passwordBottomLine = CALayer()
+        passwordBottomLine.frame = CGRect.init(x: 0, y: passwordField.frame.size.height - 1, width: passwordField.frame.size.width, height: 2)
+        passwordBottomLine.backgroundColor = UIColor.white.cgColor
+        
+        andrewIDField.borderStyle = .none
+        andrewIDField.layer.addSublayer(andrewBottomLine)
+        andrewIDField.delegate = self
+        passwordField.borderStyle = .none
+        passwordField.layer.addSublayer(passwordBottomLine)
+        passwordField.delegate = self
+        
+        andrewIDField.attributedPlaceholder = NSAttributedString(string: "andrewID", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
+
+    }
+    
+    func login() {
         SVProgressHUD.show(withStatus: "Logging in...")
-                
+
         let andrewID = andrewIDField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
@@ -78,6 +162,12 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func signUp() {
+        // lets the user pick their courses, then signs them up
+        // with a "verify email" prompt
+        showCourseSelection()
     }
     
     func showCourseSelection() {
@@ -156,11 +246,34 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    @IBAction func signUpPressed(_ sender: Any) {
-        showCourseSelection()
+    //MARK:- TextFieldDelegates
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == andrewIDField {
+            if passwordField.text != "" && range != NSRange(location: 0, length: 1) {
+                loginButton.isHidden = false
+            } else {
+                loginButton.isHidden = true
+            }
+        } else {
+            if andrewIDField.text != "" && range != NSRange(location: 0, length: 1) {
+                loginButton.isHidden = false
+            } else {
+                loginButton.isHidden = true
+            }
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if andrewIDField.text == "" || passwordField.text == "" {
+            loginButton.isHidden = true
+        } else {
+            loginButton.isHidden = false
+        }
     }
 
-}
+} // end of class
 
 extension UIViewController { // tap anywhere on view controller to dismiss keyboard
     func hideKeyboardWhenTappedAround() {
