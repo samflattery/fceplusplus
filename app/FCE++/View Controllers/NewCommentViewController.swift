@@ -55,6 +55,10 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         self.commentTextView.layer.borderColor = borderColor.cgColor
         self.commentTextView.layer.borderWidth = 0.8
         self.commentTextView.layer.cornerRadius = 5
+        
+        //dismiss keyboard when tapping anywhere else
+        self.hideKeyboardWhenTappedAround()
+
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {

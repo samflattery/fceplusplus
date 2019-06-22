@@ -31,6 +31,8 @@ class InfoPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         if PFUser.current() == nil {
             // if there is no user, hide the courses button and set logout to login
             highlightedCoursesButton.isHidden = true

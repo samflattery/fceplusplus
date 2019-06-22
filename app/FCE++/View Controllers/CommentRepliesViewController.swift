@@ -23,10 +23,17 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     var commentReplies: CommentReplies!
     var comment: CourseComment!
     
-    var isLoadingComment = false
+    let refreshController = UIRefreshControl()
+    
+    var isLoadingComment = false // true if the comments are being loaded in the background
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        tableView.refreshControl = refreshController
+        refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
         
         var cellNib = UINib(nibName: "NewReply", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "NewReply")
@@ -42,6 +49,50 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         
         setFieldsFromObject(commentObj)
 
+    }
+    
+    @objc func refreshComments() { // needs to be objc for the refreshControl
+        // called when post clicked or when pulled to refresh
+        let reachability = Reachability()!
+        if reachability.connection == .none {
+            if let rC = self.refreshControl {
+                // if there's no internet but there is a refresh bar, end the refreshing
+                rC.endRefreshing()
+            }
+            return
+        }
+        self.commentObj?.fetchInBackground(block: { (object: PFObject?, error: Error?) in
+            // fetch new comments in the background and update the comment array
+            if let object = object {
+                // there is a chance that someone posted a new comment since the last refresh,
+                // in which case, the indices would have shifted and we must find the new index
+                let objComments = (object["comments"]) as! CourseComments
+                let newComments = objComments[self.commentIndex]
+                
+                // time posted and andrewID are likely going to be a unique identifier
+                let newTimePosted = newComments["timePosted"] as! String
+                let oldTimePosted = self.comment["timePosted"] as! String
+                let oldID = newComments["andrewID"] as! String
+                let newID = self.comment["andrewID"] as! String
+                if newTimePosted != oldTimePosted || oldID != newID {
+                    // a new comment must have been added which misaligned the index
+                    for i in 0..<objComments.count {
+                        // find the comment that is supposed to be displayed
+                        let comment = objComments[i]
+                        let commentTime = comment["timePosted"] as! String
+                        let commentID = comment["andrewID"] as! String
+                        if commentTime == oldTimePosted && commentID == newID {
+                            // set the new index of that comment
+                            self.commentIndex = i
+                        }
+                    }
+                }
+                self.commentObj = object
+                self.setFieldsFromObject(object)
+            }
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        })
     }
     
     func setFieldsFromObject(_ commentObj: PFObject) {

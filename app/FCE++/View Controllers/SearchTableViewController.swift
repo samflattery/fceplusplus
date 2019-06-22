@@ -51,6 +51,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         courses = appDelegate.courses // the AppDelegate loads the courses upon launching
         configureSearchController() // setup the search controller
         
+        self.hideKeyboardWhenTappedAround()
+        
         var cellNib = UINib(nibName: "StartScreen", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "StartScreen")
         

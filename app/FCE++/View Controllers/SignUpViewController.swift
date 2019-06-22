@@ -35,6 +35,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         courses = appDelegate.courses
         
+        self.hideKeyboardWhenTappedAround()
+        
         if hasComeFromGuest {
             guestLabel.isHidden = true
             guestButton.isHidden = true
@@ -158,4 +160,16 @@ class SignUpViewController: UIViewController {
         showCourseSelection()
     }
 
+}
+
+extension UIViewController { // tap anywhere on view controller to dismiss keyboard
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

@@ -23,6 +23,7 @@
 		0AE667A722B970C000F0CC28 /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */; };
 		0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */; };
 		0AE667AB22BD404800F0CC28 /* GuestCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */; };
+		0AE667AF22BD735800F0CC28 /* Iowan Old Style W01 Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AE667AE22BD735800F0CC28 /* Iowan Old Style W01 Roman.ttf */; };
 		0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDC22B1669F00FDB1AF /* output.json */; };
 		0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */; };
 		0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */; };
@@ -51,6 +52,7 @@
 		0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
 		0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
 		0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCommentCell.swift; sourceTree = "<group>"; };
+		0AE667AE22BD735800F0CC28 /* Iowan Old Style W01 Roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Iowan Old Style W01 Roman.ttf"; path = "../../../../../Desktop/OnlineWebFonts_COM_67fd8ef8eb8111ee7e6f36ec922b3e6b/Iowan Old Style W01 Roman/Iowan Old Style W01 Roman.ttf"; sourceTree = "<group>"; };
 		0AFB3DDC22B1669F00FDB1AF /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = ../../../backend/docs/output.json; sourceTree = "<group>"; };
 		0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				0AFB3DDC22B1669F00FDB1AF /* output.json */,
 				0A38A06F22A98E65009D12D5 /* Assets.xcassets */,
 				0A38A07422A98E65009D12D5 /* Info.plist */,
+				0AE667AE22BD735800F0CC28 /* Iowan Old Style W01 Roman.ttf */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -217,7 +220,7 @@
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -254,6 +257,7 @@
 				0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */,
 				0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */,
 				0A14938322B01AA0008CF495 /* NewReply.xib in Resources */,
+				0AE667AF22BD735800F0CC28 /* Iowan Old Style W01 Roman.ttf in Resources */,
 				0A14938722B02664008CF495 /* CommentCell.xib in Resources */,
 				0A14938022AEE147008CF495 /* StartScreen.xib in Resources */,
 				0A55E90922B52ED6004FE7DE /* FailedToLoad.xib in Resources */,
@@ -458,7 +462,6 @@
 			baseConfigurationReference = 9A13AA5031FC23DE9F1DBFFB /* Pods-FCE++.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "FCE++/FCE++.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FW7C822H9W;
 				INFOPLIST_FILE = "FCE++/Info.plist";
@@ -478,7 +481,6 @@
 			baseConfigurationReference = 76035EA46EA6BE58047936E7 /* Pods-FCE++.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "FCE++/FCE++.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FW7C822H9W;
 				INFOPLIST_FILE = "FCE++/Info.plist";

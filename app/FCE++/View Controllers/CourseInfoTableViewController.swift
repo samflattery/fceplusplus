@@ -40,6 +40,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         self.hasDownloadedComments = false
         tableView.estimatedRowHeight = 60
         
+        self.hideKeyboardWhenTappedAround()
+
+        
         //Register all of the cell nibs
         var cellNib = UINib(nibName: "NewComment", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "NewComment")
