@@ -34,10 +34,6 @@ class InfoPageViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         extendedLayoutIncludesOpaqueBars = true
         
-        setupButtons()
-        
-//        navigationController?.navigationBar.tintColor = .white
-        
         if PFUser.current() == nil {
             // if there is no user, hide the courses button and set logout to login
             highlightedCoursesButton.isHidden = true
@@ -46,6 +42,8 @@ class InfoPageViewController: UIViewController {
             highlightedCoursesButton.isHidden = false
             logoutButton.setTitle("Logout", for: .normal)
         }
+        
+        setupButtons()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,11 +55,11 @@ class InfoPageViewController: UIViewController {
     func setupButtons() {
         // put a line under the two buttons
         let logoutBottomLine = CALayer()
-        logoutBottomLine.frame = CGRect.init(x: 0, y: logoutButton.frame.size.height - 1, width: logoutButton.frame.size.width, height: 2)
+        logoutBottomLine.frame = CGRect.init(x: 0, y: logoutButton.frame.size.height - 1, width: logoutButton.frame.size.width - 5, height: 2)
         logoutBottomLine.backgroundColor = UIColor.white.cgColor
         
         let changeButtonBottomLine = CALayer()
-        changeButtonBottomLine.frame = CGRect.init(x: 0, y: highlightedCoursesButton.frame.size.height - 1, width: highlightedCoursesButton.frame.size.width, height: 2)
+        changeButtonBottomLine.frame = CGRect.init(x: 0, y: highlightedCoursesButton.frame.size.height - 1, width: highlightedCoursesButton.frame.size.width - 5, height: 2)
         changeButtonBottomLine.backgroundColor = UIColor.white.cgColor
         
         logoutButton.layer.addSublayer(logoutBottomLine)

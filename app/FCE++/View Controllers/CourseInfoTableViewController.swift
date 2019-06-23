@@ -36,14 +36,22 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNibs()
+        self.hideKeyboardWhenTappedAround()
+        extendedLayoutIncludesOpaqueBars = true
+        
         self.failedToLoad = false
         self.hasDownloadedComments = false
         tableView.estimatedRowHeight = 60
-        
-        self.hideKeyboardWhenTappedAround()
-
-        extendedLayoutIncludesOpaqueBars = true
-        
+    
+        // get info as lists instead of dictionaries
+        courseInfo = getCourseData(course)
+        for instructor in course.instructors {
+            instructorInfo.append(getInstructorData(instructor))
+        }
+    }
+    
+    func registerNibs() {
         //Register all of the cell nibs
         var cellNib = UINib(nibName: "NewComment", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "NewComment")
@@ -62,12 +70,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         
         cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
-        
-        // get info as lists instead of dictionaries
-        courseInfo = getCourseData(course)
-        for instructor in course.instructors {
-            instructorInfo.append(getInstructorData(instructor))
-        }
     }
     
     @IBAction func segmentControlValueChanged(_ sender: Any) {

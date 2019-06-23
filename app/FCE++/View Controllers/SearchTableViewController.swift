@@ -57,7 +57,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         extendedLayoutIncludesOpaqueBars = true
         
-        cellNib = UINib(nibName: "LoadingCell", bundle: nil)
+        let cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
         
         tableView.reloadData()
@@ -310,15 +310,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             return loginCell
         } else {
             // Show the search result cells
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
+            let searchResultCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             let cellInfo = filteredCourses[indexPath.row]
-            cell.textLabel!.text = cellInfo.number
+            searchResultCell.numberLabel.text = cellInfo.number
             if let name = cellInfo.name {
-                cell.detailTextLabel!.text = name
+                searchResultCell.nameLabel.text = name
             } else {
-                cell.detailTextLabel!.text = "No name available"
+                searchResultCell.nameLabel.text = "No name available"
             }
-            return cell
+            searchResultCell.hoursLabel.text = "FCE Hours: \(String(format: "%.1f", cellInfo.hours))"
+            return searchResultCell
         }
     }
     
@@ -410,5 +411,13 @@ class CommentPreviewCell: UITableViewCell {
     @IBOutlet weak var posterLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
+    
+}
+
+class SearchResultCell: UITableViewCell {
+    
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
     
 }
