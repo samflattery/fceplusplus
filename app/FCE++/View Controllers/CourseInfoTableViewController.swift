@@ -230,27 +230,32 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
 
         if segmentControl.selectedSegmentIndex == 0 {
             // the course information segment's cells
-            if i == 6 {
-                // the description cell is different
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath)
-                let textLabel = descriptionCell.viewWithTag(15) as! UILabel
-                textLabel.text = infoTitles[i]
-                let detailLabel = descriptionCell.viewWithTag(16) as! UILabel
-                detailLabel.text = courseInfo[i]
-                return descriptionCell
-            } else {
-                // just a normal course info cell
-                let infoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath)
-                infoCell.textLabel!.text = infoTitles[i] // the title of the info field
-                infoCell.detailTextLabel!.text = courseInfo[i] // the info itself
-                return infoCell
-            }
+            let infoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            infoCell.headingLabel.text = infoTitles[i]
+            infoCell.bodyLabel.text = courseInfo[i]
+            return infoCell
+            
+//            if i == 6 {
+//                // the description cell is different
+//                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath)
+//                let textLabel = descriptionCell.viewWithTag(15) as! UILabel
+//                textLabel.text = infoTitles[i]
+//                let detailLabel = descriptionCell.viewWithTag(16) as! UILabel
+//                detailLabel.text = courseInfo[i]
+//                return descriptionCell
+//            } else {
+//                // just a normal course info cell
+//                let infoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath)
+//                infoCell.textLabel!.text = infoTitles[i] // the title of the info field
+//                infoCell.detailTextLabel!.text = courseInfo[i] // the info itself
+//                return infoCell
+//            }
         }
         else if segmentControl.selectedSegmentIndex == 1 {
             // the instructor segment's cells
-            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath)
-            instructorCell.textLabel!.text = instructorTitles[i] // title of instructor field
-            instructorCell.detailTextLabel!.text = instructorInfo[j][i] // the instructor info
+            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            instructorCell.headingLabel!.text = instructorTitles[i] // title of instructor field
+            instructorCell.bodyLabel!.text = instructorInfo[j][i] // the instructor info
             return instructorCell
         }
         else {
@@ -347,5 +352,12 @@ class CommentCell: UITableViewCell { // the cell that displays a comment
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var andrewIDLabel: UILabel!
+    
+}
+
+class InfoCell: UITableViewCell {
+    
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
     
 }

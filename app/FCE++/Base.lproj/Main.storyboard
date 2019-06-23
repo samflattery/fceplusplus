@@ -293,29 +293,40 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InfoCell" textLabel="RyZ-Db-snb" detailTextLabel="wv6-UQ-kjc" rowHeight="131" style="IBUITableViewCellStyleValue1" id="IY9-Fg-2me">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InfoCell" rowHeight="131" id="IY9-Fg-2me" customClass="InfoCell" customModule="FCE__" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99.333333333333343" width="375" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IY9-Fg-2me" id="vIS-iU-z2l">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="130.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RyZ-Db-snb">
-                                            <rect key="frame" x="16.000000000000004" y="56.000000000000007" width="33.333333333333336" height="20.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Heading" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHA-uV-88Y">
+                                            <rect key="frame" x="16" y="10.999999999999998" width="68.333333333333329" height="21.333333333333329"/>
+                                            <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wv6-UQ-kjc">
-                                            <rect key="frame" x="300.33333333333331" y="56.000000000000007" width="58.666666666666664" height="20.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoT-DI-gzX">
+                                            <rect key="frame" x="16" y="37.333333333333336" width="343" height="82.666666666666657"/>
+                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uoT-DI-gzX" firstAttribute="leading" secondItem="vIS-iU-z2l" secondAttribute="leadingMargin" id="14S-Ly-gLl"/>
+                                        <constraint firstItem="BHA-uV-88Y" firstAttribute="leading" secondItem="vIS-iU-z2l" secondAttribute="leadingMargin" id="2H1-Up-kdV"/>
+                                        <constraint firstItem="uoT-DI-gzX" firstAttribute="top" secondItem="BHA-uV-88Y" secondAttribute="bottom" constant="5" id="Cch-qg-4oq"/>
+                                        <constraint firstItem="uoT-DI-gzX" firstAttribute="trailing" secondItem="vIS-iU-z2l" secondAttribute="trailingMargin" id="CiX-I2-sIh"/>
+                                        <constraint firstItem="BHA-uV-88Y" firstAttribute="top" secondItem="vIS-iU-z2l" secondAttribute="topMargin" id="HjH-tV-JMu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="uoT-DI-gzX" secondAttribute="bottom" id="Zme-Ry-BGs"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BHA-uV-88Y" secondAttribute="trailing" id="xHe-9d-1Lr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bodyLabel" destination="uoT-DI-gzX" id="j6A-j6-99E"/>
+                                    <outlet property="headingLabel" destination="BHA-uV-88Y" id="kDj-Ck-Exf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
