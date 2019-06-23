@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A14938022AEE147008CF495 /* StartScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14937F22AEE147008CF495 /* StartScreen.xib */; };
 		0A14938322B01AA0008CF495 /* NewReply.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938222B01AA0008CF495 /* NewReply.xib */; };
 		0A14938522B01C87008CF495 /* NewReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */; };
 		0A14938722B02664008CF495 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938622B02664008CF495 /* CommentCell.xib */; };
@@ -19,6 +18,7 @@
 		0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */; };
 		0A55E90922B52ED6004FE7DE /* FailedToLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */; };
 		0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55E90B22B57432004FE7DE /* LoadingCell.xib */; };
+		0A705B2922BF91AA002DE02A /* IowanOldSt_OSF_BT_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A705B2822BF91AA002DE02A /* IowanOldSt_OSF_BT_Bold.ttf */; };
 		0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */; };
 		0AE667A722B970C000F0CC28 /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */; };
 		0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */; };
@@ -34,7 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A14937F22AEE147008CF495 /* StartScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StartScreen.xib; path = ../StartScreen.xib; sourceTree = "<group>"; };
 		0A14938222B01AA0008CF495 /* NewReply.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewReply.xib; sourceTree = "<group>"; };
 		0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReplyTableViewCell.swift; sourceTree = "<group>"; };
 		0A14938622B02664008CF495 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommentCell.xib; path = ../CommentCell.xib; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewController.swift; sourceTree = "<group>"; };
 		0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailedToLoad.xib; sourceTree = "<group>"; };
 		0A55E90B22B57432004FE7DE /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		0A705B2822BF91AA002DE02A /* IowanOldSt_OSF_BT_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = IowanOldSt_OSF_BT_Bold.ttf; path = ../../../backend/fonts/IowanOldSt_OSF_BT_Bold.ttf; sourceTree = "<group>"; };
 		0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 		0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
 		0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +80,6 @@
 		0A14938122B01A80008CF495 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				0A14937F22AEE147008CF495 /* StartScreen.xib */,
 				0A55E90B22B57432004FE7DE /* LoadingCell.xib */,
 				0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */,
 				0A14938222B01AA0008CF495 /* NewReply.xib */,
@@ -145,6 +144,7 @@
 				0A38A06F22A98E65009D12D5 /* Assets.xcassets */,
 				0A38A07422A98E65009D12D5 /* Info.plist */,
 				0AF996AB22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf */,
+				0A705B2822BF91AA002DE02A /* IowanOldSt_OSF_BT_Bold.ttf */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -251,6 +251,7 @@
 			files = (
 				0A38A07022A98E65009D12D5 /* Assets.xcassets in Resources */,
 				0AFB3DE522B3CA0300FDB1AF /* GuestComment.xib in Resources */,
+				0A705B2922BF91AA002DE02A /* IowanOldSt_OSF_BT_Bold.ttf in Resources */,
 				0AFB3DE322B3016800FDB1AF /* LaunchScreen.storyboard in Resources */,
 				0A38A06E22A98E63009D12D5 /* Main.storyboard in Resources */,
 				0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */,
@@ -259,7 +260,6 @@
 				0A14938322B01AA0008CF495 /* NewReply.xib in Resources */,
 				0AF996AC22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf in Resources */,
 				0A14938722B02664008CF495 /* CommentCell.xib in Resources */,
-				0A14938022AEE147008CF495 /* StartScreen.xib in Resources */,
 				0A55E90922B52ED6004FE7DE /* FailedToLoad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

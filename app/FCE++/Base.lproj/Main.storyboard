@@ -13,6 +13,9 @@
         <array key="Iowan Old Style W01 Roman.ttf">
             <string>IowanOldStyleW01-Roman</string>
         </array>
+        <array key="IowanOldSt_OSF_BT_Bold.ttf">
+            <string>IowanOldStyleOSFBT-Bold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Home-->
@@ -48,51 +51,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CommentPreview" rowHeight="147" id="zo2-Ba-FTz" customClass="CommentPreviewCell" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="115.33333333333334" width="375" height="147.00000000000003"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zo2-Ba-FTz" id="ehc-pn-lrn">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="146.66666666666666"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-GW-Ots">
-                                            <rect key="frame" x="15.999999999999996" y="11" width="63.666666666666657" height="22"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Course number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3l-9R-thr">
-                                            <rect key="frame" x="16" y="38" width="74" height="12"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Comment text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqz-Xy-OAS">
-                                            <rect key="frame" x="16" y="60" width="317" height="76"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="e3l-9R-thr" firstAttribute="top" secondItem="W9a-GW-Ots" secondAttribute="bottom" constant="5" id="Bkx-iO-6Fr"/>
-                                        <constraint firstItem="e3l-9R-thr" firstAttribute="leading" secondItem="ehc-pn-lrn" secondAttribute="leadingMargin" id="BpH-MB-4Go"/>
-                                        <constraint firstItem="Yqz-Xy-OAS" firstAttribute="bottom" secondItem="ehc-pn-lrn" secondAttribute="bottomMargin" id="PXZ-5f-Op7"/>
-                                        <constraint firstItem="Yqz-Xy-OAS" firstAttribute="leading" secondItem="ehc-pn-lrn" secondAttribute="leadingMargin" id="T8Y-cU-8ad"/>
-                                        <constraint firstItem="Yqz-Xy-OAS" firstAttribute="trailing" secondItem="ehc-pn-lrn" secondAttribute="trailingMargin" id="V9G-p6-vi9"/>
-                                        <constraint firstItem="W9a-GW-Ots" firstAttribute="leading" secondItem="ehc-pn-lrn" secondAttribute="leadingMargin" id="Yat-jK-yJz"/>
-                                        <constraint firstItem="Yqz-Xy-OAS" firstAttribute="top" secondItem="e3l-9R-thr" secondAttribute="bottom" constant="10" id="eKt-oP-urL"/>
-                                        <constraint firstItem="W9a-GW-Ots" firstAttribute="top" secondItem="ehc-pn-lrn" secondAttribute="topMargin" id="l0k-3j-1xA"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="commentLabel" destination="Yqz-Xy-OAS" id="WxK-wb-Huu"/>
-                                    <outlet property="courseNumberLabel" destination="e3l-9R-thr" id="e9N-AT-MzQ"/>
-                                    <outlet property="headerLabel" destination="W9a-GW-Ots" id="BT1-Vo-UrV"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" rowHeight="67" id="dNZ-fq-RoN" customClass="GuestCommentCell" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="262.33333333333337" width="375" height="67"/>
+                                <rect key="frame" x="0.0" y="115.33333333333334" width="375" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dNZ-fq-RoN" id="3BM-5I-DJZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="66.666666666666671"/>
@@ -114,6 +74,75 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentPreview" rowHeight="305" id="zo2-Ba-FTz" customClass="CommentPreviewCell" customModule="FCE__" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="182.33333333333337" width="375" height="305"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zo2-Ba-FTz" id="ehc-pn-lrn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="304.66666666666669"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAn-I6-5pw">
+                                            <rect key="frame" x="16" y="11" width="343" height="283"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Course number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3l-9R-thr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="21.333333333333332"/>
+                                                    <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Big heading goes here may span up to two or three lines with all of heading text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-GW-Ots">
+                                                    <rect key="frame" x="0.0" y="25.333333333333343" width="343" height="82.333333333333314"/>
+                                                    <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxC-AZ-gtB">
+                                                    <rect key="frame" x="0.0" y="111.66666666666669" width="40" height="21.333333333333314"/>
+                                                    <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqK-jx-yGq">
+                                                    <rect key="frame" x="0.0" y="145" width="343" height="130"/>
+                                                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique tellus libero, ac vehicula mi congue ut. Donec scelerisque scelerisque dui, ullamcorper placerat metus egestas at. Nulla lacinia 
+</string>
+                                                    <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="e3l-9R-thr" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="3Me-7E-Xvu"/>
+                                                <constraint firstItem="W9a-GW-Ots" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="6tN-p4-vdg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IqK-jx-yGq" secondAttribute="bottom" id="7bt-dT-9z8"/>
+                                                <constraint firstAttribute="trailing" secondItem="W9a-GW-Ots" secondAttribute="trailing" id="Bzq-X2-myf"/>
+                                                <constraint firstItem="DxC-AZ-gtB" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="CSr-gA-a6O"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e3l-9R-thr" secondAttribute="trailing" id="Db0-AV-FX5"/>
+                                                <constraint firstItem="W9a-GW-Ots" firstAttribute="top" secondItem="e3l-9R-thr" secondAttribute="bottom" constant="4" id="E3c-Gc-Y8Z"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DxC-AZ-gtB" secondAttribute="trailing" id="UVF-Cm-hxe"/>
+                                                <constraint firstItem="IqK-jx-yGq" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="UkS-d8-izT"/>
+                                                <constraint firstItem="DxC-AZ-gtB" firstAttribute="top" secondItem="W9a-GW-Ots" secondAttribute="bottom" constant="4" id="W59-yO-dHv"/>
+                                                <constraint firstItem="e3l-9R-thr" firstAttribute="top" secondItem="kAn-I6-5pw" secondAttribute="top" id="ZI8-sl-ioe"/>
+                                                <constraint firstItem="IqK-jx-yGq" firstAttribute="top" secondItem="DxC-AZ-gtB" secondAttribute="bottom" constant="12" id="eAS-xq-dxL"/>
+                                                <constraint firstAttribute="trailing" secondItem="IqK-jx-yGq" secondAttribute="trailing" id="lYZ-jr-bVZ"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kAn-I6-5pw" firstAttribute="leading" secondItem="ehc-pn-lrn" secondAttribute="leadingMargin" id="8Ec-1U-VIt"/>
+                                        <constraint firstItem="kAn-I6-5pw" firstAttribute="top" secondItem="ehc-pn-lrn" secondAttribute="topMargin" id="Tn9-iL-abW"/>
+                                        <constraint firstItem="kAn-I6-5pw" firstAttribute="bottom" secondItem="ehc-pn-lrn" secondAttribute="bottomMargin" id="dNf-8a-Jf5"/>
+                                        <constraint firstItem="kAn-I6-5pw" firstAttribute="trailing" secondItem="ehc-pn-lrn" secondAttribute="trailingMargin" id="daA-gJ-K8Q"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentLabel" destination="IqK-jx-yGq" id="rXm-5v-Zgm"/>
+                                    <outlet property="courseNumberLabel" destination="e3l-9R-thr" id="e9N-AT-MzQ"/>
+                                    <outlet property="headerLabel" destination="W9a-GW-Ots" id="BT1-Vo-UrV"/>
+                                    <outlet property="posterLabel" destination="DxC-AZ-gtB" id="gc0-PJ-V5a"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="KDz-kr-j3c" id="RZt-i7-fea"/>
@@ -129,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2t-c4-i6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3744.8000000000002" y="26.53673163418291"/>
+            <point key="canvasLocation" x="3744.8000000000002" y="25.862068965517242"/>
         </scene>
         <!--Info Page View Controller-->
         <scene sceneID="Xzc-lE-zNU">
@@ -140,53 +169,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FCE++" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-aq-IFm">
-                                <rect key="frame" x="126" y="75" width="123" height="43"/>
-                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="34"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="105.00000000000001" y="75" width="165.33333333333337" height="57"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="46"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWN-Sb-M5y">
-                                <rect key="frame" x="160" y="274" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="logoutPressed:" destination="3EN-bV-a9h" eventType="touchUpInside" id="oTL-bc-KWJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt0-9m-tDH">
-                                <rect key="frame" x="89" y="318" width="197" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Highlighted Courses"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt0-9m-tDH">
+                                <rect key="frame" x="78.666666666666686" y="316" width="218" height="34"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                <state key="normal" title="Change Highlighted Courses">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="showCourses:" destination="3EN-bV-a9h" eventType="touchUpInside" id="fhG-25-PRI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To report issues, email sflatter@andrew " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFC-Jt-pnv">
-                                <rect key="frame" x="34" y="598" width="307" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To report issues, contact sflatter@andrew.cmu.edu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mx-JZ-inc">
+                                <rect key="frame" x="40.333333333333343" y="632.33333333333337" width="294.33333333333326" height="16.333333333333371"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View the code at github.com/samflattery/FCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boX-2h-8Rq">
-                                <rect key="frame" x="14" y="626" width="346" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View the code at github.com/samflattery/fceplusplus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiG-51-xo8">
+                                <rect key="frame" x="33.666666666666657" y="658.66666666666663" width="308" height="16.333333333333371"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by Sam Flattery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66U-u3-fCE">
-                                <rect key="frame" x="95" y="563" width="185" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Sam Flattery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66U-u3-fCE">
+                                <rect key="frame" x="101.66666666666669" y="597.33333333333337" width="172" height="20"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWN-Sb-M5y">
+                                <rect key="frame" x="156" y="262" width="63" height="34"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="3EN-bV-a9h" eventType="touchUpInside" id="oTL-bc-KWJ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="66U-u3-fCE" firstAttribute="centerX" secondItem="UVw-H0-VUa" secondAttribute="centerX" id="7Zn-dd-i27"/>
+                            <constraint firstItem="TWN-Sb-M5y" firstAttribute="top" secondItem="uR3-aq-IFm" secondAttribute="bottom" constant="130" id="D9i-kR-6VL"/>
+                            <constraint firstItem="fMK-7M-BNy" firstAttribute="bottom" secondItem="JiG-51-xo8" secondAttribute="bottom" constant="15" id="EZV-XG-uGs"/>
+                            <constraint firstItem="vt0-9m-tDH" firstAttribute="top" secondItem="TWN-Sb-M5y" secondAttribute="bottom" constant="20" id="G9m-bk-Oyd"/>
                             <constraint firstItem="uR3-aq-IFm" firstAttribute="top" secondItem="fMK-7M-BNy" secondAttribute="top" constant="75" id="H08-dJ-WEg"/>
                             <constraint firstItem="uR3-aq-IFm" firstAttribute="centerX" secondItem="UVw-H0-VUa" secondAttribute="centerX" id="NPD-cx-eLs"/>
+                            <constraint firstItem="TWN-Sb-M5y" firstAttribute="centerX" secondItem="UVw-H0-VUa" secondAttribute="centerX" id="RYQ-8j-JWY"/>
+                            <constraint firstItem="vt0-9m-tDH" firstAttribute="centerX" secondItem="UVw-H0-VUa" secondAttribute="centerX" id="ahI-wd-TbM"/>
+                            <constraint firstItem="JiG-51-xo8" firstAttribute="top" secondItem="3mx-JZ-inc" secondAttribute="bottom" constant="10" id="eof-nF-Obg"/>
+                            <constraint firstItem="3mx-JZ-inc" firstAttribute="top" secondItem="66U-u3-fCE" secondAttribute="bottom" constant="15" id="vUT-gD-SCg"/>
+                            <constraint firstItem="JiG-51-xo8" firstAttribute="centerX" secondItem="UVw-H0-VUa" secondAttribute="centerX" id="xAf-4g-gd4"/>
+                            <constraint firstItem="3mx-JZ-inc" firstAttribute="centerX" secondItem="UVw-H0-VUa" secondAttribute="centerX" id="zcR-e0-YqB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMK-7M-BNy"/>
                     </view>
@@ -199,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSb-So-eye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3745" y="797"/>
+            <point key="canvasLocation" x="3744.8000000000002" y="796.55172413793105"/>
         </scene>
         <!--Course Info Table View Controller-->
         <scene sceneID="dTN-m8-OoZ">
@@ -520,6 +560,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="tj0-zE-HVj">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.65098039215686276" green="0.098039215686274508" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

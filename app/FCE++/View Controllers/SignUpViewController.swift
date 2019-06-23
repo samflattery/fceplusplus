@@ -119,12 +119,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordBottomLine.frame = CGRect.init(x: 0, y: passwordField.frame.size.height - 1, width: passwordField.frame.size.width, height: 2)
         passwordBottomLine.backgroundColor = UIColor.white.cgColor
         
+        // just have tthe bottom border line
         andrewIDField.borderStyle = .none
         andrewIDField.layer.addSublayer(andrewBottomLine)
         andrewIDField.delegate = self
+        // turn off autocomplete in the text field
+        andrewIDField.autocorrectionType = .no
+        
         passwordField.borderStyle = .none
         passwordField.layer.addSublayer(passwordBottomLine)
         passwordField.delegate = self
+        passwordField.autocorrectionType = .no
+        
         
         andrewIDField.attributedPlaceholder = NSAttributedString(string: "andrewID", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
@@ -254,11 +260,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.returnKeyType = .next
-
         return true
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // only want the login/signup button to be shown when both text fields are non-empty
         if textField == andrewIDField {
             if passwordField.text != "" && range != NSRange(location: 0, length: 1) {
                 loginButton.isHidden = false
@@ -284,10 +290,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // press enter on first text field -> jump to second
+        // press enter on second -> login if non-empty, else do nothing
         if textField == andrewIDField {
             passwordField.becomeFirstResponder()
         } else {
-            if textField.text == "" {
+            if textField.text == "" || andrewIDField.text == "" {
                 return true
             } else {
                 loginPressed(self)
@@ -298,7 +306,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
 } // end of class
 
-extension UIViewController { // tap anywhere on view controller to dismiss keyboard
+extension UIViewController {
+    // tap anywhere on view controller to dismiss keyboard
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

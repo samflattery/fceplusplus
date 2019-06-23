@@ -57,9 +57,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         extendedLayoutIncludesOpaqueBars = true
         
-        var cellNib = UINib(nibName: "StartScreen", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "StartScreen")
-        
         cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
         
@@ -71,7 +68,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             getCommentsToDisplay(toReload: true)
         }
 
-        
         definesPresentationContext = true
         
         // Create the info button
@@ -280,10 +276,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if !isSearching {
-            return UITableView.automaticDimension
-        }
-        return super.tableView(tableView, heightForRowAt: indexPath)
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -303,8 +296,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 commentCell.headerLabel.text = commentsToShow?.comments[i]["header"] as? String
                 commentCell.courseNumberLabel.text = commentsToShow?.comments[i]["courseNumber"] as? String
                 commentCell.commentLabel.text = commentsToShow?.comments[i]["commentText"] as? String
-                return commentCell
+                if commentsToShow?.comments[i]["anonymous"] as! Bool {
+                    commentCell.posterLabel.text = "Anonymous"
+                } else {
+                    commentCell.posterLabel.text = commentsToShow?.comments[i]["andrewID"] as? String
                 }
+                return commentCell
+            }
 
             // show a default cell to prompt the user to login
             let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginCell", for: indexPath) as! GuestCommentCell
@@ -409,6 +407,8 @@ class CommentPreviewCell: UITableViewCell {
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var courseNumberLabel: UILabel!
+    @IBOutlet weak var posterLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    
     
 }

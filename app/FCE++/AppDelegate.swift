@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = "https://fceplusplus.herokuapp.com/parse"
         }
         Parse.initialize(with: parseConfig)
-        PFUser.logOut()
+//        PFUser.logOut()
         if PFUser.current() == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
