@@ -29,7 +29,6 @@
 		0AF996AC22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF996AB22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf */; };
 		0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDC22B1669F00FDB1AF /* output.json */; };
 		0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */; };
-		0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */; };
 		0AFB3DE522B3CA0300FDB1AF /* GuestComment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE422B3CA0300FDB1AF /* GuestComment.xib */; };
 		0AFB3DE722B5078800FDB1AF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB3DE622B5078800FDB1AF /* Reachability.swift */; };
 		254B8B7EF0A23A7F8AD8F135 /* Pods_FCE__.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAD5FD7D3BAC07002977587 /* Pods_FCE__.framework */; };
@@ -60,7 +59,6 @@
 		0AF996AB22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Iowan Old Style W01 Roman.ttf"; path = "../../../backend/fonts/Iowan Old Style W01 Roman.ttf"; sourceTree = "<group>"; };
 		0AFB3DDC22B1669F00FDB1AF /* output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = output.json; path = ../../../backend/docs/output.json; sourceTree = "<group>"; };
 		0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		0AFB3DE422B3CA0300FDB1AF /* GuestComment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GuestComment.xib; path = "../View Controllers/GuestComment.xib"; sourceTree = "<group>"; };
 		0AFB3DE622B5078800FDB1AF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
 		0AFB3DE822B522AA00FDB1AF /* FCE++.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FCE++.entitlements"; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				0A55E90822B52ED6004FE7DE /* FailedToLoad.xib */,
 				0A14938222B01AA0008CF495 /* NewReply.xib */,
 				0A14938622B02664008CF495 /* CommentCell.xib */,
-				0AFB3DE022B2FC2400FDB1AF /* DescriptionCell.xib */,
 				0AFB3DE422B3CA0300FDB1AF /* GuestComment.xib */,
 				0A705B2A22C01DA8002DE02A /* LaunchScreen.storyboard */,
 			);
@@ -262,7 +259,6 @@
 				0AFB3DDD22B1669F00FDB1AF /* output.json in Resources */,
 				0A55E90C22B57432004FE7DE /* LoadingCell.xib in Resources */,
 				0A705B2B22C01DA8002DE02A /* LaunchScreen.storyboard in Resources */,
-				0AFB3DE122B2FC2400FDB1AF /* DescriptionCell.xib in Resources */,
 				0A14938322B01AA0008CF495 /* NewReply.xib in Resources */,
 				0AF996AC22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf in Resources */,
 				0A14938722B02664008CF495 /* CommentCell.xib in Resources */,

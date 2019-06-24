@@ -8,62 +8,86 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Iowan Old Style W01 Roman.ttf">
+            <string>IowanOldStyleW01-Roman</string>
+        </array>
+        <array key="IowanOldSt_OSF_BT_Bold.ttf">
+            <string>IowanOldStyleOSFBT-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="307" id="Twk-Qs-LqD" customClass="CommentCell" customModule="FCE__" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="307"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="405" id="Twk-Qs-LqD" customClass="CommentCell" customModule="FCE__" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="405"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Twk-Qs-LqD" id="Uea-y9-NXX">
-                <rect key="frame" x="0.0" y="0.0" width="376" height="306.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="424" height="404.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="150" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="andrewID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-Ya-Xg8">
-                        <rect key="frame" x="16" y="273.5" width="61.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="175" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date/time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mn-Vs-8Ti">
-                        <rect key="frame" x="297" y="273.5" width="63" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sP-Yv-jOf">
-                        <rect key="frame" x="16" y="16" width="60" height="21"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvY-o5-8iB">
-                        <rect key="frame" x="16" y="45" width="344" height="217"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U76-4a-t3a">
+                        <rect key="frame" x="20" y="55" width="396" height="305"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Big heading goes here may span up to two or three lines with all of heading text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DE-KB-Jq1">
+                                <rect key="frame" x="0.0" y="0.0" width="396" height="82.5"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="andrewID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bew-rg-rpx">
+                                <rect key="frame" x="0.0" y="84.5" width="66.5" height="57.5"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3T-CI-CiA">
+                                <rect key="frame" x="0.0" y="154" width="383" height="134"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique tellus libero, ac vehicula mi congue ut. Donec scelerisque scelerisque dui, ullamcorper placerat metus egestas at. Nulla lacinia 
+</string>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbg-sD-i7g">
+                                <rect key="frame" x="0.0" y="290" width="66" height="15"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bew-rg-rpx" firstAttribute="leading" secondItem="U76-4a-t3a" secondAttribute="leading" id="0bZ-99-oeR"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bew-rg-rpx" secondAttribute="trailing" id="5Cp-EC-xeT"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cbg-sD-i7g" secondAttribute="trailing" id="ISp-Un-AE8"/>
+                            <constraint firstItem="cbg-sD-i7g" firstAttribute="top" secondItem="k3T-CI-CiA" secondAttribute="bottom" constant="2" id="IxG-zT-Dak"/>
+                            <constraint firstItem="0DE-KB-Jq1" firstAttribute="top" secondItem="U76-4a-t3a" secondAttribute="top" id="L58-dL-ywT"/>
+                            <constraint firstItem="cbg-sD-i7g" firstAttribute="leading" secondItem="U76-4a-t3a" secondAttribute="leading" id="RmS-i6-ltR"/>
+                            <constraint firstItem="0DE-KB-Jq1" firstAttribute="leading" secondItem="U76-4a-t3a" secondAttribute="leading" id="dGh-mW-2gN"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k3T-CI-CiA" secondAttribute="trailing" id="dm8-rw-Ft2"/>
+                            <constraint firstAttribute="bottom" secondItem="cbg-sD-i7g" secondAttribute="bottom" id="hRz-hx-vfy"/>
+                            <constraint firstAttribute="trailing" secondItem="0DE-KB-Jq1" secondAttribute="trailing" id="nB0-5M-68D"/>
+                            <constraint firstItem="k3T-CI-CiA" firstAttribute="leading" secondItem="U76-4a-t3a" secondAttribute="leading" id="rL1-2Y-gVK"/>
+                            <constraint firstItem="bew-rg-rpx" firstAttribute="top" secondItem="0DE-KB-Jq1" secondAttribute="bottom" constant="2" id="u0a-f4-ZIt"/>
+                            <constraint firstItem="k3T-CI-CiA" firstAttribute="top" secondItem="bew-rg-rpx" secondAttribute="bottom" constant="12" id="v6k-5Q-IVG"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="3mn-Vs-8Ti" firstAttribute="top" secondItem="gvY-o5-8iB" secondAttribute="bottom" constant="10" id="0Lq-4U-U8G"/>
-                    <constraint firstItem="1sP-Yv-jOf" firstAttribute="top" secondItem="Uea-y9-NXX" secondAttribute="top" constant="16" id="SG3-zx-dfO"/>
-                    <constraint firstItem="t5e-Ya-Xg8" firstAttribute="top" secondItem="gvY-o5-8iB" secondAttribute="bottom" constant="10" id="UKX-ku-pok"/>
-                    <constraint firstAttribute="trailing" secondItem="gvY-o5-8iB" secondAttribute="trailing" constant="16" id="Uae-3i-KTv"/>
-                    <constraint firstItem="t5e-Ya-Xg8" firstAttribute="leading" secondItem="Uea-y9-NXX" secondAttribute="leading" constant="16" id="Vun-rP-nky"/>
-                    <constraint firstAttribute="trailing" secondItem="3mn-Vs-8Ti" secondAttribute="trailing" constant="16" id="WZm-p0-4Os"/>
-                    <constraint firstItem="gvY-o5-8iB" firstAttribute="top" secondItem="1sP-Yv-jOf" secondAttribute="bottom" constant="8" id="Wqs-d1-gEN"/>
-                    <constraint firstItem="1sP-Yv-jOf" firstAttribute="leading" secondItem="Uea-y9-NXX" secondAttribute="leading" constant="16" id="hBo-KE-zqW"/>
-                    <constraint firstItem="gvY-o5-8iB" firstAttribute="leading" secondItem="Uea-y9-NXX" secondAttribute="leading" constant="16" id="qT8-De-IhL"/>
-                    <constraint firstAttribute="bottom" secondItem="3mn-Vs-8Ti" secondAttribute="bottom" constant="16" id="t20-1x-pfZ"/>
-                    <constraint firstAttribute="bottom" secondItem="t5e-Ya-Xg8" secondAttribute="bottom" constant="16" id="zGh-HD-uEd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="U76-4a-t3a" secondAttribute="trailing" id="T3S-sY-hXw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="U76-4a-t3a" secondAttribute="bottom" id="bRX-vX-Af6"/>
+                    <constraint firstItem="U76-4a-t3a" firstAttribute="top" secondItem="Uea-y9-NXX" secondAttribute="topMargin" id="fNi-GS-bo6"/>
+                    <constraint firstItem="U76-4a-t3a" firstAttribute="leading" secondItem="Uea-y9-NXX" secondAttribute="leadingMargin" id="pRR-0F-nlh"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="andrewIDLabel" destination="t5e-Ya-Xg8" id="Cov-B3-dA2"/>
-                <outlet property="commentLabel" destination="gvY-o5-8iB" id="uYO-kb-ZUR"/>
-                <outlet property="dateLabel" destination="3mn-Vs-8Ti" id="Qqb-F1-teO"/>
-                <outlet property="headerLabel" destination="1sP-Yv-jOf" id="XV2-iY-h5a"/>
+                <outlet property="andrewIDLabel" destination="bew-rg-rpx" id="NLN-KM-kek"/>
+                <outlet property="commentLabel" destination="k3T-CI-CiA" id="t3d-1b-GCr"/>
+                <outlet property="dateLabel" destination="cbg-sD-i7g" id="O3u-nO-AXl"/>
+                <outlet property="headerLabel" destination="0DE-KB-Jq1" id="mUy-NB-u3X"/>
             </connections>
-            <point key="canvasLocation" x="28.985507246376812" y="52.566964285714285"/>
+            <point key="canvasLocation" x="23" y="111"/>
         </tableViewCell>
     </objects>
 </document>

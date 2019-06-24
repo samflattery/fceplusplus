@@ -59,9 +59,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         cellNib = UINib(nibName: "CommentCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "CommentCell")
         
-        cellNib = UINib(nibName: "DescriptionCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "DescriptionCell")
-        
         cellNib = UINib(nibName: "GuestComment", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "GuestComment")
         
