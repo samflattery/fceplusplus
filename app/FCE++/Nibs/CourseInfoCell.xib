@@ -115,8 +115,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-112" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuO-j3-lEE">
-                                <rect key="frame" x="0.0" y="522" width="54" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-112" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuO-j3-lEE">
+                                <rect key="frame" x="0.0" y="522" width="53.5" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -127,7 +127,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-151 or 21-127" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-WR-uIt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-151 or 21-127" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-WR-uIt">
                                 <rect key="frame" x="242" y="522" width="132" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -197,6 +197,13 @@
                 <outlet property="coreqLabel" destination="pS9-GC-0cp" id="sFg-sr-Kaw"/>
                 <outlet property="courseRateDetailsLabel" destination="izB-k6-wdt" id="4WA-ip-EzC"/>
                 <outlet property="courseRateLabel" destination="O0Z-ZL-yvc" id="N5I-tS-v0s"/>
+                <outlet property="departmentLabel" destination="ROh-1N-pto" id="Txa-82-5sW"/>
+                <outlet property="descriptionLabel" destination="2fX-5O-Xsh" id="qzM-1s-FkM"/>
+                <outlet property="hoursDetailsLabel" destination="Car-49-GI4" id="pSc-Kr-pCW"/>
+                <outlet property="nameLabel" destination="xe5-E5-HyO" id="aWE-xm-Kj2"/>
+                <outlet property="numberLabel" destination="XjF-tb-64t" id="h2J-i2-6ou"/>
+                <outlet property="prereqsDetailsLabel" destination="DuO-j3-lEE" id="PAR-2J-FUo"/>
+                <outlet property="unitsLabel" destination="yvr-oV-gfl" id="b0e-2b-KKv"/>
             </connections>
             <point key="canvasLocation" x="86.956521739130437" y="292.96875"/>
         </tableViewCell>

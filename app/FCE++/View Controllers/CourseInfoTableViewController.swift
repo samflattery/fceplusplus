@@ -199,7 +199,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentControl.selectedSegmentIndex == 0 {
             return 1
-//            return 9 // one for each piece of course info
         } else if segmentControl.selectedSegmentIndex == 1 {
             return 11 // one for each piece of instructor info
         } else {
@@ -218,7 +217,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 1 {
             return instructorInfo[section][0]
         }
-        return super.tableView(tableView, titleForHeaderInSection: section)
+        return nil
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -235,10 +234,19 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 0 {
             // the course information segment's cells
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "CourseInfoCell", for: indexPath) as! CourseInfoTableViewCell
-//            let infoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-//            infoCell.headingLabel.text = infoTitles[i]
-//            infoCell.bodyLabel.text = courseInfo[i]
-//            return infoCell
+            infoCell.numberLabel.text = course.number
+            infoCell.nameLabel.text = course.name ?? "No name available"
+            if let units = course.units {
+                infoCell.unitsLabel.text = "Units: \(String(format: "%.1f", units))"
+            } else {
+                infoCell.unitsLabel.text = "Units not available"
+            }
+            infoCell.hoursDetailsLabel.text = String(format: "%.1f", course.hours)
+            infoCell.courseRateDetailsLabel.text = String(format: "%.1f", course.rate)
+            infoCell.descriptionLabel.text = course.desc ?? "No description available"
+            infoCell.prereqsDetailsLabel.text = course.prereqs ?? "None"
+            infoCell.coreqDetailsLabel.text = course.coreqs ?? "None"
+
             return infoCell
         }
         else if segmentControl.selectedSegmentIndex == 1 {
