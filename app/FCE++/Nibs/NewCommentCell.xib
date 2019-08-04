@@ -19,20 +19,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewCommentCell" rowHeight="258" id="GGa-C0-BLe" customClass="NewCommentTableViewCell" customModule="FCE__" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewCommentCell" rowHeight="336" id="GGa-C0-BLe" customClass="NewCommentTableViewCell" customModule="FCE__" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="336"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GGa-C0-BLe" id="L70-rY-qyG">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="257.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="335.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSA-4c-9cL">
-                        <rect key="frame" x="20" y="10" width="374" height="27.5"/>
+                        <rect key="frame" x="20" y="15" width="374" height="57.5"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="20"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-S0-XHU">
-                        <rect key="frame" x="20" y="47.5" width="374" height="200"/>
+                        <rect key="frame" x="20" y="84.5" width="374" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="Zjo-9B-JOM"/>
@@ -42,22 +42,60 @@
                         <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtN-tX-JTo">
+                        <rect key="frame" x="20" y="73.5" width="374" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1.2" id="eNJ-Hn-Ptc"/>
+                        </constraints>
+                    </view>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28Z-v4-mTd">
+                        <rect key="frame" x="20" y="294.5" width="51" height="31"/>
+                        <color key="onTintColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </switch>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-yt-WM5">
+                        <rect key="frame" x="361" y="294.5" width="33" height="31"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <state key="normal" title="Post"/>
+                        <connections>
+                            <action selector="postButtonPressed:" destination="GGa-C0-BLe" eventType="touchUpInside" id="4p5-PN-Vzo"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post anomyously" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qI-Th-bL7">
+                        <rect key="frame" x="77" y="301.5" width="105.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="28Z-v4-mTd" firstAttribute="centerY" secondItem="5qI-Th-bL7" secondAttribute="centerY" id="BeT-OD-y4w"/>
                     <constraint firstItem="OSA-4c-9cL" firstAttribute="leading" secondItem="L70-rY-qyG" secondAttribute="leadingMargin" id="DbX-Eu-1UV"/>
+                    <constraint firstItem="28Z-v4-mTd" firstAttribute="top" secondItem="EgO-S0-XHU" secondAttribute="bottom" constant="10" id="DeY-Wi-RJG"/>
                     <constraint firstItem="EgO-S0-XHU" firstAttribute="trailing" secondItem="L70-rY-qyG" secondAttribute="trailingMargin" id="E6i-a8-oD8"/>
+                    <constraint firstAttribute="bottom" secondItem="R8P-yt-WM5" secondAttribute="bottom" constant="10" id="Er1-DW-WVe"/>
                     <constraint firstItem="OSA-4c-9cL" firstAttribute="trailing" secondItem="L70-rY-qyG" secondAttribute="trailingMargin" id="FIf-6g-7mc"/>
-                    <constraint firstAttribute="bottom" secondItem="EgO-S0-XHU" secondAttribute="bottom" constant="10" id="eYz-Dt-zeO"/>
+                    <constraint firstItem="28Z-v4-mTd" firstAttribute="leading" secondItem="L70-rY-qyG" secondAttribute="leadingMargin" id="Is0-jd-M7s"/>
+                    <constraint firstItem="dtN-tX-JTo" firstAttribute="leading" secondItem="L70-rY-qyG" secondAttribute="leadingMargin" id="TIU-Rv-m0e"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="R8P-yt-WM5" secondAttribute="trailing" id="WCW-TG-zsc"/>
                     <constraint firstItem="EgO-S0-XHU" firstAttribute="leading" secondItem="L70-rY-qyG" secondAttribute="leadingMargin" id="gci-bJ-jHY"/>
-                    <constraint firstItem="EgO-S0-XHU" firstAttribute="top" secondItem="OSA-4c-9cL" secondAttribute="bottom" constant="10" id="m45-uI-njE"/>
-                    <constraint firstItem="OSA-4c-9cL" firstAttribute="top" secondItem="L70-rY-qyG" secondAttribute="top" constant="10" id="wUL-Zl-lYK"/>
+                    <constraint firstItem="5qI-Th-bL7" firstAttribute="leading" secondItem="28Z-v4-mTd" secondAttribute="trailing" constant="8" id="hzu-lf-LvL"/>
+                    <constraint firstItem="EgO-S0-XHU" firstAttribute="top" secondItem="OSA-4c-9cL" secondAttribute="bottom" constant="12" id="m45-uI-njE"/>
+                    <constraint firstAttribute="bottom" secondItem="28Z-v4-mTd" secondAttribute="bottom" constant="10" id="qKn-XA-lNA"/>
+                    <constraint firstItem="dtN-tX-JTo" firstAttribute="top" secondItem="OSA-4c-9cL" secondAttribute="bottom" constant="1" id="rWt-VB-srb"/>
+                    <constraint firstItem="dtN-tX-JTo" firstAttribute="trailing" secondItem="L70-rY-qyG" secondAttribute="trailingMargin" id="u2J-5k-Eqn"/>
+                    <constraint firstItem="OSA-4c-9cL" firstAttribute="top" secondItem="L70-rY-qyG" secondAttribute="top" constant="15" id="wUL-Zl-lYK"/>
+                    <constraint firstItem="R8P-yt-WM5" firstAttribute="top" secondItem="EgO-S0-XHU" secondAttribute="bottom" constant="10" id="z3V-53-8U8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="anonymousLabel" destination="5qI-Th-bL7" id="Akd-y3-DsW"/>
+                <outlet property="anonymousSwitch" destination="28Z-v4-mTd" id="QSa-0s-fRe"/>
                 <outlet property="commentTextView" destination="EgO-S0-XHU" id="0Px-ft-40D"/>
+                <outlet property="postButton" destination="R8P-yt-WM5" id="apx-s4-SU7"/>
                 <outlet property="titleField" destination="OSA-4c-9cL" id="95e-Qn-UhN"/>
             </connections>
-            <point key="canvasLocation" x="86.956521739130437" y="42.857142857142854"/>
+            <point key="canvasLocation" x="86.956521739130437" y="68.303571428571431"/>
         </tableViewCell>
     </objects>
 </document>

@@ -24,7 +24,6 @@
 		0A705B2F22C0F14D002DE02A /* CourseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A705B2E22C0F14D002DE02A /* CourseInfoTableViewCell.swift */; };
 		0A9B632322F5BBFB00B6CF2F /* NewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9B632222F5BBFB00B6CF2F /* NewCommentCell.xib */; };
 		0A9B632522F5F84F00B6CF2F /* NewCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B632422F5F84F00B6CF2F /* NewCommentTableViewCell.swift */; };
-		0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */; };
 		0AE667A722B970C000F0CC28 /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */; };
 		0AE667A922BC0B5200F0CC28 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */; };
 		0AE667AB22BD404800F0CC28 /* GuestCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */; };
@@ -56,7 +55,6 @@
 		0A705B2E22C0F14D002DE02A /* CourseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		0A9B632222F5BBFB00B6CF2F /* NewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCommentCell.xib; sourceTree = "<group>"; };
 		0A9B632422F5F84F00B6CF2F /* NewCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentTableViewCell.swift; sourceTree = "<group>"; };
-		0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 		0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
 		0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
 		0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCommentCell.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				0AFB3DDE22B2817A00FDB1AF /* SignUpViewController.swift */,
 				0A38A06A22A98E63009D12D5 /* SearchTableViewController.swift */,
 				0A38A09022AACF40009D12D5 /* CourseInfoTableViewController.swift */,
-				0AE667A422B9460B00F0CC28 /* NewCommentViewController.swift */,
 				0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */,
 				0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */,
 			);
@@ -331,7 +328,6 @@
 				0A38A09122AACF40009D12D5 /* CourseInfoTableViewController.swift in Sources */,
 				0A38A06B22A98E63009D12D5 /* SearchTableViewController.swift in Sources */,
 				0AE667AB22BD404800F0CC28 /* GuestCommentCell.swift in Sources */,
-				0AE667A522B9460B00F0CC28 /* NewCommentViewController.swift in Sources */,
 				0A9B632522F5F84F00B6CF2F /* NewCommentTableViewCell.swift in Sources */,
 				0A14938522B01C87008CF495 /* NewReplyTableViewCell.swift in Sources */,
 				0A38A06922A98E63009D12D5 /* AppDelegate.swift in Sources */,
