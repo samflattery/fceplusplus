@@ -70,6 +70,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         
         cellNib = UINib(nibName: "CourseInfoCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "CourseInfoCell")
+        
+        cellNib = UINib(nibName: "NewCommentCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "NewCommentCell")
     }
     
     @IBAction func segmentControlValueChanged(_ sender: Any) {
@@ -257,8 +260,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             // the comment segment's cells
             if i == 0 && PFUser.current() != nil {
                 // show the new comment cell as the first cell
-                let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "CreatePost", for: indexPath)
+                let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath)
                 return newCommentCell
+//                let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "CreatePost", for: indexPath)
+//                return newCommentCell
 
             }
             else if i == 0 && PFUser.current() == nil {
