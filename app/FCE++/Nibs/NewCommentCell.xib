@@ -31,13 +31,12 @@
                         <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="20"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-S0-XHU">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Leave your thoughts on this course or ask a question!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-S0-XHU">
                         <rect key="frame" x="20" y="84.5" width="374" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="Zjo-9B-JOM"/>
                         </constraints>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -49,7 +48,7 @@
                             <constraint firstAttribute="height" constant="1.2" id="eNJ-Hn-Ptc"/>
                         </constraints>
                     </view>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28Z-v4-mTd">
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="28Z-v4-mTd">
                         <rect key="frame" x="20" y="294.5" width="51" height="31"/>
                         <color key="onTintColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </switch>
@@ -67,8 +66,16 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP1-vH-6ha">
+                        <rect key="frame" x="293" y="294.5" width="48" height="31"/>
+                        <state key="normal" title="Cancel"/>
+                        <connections>
+                            <action selector="cancelButtonPressed:" destination="GGa-C0-BLe" eventType="touchUpInside" id="d0T-PH-3ft"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="dP1-vH-6ha" firstAttribute="top" secondItem="EgO-S0-XHU" secondAttribute="bottom" constant="10" id="5ex-fO-u5A"/>
                     <constraint firstItem="28Z-v4-mTd" firstAttribute="centerY" secondItem="5qI-Th-bL7" secondAttribute="centerY" id="BeT-OD-y4w"/>
                     <constraint firstItem="OSA-4c-9cL" firstAttribute="leading" secondItem="L70-rY-qyG" secondAttribute="leadingMargin" id="DbX-Eu-1UV"/>
                     <constraint firstItem="28Z-v4-mTd" firstAttribute="top" secondItem="EgO-S0-XHU" secondAttribute="bottom" constant="10" id="DeY-Wi-RJG"/>
@@ -80,9 +87,11 @@
                     <constraint firstAttribute="trailingMargin" secondItem="R8P-yt-WM5" secondAttribute="trailing" id="WCW-TG-zsc"/>
                     <constraint firstItem="EgO-S0-XHU" firstAttribute="leading" secondItem="L70-rY-qyG" secondAttribute="leadingMargin" id="gci-bJ-jHY"/>
                     <constraint firstItem="5qI-Th-bL7" firstAttribute="leading" secondItem="28Z-v4-mTd" secondAttribute="trailing" constant="8" id="hzu-lf-LvL"/>
+                    <constraint firstAttribute="bottom" secondItem="dP1-vH-6ha" secondAttribute="bottom" constant="10" id="ioK-RC-Z6y"/>
                     <constraint firstItem="EgO-S0-XHU" firstAttribute="top" secondItem="OSA-4c-9cL" secondAttribute="bottom" constant="12" id="m45-uI-njE"/>
                     <constraint firstAttribute="bottom" secondItem="28Z-v4-mTd" secondAttribute="bottom" constant="10" id="qKn-XA-lNA"/>
                     <constraint firstItem="dtN-tX-JTo" firstAttribute="top" secondItem="OSA-4c-9cL" secondAttribute="bottom" constant="1" id="rWt-VB-srb"/>
+                    <constraint firstItem="R8P-yt-WM5" firstAttribute="leading" secondItem="dP1-vH-6ha" secondAttribute="trailing" constant="20" id="s0r-87-07Y"/>
                     <constraint firstItem="dtN-tX-JTo" firstAttribute="trailing" secondItem="L70-rY-qyG" secondAttribute="trailingMargin" id="u2J-5k-Eqn"/>
                     <constraint firstItem="OSA-4c-9cL" firstAttribute="top" secondItem="L70-rY-qyG" secondAttribute="top" constant="15" id="wUL-Zl-lYK"/>
                     <constraint firstItem="R8P-yt-WM5" firstAttribute="top" secondItem="EgO-S0-XHU" secondAttribute="bottom" constant="10" id="z3V-53-8U8"/>
@@ -91,6 +100,7 @@
             <connections>
                 <outlet property="anonymousLabel" destination="5qI-Th-bL7" id="Akd-y3-DsW"/>
                 <outlet property="anonymousSwitch" destination="28Z-v4-mTd" id="QSa-0s-fRe"/>
+                <outlet property="cancelButton" destination="dP1-vH-6ha" id="jet-xo-y7K"/>
                 <outlet property="commentTextView" destination="EgO-S0-XHU" id="0Px-ft-40D"/>
                 <outlet property="postButton" destination="R8P-yt-WM5" id="apx-s4-SU7"/>
                 <outlet property="titleField" destination="OSA-4c-9cL" id="95e-Qn-UhN"/>

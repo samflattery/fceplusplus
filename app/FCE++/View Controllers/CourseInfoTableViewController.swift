@@ -29,7 +29,13 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     var hasDownloadedComments = false // have the comments already been loaded in the background?
     var failedToLoad = false  // the user has no internet, show them the failed to load cell
-    var isLoadingComment = false  // if the user posts a new comment, show loading cell
+    var isLoadingNewComment = false  // if the user posts a new comment, show loading cell
+    
+    var isEditingComment = false  // if the user is editing a comment, show the new comment cell
+    var editingIndex : Int!
+    var isLoadingEditedComment = false
+    
+    var cellHeights: [IndexPath : CGFloat] = [:] // a dictionary of cell heights to avoid jumpy table
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     let refreshController = UIRefreshControl()
@@ -156,8 +162,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             // fetch new comments in the background and update the comment array
             self.courseComments = (object?["comments"] as! CourseComments)
             self.refreshControl?.endRefreshing()
-            if self.isLoadingComment {
-                self.isLoadingComment = false
+            if self.isLoadingNewComment {
+                self.isLoadingNewComment = false
             }
             self.tableView.reloadData()
         })
@@ -175,13 +181,28 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             } else if PFUser.current() != nil && indexPath.section == 0 {
                 return
             } else {
+                if isEditingComment {
+                    // can't segue to the comment that is being edited
+                    if editingIndex == indexPath.row {
+                        return
+                    }
+                }
                 performSegue(withIdentifier: "ShowReplies", sender: indexPath.row)
-                // the create new comment cell is first so it must be offset by one
             }
         }
     }
 
-    //MARK: - Table view delegates
+    //MARK: - TableViewDelegates
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // save the height of each cell in the dictionary for faster calculations
+        // makes the table transitions smoother
+        cellHeights[indexPath] = cell.frame.size.height
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeights[indexPath] ?? 70.0
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if segmentControl.selectedSegmentIndex == 1 {
             // one segment for each instructor
@@ -203,7 +224,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 return 1
             } else {
                 if let comments = courseComments {
-                    return isLoadingComment ? comments.count + 1 : comments.count
+                    return isLoadingNewComment ? comments.count + 1 : comments.count
                 } else { // there were no comments to show so just show failed to load cell
                     return 1
                 }
@@ -218,6 +239,58 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             return "New Comment"
         }
         return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if segmentControl.selectedSegmentIndex == 2 && indexPath.section == 1 {
+            if courseComments == nil || PFUser.current() == nil {
+                return false
+            } else if (courseComments?[indexPath.row]["andrewID"] as! String) == PFUser.current()?.username {
+                return true
+            }
+        }
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        var editActions : [UITableViewRowAction]? = nil
+        if segmentControl.selectedSegmentIndex == 2 && indexPath.section == 1 {
+            if (courseComments?[indexPath.row]["andrewID"] as! String) == PFUser.current()?.username {
+                let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+                    let comments = self.courseComments![indexPath.row]["replies"] as! [String : Any]
+                    let numReplies = comments.count
+                    var alertMessage = ""
+                    if numReplies == 0 {
+                        alertMessage = "Are you sure you want to delete this comment?"
+                    } else {
+                        alertMessage = "This comment has \(numReplies) replies that other students may find useful! Consider making the comment anonymous!"
+                    }
+        
+                    let alert = UIAlertController(title: "Are you sure?", message: alertMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+                        //Cancel Action
+                    }))
+                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+                        // delete the comment and refresh the table
+                    }))
+ 
+                    self.present(alert, animated: true, completion: nil)
+                }
+                let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+                    if self.isEditingComment {
+                        self.isEditingComment = false
+                        self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 1)], with: .fade)
+                        self.editingIndex = nil
+                    }
+                    self.isEditingComment = true
+                    self.editingIndex = indexPath.row
+                    self.tableView.reloadRows(at: [indexPath], with: .bottom)
+                    self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+                }
+                editActions = [deleteAction, editAction]
+            }
+        }
+        return editActions
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -262,6 +335,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                     let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentTableViewCell
                     newCommentCell.delegate = self
                     newCommentCell.courseNumber = course.number
+                    newCommentCell.setupText()
                     return newCommentCell
                 } else {
                     let guestCommentCell = tableView.dequeueReusableCell(withIdentifier: "GuestComment", for: indexPath) as! GuestCommentCell
@@ -270,17 +344,30 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 }
             }
             else {
-                if i == 0 && isLoadingComment {
+                if (i == 0 && isLoadingNewComment) || (isLoadingEditedComment && i == editingIndex) {
                     // if the user posted a new comment, display the loading cell
                     let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                     loadingCell.spinner.startAnimating()
                     return loadingCell
                 }
+                if isEditingComment && i == editingIndex {
+                    let editingCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentTableViewCell
+                    editingCell.delegate = self
+                    editingCell.isEditingComment = true
+                    editingCell.editingCommentIndex = i
+                    editingCell.titleField.becomeFirstResponder()
+                    editingCell.courseNumber = course.number
+                    editingCell.commentText = courseComments![i]["commentText"] as? String
+                    editingCell.commentTitle = courseComments![i]["header"] as? String
+                    editingCell.wasAnonymous = courseComments![i]["anonymous"] as? Bool
+                    editingCell.setupText()
+                    return editingCell
+                }
                 else {
                     // display comments
                     // if the user has just posted a comment, there is a temporary cell with a loading
                     // spinner, so in this case each cell must be shifted forward by one to fit this
-                    let indexRow = isLoadingComment ? indexPath.row - 1 : indexPath.row
+                    let indexRow = isLoadingNewComment ? indexPath.row - 1 : indexPath.row
                     let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
                     if let commentInfo = courseComments?[indexRow] {
                         commentCell.headerLabel.text = commentInfo["header"] as? String
@@ -299,22 +386,41 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     } // end of cellForIndexAt
     
     //MARK:- NewCommentCellDelegate
-    func didPostComment(withData data: [String : Any]) {
-        isLoadingComment = true
-        tableView.reloadData() // display loading cell
+    func didPostComment(withData data: [String : Any], wasEdited edited: Bool, atIndex index : Int) {
+        if !edited {
+            isLoadingNewComment = true
+            tableView.reloadData() // display loading cell
+        } else {
+            // loading cell for updated comment?
+        }
         commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
+            // have to fetch in case someone made a new comment in the meantime
             if let object = object { // if it succeeds to fetch any updates
                 var comments = object["comments"] as! [[String : Any]] // the current comments
                 // insert the new comment at the beginning and rewrite the old comments
-                comments.insert(data, at: 0)
-                object["comments"] = comments
+                if !edited {
+                    // if it's a new comment, insert the new comment at the beginning
+                    comments.insert(data, at: 0)
+                    object["comments"] = comments
+                } else {
+                    // else just rewrite the old comment at the right index
+                    comments[index] = data
+                    object["comments"] = comments
+                }
                 
                 object.saveInBackground(block: { (success: Bool, error: Error?) in
+                    self.isLoadingNewComment = false // remove the loading cell
+                    
                     if success {
-                        self.isLoadingComment = false // remove the loading cell
                         // update the courseComments with the new comments
                         self.courseComments = (object["comments"] as! CourseComments)
-                        self.tableView.reloadData()
+                        if edited {
+                            self.isEditingComment = false
+                            self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 1)], with: .fade)
+                            self.editingIndex = nil
+                        } else {
+                            self.tableView.reloadData()
+                        }
                     } else if let error = error {
                         SVProgressHUD.showError(withStatus: error.localizedDescription)
                         SVProgressHUD.dismiss(withDelay: 1)
@@ -331,6 +437,12 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 SVProgressHUD.dismiss(withDelay: 1)
             }
         }
+    }
+    
+    func didCancelComment(atIndex index : Int) {
+        self.isEditingComment = false
+        self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 1)], with: .fade)
+        self.editingIndex = nil
     }
     
     //MARK:- GuestCommentCellDelegate
