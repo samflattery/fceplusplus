@@ -11,17 +11,23 @@ import Parse
 import SVProgressHUD
 
 protocol NewReplyTableViewCellDelegate {
-    func didPostReply(withData data: [String: Any])
+    func didPostReply(withData data: [String: Any], wasEdited edited: Bool, toIndex index: Int)
+    func didCancelReply(atIndex index: Int)
 }
 
 class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var anonymousSwitch: UISwitch!
     @IBOutlet weak var anonymousLabel: UILabel!
     
     var delegate: NewReplyTableViewCellDelegate!
+    
+    var isEditingReply: Bool = false
+    var editingIndex: Int!
+    var replyText: String!
 
     var reachability: Reachability!
     
@@ -34,6 +40,7 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         postButton.isHidden = true
         anonymousSwitch.isHidden = true
         anonymousLabel.isHidden = true
+        cancelButton.isHidden = true
         
         // resize the switch to make it smaller
         let switchResizeRatio: CGFloat = 0.75
@@ -44,6 +51,20 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         let switchHeight: CGFloat = 31 * switchResizeRatio
         let contentInset: CGFloat = 8
         textView.textContainerInset = UIEdgeInsets(top: contentInset, left: contentInset, bottom: switchHeight + (contentInset*2), right: buttonHeight + (contentInset*2))
+    }
+    
+    func setupEditing(isAnonymous anon : Bool) {
+        isEditingReply = true
+        
+        textView.text = replyText
+        textView.textColor = .black
+        
+        postButton.isHidden = false
+        cancelButton.isHidden = false
+        postButton.setTitle("Save", for: .normal)
+        anonymousSwitch.isHidden = false
+        anonymousLabel.isHidden = false
+        anonymousSwitch.isOn = anon
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
@@ -70,15 +91,48 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
                          "andrewID": user.username!,
                          "anonymous": anonymousSwitch.isOn] as [String : Any] //to append to replies
         
-        delegate.didPostReply(withData: replyData)
-        
-        // reset the text view to its default
-        textView.resignFirstResponder()
-        textView.text = "Leave a reply!"
-        textView.textColor = .lightGray
-        postButton.isHidden = true
-        
+        if isEditingReply {
+            if textView.text != replyText {
+                // if the user changed something, ask if they want to save
+                let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to save these changes?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+                    // close the alert
+                }))
+                alert.addAction(UIAlertAction(title: "Save", style: .destructive, handler: { (_) in
+                    // update the existing comment
+                    self.delegate.didPostReply(withData: replyData, wasEdited: true, toIndex: self.editingIndex)
+                }))
+                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            } else {
+                // else just close the editing cell
+                self.delegate.didCancelReply(atIndex: editingIndex)
+            }
+        } else {
+            delegate.didPostReply(withData: replyData, wasEdited: false, toIndex: 0)
+            
+            // reset the text view to its default
+            textView.resignFirstResponder()
+            textView.text = "Leave a reply!"
+            textView.textColor = .lightGray
+            postButton.isHidden = true
+        }
     }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        if replyText != textView.text {
+            let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to cancel these changes?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Don't Cancel", style: .default, handler: { _ in
+                return
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
+                self.delegate.didCancelReply(atIndex: self.editingIndex)
+            }))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        } else {
+            self.delegate.didCancelReply(atIndex: editingIndex)
+        }
+    }
+    
 
     //MARK:- Text Field Delegates
     func textViewDidChange(_ textView: UITextView) {

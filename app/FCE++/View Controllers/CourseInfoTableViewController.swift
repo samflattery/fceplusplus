@@ -251,6 +251,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 2 && indexPath.section == 1 {
             if courseComments == nil || PFUser.current() == nil {
                 return false
+            } else if isEditingComment && editingIndex == indexPath.row {
+                return false
             } else if (courseComments?[indexPath.row]["andrewID"] as! String) == PFUser.current()?.username {
                 return true
             }
@@ -500,8 +502,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     func didCancelComment(atIndex index : Int) {
         self.isEditingComment = false
-        self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 1)], with: .fade)
         self.editingIndex = nil
+        self.tableView.reloadRows(at: [IndexPath(item: index, section: 1)], with: .fade)
     }
     
     //MARK:- GuestCommentCellDelegate

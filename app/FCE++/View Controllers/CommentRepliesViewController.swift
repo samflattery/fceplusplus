@@ -29,8 +29,11 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     
     let refreshController = UIRefreshControl()
     
-    var isLoadingComment = false // true if the comments are being loaded in the background
+    var isLoadingNewReply = false // true if the comments are being loaded in the background
     var cellHeights: [IndexPath : CGFloat] = [:] // a dictionary of cell heights to avoid jumpy table
+    
+    var isEditingReply : Bool = false
+    var editingIndex : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +137,8 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 && PFUser.current() != nil {
             return 200
+        } else if indexPath.section == 2 && isEditingReply && indexPath.row == editingIndex {
+            return 200
         } else {
             return UITableView.automaticDimension
         }
@@ -159,6 +164,8 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         if indexPath.section == 2 {
             if PFUser.current() == nil {
                 return false
+            } else if isEditingReply && indexPath.row == editingIndex {
+                return false
             } else if (commentReplies[indexPath.row]["andrewID"] as! String) == PFUser.current()!.username {
                 return true
             }
@@ -176,11 +183,8 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                         //Cancel Action
                     }))
                     alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-                        // remove the reply from the indexPath.row of the comment replies array
-                        // fetch, rewrite and save the comment obj
-                        // refresh the table
-                        // manually change the height dictionary
-                        
+                        // fetch, rewrite and save object
+                        // update local fields from new object and delete cell
                         SVProgressHUD.show(withStatus: "Deleting...")
                         self.commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
                             // have to fetch in case someone made a new comment in the meantime
@@ -238,15 +242,17 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 }
                 let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
                     print("edit")
-//                    if self.isEditingComment {
-//                        self.isEditingComment = false
-//                        self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 1)], with: .fade)
-//                        self.editingIndex = nil
-//                    }
-//                    self.isEditingComment = true
-//                    self.editingIndex = indexPath.row
-//                    self.tableView.reloadRows(at: [indexPath], with: .bottom)
-//                    self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+                    if self.isEditingReply {
+                        print("should reload")
+                        self.isEditingReply = false
+                        self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 2)], with: .fade)
+                        self.editingIndex = nil
+                    }
+                    self.isEditingReply = true
+                    self.editingIndex = indexPath.row
+                    self.tableView.reloadRows(at: [indexPath], with: .bottom)
+                    self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+                    self.tableView.reloadData()
                 }
                 editActions = [deleteAction, editAction]
             }
@@ -255,7 +261,10 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 { // display the comment itself
+        let i = indexPath.row
+        let j = indexPath.section
+        
+        if j == 0 { // display the comment itself
             let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
             commentCell.accessoryType = .none // removes disclosure indicator
             commentCell.isUserInteractionEnabled = false
@@ -268,7 +277,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 commentCell.andrewIDLabel.text = comment["andrewID"] as? String
             }
             return commentCell
-        } else if indexPath.section == 1 { // the new comment cell
+        } else if j == 1 { // the new comment cell
             if PFUser.current() != nil {
                 let newReplyCell = tableView.dequeueReusableCell(withIdentifier: "NewReply", for: indexPath) as! NewReplyTableViewCell
                 newReplyCell.delegate = self
@@ -279,53 +288,75 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 return guestCell
             }
         } else { // display the replies
-            
-            if indexPath.row == 0 && isLoadingComment {
+            if i == 0 && isLoadingNewReply {
                 let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                 loadingCell.spinner.startAnimating()
                 return loadingCell
             }
-            
-            let indexRow = isLoadingComment ? indexPath.row - 1 : indexPath.row
-            let replyCell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath) as! CommentReplyCell
-            let commentReply = commentReplies[indexRow]
-            replyCell.replyLabel.text = commentReply["replyText"] as? String
-            replyCell.dateLabel.text = commentReply["timePosted"] as? String
-            if commentReply["anonymous"] as! Bool {
-                replyCell.andrewIDLabel.text = "Anonymous"
-            } else {
-                replyCell.andrewIDLabel.text = commentReply["andrewID"] as? String
+            else if isEditingReply && i == editingIndex {
+                let newReplyCell = tableView.dequeueReusableCell(withIdentifier: "NewReply", for: indexPath) as! NewReplyTableViewCell
+                newReplyCell.delegate = self
+                newReplyCell.editingIndex = i
+                newReplyCell.replyText = (commentReplies[i]["replyText"] as! String)
+                newReplyCell.setupEditing(isAnonymous: commentReplies[i]["anonymous"] as! Bool)
+                return newReplyCell
             }
-            return replyCell
+            else {
+                let indexRow = isLoadingNewReply ? i - 1 : i
+                let replyCell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath) as! CommentReplyCell
+                let commentReply = commentReplies[indexRow]
+                replyCell.replyLabel.text = commentReply["replyText"] as? String
+                replyCell.dateLabel.text = commentReply["timePosted"] as? String
+                if commentReply["anonymous"] as! Bool {
+                    replyCell.andrewIDLabel.text = "Anonymous"
+                } else {
+                    replyCell.andrewIDLabel.text = commentReply["andrewID"] as? String
+                }
+                return replyCell
+            }
         }
     }
     
     //MARK:- NewReplyTableViewCellDelegate
     func didStartReplying() {
-        isLoadingComment = true
+        isLoadingNewReply = true
         tableView.reloadData()
     }
     
-    func didPostReply(withData data: [String : Any]) {
-//        var comment = comments[indexOfComment] // gets the single comment in the array of comments that
-        // was replied to
-        // get the old replies from the single comment
-        isLoadingComment = true
-        tableView.reloadData()
+    func didPostReply(withData data: [String : Any], wasEdited edited: Bool, toIndex index: Int) {
+        if edited {
+            // edited loading cell?
+        } else {
+            isLoadingNewReply = true
+            tableView.reloadData()
+        }
         commentObj.fetchInBackground { (object: PFObject?, error: Error?) in
             if let object = object {
                 var comments = (object["comments"] as! CourseComments)
                 var currComment = comments[self.commentIndex]
                 var replies = currComment["replies"] as! CommentReplies
-                replies.insert(data, at: 0)
+                
+                if !edited {
+                    replies.insert(data, at: 0)
+                } else {
+                    replies[index] = data
+                }
                 currComment["replies"] = replies
                 comments[self.commentIndex] = currComment
                 object["comments"] = comments
                 object.saveInBackground(block: { (success: Bool, error: Error?) in
                     if success {
-                        self.isLoadingComment = false
+                        if !edited {
+                            self.isLoadingNewReply = false
+                        }
                         self.setFieldsFromObject(object)
-                        self.tableView.reloadData()
+                        if edited {
+                            self.isEditingReply = false
+                            self.editingIndex = nil
+                            self.tableView.reloadRows(at: [IndexPath(item: index, section: 2)], with: .fade)
+                        } else {
+                            self.tableView.reloadData()
+                        }
                     } else if let error = error {
                         SVProgressHUD.showError(withStatus: error.localizedDescription)
                         SVProgressHUD.dismiss(withDelay: 1)
@@ -343,6 +374,12 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 
             }
         }
+    }
+    
+    func didCancelReply(atIndex index: Int) {
+        self.isEditingReply = false
+        self.editingIndex = nil
+        self.tableView.reloadRows(at: [IndexPath(item: index, section: 2)], with: .fade)
     }
 
     //MARK:- GuestCommentCellDelegate

@@ -165,10 +165,10 @@
 		0AE667AC22BD405500F0CC28 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0A9B632422F5F84F00B6CF2F /* NewCommentTableViewCell.swift */,
 				0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */,
 				0AE667AA22BD404800F0CC28 /* GuestCommentCell.swift */,
 				0A705B2E22C0F14D002DE02A /* CourseInfoTableViewCell.swift */,
-				0A9B632422F5F84F00B6CF2F /* NewCommentTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
