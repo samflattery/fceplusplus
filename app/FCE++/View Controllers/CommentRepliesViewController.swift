@@ -251,7 +251,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                     self.isEditingReply = true
                     self.editingIndex = indexPath.row
                     self.tableView.reloadRows(at: [indexPath], with: .bottom)
-                    self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                     self.tableView.reloadData()
                 }
                 editActions = [deleteAction, editAction]
