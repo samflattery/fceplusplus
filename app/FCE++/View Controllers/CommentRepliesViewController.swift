@@ -119,6 +119,9 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 && PFUser.current() == nil {
+            return 80
+        }
         return cellHeights[indexPath] ?? 70.0
     }
     
@@ -278,11 +281,19 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             commentCell.headerLabel.text = comment["header"] as? String
             commentCell.commentLabel.text = comment["commentText"] as? String
             commentCell.dateLabel.text = comment["timePosted"] as? String
-            if comment["anonymous"] as! Bool {
-                commentCell.andrewIDLabel.text = "Anonymous"
+            
+            if comment["andrewID"] as? String == PFUser.current()?.username {
+                commentCell.starImage.isHidden = false
+                commentCell.andrewIDLabel.text = "You"
             } else {
-                commentCell.andrewIDLabel.text = comment["andrewID"] as? String
+                commentCell.starImage.isHidden = true
+                if comment["anonymous"] as! Bool {
+                    commentCell.andrewIDLabel.text = "Anonymous"
+                } else {
+                    commentCell.andrewIDLabel.text = comment["andrewID"] as? String
+                }
             }
+            
             return commentCell
         } else if j == 1 { // the new reply cell
             if PFUser.current() != nil {
@@ -314,11 +325,24 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 let commentReply = commentReplies[indexRow]
                 replyCell.replyLabel.text = commentReply["replyText"] as? String
                 replyCell.dateLabel.text = commentReply["timePosted"] as? String
-                if commentReply["anonymous"] as! Bool {
-                    replyCell.andrewIDLabel.text = "Anonymous"
+                
+                if commentReply["andrewID"] as? String == PFUser.current()?.username {
+                    replyCell.starImage.isHidden = false
+                    replyCell.andrewIDLabel.text = "You"
                 } else {
-                    replyCell.andrewIDLabel.text = commentReply["andrewID"] as? String
+                    replyCell.starImage.isHidden = true
+                    if commentReply["anonymous"] as! Bool {
+                        replyCell.andrewIDLabel.text = "Anonymous"
+                    } else {
+                        replyCell.andrewIDLabel.text = comment["andrewID"] as? String
+                    }
                 }
+//
+//                if commentReply["anonymous"] as! Bool {
+//                    replyCell.andrewIDLabel.text = "Anonymous"
+//                } else {
+//                    replyCell.andrewIDLabel.text = commentReply["andrewID"] as? String
+//                }
                 return replyCell
             }
         }
@@ -410,6 +434,8 @@ class CommentReplyCell: UITableViewCell {
     @IBOutlet weak var replyLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var andrewIDLabel: UILabel!
+    @IBOutlet weak var starImage: UIImageView!
+    
     
 }
 

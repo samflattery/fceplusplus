@@ -177,6 +177,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if segmentControl.selectedSegmentIndex == 2 && indexPath.section == 0 && PFUser.current() == nil {
+            return 80
+        }
         return UITableView.automaticDimension
     }
     
@@ -258,7 +261,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if segmentControl.selectedSegmentIndex == 1 {
             return instructorInfo[section][0]
-        } else if segmentControl.selectedSegmentIndex == 2 && section == 0 {
+        } else if segmentControl.selectedSegmentIndex == 2 && section == 0 && PFUser.current() != nil {
             return "New Comment"
         }
         return nil
@@ -453,10 +456,17 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                         commentCell.headerLabel.text = commentInfo["header"] as? String
                         commentCell.commentLabel.text = commentInfo["commentText"] as? String
                         commentCell.dateLabel.text = commentInfo["timePosted"] as? String
-                        if commentInfo["anonymous"] as! Bool {
-                            commentCell.andrewIDLabel.text = "Anonymous"
+                        
+                        if commentInfo["andrewID"] as? String == PFUser.current()?.username {
+                            commentCell.starImage.isHidden = false
+                            commentCell.andrewIDLabel.text = "You"
                         } else {
-                            commentCell.andrewIDLabel.text = commentInfo["andrewID"] as? String
+                            commentCell.starImage.isHidden = true
+                            if commentInfo["anonymous"] as! Bool {
+                                commentCell.andrewIDLabel.text = "Anonymous"
+                            } else {
+                                commentCell.andrewIDLabel.text = commentInfo["andrewID"] as? String
+                            }
                         }
                         return commentCell
                     } else {
@@ -563,6 +573,8 @@ class CommentCell: UITableViewCell { // the cell that displays a comment
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var andrewIDLabel: UILabel!
+    @IBOutlet weak var starImage: UIImageView!
+    
     
 }
 

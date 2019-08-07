@@ -55,10 +55,18 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Phh-T7-vBI">
+                                <rect key="frame" x="71.5" y="108.5" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="TM4-bc-ixB"/>
+                                    <constraint firstAttribute="width" constant="10" id="zy6-Z5-iDw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bew-rg-rpx" firstAttribute="leading" secondItem="U76-4a-t3a" secondAttribute="leading" id="0bZ-99-oeR"/>
+                            <constraint firstItem="bew-rg-rpx" firstAttribute="centerY" secondItem="Phh-T7-vBI" secondAttribute="centerY" id="4A1-Wp-N26"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bew-rg-rpx" secondAttribute="trailing" id="5Cp-EC-xeT"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cbg-sD-i7g" secondAttribute="trailing" id="ISp-Un-AE8"/>
                             <constraint firstItem="cbg-sD-i7g" firstAttribute="top" secondItem="k3T-CI-CiA" secondAttribute="bottom" constant="2" id="IxG-zT-Dak"/>
@@ -68,6 +76,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k3T-CI-CiA" secondAttribute="trailing" id="dm8-rw-Ft2"/>
                             <constraint firstAttribute="bottom" secondItem="cbg-sD-i7g" secondAttribute="bottom" id="hRz-hx-vfy"/>
                             <constraint firstAttribute="trailing" secondItem="0DE-KB-Jq1" secondAttribute="trailing" id="nB0-5M-68D"/>
+                            <constraint firstItem="Phh-T7-vBI" firstAttribute="leading" secondItem="bew-rg-rpx" secondAttribute="trailing" constant="5" id="oSJ-2N-eR2"/>
                             <constraint firstItem="k3T-CI-CiA" firstAttribute="leading" secondItem="U76-4a-t3a" secondAttribute="leading" id="rL1-2Y-gVK"/>
                             <constraint firstItem="bew-rg-rpx" firstAttribute="top" secondItem="0DE-KB-Jq1" secondAttribute="bottom" constant="2" id="u0a-f4-ZIt"/>
                             <constraint firstItem="k3T-CI-CiA" firstAttribute="top" secondItem="bew-rg-rpx" secondAttribute="bottom" constant="12" id="v6k-5Q-IVG"/>
@@ -86,8 +95,12 @@
                 <outlet property="commentLabel" destination="k3T-CI-CiA" id="t3d-1b-GCr"/>
                 <outlet property="dateLabel" destination="cbg-sD-i7g" id="O3u-nO-AXl"/>
                 <outlet property="headerLabel" destination="0DE-KB-Jq1" id="mUy-NB-u3X"/>
+                <outlet property="starImage" destination="Phh-T7-vBI" id="k0k-ik-ELg"/>
             </connections>
-            <point key="canvasLocation" x="23" y="111"/>
+            <point key="canvasLocation" x="21.739130434782609" y="110.82589285714285"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" width="300" height="300"/>
+    </resources>
 </document>
