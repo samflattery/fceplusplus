@@ -333,7 +333,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 showLoginScreen()
             } else {
                 // perform the segue to the comment replies
-                performSegue(withIdentifier: "ShowRepliesFromHome", sender: indexPath.row)
+                if commentsToShow != nil {
+                    performSegue(withIdentifier: "ShowRepliesFromHome", sender: indexPath.row)
+                }
             }
         }
     }

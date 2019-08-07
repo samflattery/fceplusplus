@@ -413,6 +413,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                     let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentTableViewCell
                     newCommentCell.delegate = self
                     newCommentCell.courseNumber = course.number
+                    newCommentCell.isEditingComment = false
                     newCommentCell.setupText()
                     return newCommentCell
                 } else {
@@ -471,9 +472,18 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     //MARK:- NewCommentCellDelegate
     func didPostComment(withData data: [String : Any], wasEdited edited: Bool, atIndex index : Int) {
+        if isEditingComment && !edited {
+            // if the user tried to post a comment while they were editing another comment
+            SVProgressHUD.showError(withStatus: "You cannot post a new comment while editing another")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
         if !edited {
             isLoadingNewComment = true
-            tableView.reloadData() // display loading cell
+            tableView.beginUpdates()
+            tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .top)
+            tableView.endUpdates()
+//            tableView.reloadData() // display loading cell
         } else {
             // loading cell for updated comment?
         }

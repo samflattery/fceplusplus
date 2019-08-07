@@ -46,11 +46,11 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         let switchResizeRatio: CGFloat = 0.75
         anonymousSwitch.transform = CGAffineTransform(scaleX: switchResizeRatio, y: switchResizeRatio)
         
-        // limit the area of the text view where text can go to fit button and switch
-        let buttonHeight: CGFloat = 44
-        let switchHeight: CGFloat = 31 * switchResizeRatio
-        let contentInset: CGFloat = 8
-        textView.textContainerInset = UIEdgeInsets(top: contentInset, left: contentInset, bottom: switchHeight + (contentInset*2), right: buttonHeight + (contentInset*2))
+//        // limit the area of the text view where text can go to fit button and switch
+//        let buttonHeight: CGFloat = 44
+//        let switchHeight: CGFloat = 31 * switchResizeRatio
+//        let contentInset: CGFloat = 8
+//        textView.textContainerInset = UIEdgeInsets(top: contentInset, left: contentInset, bottom: switchHeight + (contentInset*2), right: buttonHeight + (contentInset*2))
     }
     
     func setupEditing(isAnonymous anon : Bool) {

@@ -130,7 +130,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         if section == 0 || section == 1 {
             return 1
         } else {
-            return commentReplies.count
+            return isLoadingNewReply ? commentReplies.count + 1 : commentReplies.count
         }
     }
     
@@ -147,7 +147,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
             return "Leave a reply!"
-        } else if section == 2 {
+        } else if section == 2 && commentReplies.count != 0 {
             return "Replies"
         } else {
             return nil
@@ -166,7 +166,14 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 return false
             } else if isEditingReply && indexPath.row == editingIndex {
                 return false
-            } else if (commentReplies[indexPath.row]["andrewID"] as! String) == PFUser.current()!.username {
+            } else if isLoadingNewReply {
+                if indexPath.row == 0 {
+                    return false
+                } else if (commentReplies[indexPath.row-1]["andrewID"] as! String) == PFUser.current()!.username {
+                    return true
+                }
+            } else if (commentReplies[indexPath.row]["andrewID"] as! String) ==
+                    PFUser.current()!.username {
                 return true
             }
         }
@@ -277,7 +284,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 commentCell.andrewIDLabel.text = comment["andrewID"] as? String
             }
             return commentCell
-        } else if j == 1 { // the new comment cell
+        } else if j == 1 { // the new reply cell
             if PFUser.current() != nil {
                 let newReplyCell = tableView.dequeueReusableCell(withIdentifier: "NewReply", for: indexPath) as! NewReplyTableViewCell
                 newReplyCell.delegate = self
@@ -317,18 +324,22 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         }
     }
     
-    //MARK:- NewReplyTableViewCellDelegate
-    func didStartReplying() {
-        isLoadingNewReply = true
-        tableView.reloadData()
-    }
-    
+    //MARK:- NewReplyTableViewCellDelegates
     func didPostReply(withData data: [String : Any], wasEdited edited: Bool, toIndex index: Int) {
+        if isEditingReply && !edited {
+            // if the user tried to post a comment while they were editing another comment
+            SVProgressHUD.showError(withStatus: "You cannot post a new reply while editing another one")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
+        
         if edited {
             // edited loading cell?
         } else {
             isLoadingNewReply = true
-            tableView.reloadData()
+            tableView.beginUpdates()
+            tableView.insertRows(at: [IndexPath(row: 0, section: 2)], with: .top)
+            tableView.endUpdates()
         }
         commentObj.fetchInBackground { (object: PFObject?, error: Error?) in
             if let object = object {

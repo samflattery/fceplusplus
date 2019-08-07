@@ -31,7 +31,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
     
     // if the user is editing an existing comment and not writing a new one,
     // these values will be initialized
-    var isEditingComment : Bool = false
+    var isEditingComment : Bool!
     var editingCommentIndex : Int!
     var commentText : String!
     var commentTitle: String!
@@ -39,6 +39,8 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        isEditingComment = false
 
         // make the switch smaller
         let switchResizeRatio: CGFloat = 0.75
@@ -47,6 +49,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
         // just have the bottom border line
         titleField.borderStyle = .none
         titleField.delegate = self
+        titleField.autocapitalizationType = .sentences
         commentTextView.delegate = self
         
         titleField.attributedPlaceholder = NSAttributedString(string: "Title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font: UIFont(name: "IowanOldSt OSF BT", size: 24)!])
@@ -68,6 +71,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
             postButton.setTitle("Post", for: .normal)
             commentTextView.text = "Leave your thoughts on this course or ask a question!"
             commentTextView.textColor = .lightGray
+            titleField.text = ""
             
             postButton.isHidden = true
             anonymousSwitch.isHidden = true
@@ -93,7 +97,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
-        if titleField.text == "" {
+        if titleField.text == "" || commentTextView.text == "" {
             return
         }
         
@@ -149,6 +153,18 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
             titleField.text = ""
             commentTextView.text = "Leave your thoughts on this course or ask a question!"
             commentTextView.textColor = .lightGray
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text != "" || textView.text == "Leave your thoughts on this course or ask a question!" {
+            postButton.isHidden = false
+            anonymousSwitch.isHidden = false
+            anonymousLabel.isHidden = false
+        } else {
+            postButton.isHidden = true
+            anonymousSwitch.isHidden = true
+            anonymousLabel.isHidden = true
         }
     }
     
