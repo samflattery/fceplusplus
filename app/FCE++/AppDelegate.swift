@@ -35,9 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         courses = getCourseJSON()
         
         let parseConfig = ParseClientConfiguration {
-            $0.applicationId = "fceplusplus"
-            $0.clientKey = "client"
-            $0.server = "https://fceplusplus.herokuapp.com/parse"
+            $0.applicationId = ServerInfo.appID
+            $0.clientKey = ServerInfo.clientKey
+            $0.server = ServerInfo.server
         }
         Parse.initialize(with: parseConfig)
 //        PFUser.logOut()
