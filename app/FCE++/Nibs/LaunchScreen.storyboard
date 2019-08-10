@@ -29,10 +29,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mo8-5G-zpM">
+                                <rect key="frame" x="107" y="389" width="200" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jIb-1h-ML3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Saz-Cw-HTN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Ph-Ii-Ey8"/>
+                            <constraint firstItem="Mo8-5G-zpM" firstAttribute="top" secondItem="Saz-Cw-HTN" secondAttribute="bottom" constant="20" id="BYU-A2-DXY"/>
+                            <constraint firstItem="Mo8-5G-zpM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="l4D-mo-dXj"/>
                             <constraint firstItem="Saz-Cw-HTN" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="240" id="sZ8-CW-RHX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -40,7 +48,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="info.png" width="28" height="28"/>
+    </resources>
 </document>

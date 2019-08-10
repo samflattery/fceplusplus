@@ -333,104 +333,6 @@
                                     <outlet property="headingLabel" destination="BHA-uV-88Y" id="kDj-Ck-Exf"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IC2" rowHeight="130" id="daz-ae-jag" customClass="InstructorCell" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="272.33333333333337" width="375" height="130"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="daz-ae-jag" id="FJa-X2-bsW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.66666666666666"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-7q-fFK" customClass="CosmosView" customModule="Cosmos">
-                                            <rect key="frame" x="187.66666666666663" y="50" width="171.33333333333337" height="30"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                    <color key="value" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                    <real key="value" value="30"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="(3.4)"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructor provides feedback to students to improve" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vU-7G-JCI">
-                                            <rect key="frame" x="16" y="11" width="171.66666666666666" height="108"/>
-                                            <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bm-7b-0tW">
-                                            <rect key="frame" x="335.33333333333331" y="88" width="23.666666666666686" height="21"/>
-                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="5vU-7G-JCI" firstAttribute="top" secondItem="FJa-X2-bsW" secondAttribute="topMargin" id="6Zq-mm-GYV"/>
-                                        <constraint firstItem="ISp-7q-fFK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5vU-7G-JCI" secondAttribute="trailing" id="O8a-PK-OrF"/>
-                                        <constraint firstItem="5vU-7G-JCI" firstAttribute="bottom" secondItem="FJa-X2-bsW" secondAttribute="bottomMargin" id="eRL-rl-P0m"/>
-                                        <constraint firstItem="7bm-7b-0tW" firstAttribute="top" secondItem="ISp-7q-fFK" secondAttribute="bottom" constant="8" id="hOF-FY-DqY"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="7bm-7b-0tW" secondAttribute="trailing" id="mMK-b2-iY1"/>
-                                        <constraint firstItem="5vU-7G-JCI" firstAttribute="leading" secondItem="FJa-X2-bsW" secondAttribute="leadingMargin" id="ni9-Lv-8tW"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ISp-7q-fFK" secondAttribute="trailing" id="oEB-oi-gh5"/>
-                                        <constraint firstItem="ISp-7q-fFK" firstAttribute="centerY" secondItem="FJa-X2-bsW" secondAttribute="centerY" id="ruK-w3-A0B"/>
-                                        <constraint firstItem="5vU-7G-JCI" firstAttribute="trailing" secondItem="FJa-X2-bsW" secondAttribute="centerX" id="siY-qb-mfW"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7bm-7b-0tW" secondAttribute="bottom" id="yWY-bh-1OM"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="headingLabel" destination="5vU-7G-JCI" id="fKi-0G-4RD"/>
-                                    <outlet property="ratingLabel" destination="7bm-7b-0tW" id="dcN-IE-5I1"/>
-                                    <outlet property="starRating" destination="ISp-7q-fFK" id="9mK-Rl-nwx"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IC" rowHeight="151" id="dhM-fm-OhY" customClass="InstructorCell" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="402.33333333333337" width="375" height="151"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dhM-fm-OhY" id="PjE-FK-dGQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150.66666666666666"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructor provides feedback to students to improve" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meu-hC-UH7">
-                                            <rect key="frame" x="16" y="19.000000000000004" width="343" height="42.333333333333343"/>
-                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0H-Th-8H5" customClass="CosmosView" customModule="Cosmos">
-                                            <rect key="frame" x="16" y="69.333333333333329" width="343" height="62.666666666666671"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="(3.2)"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                    <real key="value" value="26"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="textSize">
-                                                    <real key="value" value="14"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                    <color key="value" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="meu-hC-UH7" firstAttribute="top" secondItem="PjE-FK-dGQ" secondAttribute="topMargin" constant="8" id="2Kx-vk-xON"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="t0H-Th-8H5" secondAttribute="bottom" constant="8" id="APC-9Z-1ct"/>
-                                        <constraint firstItem="t0H-Th-8H5" firstAttribute="leading" secondItem="PjE-FK-dGQ" secondAttribute="leadingMargin" id="Kmh-CZ-pmL"/>
-                                        <constraint firstItem="meu-hC-UH7" firstAttribute="trailing" secondItem="PjE-FK-dGQ" secondAttribute="trailingMargin" id="Kvn-qG-Nuh"/>
-                                        <constraint firstItem="meu-hC-UH7" firstAttribute="leading" secondItem="PjE-FK-dGQ" secondAttribute="leadingMargin" id="Tda-9r-qmB"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="t0H-Th-8H5" secondAttribute="trailing" id="Znc-pe-BII"/>
-                                        <constraint firstItem="t0H-Th-8H5" firstAttribute="top" secondItem="meu-hC-UH7" secondAttribute="bottom" constant="8" id="gBh-kN-JN9"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="headingLabel" destination="meu-hC-UH7" id="6lD-9S-Smw"/>
-                                    <outlet property="starRating" destination="t0H-Th-8H5" id="5xy-BL-Tk8"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="yYW-RS-tm2" id="kSD-wy-Gfr"/>
@@ -456,6 +358,7 @@
                     <connections>
                         <outlet property="segmentControl" destination="fQ0-QO-SZg" id="7ke-cm-dy8"/>
                         <segue destination="YhK-5T-Bu6" kind="show" identifier="ShowReplies" id="bUp-I8-Myg"/>
+                        <segue destination="6Ii-JS-Avp" kind="show" identifier="ShowInstructorInfo" id="prR-rU-v2C"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ra-mU-krf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -550,7 +453,7 @@
                                 <rect key="frame" x="40" y="376" width="295" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="andrewID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-ws-6Vg">
                                 <rect key="frame" x="40" y="306" width="295" height="30"/>
@@ -657,6 +560,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1R-zS-5NU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2927" y="26"/>
+        </scene>
+        <!--Instructor Name-->
+        <scene sceneID="Du1-NW-7UM">
+            <objects>
+                <tableViewController id="6Ii-JS-Avp" customClass="InstructorInfoTableViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Wnq-Dn-lUD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstructorInfoCell" rowHeight="126" id="6R0-sH-cgN" customClass="InstructorCell" customModule="FCE__" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="126"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6R0-sH-cgN" id="awq-gO-bGp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125.66666666666667"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructor provides feedback to students to improve" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9m-i4-sGc">
+                                            <rect key="frame" x="16" y="19.000000000000004" width="343" height="47.333333333333343"/>
+                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItP-1t-qbr" customClass="CosmosView" customModule="Cosmos">
+                                            <rect key="frame" x="16" y="74.333333333333329" width="343" height="32.666666666666671"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                    <real key="value" value="26"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="(3.2)"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                    <color key="value" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                                    <real key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Q9m-i4-sGc" firstAttribute="trailing" secondItem="awq-gO-bGp" secondAttribute="trailingMargin" id="415-DE-nm3"/>
+                                        <constraint firstItem="Q9m-i4-sGc" firstAttribute="leading" secondItem="awq-gO-bGp" secondAttribute="leadingMargin" id="Odg-bU-IFz"/>
+                                        <constraint firstItem="ItP-1t-qbr" firstAttribute="top" secondItem="Q9m-i4-sGc" secondAttribute="bottom" constant="8" id="OqG-mL-LF1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ItP-1t-qbr" secondAttribute="bottom" constant="8" id="puU-Q8-Qv0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ItP-1t-qbr" secondAttribute="trailing" id="tdU-BW-Tpk"/>
+                                        <constraint firstItem="ItP-1t-qbr" firstAttribute="leading" secondItem="awq-gO-bGp" secondAttribute="leadingMargin" id="v1w-7J-SiI"/>
+                                        <constraint firstItem="Q9m-i4-sGc" firstAttribute="top" secondItem="awq-gO-bGp" secondAttribute="topMargin" constant="8" id="z6C-Tj-8Na"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="headingLabel" destination="Q9m-i4-sGc" id="ndY-6X-9iU"/>
+                                    <outlet property="starRating" destination="ItP-1t-qbr" id="k0O-Oc-TK1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Ii-JS-Avp" id="zZa-KC-tBo"/>
+                            <outlet property="delegate" destination="6Ii-JS-Avp" id="PU5-7B-7Nv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Instructor Name" id="Zfx-cd-I46"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZb-Ub-IWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5557.6000000000004" y="25.862068965517242"/>
         </scene>
     </scenes>
     <resources>

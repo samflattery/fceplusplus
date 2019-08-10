@@ -169,10 +169,15 @@ if __name__ == '__main__':
             # append each instructor's json to the list
             instructor_dict = json.loads(avg_info.to_json(orient='index'))
 
-            new_name = ""
             first_name = name[name.find(",")+2:]
             second_name = name[:name.find(",")]
-            new_name = first_name[0].upper() + first_name[1:].lower() + " " + second_name[0].upper() + second_name[1:].lower()
+            reordered_name = first_name.lower() + " " + second_name.lower()
+
+            words = reordered_name.split(" ")
+            for i in range(len(words)):
+                words[i] = words[i][0].upper() + words[i][1:]
+
+            new_name = " ".join(words)
 
             instructor_dict['Instructor name'] = new_name
             instructor_list.append(instructor_dict)

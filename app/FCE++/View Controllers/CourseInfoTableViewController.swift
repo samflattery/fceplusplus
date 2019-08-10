@@ -149,6 +149,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             controller.commentObj = commentObj
             let commentIndex = sender as! Int
             controller.commentIndex = commentIndex
+        } else if segue.identifier == "ShowInstructorInfo" {
+            let controller = segue.destination as! InstructorInfoTableViewController
+            let instructorIndex = sender as! Int
+            controller.instructor = course.instructors[instructorIndex]
         }
     }
     
@@ -188,7 +192,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if segmentControl.selectedSegmentIndex == 2 {
+        if segmentControl.selectedSegmentIndex == 1 {
+            // show the instructor info
+            performSegue(withIdentifier: "ShowInstructorInfo", sender: indexPath.row)
+        } else if segmentControl.selectedSegmentIndex == 2 {
             if PFUser.current() == nil && indexPath.section == 0 {
                 // take the guest back to login screen
                 showLoginScreen()
@@ -411,36 +418,12 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         }
         else if segmentControl.selectedSegmentIndex == 1 {
             // the instructor segment's cells
-//            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-//            instructorCell.headingLabel!.text = instructorTitles[i] // title of instructor field
-//            instructorCell.bodyLabel!.text = instructorInfo[j][i] // the instructor info
-//            return instructorCell
-            
-//            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorCell
-//            instructorCell.headingLabel.text = instructorTitles[i]
-//            instructorCell.ratingLabel.text = instructorInfo[j][i]
-//            if let rating = Double(instructorInfo[j][i]) {
-//                instructorCell.starRating.settings.fillMode = .precise
-//                instructorCell.starRating.rating = rating
-//
-//            }
-//            return instructorCell
             let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorTableViewCell
             instructorCell.ratingStars.settings.fillMode = .precise
             instructorCell.instructorLabel.text = course.instructors[i].name
             instructorCell.ratingStars.rating = course.instructors[i].teachingRate
             instructorCell.ratingLabel.text = "(\(String(format: "%.1f", course.instructors[i].teachingRate)))"
             instructorCell.hoursLabel.text = String(format: "%.1f", course.instructors[i].hours)
-                //instructorInfo[j][0]
-            
-//            instructorCell.headingLabel.text = instructorTitles[i]
-////            instructorCell.ratingLabel.text = instructorInfo[j][i]
-//            instructorCell.starRating.settings.fillMode = .precise
-//            if let rating = Double(instructorInfo[j][i]) {
-//                instructorCell.starRating.rating = rating
-//                instructorCell.starRating.text = "(\(String(format: "%.1f", rating)))"
-//
-//            }
             return instructorCell
         }
         else {
@@ -615,14 +598,5 @@ class InfoCell: UITableViewCell {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
-    
-}
-
-class InstructorCell: UITableViewCell {
-    
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var starRating: CosmosView!
-    @IBOutlet weak var ratingLabel: UILabel!
-    
     
 }
