@@ -176,6 +176,10 @@ if __name__ == '__main__':
             words = reordered_name.split(" ")
             for i in range(len(words)):
                 words[i] = words[i][0].upper() + words[i][1:]
+                hyphen_index = words[i].find("-")
+                if hyphen_index != -1:
+                    print(words[i])
+                    words[i] = words[i][:hyphen_index+1] + words[i][hyphen_index+1].upper() + words[i][hyphen_index+2:]
 
             new_name = " ".join(words)
 
