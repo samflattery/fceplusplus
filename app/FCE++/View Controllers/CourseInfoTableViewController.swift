@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import SVProgressHUD
+import Cosmos
 
 typealias CourseComments = [[String: Any]] // comments are stored as a list of dictionaries
 typealias CourseComment = [String: Any]
@@ -46,7 +47,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         registerNibs()
         self.hideKeyboardWhenTappedAround()
         extendedLayoutIncludesOpaqueBars = true
-        
+                
         self.failedToLoad = false
         tableView.estimatedRowHeight = 60
     
@@ -81,6 +82,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         
         cellNib = UINib(nibName: "NewCommentCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "NewCommentCell")
+        
+        cellNib = UINib(nibName: "InstructorCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "InstructorCell")
     }
     
     func getComments() {
@@ -230,10 +234,11 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if segmentControl.selectedSegmentIndex == 1 {
-            // one segment for each instructor
-            return instructorInfo.count
-        } else if segmentControl.selectedSegmentIndex == 2 {
+//        if segmentControl.selectedSegmentIndex == 1 {
+//            // one segment for each instructor
+//            return instructorInfo.count
+//        } else
+        if segmentControl.selectedSegmentIndex == 2 {
             return 2
         } else {
             return 1
@@ -244,7 +249,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 0 {
             return 1
         } else if segmentControl.selectedSegmentIndex == 1 {
-            return 11 // one for each piece of instructor info
+//            return 11 // one for each piece of instructor info
+            return course.instructors.count
         } else {
             if section == 0 {
                 return 1
@@ -259,9 +265,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if segmentControl.selectedSegmentIndex == 1 {
-            return instructorInfo[section][0]
-        } else if segmentControl.selectedSegmentIndex == 2 && section == 0 && PFUser.current() != nil {
+//        if segmentControl.selectedSegmentIndex == 1 {
+//            return instructorInfo[section][0]
+//        } else
+        if segmentControl.selectedSegmentIndex == 2 && section == 0 && PFUser.current() != nil {
             return "New Comment"
         }
         return nil
@@ -334,7 +341,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                                         }
                                         
                                         self.tableView.beginUpdates()
-                                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                                        self.tableView.deleteRows(at: [indexPath], with: .left)
                                         self.tableView.endUpdates()
                      
                                     } else if let error = error {
@@ -404,9 +411,36 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         }
         else if segmentControl.selectedSegmentIndex == 1 {
             // the instructor segment's cells
-            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-            instructorCell.headingLabel!.text = instructorTitles[i] // title of instructor field
-            instructorCell.bodyLabel!.text = instructorInfo[j][i] // the instructor info
+//            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+//            instructorCell.headingLabel!.text = instructorTitles[i] // title of instructor field
+//            instructorCell.bodyLabel!.text = instructorInfo[j][i] // the instructor info
+//            return instructorCell
+            
+//            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorCell
+//            instructorCell.headingLabel.text = instructorTitles[i]
+//            instructorCell.ratingLabel.text = instructorInfo[j][i]
+//            if let rating = Double(instructorInfo[j][i]) {
+//                instructorCell.starRating.settings.fillMode = .precise
+//                instructorCell.starRating.rating = rating
+//
+//            }
+//            return instructorCell
+            let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorTableViewCell
+            instructorCell.ratingStars.settings.fillMode = .precise
+            instructorCell.instructorLabel.text = course.instructors[i].name
+            instructorCell.ratingStars.rating = course.instructors[i].teachingRate
+            instructorCell.ratingLabel.text = "(\(String(format: "%.1f", course.instructors[i].teachingRate)))"
+            instructorCell.hoursLabel.text = String(format: "%.1f", course.instructors[i].hours)
+                //instructorInfo[j][0]
+            
+//            instructorCell.headingLabel.text = instructorTitles[i]
+////            instructorCell.ratingLabel.text = instructorInfo[j][i]
+//            instructorCell.starRating.settings.fillMode = .precise
+//            if let rating = Double(instructorInfo[j][i]) {
+//                instructorCell.starRating.rating = rating
+//                instructorCell.starRating.text = "(\(String(format: "%.1f", rating)))"
+//
+//            }
             return instructorCell
         }
         else {
@@ -575,12 +609,20 @@ class CommentCell: UITableViewCell { // the cell that displays a comment
     @IBOutlet weak var andrewIDLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
-    
 }
 
 class InfoCell: UITableViewCell {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
+    
+}
+
+class InstructorCell: UITableViewCell {
+    
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var starRating: CosmosView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
     
 }

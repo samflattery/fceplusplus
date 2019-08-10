@@ -168,7 +168,13 @@ if __name__ == '__main__':
                 'Overall course rate']].mean(axis=0).round(1)
             # append each instructor's json to the list
             instructor_dict = json.loads(avg_info.to_json(orient='index'))
-            instructor_dict['Instructor name'] = name
+
+            new_name = ""
+            first_name = name[name.find(",")+2:]
+            second_name = name[:name.find(",")]
+            new_name = first_name[0].upper() + first_name[1:].lower() + " " + second_name[0].upper() + second_name[1:].lower()
+
+            instructor_dict['Instructor name'] = new_name
             instructor_list.append(instructor_dict)
         course["instructors"] = instructor_list
         courses.append(course)
