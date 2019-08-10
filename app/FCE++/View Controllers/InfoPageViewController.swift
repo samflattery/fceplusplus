@@ -48,7 +48,7 @@ class InfoPageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Logout" {
-            PFUser.logOut()
+          
         }
     }
     
@@ -70,7 +70,19 @@ class InfoPageViewController: UIViewController {
     
     @IBAction func logoutPressed(_ sender: Any) {
         if PFUser.current() != nil {
-            performSegue(withIdentifier: "Logout", sender: nil)
+            
+            SVProgressHUD.show()
+            PFUser.logOutInBackground { (error: Error?) in
+                if let error = error {
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
+                    SVProgressHUD.dismiss(withDelay: 1)
+                } else {
+                    SVProgressHUD.dismiss()
+                    self.performSegue(withIdentifier: "Logout", sender: nil)
+                }
+            }
+            
         } else {
             performSegue(withIdentifier: "Login", sender: nil)
         }

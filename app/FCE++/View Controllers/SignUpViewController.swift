@@ -18,6 +18,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     // the button for guest login
     @IBOutlet weak var guestButton: UIButton!
+    @IBOutlet weak var passwordInfoLabel: UILabel!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var loginButton: UIButton!
@@ -48,6 +50,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         setupSegmentControl()
         
         loginButton.isHidden = true
+        passwordInfoLabel.isHidden = true
         
         if hasComeFromGuest {
             guestButton.isHidden = true
@@ -62,6 +65,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func forgotPasswordPressed(_ sender: Any) {
+        performSegue(withIdentifier: "ResetPassword", sender: nil)
+    }
+    
+    
     @IBAction func segmentControlValueChanged(_ sender: Any) {
         view.layoutIfNeeded() // ensure the previous animation is finished
         UIView.animate(withDuration: 0.3) {
@@ -73,6 +81,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if segmentControl.selectedSegmentIndex == 0 {
             loginButton.setTitle("Login", for: .normal)
+            passwordInfoLabel.isHidden = true
         } else {
             loginButton.setTitle("Sign Up", for: .normal)
         }
@@ -259,6 +268,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.returnKeyType = .next
+        if segmentControl.selectedSegmentIndex == 1 {
+            passwordInfoLabel.isHidden = false
+        }
         return true
     }
 

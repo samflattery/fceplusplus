@@ -265,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSb-So-eye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3777" y="797"/>
+            <point key="canvasLocation" x="2926" y="797"/>
         </scene>
         <!--Course Info Table View Controller-->
         <scene sceneID="dTN-m8-OoZ">
@@ -439,7 +439,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHJ-Tt-W3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5472.8000000000002" y="796.55172413793105"/>
+            <point key="canvasLocation" x="4631" y="797"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9nS-ff-TvM">
@@ -482,7 +482,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZM-KA-cgq">
-                                <rect key="frame" x="155.66666666666666" y="526" width="64" height="43"/>
+                                <rect key="frame" x="155.66666666666666" y="466" width="64" height="43"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="25"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -503,22 +503,42 @@
                                     <constraint firstAttribute="height" constant="16" placeholder="YES" id="Vgh-pg-Zxm"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passwords are securely encrypted" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evr-lg-sEn">
+                                <rect key="frame" x="40" y="418" width="295" height="15"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQr-Fh-HM6">
+                                <rect key="frame" x="124.66666666666669" y="630" width="126" height="34"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                <state key="normal" title="Forgot password"/>
+                                <connections>
+                                    <action selector="forgotPasswordPressed:" destination="fsI-7I-Q4g" eventType="touchUpInside" id="QDs-bt-aYW"/>
+                                    <segue destination="sFO-gx-SEF" kind="show" identifier="ResetPassword" id="tPs-cE-Lwj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="F70-d9-iQ2" firstAttribute="top" secondItem="ZHv-3j-d5d" secondAttribute="top" constant="70" id="0gI-6A-RxW"/>
+                            <constraint firstItem="evr-lg-sEn" firstAttribute="top" secondItem="bEW-yK-K0d" secondAttribute="bottom" constant="12" id="5Rh-SK-40U"/>
                             <constraint firstItem="To4-SO-XWQ" firstAttribute="centerX" secondItem="PBB-jr-STL" secondAttribute="centerX" id="7JY-Qs-F5Z"/>
-                            <constraint firstItem="yZM-KA-cgq" firstAttribute="top" secondItem="bEW-yK-K0d" secondAttribute="bottom" constant="120" id="BjO-8h-shw"/>
+                            <constraint firstItem="yZM-KA-cgq" firstAttribute="top" secondItem="bEW-yK-K0d" secondAttribute="bottom" constant="60" id="BjO-8h-shw"/>
+                            <constraint firstItem="vQr-Fh-HM6" firstAttribute="centerX" secondItem="PBB-jr-STL" secondAttribute="centerX" id="CB4-cN-UPH"/>
                             <constraint firstItem="Kjj-NP-bcp" firstAttribute="leading" secondItem="ZHv-3j-d5d" secondAttribute="leading" constant="80" id="DxU-Ht-Vum"/>
                             <constraint firstItem="ZHv-3j-d5d" firstAttribute="trailing" secondItem="h5G-ws-6Vg" secondAttribute="trailing" constant="40" id="FIe-Jm-LHX"/>
                             <constraint firstItem="h5G-ws-6Vg" firstAttribute="top" secondItem="Kjj-NP-bcp" secondAttribute="bottom" constant="40" id="LFj-JH-h8H"/>
+                            <constraint firstItem="To4-SO-XWQ" firstAttribute="top" secondItem="vQr-Fh-HM6" secondAttribute="bottom" constant="60" id="LwP-Ta-WCa"/>
                             <constraint firstItem="ZHv-3j-d5d" firstAttribute="bottom" secondItem="To4-SO-XWQ" secondAttribute="bottom" constant="20" id="MUE-Ty-VFA"/>
                             <constraint firstItem="bEW-yK-K0d" firstAttribute="leading" secondItem="ZHv-3j-d5d" secondAttribute="leading" constant="40" id="RmT-WL-tfs"/>
                             <constraint firstItem="uaq-Kn-rHa" firstAttribute="leading" secondItem="ZHv-3j-d5d" secondAttribute="leading" constant="80" id="T4k-zx-fWQ"/>
                             <constraint firstItem="ZHv-3j-d5d" firstAttribute="trailing" secondItem="Kjj-NP-bcp" secondAttribute="trailing" constant="80" id="Tj2-bI-aWC"/>
                             <constraint firstItem="bEW-yK-K0d" firstAttribute="top" secondItem="h5G-ws-6Vg" secondAttribute="bottom" constant="40" id="UUE-es-baQ"/>
+                            <constraint firstItem="ZHv-3j-d5d" firstAttribute="trailing" secondItem="evr-lg-sEn" secondAttribute="trailing" constant="40" id="Uek-e2-1dt"/>
                             <constraint firstItem="F70-d9-iQ2" firstAttribute="centerX" secondItem="PBB-jr-STL" secondAttribute="centerX" id="WXG-jN-pob"/>
                             <constraint firstItem="Kjj-NP-bcp" firstAttribute="top" secondItem="F70-d9-iQ2" secondAttribute="bottom" constant="70" id="ZC4-VB-B4V"/>
+                            <constraint firstItem="evr-lg-sEn" firstAttribute="leading" secondItem="ZHv-3j-d5d" secondAttribute="leading" constant="40" id="ZLC-mX-P7t"/>
                             <constraint firstItem="ZHv-3j-d5d" firstAttribute="trailing" secondItem="bEW-yK-K0d" secondAttribute="trailing" constant="40" id="ZXE-GP-bAt"/>
                             <constraint firstItem="uaq-Kn-rHa" firstAttribute="top" secondItem="F70-d9-iQ2" secondAttribute="bottom" constant="62" placeholder="YES" id="koA-NZ-Psd"/>
                             <constraint firstItem="h5G-ws-6Vg" firstAttribute="leading" secondItem="ZHv-3j-d5d" secondAttribute="leading" constant="40" id="mK2-5O-EYQ"/>
@@ -530,16 +550,80 @@
                         <outlet property="andrewIDField" destination="h5G-ws-6Vg" id="1Eb-ke-aSW"/>
                         <outlet property="buttonBar" destination="uaq-Kn-rHa" id="Oea-Ex-hyc"/>
                         <outlet property="buttonBarLeftConstraint" destination="T4k-zx-fWQ" id="2ce-16-KEh"/>
+                        <outlet property="forgotPasswordButton" destination="vQr-Fh-HM6" id="4TL-kf-Skf"/>
                         <outlet property="guestButton" destination="To4-SO-XWQ" id="oWi-i3-cdO"/>
                         <outlet property="loginButton" destination="yZM-KA-cgq" id="lX7-0I-m4G"/>
                         <outlet property="passwordField" destination="bEW-yK-K0d" id="vHL-dg-5ey"/>
+                        <outlet property="passwordInfoLabel" destination="evr-lg-sEn" id="Gbo-Uf-GDQ"/>
                         <outlet property="segmentControl" destination="Kjj-NP-bcp" id="eqT-gZ-SNU"/>
                         <segue destination="HjV-fH-R29" kind="show" identifier="LoggedIn" id="lwZ-0G-G9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUN-N1-VsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="26"/>
+            <point key="canvasLocation" x="2068" y="25.862068965517242"/>
+        </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="3je-iI-hvV">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vM4-tM-3jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="sFO-gx-SEF" customClass="ResetPasswordViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DPE-9M-ju7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKH-CX-l7v">
+                                <rect key="frame" x="160.66666666666666" y="663" width="54" height="35"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="sFO-gx-SEF" eventType="touchUpInside" id="h7D-Eb-Wfv"/>
+                                    <segue destination="fsI-7I-Q4g" kind="showDetail" identifier="CancelReset" id="jQ8-8H-fMb"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="andewID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RAn-6L-vnd">
+                                <rect key="frame" x="40" y="229.66666666666666" width="295" height="29.999999999999972"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siY-Yn-cXF">
+                                <rect key="frame" x="156.66666666666666" y="279.66666666666669" width="62" height="43"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="25"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="sFO-gx-SEF" eventType="touchUpInside" id="IAh-OC-AnF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your andrewID to be sent a reset link" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIT-Dp-Ska">
+                                <rect key="frame" x="40" y="204" width="295" height="17.666666666666657"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="siY-Yn-cXF" firstAttribute="centerX" secondItem="DPE-9M-ju7" secondAttribute="centerX" id="9Bn-6G-Fd4"/>
+                            <constraint firstItem="RKH-CX-l7v" firstAttribute="centerX" secondItem="DPE-9M-ju7" secondAttribute="centerX" id="Cow-zJ-ibs"/>
+                            <constraint firstItem="1ke-ec-YVz" firstAttribute="bottom" secondItem="RKH-CX-l7v" secondAttribute="bottom" constant="80" id="CpP-fq-i5h"/>
+                            <constraint firstItem="mIT-Dp-Ska" firstAttribute="top" secondItem="1ke-ec-YVz" secondAttribute="top" constant="160" id="S7u-IA-lW3"/>
+                            <constraint firstItem="1ke-ec-YVz" firstAttribute="trailing" secondItem="mIT-Dp-Ska" secondAttribute="trailing" constant="40" id="WB9-Jf-8GO"/>
+                            <constraint firstItem="1ke-ec-YVz" firstAttribute="trailing" secondItem="RAn-6L-vnd" secondAttribute="trailing" constant="40" id="buY-Ih-3qC"/>
+                            <constraint firstItem="RAn-6L-vnd" firstAttribute="leading" secondItem="1ke-ec-YVz" secondAttribute="leading" constant="40" id="fDq-oo-4da"/>
+                            <constraint firstItem="RAn-6L-vnd" firstAttribute="top" secondItem="mIT-Dp-Ska" secondAttribute="bottom" constant="8" id="fsW-Ld-NIK"/>
+                            <constraint firstItem="mIT-Dp-Ska" firstAttribute="leading" secondItem="1ke-ec-YVz" secondAttribute="leading" constant="40" id="tMA-wt-arI"/>
+                            <constraint firstItem="siY-Yn-cXF" firstAttribute="top" secondItem="RAn-6L-vnd" secondAttribute="bottom" constant="20" id="tfK-qz-bCU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ke-ec-YVz"/>
+                    </view>
+                    <connections>
+                        <outlet property="andrewIDField" destination="RAn-6L-vnd" id="8US-SD-P0S"/>
+                        <outlet property="cancelButton" destination="RKH-CX-l7v" id="H5t-e5-eRo"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2068" y="796.55172413793105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CXg-9W-Rbt">
@@ -633,7 +717,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lwZ-0G-G9s"/>
-        <segue reference="xpD-W6-LlI"/>
+        <segue reference="jQ8-8H-fMb"/>
         <segue reference="bUp-I8-Myg"/>
     </inferredMetricsTieBreakers>
 </document>

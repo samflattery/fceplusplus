@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A0F70F922FE2E66004F1861 /* InstructorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70F822FE2E66004F1861 /* InstructorTableViewCell.swift */; };
 		0A0F70FB22FEDD82004F1861 /* InstructorInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70FA22FEDD82004F1861 /* InstructorInfoTableViewController.swift */; };
+		0A0F70FD22FF0FAD004F1861 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */; };
 		0A14938322B01AA0008CF495 /* NewReply.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938222B01AA0008CF495 /* NewReply.xib */; };
 		0A14938522B01C87008CF495 /* NewReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */; };
 		0A14938722B02664008CF495 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938622B02664008CF495 /* CommentCell.xib */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0A0F70F822FE2E66004F1861 /* InstructorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorTableViewCell.swift; sourceTree = "<group>"; };
 		0A0F70FA22FEDD82004F1861 /* InstructorInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorInfoTableViewController.swift; sourceTree = "<group>"; };
+		0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		0A14938222B01AA0008CF495 /* NewReply.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewReply.xib; sourceTree = "<group>"; };
 		0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReplyTableViewCell.swift; sourceTree = "<group>"; };
 		0A14938622B02664008CF495 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommentCell.xib; path = ../CommentCell.xib; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				0AE667A622B970C000F0CC28 /* CommentRepliesViewController.swift */,
 				0A0F70FA22FEDD82004F1861 /* InstructorInfoTableViewController.swift */,
 				0AE667A822BC0B5200F0CC28 /* InfoPageViewController.swift */,
+				0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			files = (
 				0A9B632922FDFDA200B6CF2F /* BetterUIView.swift in Sources */,
 				0A705B2F22C0F14D002DE02A /* CourseInfoTableViewCell.swift in Sources */,
+				0A0F70FD22FF0FAD004F1861 /* ResetPasswordViewController.swift in Sources */,
 				0AFB3DE722B5078800FDB1AF /* Reachability.swift in Sources */,
 				0A0F70F922FE2E66004F1861 /* InstructorTableViewCell.swift in Sources */,
 				0AFB3DDF22B2817A00FDB1AF /* SignUpViewController.swift in Sources */,
