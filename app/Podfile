@@ -8,7 +8,7 @@ target 'FCE++' do
   # Pods for FCE++
 pod 'Parse'
 pod 'SVProgressHUD'
-pod 'RSSelectionMenu'
+pod 'RSSelectionMenu', :git => 'https://github.com/samflattery/RSSelectionMenu/', :commit => '27d67f9a58d81e4e59b4f7c651b7128860fcf6d8'
 pod 'Cosmos'
 
 end

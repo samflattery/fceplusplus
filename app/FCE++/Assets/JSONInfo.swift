@@ -42,7 +42,8 @@ struct Instructor: Decodable {
     }
 }
 
-struct Course: Decodable, UniquePropertyDelegate {
+struct Course: Decodable, UniquePropertyDelegate, Equatable {
+    
     let number: String
     let hours: Double
     let rate: Double
@@ -67,6 +68,10 @@ struct Course: Decodable, UniquePropertyDelegate {
     
     func getUniquePropertyName() -> String {
         return "number"
+    }
+    
+    static func == (lhs: Course, rhs: Course) -> Bool {
+        return lhs.number == rhs.number
     }
 }
 

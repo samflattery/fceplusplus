@@ -27,34 +27,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zT6-4N-w0n">
-                        <rect key="frame" x="20" y="55" width="374" height="645"/>
+                        <rect key="frame" x="20" y="55" width="374" height="611"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-122" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjF-tb-64t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15-122" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjF-tb-64t">
                                 <rect key="frame" x="0.0" y="0.0" width="67" height="32"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="25"/>
                                 <color key="textColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Principles of Imperative Computation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe5-E5-HyO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principles of Imperative Computation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe5-E5-HyO">
                                 <rect key="frame" x="0.0" y="37" width="285.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="SCS: Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROh-1N-pto">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCS: Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROh-1N-pto">
                                 <rect key="frame" x="0.0" y="60.5" width="178" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Units: 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvr-oV-gfl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units: 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvr-oV-gfl">
                                 <rect key="frame" x="0.0" y="84.5" width="70.5" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js8-vW-42i" customClass="BetterUIView" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="147" y="136.5" width="80" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="js8-vW-42i" customClass="BetterUIView" customModule="FCE__" customModuleProvider="target">
+                                <rect key="frame" x="147" y="126.5" width="80" height="2"/>
                                 <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Cvw-mT-cqf"/>
@@ -66,26 +66,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Overall Course Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-ZL-yvc">
-                                <rect key="frame" x="209" y="168.5" width="165" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Course Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-ZL-yvc">
+                                <rect key="frame" x="209" y="148.5" width="165" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izB-k6-wdt">
-                                <rect key="frame" x="350" y="195.5" width="24" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izB-k6-wdt">
+                                <rect key="frame" x="350" y="175.5" width="24" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Car-49-GI4">
-                                <rect key="frame" x="0.0" y="195.5" width="34" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="13.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Car-49-GI4">
+                                <rect key="frame" x="0.0" y="175.5" width="34" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XsG-oP-0M5" customClass="BetterUIView" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="147" y="247.5" width="80" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsG-oP-0M5" customClass="BetterUIView" customModule="FCE__" customModuleProvider="target">
+                                <rect key="frame" x="147" y="217.5" width="80" height="2"/>
                                 <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="adi-xH-k9u"/>
@@ -97,22 +97,22 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CM-pR-UU3">
-                                <rect key="frame" x="0.0" y="279.5" width="95.5" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CM-pR-UU3">
+                                <rect key="frame" x="0.0" y="239.5" width="95.5" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-5O-Xsh">
-                                <rect key="frame" x="0.0" y="306.5" width="374" height="126.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-5O-Xsh">
+                                <rect key="frame" x="0.0" y="266.5" width="374" height="244"/>
                                 <string key="text">For students with a basic understanding of programming (variables, expressions, loops, arrays, functions). Teaches imperative programming and methods for ensuring the correctness of programs. Students will learn the process and concepts needed to go from high-level descriptions of algorithms to correct imperative implementations, with specific application to basic data structures and algorithms. Much of the course will be conducted in a subset of C amenable to verification, with a transition to full C near the end. This course prepares students for 15-213 and 15-210. NOTE: students must achieve a C or better in order to use this course to satisfy the pre-requisite for any subsequent Computer Science course.
 </string>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-bG-G9D" customClass="BetterUIView" customModule="FCE__" customModuleProvider="target">
-                                <rect key="frame" x="147" y="463" width="80" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-bG-G9D" customClass="BetterUIView" customModule="FCE__" customModuleProvider="target">
+                                <rect key="frame" x="147" y="530.5" width="80" height="2"/>
                                 <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="5mT-Vt-N3I"/>
@@ -124,32 +124,38 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Prereqs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBM-Kd-nQA">
-                                <rect key="frame" x="0.0" y="495" width="62" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prereqs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBM-Kd-nQA">
+                                <rect key="frame" x="0.0" y="552.5" width="62" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-112" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuO-j3-lEE">
-                                <rect key="frame" x="0.0" y="522" width="53.5" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15-112" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuO-j3-lEE">
+                                <rect key="frame" x="0.0" y="579.5" width="53.5" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53.5" placeholder="YES" id="UNz-H1-r97"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Coreqs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pS9-GC-0cp">
-                                <rect key="frame" x="317" y="495" width="57" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coreqs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pS9-GC-0cp">
+                                <rect key="frame" x="317" y="552.5" width="57" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15-151 or 21-127" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-WR-uIt">
-                                <rect key="frame" x="242" y="522" width="132" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15-151 or 21-127" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-WR-uIt">
+                                <rect key="frame" x="242" y="579.5" width="132" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" placeholder="YES" id="tUc-db-BiG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hours Per Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64X-jh-h9Y">
-                                <rect key="frame" x="0.0" y="168.5" width="133" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Hours Per Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64X-jh-h9Y">
+                                <rect key="frame" x="0.0" y="148.5" width="133" height="22"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -169,12 +175,14 @@
                             <constraint firstAttribute="bottom" secondItem="DuO-j3-lEE" secondAttribute="bottom" constant="10" id="Gjc-WF-hdl"/>
                             <constraint firstItem="5CM-pR-UU3" firstAttribute="top" secondItem="XsG-oP-0M5" secondAttribute="bottom" constant="20" id="M90-hf-vcE"/>
                             <constraint firstItem="xe5-E5-HyO" firstAttribute="leading" secondItem="zT6-4N-w0n" secondAttribute="leading" id="NWt-Lf-LhV"/>
+                            <constraint firstItem="O0Z-ZL-yvc" firstAttribute="leading" secondItem="64X-jh-h9Y" secondAttribute="trailing" constant="76" placeholder="YES" id="PJ1-av-Dex"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ROh-1N-pto" secondAttribute="trailing" id="QKM-wK-w1M"/>
                             <constraint firstItem="yvr-oV-gfl" firstAttribute="top" secondItem="ROh-1N-pto" secondAttribute="bottom" constant="2" id="RT5-Uy-QgK"/>
                             <constraint firstItem="64X-jh-h9Y" firstAttribute="top" secondItem="js8-vW-42i" secondAttribute="bottom" constant="20" id="RuL-s1-e9a"/>
                             <constraint firstItem="2fX-5O-Xsh" firstAttribute="leading" secondItem="zT6-4N-w0n" secondAttribute="leading" id="S0K-iT-IhA"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="O0Z-ZL-yvc" secondAttribute="trailing" id="Ste-lS-zhw"/>
                             <constraint firstItem="ROh-1N-pto" firstAttribute="top" secondItem="xe5-E5-HyO" secondAttribute="bottom" constant="2" id="TEN-BT-ahb"/>
+                            <constraint firstItem="64X-jh-h9Y" firstAttribute="leading" secondItem="zT6-4N-w0n" secondAttribute="leading" id="Twk-TJ-qy9"/>
                             <constraint firstAttribute="trailing" secondItem="2fX-5O-Xsh" secondAttribute="trailing" id="UrY-SG-gXB"/>
                             <constraint firstItem="XsG-oP-0M5" firstAttribute="top" secondItem="Car-49-GI4" secondAttribute="bottom" constant="20" id="Uxd-J3-bt3"/>
                             <constraint firstItem="5CM-pR-UU3" firstAttribute="leading" secondItem="zT6-4N-w0n" secondAttribute="leading" id="W8K-pv-BRY"/>
@@ -183,11 +191,14 @@
                             <constraint firstItem="7U6-bG-G9D" firstAttribute="centerX" secondItem="zT6-4N-w0n" secondAttribute="centerX" id="ZN3-y4-NKP"/>
                             <constraint firstItem="xe5-E5-HyO" firstAttribute="top" secondItem="XjF-tb-64t" secondAttribute="bottom" constant="5" id="axj-5R-UBZ"/>
                             <constraint firstItem="7U6-bG-G9D" firstAttribute="top" secondItem="2fX-5O-Xsh" secondAttribute="bottom" constant="20" id="b92-1y-xSg"/>
+                            <constraint firstItem="izB-k6-wdt" firstAttribute="leading" secondItem="Car-49-GI4" secondAttribute="trailing" constant="316" placeholder="YES" id="f9V-o2-SEJ"/>
                             <constraint firstItem="yvr-oV-gfl" firstAttribute="leading" secondItem="zT6-4N-w0n" secondAttribute="leading" id="gWS-CH-Dc1"/>
                             <constraint firstItem="Car-49-GI4" firstAttribute="centerY" secondItem="izB-k6-wdt" secondAttribute="centerY" id="gk8-aq-RNh"/>
                             <constraint firstItem="js8-vW-42i" firstAttribute="top" secondItem="yvr-oV-gfl" secondAttribute="bottom" constant="20" id="goc-jv-iAd"/>
                             <constraint firstItem="js8-vW-42i" firstAttribute="centerX" secondItem="zT6-4N-w0n" secondAttribute="centerX" id="hVJ-JW-yhy"/>
+                            <constraint firstItem="kAi-WR-uIt" firstAttribute="leading" secondItem="DuO-j3-lEE" secondAttribute="trailing" constant="188.5" placeholder="YES" id="jrL-27-AsM"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kAi-WR-uIt" secondAttribute="trailing" id="ltk-4J-pFz"/>
+                            <constraint firstItem="pS9-GC-0cp" firstAttribute="leading" secondItem="bBM-Kd-nQA" secondAttribute="trailing" constant="255" placeholder="YES" id="nZo-RB-hc7"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XjF-tb-64t" secondAttribute="trailing" id="njA-SP-DM4"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="izB-k6-wdt" secondAttribute="trailing" id="ou7-ob-Rwz"/>
                             <constraint firstItem="2fX-5O-Xsh" firstAttribute="top" secondItem="5CM-pR-UU3" secondAttribute="bottom" constant="5" id="rxw-to-CEZ"/>

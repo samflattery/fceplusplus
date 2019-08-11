@@ -145,6 +145,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowCourseSelection" {
+            let controller = segue.destination as! SelectCoursesViewController
+            controller.courses = courses
+        }
+    }
+    
     func login() {
         SVProgressHUD.show(withStatus: "Logging in...")
 
@@ -160,12 +167,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
 
         PFUser.logInWithUsername(inBackground: andrewID, password: password) { (user: PFUser?, error: Error?) in
-            if user != nil {
+            if let user = user {
                 // login succeeds
                 SVProgressHUD.dismiss()
                 SVProgressHUD.showSuccess(withStatus: "Logged in!")
                 SVProgressHUD.dismiss(withDelay: 1)
-                self.performSegue(withIdentifier: "LoggedIn", sender: nil)
+                if user["firstLogin"] as! Bool {
+                    self.performSegue(withIdentifier: "ShowCourseSelection", sender: nil)
+                } else {
+                    self.performSegue(withIdentifier: "LoggedIn", sender: nil)
+                }
             } else {
                 SVProgressHUD.dismiss()
                 // login failed
@@ -183,52 +194,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func signUp() {
-        // lets the user pick their courses, then signs them up
-        // with a "verify email" prompt
-        showCourseSelection()
-    }
-    
-    func showCourseSelection() {
-        // setup the selection menu
-        let selectionMenu = RSSelectionMenu(selectionStyle: .multiple, dataSource: courses, cellType: .subTitle) { (cell, element: Course, indexPath) in
-            
-            // populate it with the course information
-            cell.textLabel?.text = element.number
-            cell.detailTextLabel?.text = element.name
-        }
-        
-        selectionMenu.cellSelectionStyle = .checkbox // checkbox or tickmark
-        
-        selectionMenu.onDismiss = { [weak self] selectedItems in
-            // selected items is the array of courses that are selected in the menu
-            for course in selectedItems {
-                // selected courses is the array of course numbers to be stored in the cloud
-                self?.selectedCourses.append(course.number)
-            }
-            self?.signUserUpWithSelectedCourses()
-        }
-        
-        selectionMenu.showSearchBar { (searchTerm) -> ([Course]) in
-            if let _ = Int(searchTerm) { // if it's a number
-                if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
-                    // if it's in the form xxxxx then convert to xx-xxx
-                    let firstTwoIndex = searchTerm.index(searchTerm.startIndex, offsetBy: 2)
-                    let hyphenatedSearchTerm = searchTerm[..<firstTwoIndex] + "-" + searchTerm[firstTwoIndex...]
-                    return self.courses.filter { $0.number.contains(hyphenatedSearchTerm) }
-                } else { // just filter by course number
-                    return self.courses.filter { $0.number.contains(searchTerm) }
-                }
-            } else { // if it's not a number, filter by course name
-                return self.courses.filter { $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false }
-            }
-            
-        }
-        //        selectionMenu.show(style: .alert(title: "Select", action: "Done", height: nil), from: self)
-        selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
-        //        selectionMenu.show(style: .popover(sourceView: self.view, size: nil), from: self)
-    }
-    
-    func signUserUpWithSelectedCourses() {
         SVProgressHUD.show(withStatus: "Signing up...")
         
         reachability = Reachability()!
@@ -238,13 +203,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             SVProgressHUD.dismiss(withDelay: 1)
             return
         }
+        
         let user = PFUser()
         let andrewID = andrewIDField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         user.username = andrewID
         user.password = password
         user.email = andrewID + "@andrew.cmu.edu"
-        user["highlightedCourses"] = selectedCourses
+        user["firstLogin"] = true
         
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
@@ -263,6 +229,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+
     
     //MARK:- TextFieldDelegates
     

@@ -27,7 +27,7 @@ class InfoPageViewController: UIViewController {
     var courses: [Course]! // all of the courses to populate selection menu with
     var newHighlightedCourses = [String]() // the user's new highlighted courses
     var delegate: InfoPageViewControllerDelegate!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,12 +44,6 @@ class InfoPageViewController: UIViewController {
         }
         
         setupButtons()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Logout" {
-          
-        }
     }
     
     func setupButtons() {
@@ -89,23 +83,44 @@ class InfoPageViewController: UIViewController {
     }
 
     @IBAction func showCourses(_ sender: Any) {
-        // setup the selection menu
-        let selectionMenu = RSSelectionMenu(selectionStyle: .multiple, dataSource: courses, cellType: .subTitle) { (cell, element: Course, indexPath) in
-
-            // populate it with the course information
-            cell.textLabel?.text = element.number
-            cell.detailTextLabel?.text = element.name
-        }
-        
         let defaultSelectedCourses = getDefaults()
 
+        // sort the data so that the already selected courses are first
+        var sortedCourses = courses.sorted { (first, second) -> Bool in
+            
+            func containsCourse(course: Course) -> Bool {
+                return defaultSelectedCourses.contains(where: { (elem : Course) -> Bool in
+                    return elem == course
+                })
+            }
+  
+            switch (containsCourse(course: first), containsCourse(course: second)){
+            case (true, true):
+                return first.number < second.number
+            case (false, true):
+                return false
+            case (true, false):
+                return true
+            case (false, false):
+                return first.number < second.number
+            }
+        }
+        
+        // setup the selection menu
+        let selectionMenu = RSSelectionMenu(selectionStyle: .multiple, dataSource: sortedCourses, cellType: .subTitle) { (cell, element: Course, indexPath) in
+            
+            cell.textLabel?.attributedText = NSAttributedString(string: element.number, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 166/255, green: 25/255, blue: 46/255, alpha: 1), NSAttributedString.Key.font: UIFont(name: "IowanOldSt OSF BT", size: 22)!])
+            cell.detailTextLabel?.attributedText = NSAttributedString(string: element.name ?? "No name available", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 12)!])
+            
+        }
+        
         selectionMenu.cellSelectionStyle = .checkbox // checkbox or tickmark
         
         selectionMenu.setSelectedItems(items: defaultSelectedCourses) { (course, index, isSelected, selectedItems) in
             return // set the current courses to be selected by default
         }
         
-        selectionMenu.onDismiss = {selectedItems in
+        selectionMenu.onDismiss = { selectedItems in
             // selected items is the array of courses that are selected in the menu
             for course in selectedItems {
                 // selected courses is the array of course numbers to be stored in the cloud
@@ -113,22 +128,29 @@ class InfoPageViewController: UIViewController {
             }
             // save the new courses and tell user that they have been saved
             
-            if self.highlightedCourses == self.newHighlightedCourses {
+            if Set(self.highlightedCourses!) == Set(self.newHighlightedCourses) {
                 // if no changes were made, do nothing
+                // made into set so order irrelevant
+                self.newHighlightedCourses = []
                 return
             }
             
+            self.highlightedCourses = self.newHighlightedCourses.sorted(by: { (first, second) -> Bool in
+                first < second
+            })
+            self.newHighlightedCourses = []
+
             self.delegate.highlightedCoursesWillChange() // reloads the comments table
             
             let user = PFUser.current()! // there will always be a current user on this page
-            user["highlightedCourses"] = self.newHighlightedCourses
+            user["highlightedCourses"] = self.highlightedCourses
             SVProgressHUD.show()
             user.saveInBackground(block: { (success: Bool, error: Error?) in
                 SVProgressHUD.dismiss()
                 if success {
                     SVProgressHUD.showSuccess(withStatus: "Updated!")
                     SVProgressHUD.dismiss(withDelay: 1)
-                    self.delegate.highlightedCoursesDidChange(to: self.newHighlightedCourses)
+                    self.delegate.highlightedCoursesDidChange(to: self.highlightedCourses)
                 } else if let error = error {
                     SVProgressHUD.showError(withStatus: error.localizedDescription)
                 } else {

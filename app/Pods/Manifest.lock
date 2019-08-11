@@ -5,13 +5,13 @@ PODS:
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
     - Bolts/Tasks (~> 1.9)
-  - RSSelectionMenu (6.0.3)
+  - RSSelectionMenu (6.0.4)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Cosmos
   - Parse
-  - RSSelectionMenu
+  - RSSelectionMenu (from `https://github.com/samflattery/RSSelectionMenu/`, commit `27d67f9a58d81e4e59b4f7c651b7128860fcf6d8`)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -19,16 +19,25 @@ SPEC REPOS:
     - Bolts
     - Cosmos
     - Parse
-    - RSSelectionMenu
     - SVProgressHUD
+
+EXTERNAL SOURCES:
+  RSSelectionMenu:
+    :commit: 27d67f9a58d81e4e59b4f7c651b7128860fcf6d8
+    :git: https://github.com/samflattery/RSSelectionMenu/
+
+CHECKOUT OPTIONS:
+  RSSelectionMenu:
+    :commit: 27d67f9a58d81e4e59b4f7c651b7128860fcf6d8
+    :git: https://github.com/samflattery/RSSelectionMenu/
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
-  RSSelectionMenu: decee83e020ee9d63e53995eb7f1ea5ca75f0667
+  RSSelectionMenu: 1dc497c68e81aa09e6c7f91432403cc2bc5ad816
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 3deb581648844ee5c73f738c77d7152cb2d4c3b9
+PODFILE CHECKSUM: 96b44aebc40567acf7b6c5ad09ffb9e2cb6da218
 
 COCOAPODS: 1.7.1

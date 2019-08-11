@@ -85,17 +85,21 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     @objc func showCourseSorter() {
         // show a popup that allows user to sort the courses by alphabetical by number,
         // alphabetical by name, least and most hours per week
-        let sortOptions = ["By Course Number", "By Course Name", "Increasing Hours per Week", "Decreasing Hours per Week"]
+        let sortOptions = ["By Course Number (default)", "By Course Name", "Increasing Hours per Week", "Decreasing Hours per Week"]
         
-        let selectionMenu = RSSelectionMenu(dataSource: sortOptions) { (cell, item, indexPath) in
-            cell.textLabel?.text = item
+        let selectionMenu = RSSelectionMenu(selectionStyle: .single, dataSource: sortOptions, cellType: .basic) { (cell, element: String, indexPath) in
+            
+            cell.textLabel!.attributedText = NSAttributedString(string: "\(element)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 18)!])
         }
         
         selectionMenu.cellSelectionStyle = .checkbox
         
         selectionMenu.onDismiss = { selectedItems in
-            switch selectedItems[0]{
-            case "By Course Number":
+            if selectedItems.count == 0 {
+                return
+            }
+            switch selectedItems[0] {
+            case "By Course Number (default)":
                 self.filteredCourses.sort(by: { $0.number < $1.number } )
             case "By Course Name":
                 self.filteredCourses.sort(by: {
@@ -123,9 +127,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             self.tableView.reloadData()
         }
 
-       
-        // show as PresentationStyle = push
-        selectionMenu.show(style: .alert(title: "Sort by", action: "Done", height: nil), from: self)
+        selectionMenu.show(style: .alert(title: "Sort by", action: "Cancel", height: nil), from: self)
+//        selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
+
         return
     }
     

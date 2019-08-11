@@ -557,16 +557,69 @@
                         <outlet property="passwordInfoLabel" destination="evr-lg-sEn" id="Gbo-Uf-GDQ"/>
                         <outlet property="segmentControl" destination="Kjj-NP-bcp" id="eqT-gZ-SNU"/>
                         <segue destination="HjV-fH-R29" kind="show" identifier="LoggedIn" id="lwZ-0G-G9s"/>
+                        <segue destination="TYX-GU-b7i" kind="show" identifier="ShowCourseSelection" id="vEh-cM-OaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUN-N1-VsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="25.862068965517242"/>
+            <point key="canvasLocation" x="1166" y="26"/>
+        </scene>
+        <!--Select Courses View Controller-->
+        <scene sceneID="Unc-48-qdB">
+            <objects>
+                <viewController id="TYX-GU-b7i" customClass="SelectCoursesViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3e5-ka-pCC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUQ-Uf-bKW">
+                                <rect key="frame" x="16" y="204.00000000000003" width="343" height="126.33333333333334"/>
+                                <string key="text">Press the 'Select Courses' button below and select courses that you have taken or courses that you are interested in taking to display comments from these courses on the home screen!  These courses can be changed at any time from the Info page</string>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-PD-4Fh">
+                                <rect key="frame" x="106" y="380.33333333333331" width="163" height="43"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="25"/>
+                                <state key="normal" title="Select Courses"/>
+                                <connections>
+                                    <action selector="selectCoursesButtonPressed:" destination="TYX-GU-b7i" eventType="touchUpInside" id="tQF-TS-bdw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmw-Wz-0jl">
+                                <rect key="frame" x="162" y="664" width="51" height="34"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="TYX-GU-b7i" eventType="touchUpInside" id="X6U-xr-lNE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BUQ-Uf-bKW" secondAttribute="trailing" id="6U0-9B-yYY"/>
+                            <constraint firstItem="vmw-Wz-0jl" firstAttribute="centerX" secondItem="3e5-ka-pCC" secondAttribute="centerX" id="6gw-jg-nrp"/>
+                            <constraint firstItem="o1u-PD-4Fh" firstAttribute="top" secondItem="BUQ-Uf-bKW" secondAttribute="bottom" constant="50" id="OOh-3Q-Zy6"/>
+                            <constraint firstItem="thp-cv-6gK" firstAttribute="bottom" secondItem="vmw-Wz-0jl" secondAttribute="bottom" constant="80" id="VVf-Qa-jbD"/>
+                            <constraint firstItem="o1u-PD-4Fh" firstAttribute="centerX" secondItem="3e5-ka-pCC" secondAttribute="centerX" id="We6-5c-BPW"/>
+                            <constraint firstItem="BUQ-Uf-bKW" firstAttribute="top" secondItem="thp-cv-6gK" secondAttribute="top" constant="160" id="cZ1-Hl-POx"/>
+                            <constraint firstItem="BUQ-Uf-bKW" firstAttribute="leading" secondItem="3e5-ka-pCC" secondAttribute="leadingMargin" id="o32-b4-N4D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="thp-cv-6gK"/>
+                    </view>
+                    <connections>
+                        <segue destination="HjV-fH-R29" kind="show" identifier="SelectedCourses" id="p8K-VL-gcK"/>
+                        <segue destination="fsI-7I-Q4g" kind="show" identifier="CancelledSignUp" id="vWf-Mj-CBD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ri-UN-x49" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="25.862068965517242"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="3je-iI-hvV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vM4-tM-3jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="sFO-gx-SEF" customClass="ResetPasswordViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DPE-9M-ju7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -582,13 +635,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="andewID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RAn-6L-vnd">
-                                <rect key="frame" x="40" y="229.66666666666666" width="295" height="29.999999999999972"/>
+                                <rect key="frame" x="40" y="241.66666666666663" width="295" height="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siY-Yn-cXF">
-                                <rect key="frame" x="156.66666666666666" y="279.66666666666669" width="62" height="43"/>
+                                <rect key="frame" x="156.66666666666666" y="291.66666666666669" width="62" height="43"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="25"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
@@ -611,7 +664,7 @@
                             <constraint firstItem="1ke-ec-YVz" firstAttribute="trailing" secondItem="mIT-Dp-Ska" secondAttribute="trailing" constant="40" id="WB9-Jf-8GO"/>
                             <constraint firstItem="1ke-ec-YVz" firstAttribute="trailing" secondItem="RAn-6L-vnd" secondAttribute="trailing" constant="40" id="buY-Ih-3qC"/>
                             <constraint firstItem="RAn-6L-vnd" firstAttribute="leading" secondItem="1ke-ec-YVz" secondAttribute="leading" constant="40" id="fDq-oo-4da"/>
-                            <constraint firstItem="RAn-6L-vnd" firstAttribute="top" secondItem="mIT-Dp-Ska" secondAttribute="bottom" constant="8" id="fsW-Ld-NIK"/>
+                            <constraint firstItem="RAn-6L-vnd" firstAttribute="top" secondItem="mIT-Dp-Ska" secondAttribute="bottom" constant="20" id="fsW-Ld-NIK"/>
                             <constraint firstItem="mIT-Dp-Ska" firstAttribute="leading" secondItem="1ke-ec-YVz" secondAttribute="leading" constant="40" id="tMA-wt-arI"/>
                             <constraint firstItem="siY-Yn-cXF" firstAttribute="top" secondItem="RAn-6L-vnd" secondAttribute="bottom" constant="20" id="tfK-qz-bCU"/>
                         </constraints>
@@ -622,8 +675,9 @@
                         <outlet property="cancelButton" destination="RKH-CX-l7v" id="H5t-e5-eRo"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vM4-tM-3jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="796.55172413793105"/>
+            <point key="canvasLocation" x="1166" y="797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CXg-9W-Rbt">
@@ -716,8 +770,8 @@
         <image name="star" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lwZ-0G-G9s"/>
-        <segue reference="jQ8-8H-fMb"/>
-        <segue reference="bUp-I8-Myg"/>
+        <segue reference="c43-4J-BWc"/>
+        <segue reference="vWf-Mj-CBD"/>
+        <segue reference="IEO-sG-2BC"/>
     </inferredMetricsTieBreakers>
 </document>
