@@ -1,0 +1,6 @@
+framework module TimeIntervals {
+  umbrella header "TimeIntervals-umbrella.h"
+
+  export *
+  module * { export * }
+}
