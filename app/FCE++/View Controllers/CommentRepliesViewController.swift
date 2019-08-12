@@ -34,6 +34,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     
     var isEditingReply : Bool = false
     var editingIndex : Int!
+    var delegate: CommentRepliesViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -251,9 +252,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                     self.present(alert, animated: true, completion: nil)
                 }
                 let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-                    print("edit")
                     if self.isEditingReply {
-                        print("should reload")
                         self.isEditingReply = false
                         self.tableView.reloadRows(at: [IndexPath(item: self.editingIndex, section: 2)], with: .fade)
                         self.editingIndex = nil
@@ -337,22 +336,41 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                         replyCell.andrewIDLabel.text = comment["andrewID"] as? String
                     }
                 }
-//
-//                if commentReply["anonymous"] as! Bool {
-//                    replyCell.andrewIDLabel.text = "Anonymous"
-//                } else {
-//                    replyCell.andrewIDLabel.text = commentReply["andrewID"] as? String
-//                }
                 return replyCell
             }
         }
     }
     
     //MARK:- NewReplyTableViewCellDelegates
+    func askToSave(withData data: [String: Any], toIndex index: Int) {
+        // if the user changed something, ask if they want to save
+        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to save these changes?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+            // close the alert
+            return
+        }))
+        alert.addAction(UIAlertAction(title: "Save", style: .destructive, handler: { (_) in
+            // update the existing comment
+            self.didPostReply(withData: data, wasEdited: true, toIndex: index)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func askToCancel(atIndex index: Int) {
+        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to cancel these changes?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Don't Cancel", style: .default, handler: { _ in
+            return
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
+            self.didCancelReply(atIndex: index)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func didPostReply(withData data: [String : Any], wasEdited edited: Bool, toIndex index: Int) {
         if isEditingReply && !edited {
             // if the user tried to post a comment while they were editing another comment
-            SVProgressHUD.showError(withStatus: "You cannot post a new reply while editing another one")
+            SVProgressHUD.showError(withStatus: "You cannot post while editing a different reply")
             SVProgressHUD.dismiss(withDelay: 1)
             return
         }
@@ -385,6 +403,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                             self.isLoadingNewReply = false
                         }
                         self.setFieldsFromObject(object)
+                        self.delegate.updateCourseInfoObject(toObject: object)
                         if edited {
                             self.isEditingReply = false
                             self.editingIndex = nil
@@ -423,8 +442,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         // instantiate a new signupscreen and push it to navigation stack
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
-        vc.hasComeFromGuest = true
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
 
 } // end of class

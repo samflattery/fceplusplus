@@ -214,7 +214,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 // show a tap to refresh button or something?????
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
                 SVProgressHUD.dismiss(withDelay: 1)
-                print(error)
             } else {
                 SVProgressHUD.showError(withStatus: "Failed to load comments")
                 SVProgressHUD.dismiss(withDelay: 1)
@@ -404,8 +403,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         // instantiate a new signupscreen and push it to navigation stack
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
-        vc.hasComeFromGuest = true
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

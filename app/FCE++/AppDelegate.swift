@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let result = try decoder.decode([Course].self, from: data)
                 return result
             } catch {
-                print("Error getting file: \(error)")
                 return []
             }
         }

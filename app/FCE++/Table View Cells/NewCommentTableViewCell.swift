@@ -12,10 +12,12 @@ import Parse
 
 protocol NewCommentCellDelegate {
     func didPostComment(withData data: [String: Any], wasEdited edited: Bool, atIndex index: Int)
+    func askToSave(withData data: [String: Any], toIndex index: Int)
+    func askToCancel(atIndex index: Int)
     func didCancelComment(atIndex index: Int)
 }
 
-class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
+class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var titleField : UITextField!
     @IBOutlet weak var commentTextView : UITextView!
@@ -36,6 +38,7 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
     var commentText : String!
     var commentTitle: String!
     var wasAnonymous: Bool!
+    var replies: CommentReplies!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -83,16 +86,9 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         if titleField.text != commentTitle || commentTextView.text != commentText {
-            let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to cancel these changes?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Don't Cancel", style: .default, handler: { _ in
-                return
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
-                self.delegate.didCancelComment(atIndex: self.editingCommentIndex)
-            }))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            delegate.askToCancel(atIndex: self.editingCommentIndex)
         } else {
-            self.delegate.didCancelComment(atIndex: editingCommentIndex)
+            delegate.didCancelComment(atIndex: editingCommentIndex)
         }
     }
     
@@ -120,31 +116,28 @@ class NewCommentTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewD
         let user = PFUser.current()! // the user will never be nil if this cell is visible
         
         // format the comment data as it is in the database
-        let commentData = ["commentText": commentTextView.text!,
+        var commentData = ["commentText": commentTextView.text!,
                            "timePosted": timePosted,
                            "andrewID": user.username!,
                            "anonymous": anonymousSwitch.isOn,
                            "header": titleField.text!,
-                           "courseNumber": courseNumber!,
-                           "replies": []] as [String : Any]
+                           "courseNumber": courseNumber!] as [String : Any]
+        
+        if isEditingComment {
+            commentData["replies"] = replies
+        } else {
+            commentData["replies"] = []
+        }
         
         if isEditingComment {
             // if the comment is being edited and is not a new comment,
             // it has to update an existing cell and not just add a new comment to the array
             if titleField.text != commentTitle || commentTextView.text != commentText {
                 // if the user changed something, ask if they want to save
-                let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to save these changes?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
-                    // close the alert
-                }))
-                alert.addAction(UIAlertAction(title: "Save", style: .destructive, handler: { (_) in
-                    // update the existing comment
-                    self.delegate.didPostComment(withData: commentData, wasEdited: true, atIndex: self.editingCommentIndex)
-                }))
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                delegate.askToSave(withData: commentData, toIndex: editingCommentIndex)
             } else {
                 // else just close the editing cell
-                self.delegate.didCancelComment(atIndex: editingCommentIndex)
+                delegate.didCancelComment(atIndex: editingCommentIndex)
             }
             
         } else {

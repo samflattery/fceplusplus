@@ -16,6 +16,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // the text fields for user data
     @IBOutlet weak var andrewIDField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
+    
     // the button for guest login
     @IBOutlet weak var guestButton: UIButton!
     @IBOutlet weak var passwordInfoLabel: UILabel!
@@ -25,10 +27,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var buttonBar: UIView!
     @IBOutlet weak var buttonBarLeftConstraint: NSLayoutConstraint!
-    
-    // true if this view controller has been instantiated by a guest asking for login
-    // if true, do not show them the option of signing in as a guest
-    var hasComeFromGuest = false
     
     var reachability: Reachability!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,10 +49,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         loginButton.isHidden = true
         passwordInfoLabel.isHidden = true
-        
-        if hasComeFromGuest {
-            guestButton.isHidden = true
-        }
+        confirmPasswordField.isHidden = true
+
     }
     
     @IBAction func loginPressed(_ sender: Any) {
@@ -82,8 +78,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if segmentControl.selectedSegmentIndex == 0 {
             loginButton.setTitle("Login", for: .normal)
             passwordInfoLabel.isHidden = true
+            confirmPasswordField.isHidden = true
         } else {
             loginButton.setTitle("Sign Up", for: .normal)
+            confirmPasswordField.isHidden = false
         }
         
     }
@@ -118,31 +116,32 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             ], for: .selected)
     }
     
-    func setupTextFields() {
-        // changes the border of the text field to a single white line underneath
-        let andrewBottomLine = CALayer()
-        andrewBottomLine.frame = CGRect.init(x: 0, y: andrewIDField.frame.size.height - 1, width: andrewIDField.frame.size.width, height: 2)
-        andrewBottomLine.backgroundColor = UIColor.white.cgColor
-        
-        let passwordBottomLine = CALayer()
-        passwordBottomLine.frame = CGRect.init(x: 0, y: passwordField.frame.size.height - 1, width: passwordField.frame.size.width, height: 2)
-        passwordBottomLine.backgroundColor = UIColor.white.cgColor
-        
-        // just have tthe bottom border line
-        andrewIDField.borderStyle = .none
-        andrewIDField.layer.addSublayer(andrewBottomLine)
-        andrewIDField.delegate = self
+    func generateLayer(forTextField field: UITextField) -> CALayer {
+        // returns a layer for a text field to put a single white line underneath
+        let layer = CALayer()
+        layer.frame = CGRect.init(x: 0, y: field.frame.size.height-5, width: field.frame.size.width, height: 1.5)
+        layer.backgroundColor = UIColor.white.cgColor
+        return layer
+    }
+    
+    func generateAttributed(withString string: String) -> NSAttributedString {
+        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
+    }
+    
+    func setupField(_ textField: UITextField, withString string: String) {
+        // apply the effects to a text field so that it is just an underline
+        textField.borderStyle = .none
+        textField.layer.addSublayer(generateLayer(forTextField: textField))
+        textField.delegate = self
         // turn off autocomplete in the text field
-        andrewIDField.autocorrectionType = .no
-        
-        passwordField.borderStyle = .none
-        passwordField.layer.addSublayer(passwordBottomLine)
-        passwordField.delegate = self
-        passwordField.autocorrectionType = .no
-        
-        andrewIDField.attributedPlaceholder = NSAttributedString(string: "andrewID", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
-        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 20)!])
-
+        textField.autocorrectionType = .no
+        textField.attributedPlaceholder = generateAttributed(withString: string)
+    }
+    
+    func setupTextFields() {
+        setupField(andrewIDField, withString: "andrewID")
+        setupField(passwordField, withString: "Password")
+        setupField(confirmPasswordField, withString: "Confirm Password")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -194,6 +193,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func signUp() {
+        if passwordField.text != confirmPasswordField.text {
+            SVProgressHUD.showError(withStatus: "Passwords must match")
+            return
+        }
+        
         SVProgressHUD.show(withStatus: "Signing up...")
         
         reachability = Reachability()!
@@ -215,7 +219,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 SVProgressHUD.dismiss()
-                let alert = UIAlertController(title: "Signed up!", message: "You should get a verification email on \(andrewID).andrew.cmu.edu shortly. Login when you have verified your email!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Signed up!", message: "You should get a verification email on \(andrewID).andrew.cmu.edu shortly. If you don't get an email, check your spam folder. Login when you have verified your email!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -235,7 +239,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.returnKeyType = .next
-        if segmentControl.selectedSegmentIndex == 1 {
+        if (textField == passwordField || textField == confirmPasswordField) && segmentControl.selectedSegmentIndex == 1 {
             passwordInfoLabel.isHidden = false
         }
         return true
@@ -269,11 +273,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // press enter on first text field -> jump to second
-        // press enter on second -> login if non-empty, else do nothing
+        // press enter on second -> confirm/login if non-empty, else do nothing
         if textField == andrewIDField {
             passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            if segmentControl.selectedSegmentIndex == 1 {
+                confirmPasswordField.becomeFirstResponder()
+            } else {
+                if textField.text == "" || andrewIDField.text == "" {
+                    // if any are empty, do nothing
+                    return true
+                } else {
+                    // log the user in
+                    loginPressed(self)
+                }
+            }
         } else {
-            if textField.text == "" || andrewIDField.text == "" {
+            if textField.text == "" || passwordField.text == "" || andrewIDField.text == "" {
                 return true
             } else {
                 loginPressed(self)

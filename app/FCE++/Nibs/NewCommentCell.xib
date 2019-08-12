@@ -19,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewCommentCell" rowHeight="336" id="GGa-C0-BLe" customClass="NewCommentTableViewCell" customModule="FCE__" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewCommentCell" rowHeight="336" id="GGa-C0-BLe" customClass="NewCommentCell" customModule="FCE__" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="336"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GGa-C0-BLe" id="L70-rY-qyG">
@@ -27,12 +27,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSA-4c-9cL">
-                        <rect key="frame" x="20" y="15" width="374" height="54.5"/>
+                        <rect key="frame" x="20" y="15" width="374" height="56.5"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="20"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Leave your thoughts on this course or ask a question!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-S0-XHU">
-                        <rect key="frame" x="20" y="81.5" width="374" height="200"/>
+                        <rect key="frame" x="20" y="83.5" width="374" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="Zjo-9B-JOM"/>
@@ -42,18 +42,18 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtN-tX-JTo">
-                        <rect key="frame" x="20" y="70.5" width="374" height="1"/>
+                        <rect key="frame" x="20" y="72.5" width="374" height="1"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1.2" id="eNJ-Hn-Ptc"/>
                         </constraints>
                     </view>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="28Z-v4-mTd">
-                        <rect key="frame" x="20" y="291.5" width="51" height="34"/>
+                        <rect key="frame" x="20" y="293.5" width="51" height="32"/>
                         <color key="onTintColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </switch>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-yt-WM5">
-                        <rect key="frame" x="358" y="291.5" width="36" height="34"/>
+                        <rect key="frame" x="359" y="293.5" width="35" height="32"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="17"/>
                         <state key="normal" title="Post">
                             <color key="titleColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -63,13 +63,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post anomyously" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qI-Th-bL7">
-                        <rect key="frame" x="77" y="300" width="105.5" height="17.5"/>
+                        <rect key="frame" x="77" y="301.5" width="108" height="16.5"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP1-vH-6ha">
-                        <rect key="frame" x="287" y="291.5" width="51" height="34"/>
+                        <rect key="frame" x="286" y="293.5" width="53" height="32"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                         <state key="normal" title="Cancel">
                             <color key="titleColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

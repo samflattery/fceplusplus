@@ -12,6 +12,8 @@ import SVProgressHUD
 
 protocol NewReplyTableViewCellDelegate {
     func didPostReply(withData data: [String: Any], wasEdited edited: Bool, toIndex index: Int)
+    func askToSave(withData data: [String: Any], toIndex index: Int)
+    func askToCancel(atIndex index: Int)
     func didCancelReply(atIndex index: Int)
 }
 
@@ -45,12 +47,6 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         // resize the switch to make it smaller
         let switchResizeRatio: CGFloat = 0.75
         anonymousSwitch.transform = CGAffineTransform(scaleX: switchResizeRatio, y: switchResizeRatio)
-        
-//        // limit the area of the text view where text can go to fit button and switch
-//        let buttonHeight: CGFloat = 44
-//        let switchHeight: CGFloat = 31 * switchResizeRatio
-//        let contentInset: CGFloat = 8
-//        textView.textContainerInset = UIEdgeInsets(top: contentInset, left: contentInset, bottom: switchHeight + (contentInset*2), right: buttonHeight + (contentInset*2))
     }
     
     func setupEditing(isAnonymous anon : Bool) {
@@ -93,16 +89,7 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         
         if isEditingReply {
             if textView.text != replyText {
-                // if the user changed something, ask if they want to save
-                let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to save these changes?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
-                    // close the alert
-                }))
-                alert.addAction(UIAlertAction(title: "Save", style: .destructive, handler: { (_) in
-                    // update the existing comment
-                    self.delegate.didPostReply(withData: replyData, wasEdited: true, toIndex: self.editingIndex)
-                }))
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                self.delegate.askToSave(withData: replyData, toIndex: self.editingIndex)
             } else {
                 // else just close the editing cell
                 self.delegate.didCancelReply(atIndex: editingIndex)
@@ -120,14 +107,7 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         if replyText != textView.text {
-            let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to cancel these changes?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Don't Cancel", style: .default, handler: { _ in
-                return
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
-                self.delegate.didCancelReply(atIndex: self.editingIndex)
-            }))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            delegate.askToCancel(atIndex: self.editingIndex)
         } else {
             self.delegate.didCancelReply(atIndex: editingIndex)
         }

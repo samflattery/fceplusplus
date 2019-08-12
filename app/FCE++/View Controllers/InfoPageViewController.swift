@@ -22,12 +22,14 @@ class InfoPageViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     // needs to be hidden when there is no user
     @IBOutlet weak var highlightedCoursesButton: UIButton!
+    @IBOutlet weak var highlightedCoursesUnderline: UIView!
+    
     
     var highlightedCourses: [String]! // the user's current highlighted courses
     var courses: [Course]! // all of the courses to populate selection menu with
     var newHighlightedCourses = [String]() // the user's new highlighted courses
     var delegate: InfoPageViewControllerDelegate!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,28 +39,13 @@ class InfoPageViewController: UIViewController {
         if PFUser.current() == nil {
             // if there is no user, hide the courses button and set logout to login
             highlightedCoursesButton.isHidden = true
+            highlightedCoursesUnderline.isHidden = true
             logoutButton.setTitle("Login", for: .normal)
         } else {
             highlightedCoursesButton.isHidden = false
+            highlightedCoursesUnderline.isHidden = false
             logoutButton.setTitle("Logout", for: .normal)
         }
-        
-        setupButtons()
-    }
-    
-    func setupButtons() {
-        // put a line under the two buttons
-        let logoutBottomLine = CALayer()
-        logoutBottomLine.frame = CGRect.init(x: 0, y: logoutButton.frame.size.height - 1, width: logoutButton.frame.size.width - 5, height: 2)
-        logoutBottomLine.backgroundColor = UIColor.white.cgColor
-        
-        let changeButtonBottomLine = CALayer()
-        changeButtonBottomLine.frame = CGRect.init(x: 0, y: highlightedCoursesButton.frame.size.height - 1, width: highlightedCoursesButton.frame.size.width - 5, height: 2)
-        changeButtonBottomLine.backgroundColor = UIColor.white.cgColor
-        
-        logoutButton.layer.addSublayer(logoutBottomLine)
-        highlightedCoursesButton.layer.addSublayer(changeButtonBottomLine)
-
         
     }
     

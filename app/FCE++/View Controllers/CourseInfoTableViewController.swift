@@ -147,6 +147,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segue.identifier == "ShowReplies" {
             let controller = segue.destination as! CommentRepliesViewController
             controller.commentObj = commentObj
+            controller.delegate = self
             let commentIndex = sender as! Int
             controller.commentIndex = commentIndex
         } else if segue.identifier == "ShowInstructorInfo" {
@@ -286,6 +287,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             if courseComments == nil || PFUser.current() == nil {
                 return false
             } else if isEditingComment && editingIndex == indexPath.row {
+                return false
+            } else if isLoadingNewComment && indexPath.row == 0 {
                 return false
             } else if (courseComments?[indexPath.row]["andrewID"] as! String) == PFUser.current()?.username {
                 return true
@@ -430,7 +433,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             if j == 0 { // the first segment is the new comment segment
                 if PFUser.current() != nil {
                     // show the new comment cell as the first cell
-                    let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentTableViewCell
+                    let newCommentCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentCell
                     newCommentCell.delegate = self
                     newCommentCell.courseNumber = course.number
                     newCommentCell.isEditingComment = false
@@ -450,7 +453,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                     return loadingCell
                 }
                 if isEditingComment && i == editingIndex {
-                    let editingCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentTableViewCell
+                    let editingCell = tableView.dequeueReusableCell(withIdentifier: "NewCommentCell", for: indexPath) as! NewCommentCell
                     editingCell.delegate = self
                     editingCell.isEditingComment = true
                     editingCell.editingCommentIndex = i
@@ -459,6 +462,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                     editingCell.commentText = courseComments![i]["commentText"] as? String
                     editingCell.commentTitle = courseComments![i]["header"] as? String
                     editingCell.wasAnonymous = courseComments![i]["anonymous"] as? Bool
+                    editingCell.replies = (courseComments![i]["replies"] as! CommentReplies)
                     editingCell.setupText()
                     return editingCell
                 }
@@ -498,6 +502,30 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     //MARK:- NewCommentCellDelegate
+    func askToSave(withData data: [String: Any], toIndex index: Int) {
+        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to save these changes?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+            return
+        }))
+        alert.addAction(UIAlertAction(title: "Save", style: .destructive, handler: { (_) in
+            // update the existing comment
+            self.didPostComment(withData: data, wasEdited: true, atIndex: index)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func askToCancel(atIndex index: Int) {
+        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to cancel these changes?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Don't Cancel", style: .default, handler: { _ in
+            return
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
+            self.didCancelComment(atIndex: index)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     func didPostComment(withData data: [String : Any], wasEdited edited: Bool, atIndex index : Int) {
         if isEditingComment && !edited {
             // if the user tried to post a comment while they were editing another comment
@@ -572,14 +600,14 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         // instantiate a new signupscreen and push it to navigation stack
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
-        vc.hasComeFromGuest = true
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     //MARK:- CommentRepliesViewControllerDelegate
     func updateCourseInfoObject(toObject object: PFObject) {
         self.commentObj = object
         self.courseComments = (commentObj!["comments"] as! CourseComments)
+        tableView.reloadData()
     }
     
 } // end of class
