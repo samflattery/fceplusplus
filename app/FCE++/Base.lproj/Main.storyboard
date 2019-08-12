@@ -169,6 +169,28 @@
                                     <outlet property="posterLabel" destination="DxC-AZ-gtB" id="gc0-PJ-V5a"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoCommentsToShow" rowHeight="113" id="WWJ-Bk-a0I">
+                                <rect key="frame" x="0.0" y="563.33333333333337" width="375" height="113"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WWJ-Bk-a0I" id="7iA-Kp-ge1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="112.66666666666667"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the info icon in the top left to add some courses.  The most recent comments from these courses will be displayed here!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyq-KR-fWP">
+                                            <rect key="frame" x="16" y="21" width="343" height="71"/>
+                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dyq-KR-fWP" firstAttribute="leading" secondItem="7iA-Kp-ge1" secondAttribute="leadingMargin" id="HI8-XV-YcP"/>
+                                        <constraint firstItem="dyq-KR-fWP" firstAttribute="top" secondItem="7iA-Kp-ge1" secondAttribute="topMargin" constant="10" id="NfM-au-rsX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dyq-KR-fWP" secondAttribute="bottom" constant="10" id="gnh-Gw-TOz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dyq-KR-fWP" secondAttribute="trailing" id="lFf-nC-mmI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="KDz-kr-j3c" id="RZt-i7-fea"/>
@@ -184,7 +206,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2t-c4-i6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3778" y="26"/>
+            <point key="canvasLocation" x="3776.8000000000002" y="25.862068965517242"/>
         </scene>
         <!--Info Page View Controller-->
         <scene sceneID="Xzc-lE-zNU">

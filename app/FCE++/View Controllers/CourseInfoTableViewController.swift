@@ -36,7 +36,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     var editingIndex : Int!
     var isLoadingEditedComment = false
     
-    var cellHeights: [IndexPath : CGFloat] = [:] // a dictionary of cell heights to avoid jumpy table
+    var cellHeights = [IndexPath : CGFloat]() // a dictionary of cell heights to avoid jumpy table
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     let refreshController = UIRefreshControl()
@@ -58,6 +58,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         }
         
         getComments()
+
     }
     
     func registerNibs() {
@@ -242,10 +243,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-//        if segmentControl.selectedSegmentIndex == 1 {
-//            // one segment for each instructor
-//            return instructorInfo.count
-//        } else
         if segmentControl.selectedSegmentIndex == 2 {
             return 2
         } else {
@@ -283,14 +280,15 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let i = indexPath.row
         if segmentControl.selectedSegmentIndex == 2 && indexPath.section == 1 {
             if courseComments == nil || PFUser.current() == nil {
                 return false
-            } else if isEditingComment && editingIndex == indexPath.row {
+            } else if isEditingComment && editingIndex == i {
                 return false
-            } else if isLoadingNewComment && indexPath.row == 0 {
+            } else if isLoadingNewComment && i == 0 {
                 return false
-            } else if (courseComments?[indexPath.row]["andrewID"] as! String) == PFUser.current()?.username {
+            } else if (courseComments?[isLoadingNewComment ? i - 1 : i]["andrewID"] as! String) == PFUser.current()?.username {
                 return true
             }
         }
@@ -542,7 +540,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             tableView.beginUpdates()
             tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .top)
             tableView.endUpdates()
-//            tableView.reloadData() // display loading cell
         } else {
             // loading cell for updated comment?
         }

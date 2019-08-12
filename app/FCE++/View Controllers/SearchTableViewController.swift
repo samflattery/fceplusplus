@@ -38,8 +38,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     var commentsToShow: CommentsToShow?
     var isLoadingComments = false
+    var noCommentsToShow = false
     
     let searchController = UISearchController(searchResultsController: nil)
+    let refreshController = UIRefreshControl()
     
     var isSearching: Bool { // is the user currently typing a search
         return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
@@ -82,6 +84,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.leftBarButtonItem = infoBarButtonItem
 
+        tableView.refreshControl = refreshController
+        refreshControl?.addTarget(self, action: #selector(getCommentsForRefreshController), for: .valueChanged)
     }
     
     @objc func showCourseSorter() {
@@ -130,7 +134,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         }
 
         selectionMenu.show(style: .alert(title: "Sort by", action: "Cancel", height: nil), from: self)
-//        selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
 
         return
     }
@@ -149,6 +152,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Course name, instructor or keyword!"
         searchController.searchBar.sizeToFit()
+    }
+    
+    @objc func getCommentsForRefreshController() {
+        getCommentsToDisplay(toReload: true)
     }
     
     func getCommentsToDisplay(toReload reload: Bool) {
@@ -175,6 +182,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         query.cachePolicy = .networkElseCache // first try network to get up to date, then cache
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             self.isLoadingComments = false
+            self.refreshControl?.endRefreshing()
             if let objects = objects {
                 // found objects
                 self.commentsToShow = CommentsToShow() // initialize a new struct
@@ -210,6 +218,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                         self.commentsToShow!.indexes.append((objectIndex, j))
                     }
                     self.commentsToShow!.comments += firstThreeComments
+                }
+                if self.commentsToShow!.comments.count == 0 {
+                    self.noCommentsToShow = true
+                } else {
+                    self.noCommentsToShow = false
                 }
             } else if let error = error {
                 // failed to get comments for some reason
@@ -256,7 +269,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 return 1
             } else if let comments = commentsToShow {
                 // if there are comments, show them
-                return comments.comments.count
+                if noCommentsToShow {
+                    return 1
+                } else {
+                    return comments.comments.count
+                }
             } else {
                 return 1 // a cell that redirects to login / FAILED TO LOAD CELL??
             }
@@ -292,6 +309,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                 loadingCell.spinner.startAnimating()
                 return loadingCell
+            }
+            
+            if noCommentsToShow {
+                let noCommentsCell = tableView.dequeueReusableCell(withIdentifier: "NoCommentsToShow", for: indexPath)
+                return noCommentsCell
             }
             
             if commentsToShow != nil {
@@ -338,6 +360,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 showLoginScreen()
             } else {
                 // perform the segue to the comment replies
+                if noCommentsToShow {
+                    return
+                }
                 if commentsToShow != nil {
                     performSegue(withIdentifier: "ShowRepliesFromHome", sender: indexPath.row)
                 }
@@ -349,10 +374,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     func updateSearchResults(for searchController: UISearchController) {
         if !isSearching {
             // if the user is not searching, show the info button
+            // and enable the refresh controller
             navigationItem.leftBarButtonItem = infoBarButtonItem
+            tableView.refreshControl = refreshController
         } else {
-            // show the sort button
+            // show the sort button and disable refresh controller
             navigationItem.leftBarButtonItem = sortBarButtonItem
+            tableView.refreshControl = nil
         }
         // called every time the search text is changed
         filterContentForSearchText(searchController.searchBar.text!)
