@@ -7,12 +7,14 @@ PODS:
     - Bolts/Tasks (~> 1.9)
   - RSSelectionMenu (6.0.4)
   - SVProgressHUD (2.2.5)
+  - TimeIntervals (1.0.1)
 
 DEPENDENCIES:
   - Cosmos
   - Parse
   - RSSelectionMenu (from `https://github.com/samflattery/RSSelectionMenu/`, commit `27d67f9a58d81e4e59b4f7c651b7128860fcf6d8`)
   - SVProgressHUD
+  - TimeIntervals
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -20,6 +22,7 @@ SPEC REPOS:
     - Cosmos
     - Parse
     - SVProgressHUD
+    - TimeIntervals
 
 EXTERNAL SOURCES:
   RSSelectionMenu:
@@ -37,7 +40,8 @@ SPEC CHECKSUMS:
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   RSSelectionMenu: 1dc497c68e81aa09e6c7f91432403cc2bc5ad816
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TimeIntervals: 533dbd48fdc76f85d65ab8bf0d73d2d74967cec7
 
-PODFILE CHECKSUM: 96b44aebc40567acf7b6c5ad09ffb9e2cb6da218
+PODFILE CHECKSUM: 255c71c373f8c17019d83d959ac2192ba860b330
 
 COCOAPODS: 1.7.1

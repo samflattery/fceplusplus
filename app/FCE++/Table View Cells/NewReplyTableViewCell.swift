@@ -74,10 +74,9 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         
         // get the date and time of posting in a readable format
         let currentDateTime = Date()
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .medium
-        let timePosted = formatter.string(from: currentDateTime)
+        
+        let timePosted = String(currentDateTime.timeIntervalSince1970)
+
         
         let user = PFUser.current()! // there will always be a user if this cell is active
         

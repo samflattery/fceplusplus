@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import SVProgressHUD
 import RSSelectionMenu
+import TimeIntervals
 
 struct CommentsToShow {
     // need the comments to be shown on the table
@@ -49,6 +50,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         courses = appDelegate.courses // the AppDelegate loads the courses upon launching
         configureSearchController() // setup the search controller

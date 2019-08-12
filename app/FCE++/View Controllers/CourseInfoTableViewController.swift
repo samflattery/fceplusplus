@@ -476,7 +476,11 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                         let commentInfo = comments[indexRow]
                         commentCell.headerLabel.text = commentInfo["header"] as? String
                         commentCell.commentLabel.text = commentInfo["commentText"] as? String
-                        commentCell.dateLabel.text = commentInfo["timePosted"] as? String
+                        
+                        let timeManager = TimeManager(withTimeOfPosting: commentInfo["timePosted"] as! String)
+                        let dateString = timeManager.getString()
+                        
+                        commentCell.dateLabel.text = dateString
                         
                         if commentInfo["andrewID"] as? String == PFUser.current()?.username {
                             commentCell.starImage.isHidden = false

@@ -79,7 +79,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 let objComments = (object["comments"]) as! CourseComments
                 let newComments = objComments[self.commentIndex]
                 
-                // time posted and andrewID are likely going to be a unique identifier
+                // time posted and andrewID will be a unique identifier
                 let newTimePosted = newComments["timePosted"] as! String
                 let oldTimePosted = self.comment["timePosted"] as! String
                 let oldID = newComments["andrewID"] as! String
@@ -279,8 +279,12 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             commentCell.isUserInteractionEnabled = false
             commentCell.headerLabel.text = comment["header"] as? String
             commentCell.commentLabel.text = comment["commentText"] as? String
-            commentCell.dateLabel.text = comment["timePosted"] as? String
             
+            let timeManager = TimeManager(withTimeOfPosting: comment["timePosted"] as! String)
+            let dateString = timeManager.getString()
+            
+            commentCell.dateLabel.text = dateString
+    
             if comment["andrewID"] as? String == PFUser.current()?.username {
                 commentCell.starImage.isHidden = false
                 commentCell.andrewIDLabel.text = "You"
@@ -323,7 +327,10 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 let replyCell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath) as! CommentReplyCell
                 let commentReply = commentReplies[indexRow]
                 replyCell.replyLabel.text = commentReply["replyText"] as? String
-                replyCell.dateLabel.text = commentReply["timePosted"] as? String
+                
+                let timeManager = TimeManager(withTimeOfPosting: commentReply["timePosted"] as! String)
+                let dateString = timeManager.getString()
+                replyCell.dateLabel.text = dateString
                 
                 if commentReply["andrewID"] as? String == PFUser.current()?.username {
                     replyCell.starImage.isHidden = false

@@ -12,6 +12,7 @@
 		0A0F70FD22FF0FAD004F1861 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */; };
 		0A0F70FF23004BA9004F1861 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0F70FE23004BA9004F1861 /* FilterCell.xib */; };
 		0A0F71052300A2C9004F1861 /* SelectCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F71042300A2C9004F1861 /* SelectCoursesViewController.swift */; };
+		0A0F710723019CE5004F1861 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F710623019CE5004F1861 /* TimeManager.swift */; };
 		0A14938322B01AA0008CF495 /* NewReply.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938222B01AA0008CF495 /* NewReply.xib */; };
 		0A14938522B01C87008CF495 /* NewReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */; };
 		0A14938722B02664008CF495 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938622B02664008CF495 /* CommentCell.xib */; };
@@ -49,6 +50,7 @@
 		0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		0A0F70FE23004BA9004F1861 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		0A0F71042300A2C9004F1861 /* SelectCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCoursesViewController.swift; sourceTree = "<group>"; };
+		0A0F710623019CE5004F1861 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		0A14938222B01AA0008CF495 /* NewReply.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewReply.xib; sourceTree = "<group>"; };
 		0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReplyTableViewCell.swift; sourceTree = "<group>"; };
 		0A14938622B02664008CF495 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommentCell.xib; path = ../CommentCell.xib; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				0AFB3DE622B5078800FDB1AF /* Reachability.swift */,
 				0A9B632622FDBE7500B6CF2F /* ServerInfo.swift */,
 				0A9B632822FDFDA200B6CF2F /* BetterUIView.swift */,
+				0A0F710623019CE5004F1861 /* TimeManager.swift */,
 			);
 			path = Miscellaneous;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				0A0F71052300A2C9004F1861 /* SelectCoursesViewController.swift in Sources */,
 				0A38A06922A98E63009D12D5 /* AppDelegate.swift in Sources */,
 				0AE667A722B970C000F0CC28 /* CommentRepliesViewController.swift in Sources */,
+				0A0F710723019CE5004F1861 /* TimeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
