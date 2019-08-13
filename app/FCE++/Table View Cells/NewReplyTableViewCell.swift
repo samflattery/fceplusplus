@@ -80,8 +80,10 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         
         let user = PFUser.current()! // there will always be a user if this cell is active
         
+        let newReplyText = textView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         // format the comment data as it is in the database
-        let replyData = ["replyText": textView.text!,
+        let replyData = ["replyText": newReplyText,
                          "timePosted": timePosted,
                          "andrewID": user.username!,
                          "anonymous": anonymousSwitch.isOn] as [String : Any] //to append to replies

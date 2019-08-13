@@ -35,6 +35,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     var isEditingComment = false  // if the user is editing a comment, show the new comment cell
     var editingIndex : Int!
     var isLoadingEditedComment = false
+    var noCommentsToDisplay = false
     
     var cellHeights = [IndexPath : CGFloat]() // a dictionary of cell heights to avoid jumpy table
     
@@ -110,6 +111,11 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 self.commentsHaveLoaded = true
                 let object = objects[0] // should only return one object
                 self.courseComments = (object["comments"] as! CourseComments)
+                if self.courseComments!.count == 0 {
+                    self.noCommentsToDisplay = true
+                } else {
+                    self.noCommentsToDisplay = false
+                }
                 self.commentObj = object
                 if self.segmentControl.selectedSegmentIndex == 2 {
                     self.tableView.reloadData()
@@ -204,6 +210,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             } else if PFUser.current() != nil && indexPath.section == 0 {
                 return
             } else {
+                if noCommentsToDisplay {
+                    // if they click on noCommentCell, do nothing
+                    return
+                }
                 if failedToLoad {
                     // if the comments have failed to load, tapping the failed to load cell
                     // will refresh the loading
@@ -261,6 +271,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 return 1
             } else {
                 if let comments = courseComments {
+                    if noCommentsToDisplay {
+                        return 1
+                    }
                     return isLoadingNewComment ? comments.count + 1 : comments.count
                 } else { // there were no comments to show so just show failed to load cell
                     return 1
@@ -270,9 +283,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        if segmentControl.selectedSegmentIndex == 1 {
-//            return instructorInfo[section][0]
-//        } else
         if segmentControl.selectedSegmentIndex == 2 && section == 0 && PFUser.current() != nil {
             return "New Comment"
         }
@@ -287,6 +297,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             } else if isEditingComment && editingIndex == i {
                 return false
             } else if isLoadingNewComment && i == 0 {
+                return false
+            } else if noCommentsToDisplay {
                 return false
             } else if (courseComments?[isLoadingNewComment ? i - 1 : i]["andrewID"] as! String) == PFUser.current()?.username {
                 return true
@@ -444,6 +456,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 }
             }
             else {
+                if noCommentsToDisplay {
+                    let noCommentCell = tableView.dequeueReusableCell(withIdentifier: "NoCommentsCell", for: indexPath)
+                    return noCommentCell
+                }
                 if (i == 0 && isLoadingNewComment) || (isLoadingEditedComment && i == editingIndex) {
                     // if the user posted a new comment, display the loading cell
                     let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell

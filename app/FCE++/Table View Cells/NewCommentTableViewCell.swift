@@ -114,11 +114,14 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
         let user = PFUser.current()! // the user will never be nil if this cell is visible
         
         // format the comment data as it is in the database
-        var commentData = ["commentText": commentTextView.text!,
+        let newCommentText = commentTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let newCommentTitle = titleField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        var commentData = ["commentText": newCommentText,
                            "timePosted": timePosted,
                            "andrewID": user.username!,
                            "anonymous": anonymousSwitch.isOn,
-                           "header": titleField.text!,
+                           "header": newCommentTitle,
                            "courseNumber": courseNumber!] as [String : Any]
         
         if isEditingComment {

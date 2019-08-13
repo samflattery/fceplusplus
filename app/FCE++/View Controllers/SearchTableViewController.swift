@@ -350,11 +350,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 commentCell.headerLabel.text = commentsToShow?.comments[i]["header"] as? String
                 commentCell.courseNumberLabel.text = commentsToShow?.comments[i]["courseNumber"] as? String
                 commentCell.commentLabel.text = commentsToShow?.comments[i]["commentText"] as? String
-                if commentsToShow?.comments[i]["anonymous"] as! Bool {
-                    commentCell.posterLabel.text = "Anonymous"
-                } else {
-                    commentCell.posterLabel.text = commentsToShow?.comments[i]["andrewID"] as? String
-                }
                 
                 let timeManager = TimeManager(withTimeOfPosting: commentsToShow?.comments[i]["timePosted"] as! String)
                 commentCell.dateLabel.text = timeManager.getString()
@@ -422,7 +417,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    func filterContentForSearchText(_ searchTerm: String){
+    func filterContentForSearchText(_ searchTerm: String) {
         filteredCourses = courses.filter { ( course : Course) -> Bool in
             if let _ = Int(searchTerm) { // if it's a number
                 if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
@@ -473,7 +468,6 @@ class CommentPreviewCell: UITableViewCell {
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var courseNumberLabel: UILabel!
-    @IBOutlet weak var posterLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     

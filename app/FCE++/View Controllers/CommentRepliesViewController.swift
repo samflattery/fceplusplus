@@ -30,6 +30,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     let refreshController = UIRefreshControl()
     
     var isLoadingNewReply = false // true if the comments are being loaded in the background
+    var noRepliesToShow = false // true if there are 0 replies to show
     var cellHeights: [IndexPath : CGFloat] = [:] // a dictionary of cell heights to avoid jumpy table
     
     var isEditingReply : Bool = false
@@ -110,6 +111,11 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         // keys "comments" and "courseNumber"
         self.comment = (allComments[commentIndex] as! CourseComment) // just get the comment that was tapped on
         self.commentReplies = (self.comment["replies"] as! CommentReplies) // get replies of that comment
+        if self.commentReplies.count == 0 {
+            noRepliesToShow = true
+        } else {
+            noRepliesToShow = false
+        }
     }
     
     //MARK:- TableViewDelegates
@@ -131,7 +137,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 || section == 1 {
+        if section == 0 || section == 1 || noRepliesToShow {
             return 1
         } else {
             return isLoadingNewReply ? commentReplies.count + 1 : commentReplies.count
@@ -151,7 +157,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
             return "Leave a reply!"
-        } else if section == 2 && commentReplies.count != 0 {
+        } else if section == 2 {
             return "Replies"
         } else {
             return nil
@@ -169,6 +175,8 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             if PFUser.current() == nil {
                 return false
             } else if isEditingReply && indexPath.row == editingIndex {
+                return false
+            } else if noRepliesToShow {
                 return false
             } else if isLoadingNewReply {
                 if indexPath.row == 0 {
@@ -309,6 +317,10 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 return guestCell
             }
         } else { // display the replies
+            if noRepliesToShow {
+                let noRepliesCell = tableView.dequeueReusableCell(withIdentifier: "NoRepliesCell", for: indexPath)
+                return noRepliesCell
+            }
             if i == 0 && isLoadingNewReply {
                 let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                 loadingCell.spinner.startAnimating()

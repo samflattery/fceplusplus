@@ -138,13 +138,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowCourseSelection" {
-            let controller = segue.destination as! SelectCoursesViewController
-            controller.courses = courses
-        }
-    }
-    
     @IBAction func loginPressed(_ sender: Any) {
         if segmentControl.selectedSegmentIndex == 0 {
             login()
@@ -260,7 +253,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func setUserCourses(_ courses: [String]) {
         let user = PFUser.current()! // there will always be a current user on this page
         user["highlightedCourses"] = courses
-        //        user["firstLogin"] = false
+        user["firstLogin"] = false
         SVProgressHUD.show()
         user.saveInBackground(block: { (success: Bool, error: Error?) in
             SVProgressHUD.dismiss()
