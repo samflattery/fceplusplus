@@ -111,25 +111,25 @@
                                             <rect key="frame" x="16" y="11" width="343" height="331"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Course number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3l-9R-thr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="21.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="5" width="118" height="21.333333333333332"/>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Big heading goes here may span up to two or three lines with all of heading text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-GW-Ots">
-                                                    <rect key="frame" x="0.0" y="25.333333333333336" width="343" height="82.333333333333314"/>
+                                                    <rect key="frame" x="0.0" y="26.333333333333336" width="343" height="82.333333333333314"/>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxC-AZ-gtB">
-                                                    <rect key="frame" x="0.0" y="111.66666666666667" width="40" height="18.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="108.66666666666667" width="40" height="18.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqK-jx-yGq">
-                                                    <rect key="frame" x="0.0" y="142.33333333333334" width="343" height="134.00000000000003"/>
+                                                    <rect key="frame" x="0.0" y="139.33333333333334" width="343" height="134.00000000000003"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique tellus libero, ac vehicula mi congue ut. Donec scelerisque scelerisque dui, ullamcorper placerat metus egestas at. Nulla lacinia 
 </string>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
@@ -137,7 +137,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" text="2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U48-it-ZNc">
-                                                    <rect key="frame" x="0.0" y="284.33333333333331" width="68" height="46.666666666666686"/>
+                                                    <rect key="frame" x="0.0" y="278.33333333333331" width="68" height="47.666666666666686"/>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -146,19 +146,19 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U48-it-ZNc" secondAttribute="trailing" id="2O9-d8-0eC"/>
-                                                <constraint firstAttribute="bottom" secondItem="U48-it-ZNc" secondAttribute="bottom" id="3Ff-O6-e3i"/>
+                                                <constraint firstAttribute="bottom" secondItem="U48-it-ZNc" secondAttribute="bottom" constant="5" id="3Ff-O6-e3i"/>
                                                 <constraint firstItem="e3l-9R-thr" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="3Me-7E-Xvu"/>
                                                 <constraint firstItem="W9a-GW-Ots" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="6tN-p4-vdg"/>
                                                 <constraint firstAttribute="trailing" secondItem="W9a-GW-Ots" secondAttribute="trailing" id="Bzq-X2-myf"/>
                                                 <constraint firstItem="DxC-AZ-gtB" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="CSr-gA-a6O"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e3l-9R-thr" secondAttribute="trailing" id="Db0-AV-FX5"/>
-                                                <constraint firstItem="W9a-GW-Ots" firstAttribute="top" secondItem="e3l-9R-thr" secondAttribute="bottom" constant="4" id="E3c-Gc-Y8Z"/>
-                                                <constraint firstItem="U48-it-ZNc" firstAttribute="top" secondItem="IqK-jx-yGq" secondAttribute="bottom" constant="8" id="JVM-ME-YUe"/>
+                                                <constraint firstItem="W9a-GW-Ots" firstAttribute="top" secondItem="e3l-9R-thr" secondAttribute="bottom" id="E3c-Gc-Y8Z"/>
+                                                <constraint firstItem="U48-it-ZNc" firstAttribute="top" secondItem="IqK-jx-yGq" secondAttribute="bottom" constant="5" id="JVM-ME-YUe"/>
                                                 <constraint firstItem="U48-it-ZNc" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="Oul-GT-779"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DxC-AZ-gtB" secondAttribute="trailing" id="UVF-Cm-hxe"/>
                                                 <constraint firstItem="IqK-jx-yGq" firstAttribute="leading" secondItem="kAn-I6-5pw" secondAttribute="leading" id="UkS-d8-izT"/>
-                                                <constraint firstItem="DxC-AZ-gtB" firstAttribute="top" secondItem="W9a-GW-Ots" secondAttribute="bottom" constant="4" id="W59-yO-dHv"/>
-                                                <constraint firstItem="e3l-9R-thr" firstAttribute="top" secondItem="kAn-I6-5pw" secondAttribute="top" id="ZI8-sl-ioe"/>
+                                                <constraint firstItem="DxC-AZ-gtB" firstAttribute="top" secondItem="W9a-GW-Ots" secondAttribute="bottom" id="W59-yO-dHv"/>
+                                                <constraint firstItem="e3l-9R-thr" firstAttribute="top" secondItem="kAn-I6-5pw" secondAttribute="top" constant="5" id="ZI8-sl-ioe"/>
                                                 <constraint firstItem="IqK-jx-yGq" firstAttribute="top" secondItem="DxC-AZ-gtB" secondAttribute="bottom" constant="12" id="eAS-xq-dxL"/>
                                                 <constraint firstAttribute="trailing" secondItem="IqK-jx-yGq" secondAttribute="trailing" id="lYZ-jr-bVZ"/>
                                             </constraints>
@@ -509,7 +509,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="andrewID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-ws-6Vg">
                                 <rect key="frame" x="62.666666666666657" y="286" width="249.99999999999997" height="30"/>
@@ -632,65 +632,11 @@
                         <outlet property="passwordInfoLabel" destination="evr-lg-sEn" id="Gbo-Uf-GDQ"/>
                         <outlet property="segmentControl" destination="Kjj-NP-bcp" id="eqT-gZ-SNU"/>
                         <segue destination="HjV-fH-R29" kind="show" identifier="LoggedIn" id="lwZ-0G-G9s"/>
-                        <segue destination="TYX-GU-b7i" kind="show" identifier="ShowCourseSelection" id="vEh-cM-OaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUN-N1-VsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="26"/>
-        </scene>
-        <!--Select Courses View Controller-->
-        <scene sceneID="Unc-48-qdB">
-            <objects>
-                <viewController id="TYX-GU-b7i" customClass="SelectCoursesViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3e5-ka-pCC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUQ-Uf-bKW">
-                                <rect key="frame" x="16" y="204.00000000000003" width="343" height="126.33333333333334"/>
-                                <string key="text">Press the 'Select Courses' button below and select courses that you have taken or courses that you are interested in taking to display comments from these courses on the home screen!  These courses can be changed at any time from the Info page</string>
-                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-PD-4Fh">
-                                <rect key="frame" x="106" y="380.33333333333331" width="163" height="43"/>
-                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="25"/>
-                                <state key="normal" title="Select Courses"/>
-                                <connections>
-                                    <action selector="selectCoursesButtonPressed:" destination="TYX-GU-b7i" eventType="touchUpInside" id="tQF-TS-bdw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmw-Wz-0jl">
-                                <rect key="frame" x="162" y="664" width="51" height="34"/>
-                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="TYX-GU-b7i" eventType="touchUpInside" id="X6U-xr-lNE"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="BUQ-Uf-bKW" secondAttribute="trailing" id="6U0-9B-yYY"/>
-                            <constraint firstItem="vmw-Wz-0jl" firstAttribute="centerX" secondItem="3e5-ka-pCC" secondAttribute="centerX" id="6gw-jg-nrp"/>
-                            <constraint firstItem="o1u-PD-4Fh" firstAttribute="top" secondItem="BUQ-Uf-bKW" secondAttribute="bottom" constant="50" id="OOh-3Q-Zy6"/>
-                            <constraint firstItem="thp-cv-6gK" firstAttribute="bottom" secondItem="vmw-Wz-0jl" secondAttribute="bottom" constant="80" id="VVf-Qa-jbD"/>
-                            <constraint firstItem="o1u-PD-4Fh" firstAttribute="centerX" secondItem="3e5-ka-pCC" secondAttribute="centerX" id="We6-5c-BPW"/>
-                            <constraint firstItem="BUQ-Uf-bKW" firstAttribute="top" secondItem="thp-cv-6gK" secondAttribute="top" constant="160" id="cZ1-Hl-POx"/>
-                            <constraint firstItem="BUQ-Uf-bKW" firstAttribute="leading" secondItem="3e5-ka-pCC" secondAttribute="leadingMargin" id="o32-b4-N4D"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="thp-cv-6gK"/>
-                    </view>
-                    <connections>
-                        <segue destination="HjV-fH-R29" kind="show" identifier="SelectedCourses" id="p8K-VL-gcK"/>
-                        <segue destination="fsI-7I-Q4g" kind="show" identifier="CancelledSignUp" id="vWf-Mj-CBD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ri-UN-x49" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2036" y="25.862068965517242"/>
+            <point key="canvasLocation" x="1796" y="26"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="3je-iI-hvV">
@@ -756,7 +702,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vM4-tM-3jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="797"/>
+            <point key="canvasLocation" x="1796" y="797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CXg-9W-Rbt">
@@ -849,8 +795,7 @@
         <image name="star" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tPs-cE-Lwj"/>
-        <segue reference="c43-4J-BWc"/>
+        <segue reference="lwZ-0G-G9s"/>
         <segue reference="jQ8-8H-fMb"/>
         <segue reference="IEO-sG-2BC"/>
     </inferredMetricsTieBreakers>

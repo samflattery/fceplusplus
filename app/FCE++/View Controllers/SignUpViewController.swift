@@ -112,14 +112,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         textField.attributedPlaceholder = generateAttributed(withString: string)
     }
     
-    @IBAction func loginPressed(_ sender: Any) {
-        if segmentControl.selectedSegmentIndex == 0 {
-            login()
-        } else {
-            signUp()
-        }
-    }
-    
     @IBAction func forgotPasswordPressed(_ sender: Any) {
         print("pressed")
         performSegue(withIdentifier: "ResetPassword", sender: nil)
@@ -153,6 +145,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func loginPressed(_ sender: Any) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            login()
+        } else {
+            signUp()
+        }
+    }
+    
     func login() {
         SVProgressHUD.show(withStatus: "Logging in...")
 
@@ -171,11 +171,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             if let user = user {
                 // login succeeds
                 SVProgressHUD.dismiss()
-                SVProgressHUD.showSuccess(withStatus: "Logged in!")
-                SVProgressHUD.dismiss(withDelay: 1)
                 if user["firstLogin"] as! Bool {
-                    self.performSegue(withIdentifier: "ShowCourseSelection", sender: nil)
+                    self.welcomeUser()
                 } else {
+                    SVProgressHUD.showSuccess(withStatus: "Logged in!")
+                    SVProgressHUD.dismiss(withDelay: 1)
                     self.performSegue(withIdentifier: "LoggedIn", sender: nil)
                 }
             } else {
@@ -192,6 +192,88 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    func welcomeUser() {
+        
+        let alert = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
+        
+        let titleString = "Welcome!"
+        var attributedTitle = NSMutableAttributedString()
+        attributedTitle = NSMutableAttributedString(string: titleString, attributes: [NSAttributedString.Key.font:UIFont(name: "IowanOldSt OSF BT", size: 21.0)!])
+        attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 166/255, green: 25/255, blue: 46/255, alpha: 1), range: NSRange(location:0,length: titleString.count))
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        
+        let messageString = "Use the course selection wheel to select courses that you have taken or are interested in taking. The most recent comments from these courses will be displayed on the home screen. These courses can be changed at any time by pressed the ℹ️ button on the home screen"
+        var attributedMessage = NSMutableAttributedString()
+        attributedMessage = NSMutableAttributedString(string: messageString, attributes: [NSAttributedString.Key.font:UIFont(name: "IowanOldStyleW01-Roman", size: 16.0)!])
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: selectCoursesButtonPressed(_:))
+        alert.addAction(action)
+        alert.view.tintColor = UIColor(red: 166/255, green: 25/255, blue: 49/255, alpha: 1)
+        
+        
+        present(alert, animated: true)
+    }
+
+    func selectCoursesButtonPressed(_ sender: Any) {
+        let selectionMenu = RSSelectionMenu(selectionStyle: .multiple, dataSource: courses, cellType: .subTitle) { (cell, element: Course, indexPath) in
+            
+            // populate it with the course information
+            cell.textLabel?.attributedText = NSAttributedString(string: element.number, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 166/255, green: 25/255, blue: 46/255, alpha: 1), NSAttributedString.Key.font: UIFont(name: "IowanOldSt OSF BT", size: 22)!])
+            cell.detailTextLabel?.attributedText = NSAttributedString(string: element.name ?? "No name available", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "IowanOldStyleW01-Roman", size: 12)!])
+        }
+        
+        selectionMenu.cellSelectionStyle = .checkbox // checkbox or tickmark
+        
+        selectionMenu.onDismiss = { [weak self] selectedItems in
+            // selected items is the array of courses that are selected in the menu
+            var selectedCourses = [String]()
+            for course in selectedItems {
+                // selected courses is the array of course numbers to be stored in the cloud
+                selectedCourses.append(course.number)
+            }
+            self?.setUserCourses(selectedCourses)
+        }
+        
+        selectionMenu.showSearchBar { (searchTerm) -> ([Course]) in
+            if let _ = Int(searchTerm) { // if it's a number
+                if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
+                    // if it's in the form xxxxx then convert to xx-xxx
+                    let firstTwoIndex = searchTerm.index(searchTerm.startIndex, offsetBy: 2)
+                    let hyphenatedSearchTerm = searchTerm[..<firstTwoIndex] + "-" + searchTerm[firstTwoIndex...]
+                    return self.courses.filter { $0.number.contains(hyphenatedSearchTerm) }
+                } else { // just filter by course number
+                    return self.courses.filter { $0.number.contains(searchTerm) }
+                }
+            } else { // if it's not a number, filter by course name
+                return self.courses.filter {
+                    $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false
+                }
+            }
+            
+        }
+        selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
+    }
+
+    func setUserCourses(_ courses: [String]) {
+        let user = PFUser.current()! // there will always be a current user on this page
+        user["highlightedCourses"] = courses
+        //        user["firstLogin"] = false
+        SVProgressHUD.show()
+        user.saveInBackground(block: { (success: Bool, error: Error?) in
+            SVProgressHUD.dismiss()
+            if success {
+                SVProgressHUD.showSuccess(withStatus: "Logged in!")
+                self.performSegue(withIdentifier: "LoggedIn", sender: nil)
+            } else if let error = error {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+            } else {
+                SVProgressHUD.showError(withStatus: "Failed to update")
+            }
+            SVProgressHUD.dismiss(withDelay: 1)
+        })
     }
     
     func signUp() {
