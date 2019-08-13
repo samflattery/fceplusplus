@@ -45,7 +45,7 @@ The goal is to get a json like:
         "department": "SCS: Computer Science",
         "instructors": [
             {
-                "Instructor name": "CERVESATO, ILIANO"
+                "Instructor name": "Iliano Cervesato"
                 "Hours per week": 13.0,
                 "Interest in student learning": 3.8,
                 "Clearly explain course requirements": 3.8,
@@ -59,7 +59,7 @@ The goal is to get a json like:
                 }
             },
             {
-                "Instructor name": "KAYNAR, DILSUN"
+                "Instructor name": "Zeliha Dilsun Kaynar"
                 "Hours per week": 13.2,
                 ...
             },
@@ -150,11 +150,12 @@ if __name__ == '__main__':
         course["number"] = course_name
         course["hours per week"] = round(avg['Hours per week'],1)
         course["overall course rate"] = round(avg['Overall course rate'],1)
+        keys_to_ignore = ["lectures", "sections", "coreqs_obj", "prereqs_obj"]
         if course_name in course_data:
             data = course_data[course_name]
             for key in data:
                 # fill up the dictionary with the info from the course descriptions json
-                if key != "lectures" and key != "sections":
+                if key not in keys_to_ignore:
                     course[key] = data[key]
         else:
             continue
@@ -178,7 +179,6 @@ if __name__ == '__main__':
                 words[i] = words[i][0].upper() + words[i][1:]
                 hyphen_index = words[i].find("-")
                 if hyphen_index != -1:
-                    print(words[i])
                     words[i] = words[i][:hyphen_index+1] + words[i][hyphen_index+1].upper() + words[i][hyphen_index+2:]
 
             new_name = " ".join(words)

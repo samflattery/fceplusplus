@@ -9,11 +9,6 @@
 import Foundation
 import RSSelectionMenu
 
-struct reqObj: Decodable {
-    let invert: Bool?
-    let reqsList: [[String]]?
-}
-
 struct Instructor: Decodable {
     let name: String
     let hours: Double
@@ -52,9 +47,7 @@ struct Course: Decodable, UniquePropertyDelegate, Equatable {
     let units: Double?
     let desc: String?
     let prereqs: String?
-    let prereqsObj: reqObj?
     let coreqs: String?
-    let coreqsObj: reqObj?
     let instructors: [Instructor]
     
     enum CodingKeys: String, CodingKey {
@@ -62,8 +55,6 @@ struct Course: Decodable, UniquePropertyDelegate, Equatable {
         case desc, prereqs, coreqs, instructors
         case hours = "hours per week"
         case rate = "overall course rate"
-        case prereqsObj = "prereqs_obj"
-        case coreqsObj = "coreqs_obj"
     }
     
     func getUniquePropertyName() -> String {

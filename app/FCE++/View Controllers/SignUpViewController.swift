@@ -29,13 +29,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var buttonBarLeftConstraint: NSLayoutConstraint!
     
     var reachability: Reachability!
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var courses: [Course]! // array of courses to display upon signup
     var selectedCourses = [String]() // the array of courses numbers selected when signing up
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         courses = appDelegate.courses
         
         self.hideKeyboardWhenTappedAround()
@@ -53,39 +54,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    @IBAction func loginPressed(_ sender: Any) {
-        if segmentControl.selectedSegmentIndex == 0 {
-            login()
-        } else {
-            signUp()
-        }
-    }
-    
-    @IBAction func forgotPasswordPressed(_ sender: Any) {
-        performSegue(withIdentifier: "ResetPassword", sender: nil)
-    }
-    
-    
-    @IBAction func segmentControlValueChanged(_ sender: Any) {
-        view.layoutIfNeeded() // ensure the previous animation is finished
-        UIView.animate(withDuration: 0.3) {
-            // the new origin for the bar is the bottom left corner of the selected segment
-            let originX = (self.segmentControl.frame.width / CGFloat(self.segmentControl.numberOfSegments)) * CGFloat(self.segmentControl.selectedSegmentIndex) + self.segmentControl.frame.minX
-            self.buttonBarLeftConstraint.constant = originX
-            self.view.layoutIfNeeded()
-        }
-        
-        if segmentControl.selectedSegmentIndex == 0 {
-            loginButton.setTitle("Login", for: .normal)
-            passwordInfoLabel.isHidden = true
-            confirmPasswordField.isHidden = true
-        } else {
-            loginButton.setTitle("Sign Up", for: .normal)
-            confirmPasswordField.isHidden = false
-        }
-        
-    }
-    
     func setupSegmentControl() {
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -101,7 +69,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         // Constrain the button bar to the width of the segmented control divided by the number of segments
         buttonBar.widthAnchor.constraint(equalTo: segmentControl.widthAnchor, multiplier: 1 / CGFloat(segmentControl.numberOfSegments)).isActive = true
-
+        
         // the segment control should only be text
         segmentControl.backgroundColor = .clear
         segmentControl.tintColor = .clear
@@ -114,6 +82,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             NSAttributedString.Key.font : UIFont(name: "IowanOldStyleW01-Roman", size: 20)!,
             NSAttributedString.Key.foregroundColor: UIColor.white
             ], for: .selected)
+    }
+    
+    func setupTextFields() {
+        setupField(andrewIDField, withString: "andrewID")
+        setupField(passwordField, withString: "Password")
+        setupField(confirmPasswordField, withString: "Confirm Password")
     }
     
     func generateLayer(forTextField field: UITextField) -> CALayer {
@@ -138,10 +112,38 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         textField.attributedPlaceholder = generateAttributed(withString: string)
     }
     
-    func setupTextFields() {
-        setupField(andrewIDField, withString: "andrewID")
-        setupField(passwordField, withString: "Password")
-        setupField(confirmPasswordField, withString: "Confirm Password")
+    @IBAction func loginPressed(_ sender: Any) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            login()
+        } else {
+            signUp()
+        }
+    }
+    
+    @IBAction func forgotPasswordPressed(_ sender: Any) {
+        print("pressed")
+        performSegue(withIdentifier: "ResetPassword", sender: nil)
+    }
+    
+    
+    @IBAction func segmentControlValueChanged(_ sender: Any) {
+        view.layoutIfNeeded() // ensure the previous animation is finished
+        UIView.animate(withDuration: 0.3) {
+            // the new origin for the bar is the bottom left corner of the selected segment
+            let originX = (self.segmentControl.frame.width / CGFloat(self.segmentControl.numberOfSegments)) * CGFloat(self.segmentControl.selectedSegmentIndex) + self.segmentControl.frame.minX
+            self.buttonBarLeftConstraint.constant = originX
+            self.view.layoutIfNeeded()
+        }
+        
+        if segmentControl.selectedSegmentIndex == 0 {
+            loginButton.setTitle("Login", for: .normal)
+            passwordInfoLabel.isHidden = true
+            confirmPasswordField.isHidden = true
+        } else {
+            loginButton.setTitle("Sign Up", for: .normal)
+            confirmPasswordField.isHidden = false
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -195,6 +197,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func signUp() {
         if passwordField.text != confirmPasswordField.text {
             SVProgressHUD.showError(withStatus: "Passwords must match")
+            SVProgressHUD.dismiss(withDelay: 1)
             return
         }
         
@@ -302,6 +305,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
 extension UIViewController {
     // tap anywhere on view controller to dismiss keyboard
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

@@ -33,7 +33,7 @@ struct CommentsToShow {
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, InfoPageViewControllerDelegate, GuestCommentCellDelegate {
     
     var courses: [Course]! // the array of courses taken from output.json
-    var filteredCourses = [Course]() // the filtered courses to be shown to the user
+    var filteredCourses = [Course]() // the courses filtered by search term to be shown to the user
     var highlightedCourses: [String]?
     
     var commentsToShow: CommentsToShow?
@@ -56,6 +56,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         courses = appDelegate.courses // the AppDelegate loads the courses upon launching
         configureSearchController() // setup the search controller
+        configureBarButtons()
         
         self.hideKeyboardWhenTappedAround()
         
@@ -64,7 +65,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         let cellNib = UINib(nibName: "LoadingCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LoadingCell")
         
-        tableView.reloadData()
         
         if let user = PFUser.current() {
             //if someone is signed in, get their favourite courses
@@ -73,24 +73,63 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         }
 
         definesPresentationContext = true
-        
-        // Create the info button
-        let infoButton = UIButton(type: .infoLight)
-        infoButton.addTarget(self, action: #selector(showInfoScreen), for: .touchUpInside)
-        // Create a bar button item using the info button as its custom view
-
-        sortBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(showCourseSorter))
-        
-        infoBarButtonItem = UIBarButtonItem(customView: infoButton)
-        navigationItem.leftBarButtonItem = infoBarButtonItem
 
         tableView.refreshControl = refreshController
         refreshControl?.addTarget(self, action: #selector(getCommentsForRefreshController), for: .valueChanged)
     }
     
+    func configureSearchController() {
+        // setting up the SearchController delegate
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.titleView = searchController.searchBar // put it in the navigation bar
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Course name, instructor or keyword!"
+        
+        // want the cancel button to be white but the cursor to be blue
+        setTextFieldTintColor(to: UIColor.blue, for: searchController.searchBar)
+
+        searchController.searchBar.sizeToFit()
+    }
+    
+    func setTextFieldTintColor(to color: UIColor, for view: UIView) {
+        // set tint color for all subviews in searchBar that are of type UITextField
+        if view is UITextField {
+            view.tintColor = color
+        }
+        for subview in view.subviews {
+            setTextFieldTintColor(to: color, for: subview)
+        }
+    }
+    
+    
+    func configureBarButtons() {
+        // Create the info button
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(showInfoScreen), for: .touchUpInside)
+        // Create a bar button item using the info button as its custom view
+        
+        let button: UIButton = UIButton(type: .custom)
+        //set image for button
+        button.setImage(UIImage(named: "resized40"), for: .normal)
+        //add function for button
+        button.addTarget(self, action: #selector(showCourseSorter), for: .touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 22, height: 22)
+        
+        sortBarButtonItem = UIBarButtonItem(customView: button)
+        
+//        sortBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(showCourseSorter))
+        
+        infoBarButtonItem = UIBarButtonItem(customView: infoButton)
+        navigationItem.leftBarButtonItem = infoBarButtonItem
+    }
+    
     @objc func showCourseSorter() {
-        // show a popup that allows user to sort the courses by alphabetical by number,
-        // alphabetical by name, least and most hours per week
+        // show a popup  when the sort bar button is pressed that allows user to
+        // sort the courses by number, name, least and most hours per week
         let sortOptions = ["By Course Number (default)", "By Course Name", "Increasing Hours per Week", "Decreasing Hours per Week"]
         
         let selectionMenu = RSSelectionMenu(selectionStyle: .single, dataSource: sortOptions, cellType: .basic) { (cell, element: String, indexPath) in
@@ -142,24 +181,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         performSegue(withIdentifier: "ShowInfo", sender: nil)
     }
     
-    func configureSearchController() {
-        // setting up the SearchController delegate
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.titleView = searchController.searchBar // put it in the navigation bar
-        searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "Course name, instructor or keyword!"
-        searchController.searchBar.sizeToFit()
-    }
-    
     @objc func getCommentsForRefreshController() {
         getCommentsToDisplay(toReload: true)
     }
     
     func getCommentsToDisplay(toReload reload: Bool) {
-        let query = PFQuery(className:"Comments")
+        let query = PFQuery(className: "Comments")
         // get all objects where the course name is in the user's favourite courses
         query.whereKey("courseNumber", containedIn: highlightedCourses!)
         
@@ -174,7 +201,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         if reload {
             // if new highlightedCourses have been selected, the table view will have already
-            // reloaded before this point, so no need to do it again
+            // reloaded to get a loading cell before this point, so no need to do it again
             isLoadingComments = true
             tableView.reloadData()
         }
@@ -328,6 +355,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 } else {
                     commentCell.posterLabel.text = commentsToShow?.comments[i]["andrewID"] as? String
                 }
+                
+                let timeManager = TimeManager(withTimeOfPosting: commentsToShow?.comments[i]["timePosted"] as! String)
+                commentCell.dateLabel.text = timeManager.getString()
+                
                 return commentCell
             }
 
@@ -444,7 +475,7 @@ class CommentPreviewCell: UITableViewCell {
     @IBOutlet weak var courseNumberLabel: UILabel!
     @IBOutlet weak var posterLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-    
+    @IBOutlet weak var dateLabel: UILabel!
     
 }
 
