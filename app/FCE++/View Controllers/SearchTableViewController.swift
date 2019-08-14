@@ -30,11 +30,11 @@ struct CommentsToShow {
     }
 }
 
-class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, InfoPageViewControllerDelegate, GuestCommentCellDelegate {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate, InfoPageViewControllerDelegate, GuestCommentCellDelegate, CommentRepliesViewControllerDelegate {
     
     var courses: [Course]! // the array of courses taken from output.json
     var filteredCourses = [Course]() // the courses filtered by search term to be shown to the user
-    var highlightedCourses: [String]?
+    var highlightedCourses: [String]? // the user's highlighted course numbers
     
     var commentsToShow: CommentsToShow?
     var isLoadingComments = false
@@ -120,8 +120,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         button.frame = CGRect(x: 0, y: 0, width: 22, height: 22)
         
         sortBarButtonItem = UIBarButtonItem(customView: button)
-        
-//        sortBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(showCourseSorter))
         
         infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.leftBarButtonItem = infoBarButtonItem
@@ -273,13 +271,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             let controller = segue.destination as! CommentRepliesViewController
             let senderIndex = sender as! Int // the index of the comment in global array
             
-            // get the relevant object and comment indexes
-            let commentIndexes = commentsToShow!.indexes[senderIndex]
-            let objectIndex = commentIndexes.0
-            let commentIndex = commentIndexes.1
+            // get the relevant object index and the index of the comment in that object
+            let commentIndices = commentsToShow!.indexes[senderIndex]
+            let objectIndex = commentIndices.0
+            let commentIndex = commentIndices.1
             
             controller.commentObj = commentsToShow!.objects[objectIndex]
             controller.commentIndex = commentIndex
+            controller.indexOfGlobalComment = senderIndex
+            controller.commentsToShowIndices = commentIndices
+            controller.cameFromSearch = true
+            controller.delegate = self
         } else if segue.identifier == "ShowInfo" {
             let controller = segue.destination as! InfoPageViewController
             controller.highlightedCourses = self.highlightedCourses
@@ -460,6 +462,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpViewController
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    //MARK:- CommentRepliesViewControllerDelegate
+    func updateCourseInfoObject(toObject object: PFObject, commentIndices indices: (Int, Int)!, commentIndex index: Int!) {
+        self.commentsToShow?.objects[indices.0] = object
+        self.commentsToShow?.comments[index] = (object["comments"] as! CourseComments)[indices.1]
+        tableView.reloadData()
     }
     
 }

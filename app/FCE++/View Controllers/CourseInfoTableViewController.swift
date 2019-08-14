@@ -15,7 +15,7 @@ typealias CourseComments = [[String: Any]] // comments are stored as a list of d
 typealias CourseComment = [String: Any]
 
 class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate, NewCommentCellDelegate, GuestCommentCellDelegate, CommentRepliesViewControllerDelegate {
-
+    
     var query: PFQuery<PFObject>? // the currently active comment query
     var reachability: Reachability! // the user's internet status
     
@@ -551,13 +551,20 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             SVProgressHUD.dismiss(withDelay: 1)
             return
         }
+        
+        
         if !edited {
             isLoadingNewComment = true
-            tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .top)
-            tableView.endUpdates()
+            if noCommentsToDisplay {
+                noCommentsToDisplay = false
+                tableView.reloadData()
+            } else {
+                tableView.beginUpdates()
+                tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .top)
+                tableView.endUpdates()
+            }
         } else {
-            // loading cell for updated comment?
+            // TODO - loading cell for updated comment?
         }
         commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
             // have to fetch in case someone made a new comment in the meantime
@@ -621,7 +628,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     //MARK:- CommentRepliesViewControllerDelegate
-    func updateCourseInfoObject(toObject object: PFObject) {
+    func updateCourseInfoObject(toObject object: PFObject, commentIndices indices: (Int, Int)!, commentIndex index: Int!) {
         self.commentObj = object
         self.courseComments = (commentObj!["comments"] as! CourseComments)
         tableView.reloadData()

@@ -65,9 +65,8 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
             titleField.text = commentTitle
             commentTextView.textColor = .black
             
-            postButton.isHidden = false
-            anonymousSwitch.isHidden = false
-            anonymousLabel.isHidden = false
+            postButton.isEnabled = true
+            anonymousSwitch.isEnabled = true
             anonymousSwitch.isOn = wasAnonymous
             cancelButton.isHidden = false
         } else {
@@ -75,10 +74,9 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
             commentTextView.text = "Leave your thoughts on this course or ask a question!"
             commentTextView.textColor = .lightGray
             titleField.text = ""
-            
-            postButton.isHidden = true
-            anonymousSwitch.isHidden = true
-            anonymousLabel.isHidden = true
+
+            postButton.isEnabled = false
+//            anonymousSwitch.isEnabled = false
             anonymousSwitch.isOn = false
             cancelButton.isHidden = true
         }
@@ -93,7 +91,11 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
-        if titleField.text == "" || commentTextView.text == "" {
+        
+        let newCommentText = commentTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let newCommentTitle = titleField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if newCommentText == "" || newCommentTitle == "" {
             return
         }
         
@@ -114,8 +116,6 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
         let user = PFUser.current()! // the user will never be nil if this cell is visible
         
         // format the comment data as it is in the database
-        let newCommentText = commentTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let newCommentTitle = titleField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
         var commentData = ["commentText": newCommentText,
                            "timePosted": timePosted,
@@ -151,14 +151,10 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text != "" || textView.text == "Leave your thoughts on this course or ask a question!" {
-            postButton.isHidden = false
-            anonymousSwitch.isHidden = false
-            anonymousLabel.isHidden = false
+        if textView.text != "" && titleField.text != "" {
+            postButton.isEnabled = true
         } else {
-            postButton.isHidden = true
-            anonymousSwitch.isHidden = true
-            anonymousLabel.isHidden = true
+            postButton.isEnabled = false
         }
     }
     
@@ -181,16 +177,14 @@ class NewCommentCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        postButton.isHidden = false
-        anonymousSwitch.isHidden = false
-        anonymousLabel.isHidden = false
+        if commentTextView.text != "" && commentTextView.text != "Leave your thoughts on this course or ask a question!" {
+            postButton.isEnabled = true
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text == "" {
-            postButton.isHidden = true
-            anonymousSwitch.isHidden = true
-            anonymousLabel.isHidden = true
+            postButton.isEnabled = false
         }
     }
 

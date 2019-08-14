@@ -42,6 +42,9 @@
                         <state key="normal" title="Post">
                             <color key="titleColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </state>
+                        <state key="disabled">
+                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
                             <action selector="postButtonPressed:" destination="8iU-ly-aDT" eventType="touchUpInside" id="qFp-lU-AGZ"/>
                         </connections>
@@ -57,7 +60,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1j-PH-R08">
-                        <rect key="frame" x="197" y="174.5" width="51" height="34"/>
+                        <rect key="frame" x="202" y="174.5" width="51" height="34"/>
                         <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
                         <state key="normal" title="Cancel">
                             <color key="titleColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -68,10 +71,10 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="6Zb-7a-N7d" firstAttribute="leading" secondItem="v1j-PH-R08" secondAttribute="trailing" constant="20" id="18U-l2-ufv"/>
+                    <constraint firstItem="6Zb-7a-N7d" firstAttribute="leading" secondItem="v1j-PH-R08" secondAttribute="trailing" constant="15" id="18U-l2-ufv"/>
                     <constraint firstItem="167-bq-2iz" firstAttribute="centerY" secondItem="vV5-fX-HCi" secondAttribute="centerY" id="5wM-Vm-eAu"/>
                     <constraint firstAttribute="bottom" secondItem="vV5-fX-HCi" secondAttribute="bottom" constant="10" id="7dT-vT-ttL"/>
-                    <constraint firstItem="6Zb-7a-N7d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="167-bq-2iz" secondAttribute="trailing" id="89z-aJ-dun"/>
+                    <constraint firstItem="v1j-PH-R08" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="167-bq-2iz" secondAttribute="trailing" id="9pm-iA-9Oz"/>
                     <constraint firstAttribute="trailing" secondItem="6Zb-7a-N7d" secondAttribute="trailing" constant="16" id="T4J-se-7cp"/>
                     <constraint firstAttribute="bottom" secondItem="6Zb-7a-N7d" secondAttribute="bottom" constant="10" id="WgA-oM-jsI"/>
                     <constraint firstItem="v1j-PH-R08" firstAttribute="top" secondItem="9Rg-jS-ubU" secondAttribute="bottom" constant="5" id="Xki-xI-H11"/>

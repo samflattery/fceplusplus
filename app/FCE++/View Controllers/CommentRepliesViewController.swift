@@ -13,7 +13,10 @@ import SVProgressHUD
 typealias CommentReplies = [[String: Any]]
 
 protocol CommentRepliesViewControllerDelegate {
-    func updateCourseInfoObject(toObject object: PFObject)
+    // if the user comes to this page from the searchVC, the indices that this comment
+    // is at will be sent to the delegate to be updated
+    func updateCourseInfoObject(toObject object: PFObject, commentIndices indices: (Int, Int)!, commentIndex index: Int!)
+    
 }
 
 class CommentRepliesViewController: UITableViewController, NewReplyTableViewCellDelegate, GuestCommentCellDelegate {
@@ -21,7 +24,12 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     // passed down from CourseInfoTableViewController in segue
     var commentObj: PFObject! // the object that the comment belongs to, will be updated on
                                 // new reply
-    var commentIndex: Int!
+    var commentIndex: Int! // the index of the comment being replied to in the object's comments
+    
+    // all of these are set when this VC is instantiated from the searchVC
+    var indexOfGlobalComment: Int! // the index of the comment being replied to in the search comments
+    var cameFromSearch: Bool = false // true if the user came to this screen from the searchVC
+    var commentsToShowIndices: (Int, Int)! // commentsToShow[indexOfGlobalComment]
     
     // taken from the commentObj
     var commentReplies: CommentReplies!
@@ -394,14 +402,21 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             return
         }
         
+        
         if edited {
             // edited loading cell?
         } else {
             isLoadingNewReply = true
-            tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath(row: 0, section: 2)], with: .top)
-            tableView.endUpdates()
+            if noRepliesToShow {
+                noRepliesToShow = false
+                tableView.reloadData()
+            } else {
+                tableView.beginUpdates()
+                tableView.insertRows(at: [IndexPath(row: 0, section: 2)], with: .top)
+                tableView.endUpdates()
+            }
         }
+        
         commentObj.fetchInBackground { (object: PFObject?, error: Error?) in
             if let object = object {
                 var comments = (object["comments"] as! CourseComments)
@@ -422,7 +437,11 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                             self.isLoadingNewReply = false
                         }
                         self.setFieldsFromObject(object)
-                        self.delegate.updateCourseInfoObject(toObject: object)
+                        if self.cameFromSearch {
+                            self.delegate.updateCourseInfoObject(toObject: object, commentIndices: self.commentsToShowIndices, commentIndex: self.indexOfGlobalComment)
+                        } else {
+                            self.delegate.updateCourseInfoObject(toObject: object, commentIndices: nil, commentIndex: nil)
+                        }
                         if edited {
                             self.isEditingReply = false
                             self.editingIndex = nil

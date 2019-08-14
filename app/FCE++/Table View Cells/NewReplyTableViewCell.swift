@@ -39,9 +39,8 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         textView.text = "Leave a reply!"
         textView.textColor = .lightGray
         
-        postButton.isHidden = true
-        anonymousSwitch.isHidden = true
-        anonymousLabel.isHidden = true
+        postButton.isEnabled = false
+        anonymousSwitch.isOn = false
         cancelButton.isHidden = true
         
         // resize the switch to make it smaller
@@ -55,15 +54,19 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         textView.text = replyText
         textView.textColor = .black
         
-        postButton.isHidden = false
+        postButton.isEnabled = true
         cancelButton.isHidden = false
         postButton.setTitle("Save", for: .normal)
-        anonymousSwitch.isHidden = false
-        anonymousLabel.isHidden = false
         anonymousSwitch.isOn = anon
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
+        let newReplyText = textView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if newReplyText == "" {
+            return
+        }
+        
         reachability = Reachability()!
         
         if reachability.connection == .none {
@@ -80,7 +83,6 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         
         let user = PFUser.current()! // there will always be a user if this cell is active
         
-        let newReplyText = textView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // format the comment data as it is in the database
         let replyData = ["replyText": newReplyText,
@@ -102,7 +104,7 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
             textView.resignFirstResponder()
             textView.text = "Leave a reply!"
             textView.textColor = .lightGray
-            postButton.isHidden = true
+            postButton.isEnabled = false
         }
     }
     
@@ -119,13 +121,9 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         // toggle the switches when the text view is empty or not
         if textView.text != "" {
-            postButton.isHidden = false
-            anonymousSwitch.isHidden = false
-            anonymousLabel.isHidden = false
+            postButton.isEnabled = true
         } else {
-            postButton.isHidden = true
-            anonymousSwitch.isHidden = true
-            anonymousLabel.isHidden = true
+            postButton.isEnabled = false
         }
     }
     
@@ -140,10 +138,8 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         // put back the default text
-        postButton.isHidden = true
-        anonymousSwitch.isHidden = true
-        anonymousLabel.isHidden = true
         if textView.text == "" {
+            postButton.isEnabled = false
             textView.text = "Leave a reply!"
             textView.textColor = .lightGray
         }
