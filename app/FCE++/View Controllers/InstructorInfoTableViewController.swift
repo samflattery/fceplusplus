@@ -22,7 +22,7 @@ class InstructorInfoTableViewController: UITableViewController {
 
         instructorInfo = getInstructorData(instructor)
         
-        let cellNib = UINib(nibName: "InstructorCell", bundle: nil)
+        let cellNib = UINib(nibName: "IntructorCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "InstructorCell")
         self.navigationItem.title = instructor.name
     }
@@ -46,7 +46,7 @@ class InstructorInfoTableViewController: UITableViewController {
         
         if j == 0 {
             let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorTableViewCell
-            instructorCell.ratingStars.settings.fillMode = .precise
+            instructorCell.hasDisclosureIndicator(false)
             instructorCell.instructorLabel.text = instructor.name
             instructorCell.ratingStars.rating = instructor.teachingRate
             instructorCell.ratingLabel.text = "(\(String(format: "%.1f", instructor.teachingRate)))"

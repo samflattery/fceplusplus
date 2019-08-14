@@ -432,7 +432,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         else if segmentControl.selectedSegmentIndex == 1 {
             // the instructor segment's cells
             let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorTableViewCell
-            instructorCell.ratingStars.settings.fillMode = .precise
+            instructorCell.hasDisclosureIndicator(true)
             instructorCell.instructorLabel.text = course.instructors[i].name
             instructorCell.ratingStars.rating = course.instructors[i].teachingRate
             instructorCell.ratingLabel.text = "(\(String(format: "%.1f", course.instructors[i].teachingRate)))"

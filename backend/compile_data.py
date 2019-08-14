@@ -124,7 +124,9 @@ if __name__ == '__main__':
         lambda s: format_hyphen(s))
 
     # Summer courses are usually more intensive and thus not representative
-    df = df[df["Semester"] != "Summer"]
+    # The FCE csv I have downloaded uses the following code to represent semesters:
+    # 150 = Summer, 140 = Spring, 120 = Fall
+    df = df[df["Semester"] != 150]
     # information older than two years is probably not relevant
     df = df[df['year'] > 2016]
    
