@@ -22,7 +22,7 @@ class InstructorInfoTableViewController: UITableViewController {
 
         instructorInfo = getInstructorData(instructor)
         
-        let cellNib = UINib(nibName: "IntructorCell", bundle: nil)
+        let cellNib = UINib(nibName: "InstructorCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "InstructorCell")
         self.navigationItem.title = instructor.name
     }

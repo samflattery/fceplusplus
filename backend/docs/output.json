@@ -250,7 +250,7 @@
         "number": "10-715",
         "hours per week": 12.0,
         "overall course rate": 3.7,
-        "desc": "The rapid improvement of sensory techniques and processor speed, and the availability of inexpensive massive digital storage, have led to a growing demand for systems that can automatically comprehend and mine massive and complex data from diverse sources.  Machine Learning is becoming the primary mechanism by which information is extracted from Big Data, and a primary pillar that Artificial Intelligence is built upon.  This course is designed for Ph.D. students whose primary field of study is machine learning, or who intend to make machine learning methodological research a main focus of their thesis.  It will give students a thorough grounding in the algorithms, mathematics, theories, and insights needed to do in-depth research and applications in machine learning. The topics of this course will in part parallel those covered in the general graduate machine learning course (10-701), but with a greater emphasis on depth in theory and algorithms. The course will also include additional advanced topics such as fairness in machine learning. Students entering the class are expected to have a pre-existing strong working knowledge of algorithms, linear algebra, probability, and statistics.  If you are interested in this topic, but do not have the required background or are not planning to work on a PhD thesis with machine learning as the main focus, you might consider the general graduate Machine Learning course (10-701) or the Masters-level Machine Learning course (10-601). ML course comparison: https://goo.gl/mmR2eL",
+        "desc": "The rapid improvement of sensory techniques and processor speed, and the availability of inexpensive massive digital storage, have led to a growing demand for systems that can automatically comprehend and mine massive and complex data from diverse sources.  Machine Learning is becoming the primary mechanism by which information is extracted from Big Data, and a primary pillar that Artificial Intelligence is built upon.  This course is designed for Ph.D. students whose primary field of study is machine learning, and who intend to make machine learning methodological research a main focus of their thesis.  It will give students a thorough grounding in the algorithms, mathematics, theories, and insights needed to do in-depth research and applications in machine learning. The topics of this course will in part parallel those covered in the general PhD-level machine learning course (10-701), but with a greater emphasis on depth in theory and algorithms. The course will also include additional advanced topics such as fairness in machine learning. Students entering the class are expected to have a pre-existing strong working knowledge of algorithms, linear algebra, probability, and statistics.  If you are interested in this topic, but do not have the required background or are not planning to work on a PhD thesis with machine learning as the main focus, you might consider the general PhD-level Machine Learning course (10-701) or the Masters-level Machine Learning course (10-601). ML course comparison: https://goo.gl/mmR2eL",
         "prereqs": "(15-122) and (21-128 or 21-127 or 15-151) and (15-259 or 15-359 or 36-225 or 36-217 or 21-325 or 36-218)",
         "coreqs": null,
         "name": "Advanced Introduction to Machine Learning",
@@ -2661,71 +2661,6 @@
                 "Overall teaching rate": 4.4,
                 "Overall course rate": 4.0,
                 "Instructor name": "Christopher May"
-            }
-        ]
-    },
-    {
-        "number": "14-774",
-        "hours per week": 8.5,
-        "overall course rate": 4.1,
-        "desc": "This class presents the basic concepts of microeconomics theory with an emphasis on business applications. The approach of microeconomics is to solve an economic problem by modeling it as an optimization problem; the solution to the optimization problems then interpreted in terms of the original economic problem. This approach will be used to answer such problems as input selection, pricing and project selection. The format of the class is to present theory common to a general class of applied problems and then to apply the theory by solving actual problems. The goal of the class is for the students to be capable of applying the basic concepts to problems faced both future classes (e.g. finance, macroeconomics) and future careers. Prerequisites: Graduate standing.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Managerial Economics",
-        "units": 6.0,
-        "department": "Information Networking Institute",
-        "instructors": [
-            {
-                "Hours per week": 8.5,
-                "Interest in student learning": 4.0,
-                "Clearly explain course requirements": 4.2,
-                "Clear learning objectives & goals": 4.3,
-                "Instructor provides feedback to students to improve": 3.9,
-                "Demonstrate importance of subject matter": 4.2,
-                "Explains subject matter of course": 4.0,
-                "Show respect for all students": 4.2,
-                "Overall teaching rate": 4.1,
-                "Overall course rate": 4.1,
-                "Instructor name": "Colleen Brecker"
-            }
-        ]
-    },
-    {
-        "number": "14-775",
-        "hours per week": 7.1,
-        "overall course rate": 4.4,
-        "desc": "This class includes management functions such as accounting (reading and understanding financial statements, basic cost analysis and budgeting), finance (project evaluation and capital budgeting), human relations (motivation and organization of work), marketing (distribution and consumer behavior) and operations (production planning and control). The importance of information systems is emphasized across all management functions.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Business Management",
-        "units": 6.0,
-        "department": "Information Networking Institute",
-        "instructors": [
-            {
-                "Hours per week": 6.6,
-                "Interest in student learning": 4.5,
-                "Clearly explain course requirements": 4.5,
-                "Clear learning objectives & goals": 4.4,
-                "Instructor provides feedback to students to improve": 4.4,
-                "Demonstrate importance of subject matter": 4.2,
-                "Explains subject matter of course": 4.4,
-                "Show respect for all students": 4.6,
-                "Overall teaching rate": 4.4,
-                "Overall course rate": 4.2,
-                "Instructor name": "Colleen Brecker"
-            },
-            {
-                "Hours per week": 7.3,
-                "Interest in student learning": 4.6,
-                "Clearly explain course requirements": 4.6,
-                "Clear learning objectives & goals": 4.7,
-                "Instructor provides feedback to students to improve": 4.7,
-                "Demonstrate importance of subject matter": 4.6,
-                "Explains subject matter of course": 4.6,
-                "Show respect for all students": 4.8,
-                "Overall teaching rate": 4.7,
-                "Overall course rate": 4.5,
-                "Instructor name": "David Lamont"
             }
         ]
     },
@@ -5827,7 +5762,7 @@
         "number": "16-622",
         "hours per week": 15.8,
         "overall course rate": 4.4,
-        "desc": "TBA",
+        "desc": "The MSCV capstone project course is designed to give project teams additional feedback on their capstone project from peers and faculty. Every week, capstone teams will present their project PPFs (Past-Present-Future) reports. For the presenting teams, the capstone course will help develop presentation and communication skills. For the students participating as peer-reviewers, it will help develop critical thinking and the ability to give constructive advice.",
         "prereqs": null,
         "coreqs": null,
         "name": "MSCV Capstone",
@@ -6022,7 +5957,7 @@
         "number": "16-682",
         "hours per week": 16.5,
         "overall course rate": 4.6,
-        "desc": "Students will be required to participate in a two-semester on-campus lecture- and laboratory-style project course. The project course will allow students to form project teams to work on a hands-on robotics / automation topic proposed by the instructor(s) of interest to the robotics / automation industry at large. The project is intended to allow students to acquire hands-on experience and apply concepts and methods taught in class. Students will learn the interconnection of theory and practice and understand the challenges of real-world application. The setting will consist of a mix of targeted technology instruction / lectures and hands-on work in the laboratory. Students will be taught the project / technology development process all the way from developing performance-requirements/system-specifications through the technology development cycle, all the way to test-plan development and results analysis and reporting. The outcome of this two-semester course will be a final project report, coupled with a demonstration and group presentation.  The goal of the MRSD Project Course is to provide practical experience in robotic system development ranging from specification and design to implementation and testing. Projects will be defined jointly with industrial clients, and small student teams will work with these client companies in implementing, refining, and presenting the results of their projects. The course will provide opportunities to apply principles from other MRSD courses, especially the Systems Engineering course, as well as those from the Business Seminar series. Class lectures will emphasize practical application and cover relevant topics including robotic design methodologies, system modeling, mechanical components, sensor and I/O interfacing, motor control, microcontroller and embedded control basics, basic software development methodologies, and troubleshooting.",
+        "desc": "This course is the second semester in a two-semester sequence intended to enable student teams to design and implement robot systems from the requirements development phase through implementation, verification, and demonstration of a working prototype. Teams of 4-5 students continue work on a project provided by industrial and academic partners, refine design requirements, refine or create new subsystems, and integrate and demonstrate the full system.",
         "prereqs": null,
         "coreqs": null,
         "name": "TBA",
@@ -6399,10 +6334,10 @@
         "number": "16-861",
         "hours per week": 11.0,
         "overall course rate": 4.4,
-        "desc": "This course investigates robot mobility, energetics, sensing, computing, software, payload, interface, and operating environment. The context is robotic pursuit of the Moon. Scope incorporates mechanism, electronics, software, locomotion, navigation, communication, sensing, power and thermal considerations. Additionally, space systems address challenges of low mass, energetics, space environment, and reliability of design. Media is incorporated to chronicle and represent the accomplishments. The course is appropriate for a broad range of student disciplines and interests.  Course Learning Objectives include formulation, problem solving, robotics and developing space systems . Students work cooperatively in teams with guidance to produce mission-relevant results and practice technical communications through written and oral presentations. Teams generate term papers detailing the design, development, testing and lessons learned.",
+        "desc": "Planetary rovers to date have been huge, slow, isotope-heated, and directed by human operators.   This course pursues technologies for a class of small, fast, solar, autonomous rovers for revolutionizing planetary exploration. Beyond engaging with the technologies and methodologies for such capability, students will develop a rover that will fly on a near-term moon mission.  The course covers development of planetary robot mobility, mechanics, electronics, navigation, energetics, sensing, computing, software, thermal management, communications, and operator interaction. Additionally, space systems considerations address challenges of low mass, space environment, reliability, testing and evaluation. The course is appropriate for a broad range of student disciplines and interests.  Lectures convey topical content.  Course Learning Objectives include formulation, problem solving, and implementation of robotic space systems. Students work in teams with guidance to master topical content and generate mission-relevant contributions.  Students master the technologies, distinctions and challenges of developing a new class of planetary exploration rovers.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Mobile Robot Development",
+        "name": "SPACE ROBOTICS",
         "units": 12.0,
         "department": "SCS: Robotics",
         "instructors": [
@@ -7508,7 +7443,7 @@
         "prereqs": null,
         "coreqs": null,
         "name": "Societal Computing Practicum",
-        "units": 6.0,
+        "units": 9.0,
         "department": "SCS: Institute for Software Research",
         "instructors": [
             {
@@ -8765,7 +8700,7 @@
         "number": "18-642",
         "hours per week": 12.0,
         "overall course rate": 4.2,
-        "desc": "In a very real sense, embedded software is what makes our everyday world function. From self-driving cars to chemical processing plant equipment, and from medical devices to the electric grid, embedded software is everywhere. You already know how to write code for a microcontroller. Now, learn software quality, safety, and security skills that are required to make embedded systems that can handle the messiness of the real world. This course provides in-depth coverage of the topics that are essential to the success of embedded software projects based on case studies of industry project teams that have suffered or failed. Students will learn about a variety of topics including: lightweight but high quality embedded software processes, technical best practices for embedded software, effective testing and validation, causes of software system failures, software for safety-critical systems, and embedded-specific aspects of software security. The material will generally be broken up into a set of four related topics each week, with one assignment per topic weekly, involving a combination of programming assignments, tool use experiences, and research questions to get hands-on experience at dealing with the types of problems that are encountered in industry embedded projects. We assume you already know how to code in C and understand the basics of microcontrollers. This course is about getting you ready to build industry-strength embedded projects.  Undergraduate students are required to take 18349 prior to enrolling in this course.  Graduate students are strongly encouraged to take 18-600/15-213/15-513/18-213 before or concurrently with this course.",
+        "desc": "In a very real sense, embedded software is what makes our everyday world function. From self-driving cars to chemical processing plant equipment, and from medical devices to the electric grid, embedded software is everywhere. You already know how to write code for a microcontroller. Now, learn software quality, safety, and security skills that are required to make embedded systems that can handle the messiness of the real world. This course provides in-depth coverage of the topics that are essential to the success of embedded software projects based on case studies of industry project teams that have suffered or failed. Students will learn about a variety of topics including: lightweight but high quality embedded software processes, technical best practices for embedded software, effective testing and validation, causes of software system failures, software for safety-critical systems, and embedded-specific aspects of software security. The material will generally be broken up into a set of four related topics each week, with one assignment per topic weekly, involving a combination of programming assignments, tool use experiences, and research questions to get hands-on experience at dealing with the types of problems that are encountered in industry embedded projects. We assume you already know how to code in C and understand the basics of microcontrollers. This course is about getting you ready to build industry-strength embedded projects.  Undergraduate students are required to take 18349 prior to enrolling in this course.  Graduate students are strongly encouraged to take 18-613/15-213/15-513/18-213 before or concurrently with this course.",
         "prereqs": "18-349",
         "coreqs": null,
         "name": "Embedded System Software Engineering",
@@ -10637,10 +10572,10 @@
         "number": "19-671",
         "hours per week": 3.5,
         "overall course rate": 3.5,
-        "desc": "19671 (Session 1) -The first year or two of a tech start-up sets the trajectory and character of that company for years to come. Too few entrepreneurs appreciate this reality and, as a result, many carry forward misperceptions and misconceptions about creating and building a successful tech company that set it on the path for failure.   This class remedies that challenge by exposing the student the practical reality of  creating and evaluating business concept. This class should help the student answer (or know how to find the answer) to the following questions:   When thing of Is my idea a real innovation? Is it also a business or a product or neither?   How do I know how big the market is for my product? What are the technology market and competitive risks in my idea and how do I assess them?   Can I compete with the big companies? Can I sell it? How? When? Where?  Students will have the opportunity to apply their newfound practical skills gathered in part from lectures from experienced entrepreneurs and investors to case studies.",
+        "desc": "The first three years of a technology start-up are the most critical; when the companys DNA or trajectory is set. Too few entrepreneurs appreciate this fact and, as a result, many start without the essential skills talents and capabilities needed to set the company on a successful path. Some of these entrepreneurial skills can only be learned through starting and growing a business while others can be learned. This course attempts to bridge the challenging gap between learning and doing entrepreneurship. We introduce you to an essential skill of market discovery or learning to create, develop and evaluate your concept of your business. Is my idea a real innovation? Is it also a business or a product or neither? How do I know how big the market is for my product? What are the technology market and competitive risks in my idea and how do I assess them? Can I compete? Can I sell it? How? When? Where? Students will have the opportunity to apply their newfound practical skills gathered in part from lectures from experienced entrepreneurs and investors to case studies role-playing and solving actual problems of local tech businesses. The best way to learn entrepreneurship is by doing, which is why this course will use true-to-life scenarios as the anchor for the course. The class will be divided into 4 teams will focus on a company that is either (1) a student idea for new start-up, (2) an existing start-up (ideally local) or (3) a hypothetical start-up proposed/conceived by the students, the professor or both",
         "prereqs": null,
         "coreqs": null,
-        "name": "Tech Startup: Tools and Techniques",
+        "name": "Tech Start-up: Market Discovery",
         "units": 6.0,
         "department": "Engineering & Public Policy",
         "instructors": [
@@ -10666,7 +10601,7 @@
         "desc": "(Session 2) - The first year or two of a tech start-up set the trajectory and character of that company for years to come. Too few entrepreneurs appreciate this reality and, as a result, many carry forward misperceptions and misconceptions about creating and building a successful tech company that set it on the path for failure.   This class attempts to remedy that challenge by exposing the student the practical reality of  building a team and funding a start-up team. This class should help the student answer (or know how to find the answer) to the following questions:   How do I find manage and evaluate a start-up team Do I have the skill motivation and ability to be a tech entrepreneur? Can I build a company from scratch (really?)? Should I be the CEO Sales Account Manager VP of Engineering or something else altogether?  How much money do I raise and where and when do I raise it?   Students will have the opportunity to apply their newfound practical skills gathered in part from lectures from experienced entrepreneurs and investors to case studies.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Special Topics: Tech Entrepreneurship and Innovation",
+        "name": "Special Topics: Tech Start-up: Building Your Own Company",
         "units": 6.0,
         "department": "Engineering & Public Policy",
         "instructors": [
@@ -12675,45 +12610,6 @@
         ]
     },
     {
-        "number": "21-378",
-        "hours per week": 8.7,
-        "overall course rate": 4.3,
-        "desc": "A first course in fixed income.  Students will be introduced to the most common securities traded in fixed income markets and the valuation methods used to price them.  Topics covered include discount factors; interest rates basics; pricing of coupon bonds; identifying the yield to maturity, as well as bond sensitivities to interest rates; term structure modeling; forward and swap rates; fixed income derivatives (including mortgage backed securities) and their valuation through backwards induction; fixed income indexes and return attribution.  For a co-requisite, 36-225 can be accepted as an alternative for 21-325.",
-        "prereqs": "21-270",
-        "coreqs": "21-325 or 21-370",
-        "name": "Mathematics of Fixed Income Markets",
-        "units": 9.0,
-        "department": "Mathematical Sciences",
-        "instructors": [
-            {
-                "Hours per week": 8.4,
-                "Interest in student learning": 4.4,
-                "Clearly explain course requirements": 3.6,
-                "Clear learning objectives & goals": 3.8,
-                "Instructor provides feedback to students to improve": 3.8,
-                "Demonstrate importance of subject matter": 3.9,
-                "Explains subject matter of course": 3.1,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 3.6,
-                "Overall course rate": 3.8,
-                "Instructor name": "David Handron"
-            },
-            {
-                "Hours per week": 9.0,
-                "Interest in student learning": 5.0,
-                "Clearly explain course requirements": 5.0,
-                "Clear learning objectives & goals": 4.9,
-                "Instructor provides feedback to students to improve": 4.9,
-                "Demonstrate importance of subject matter": 4.9,
-                "Explains subject matter of course": 4.8,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 4.8,
-                "Overall course rate": 4.9,
-                "Instructor name": "William Hrusa"
-            }
-        ]
-    },
-    {
         "number": "21-393",
         "hours per week": 6.8,
         "overall course rate": 3.4,
@@ -13134,7 +13030,7 @@
         "hours per week": 2.0,
         "overall course rate": 4.7,
         "desc": "This course teaches safe operation of manual machining equipment through structured hands-on activities.  A significant portion of the course is dedicated to learning subtractive manufacturing, the industrial standard for the mass manufacture of products around the world.  The skills learned in this course can be applied to fabricate durable components for design projects, research equipment, and extracurricular activities.  1-unit mini (7-weeks)",
-        "prereqs": null,
+        "prereqs": "24-200",
         "coreqs": null,
         "name": "Machine Shop Practice",
         "units": 1.0,
@@ -13887,7 +13783,7 @@
         "number": "24-677",
         "hours per week": 13.5,
         "overall course rate": 3.6,
-        "desc": "This course offers a practical introduction to the analysis and design of multi-input multi-output linear control systems.  Topics include modeling and linearization of multi-input multi-output dynamic systems using the state-variable description, fundamentals of linear algebra (algebraic equations, eigenvalues and eigenvectors, singular value decomposition),  analytical and numerical solutions of systems of linear time invariant differential and difference equations, structural properties of linear dynamic physical systems (controllability, observability and stability), canonical realizations, and design of state feedback controllers and observers (pole placement and LQR / Kalman filter approaches).  This course will provide a practical approach to the material as opposed to the theoretical approach of 18/24-771, with an emphasis on Matlab / Simulink applications instead of mathematical proofs.  As such it is recommended for students pursuing a coursework-based degree; students conducting research in controls or robotics should take 18/24-771.",
+        "desc": "This course offers a practical introduction to the analysis and design of model-based control for linear systems. Topics include modeling and linearization of multi-input multi-output dynamic systems using the state-variable description, fundamentals of linear algebra (linear space, linear transformation, linear dynamics),  analytical and numerical solutions of systems of linear time-invariant differential and difference equations, structural properties of linear dynamic physical systems (controllability, observability and stability), canonical realizations, and design of state feedforward/feedback, optimal, and stochastic controllers and observers (pole placement, LQR, MPC, Kalman filter approaches). Students will learn how to design linear controllers and implement them to solve real-world problems in control and robotics.",
         "prereqs": null,
         "coreqs": null,
         "name": "Special Topics: Linear Control Systems",
@@ -14218,6 +14114,45 @@
                 "Overall teaching rate": 4.4,
                 "Overall course rate": 4.4,
                 "Instructor name": "Nicholas Siefert"
+            }
+        ]
+    },
+    {
+        "number": "24-730",
+        "hours per week": 9.7,
+        "overall course rate": 4.3,
+        "desc": "This course is open to students from all areas of engineering, although an undergraduate background in heat transfer is assumed. This class is an appropriate preparation for the doctoral qualifying exam.Topics to be covered include: mathematical formulation of heat transfer problems, heat conduction, thermal radiation, hydraulic boundary layers, and laminar and turbulent convection. Problems and examples will include theory and applications drawn from a spectrum of engineering design problems.  Prerequisite: Undergraduate Heat Transfer 24-322 or equivalent.",
+        "prereqs": "24-322",
+        "coreqs": null,
+        "name": "Advanced Heat Transfer",
+        "units": 12.0,
+        "department": "Mechanical Engineering",
+        "instructors": [
+            {
+                "Hours per week": 10.3,
+                "Interest in student learning": 4.9,
+                "Clearly explain course requirements": 4.8,
+                "Clear learning objectives & goals": 4.8,
+                "Instructor provides feedback to students to improve": 4.7,
+                "Demonstrate importance of subject matter": 4.9,
+                "Explains subject matter of course": 4.9,
+                "Show respect for all students": 5.0,
+                "Overall teaching rate": 4.8,
+                "Overall course rate": 4.8,
+                "Instructor name": "Jonathan Malen"
+            },
+            {
+                "Hours per week": 9.1,
+                "Interest in student learning": 4.1,
+                "Clearly explain course requirements": 3.7,
+                "Clear learning objectives & goals": 4.2,
+                "Instructor provides feedback to students to improve": 4.1,
+                "Demonstrate importance of subject matter": 4.4,
+                "Explains subject matter of course": 3.9,
+                "Show respect for all students": 4.6,
+                "Overall teaching rate": 4.0,
+                "Overall course rate": 3.8,
+                "Instructor name": "Shi-Chune Yao"
             }
         ]
     },
@@ -15811,7 +15746,7 @@
         "number": "33-241",
         "hours per week": 10.4,
         "overall course rate": 4.1,
-        "desc": "This course, together with 33-456, is designed to introduce the student to the computational tools needed for study and research in science, engineering and other disciplines.  Topics covered include: types of computers and computing systems; programming languages and environments, applications and application areas with their appropriate algorithms; issues of correctness.  Coursework includes:  lectures, presentations by students, and a large number of programming assignments involving the most commonly used examples of these topics applied to simple physical problems.",
+        "desc": "This undergraduate course will provide an introduction to the numerical methods and computational algorithms used to solve a variety of problems in physics. In introductory physics courses, you are able to derive analytical solutions for simpler problems and often with simplifying assumptions. Have you wondered if a numerical solution can be obtained for a more complex problem that has no closed-form analytical solution? Computational physics provides a modern and powerful approach to compliment classical approaches to problem solving. Todays and tomorrows scientists must be computationally fluent to be competitive and successful. In this course, you will learn to formulate problems by applying physical principles, select and apply numerical methods, develop and apply computational algorithms, solve physical problems analytically and numerically, and visualize quantitative results using plotting software",
         "prereqs": "(15-112) and (21-122) and (33-104) and (33-107 or 33-112 or 33-132 or 33-142 or 33-122 or 33-152)",
         "coreqs": null,
         "name": "Introduction to Computational Physics",
@@ -16137,7 +16072,7 @@
         "hours per week": 10.8,
         "overall course rate": 4.5,
         "desc": "This course introduces fundamental concepts of quantum mechanics.  Applications are made to quantum computing, the harmonic oscillator, the hydrogen atom, electron spin and addition of angular momentum. 3hrs. lecture. Typical Text: Cohen-Tannoudji Quantum Mechanics, volume 1.",
-        "prereqs": null,
+        "prereqs": "33-446",
         "coreqs": null,
         "name": "Quantum Mechanics I",
         "units": 12.0,
@@ -16163,7 +16098,7 @@
         "hours per week": 12.6,
         "overall course rate": 4.1,
         "desc": "This course deals with the static and dynamic properties of the electromagnetic field as described by Maxwells equations. Among the topics emphasized are solutions of Laplaces, Poissons and wave equations, effects of boundaries, Greens functions, multipole expansions, emission and propagation of electromagnetic radiation and the response of dielectrics, metals, magnetizable bodies to fields. 3 hrs. lecture. Typical Text: Jackson, Classical Electrodynamics, 2nd Ed.",
-        "prereqs": null,
+        "prereqs": "33-339",
         "coreqs": null,
         "name": "Classical Electrodynamics I",
         "units": 12.0,
@@ -16389,32 +16324,6 @@
                 "Overall teaching rate": 4.7,
                 "Overall course rate": 4.6,
                 "Instructor name": "Gordon Weinberg"
-            }
-        ]
-    },
-    {
-        "number": "36-217",
-        "hours per week": 9.7,
-        "overall course rate": 3.3,
-        "desc": "This course provides an introduction to probability theory. It is designed for students in electrical and computer engineering. Topics include elementary probability theory, conditional probability and independence, random variables, distribution functions, joint and conditional distributions, limit theorems, and an introduction to random processes. Some elementary ideas in spectral analysis and information theory will be given.   A grade of C or better is required in order to use this course as a pre-requisite for 36-226, 36-326, and 36-410.  Not open to students who have received credit for 36-225, 21-325, or 36-700.",
-        "prereqs": "21-112 or 21-122 or 21-123 or 21-256 or 21-259",
-        "coreqs": null,
-        "name": "Probability Theory and Random Processes",
-        "units": 9.0,
-        "department": "Statistics and Data Science",
-        "instructors": [
-            {
-                "Hours per week": 9.7,
-                "Interest in student learning": 3.8,
-                "Clearly explain course requirements": 4.0,
-                "Clear learning objectives & goals": 4.0,
-                "Instructor provides feedback to students to improve": 3.5,
-                "Demonstrate importance of subject matter": 3.7,
-                "Explains subject matter of course": 3.7,
-                "Show respect for all students": 3.8,
-                "Overall teaching rate": 3.5,
-                "Overall course rate": 3.3,
-                "Instructor name": "Ross Oconnell"
             }
         ]
     },
@@ -16722,7 +16631,7 @@
         "hours per week": 8.7,
         "overall course rate": 3.5,
         "desc": "This course is an introduction to the real world of statistics and data analysis. We will explore real data sets, examine various models for the data, assess the validity of their assumptions, and determine which conclusions we can make (if any). Data analysis is a bit of an art; there may be several valid approaches. We will strongly emphasize the importance of critical thinking about the data and the question of interest. Our overall goal is to use a basic set of modeling tools to explore and analyze data and to present the results in a scientific report. A grade of C is required to move on to 36-402 or any 36-46x course.",
-        "prereqs": "(36-226 or 36-326 or 36-625 or 36-218) and (21-240 or 21-241)",
+        "prereqs": "(36-326 or 36-625 or 36-218 or 36-226) and (21-240 or 21-241)",
         "coreqs": null,
         "name": "Modern Regression",
         "units": 9.0,
@@ -16796,32 +16705,6 @@
         ]
     },
     {
-        "number": "36-461",
-        "hours per week": 9.9,
-        "overall course rate": 4.6,
-        "desc": "Epidemiology is concerned with understanding factors that cause, prevent, and reduce diseases by studying associations between disease outcomes and their suspected determinants in human populations. Epidemiologic research requires an understanding of statistical methods and design. Epidemiologic data is typically discrete, i.e., data that arise whenever counts are made instead of measurements. In this course, methods for the analysis of categorical data are discussed with the purpose of learning how to apply them to data. The central statistical themes are building models, assessing fit and interpreting results. There is a special emphasis on generating and evaluating evidence from observational studies. Case studies and examples will be primarily from the public health sciences.",
-        "prereqs": "36-401",
-        "coreqs": null,
-        "name": "Special Topics:  Statistical Methods in Epidemiology",
-        "units": 9.0,
-        "department": "Statistics and Data Science",
-        "instructors": [
-            {
-                "Hours per week": 9.9,
-                "Interest in student learning": 4.8,
-                "Clearly explain course requirements": 4.6,
-                "Clear learning objectives & goals": 4.7,
-                "Instructor provides feedback to students to improve": 4.2,
-                "Demonstrate importance of subject matter": 4.7,
-                "Explains subject matter of course": 4.7,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 4.7,
-                "Overall course rate": 4.6,
-                "Instructor name": "Joel Greenhouse"
-            }
-        ]
-    },
-    {
         "number": "36-462",
         "hours per week": 9.0,
         "overall course rate": 3.9,
@@ -16870,6 +16753,58 @@
                 "Overall teaching rate": 3.1,
                 "Overall course rate": 3.3,
                 "Instructor name": "Jiashun Jin"
+            }
+        ]
+    },
+    {
+        "number": "36-490",
+        "hours per week": 6.9,
+        "overall course rate": 4.6,
+        "desc": "This course is designed to give undergraduate students experience using statistics in real research problems. Small groups of students will be matched with clients and do supervised research for a semester.  Students will gain skills in approaching a research problem, critical thinking, statistical analysis, scientific writing, and conveying and defending their results to an audience.",
+        "prereqs": "36-401",
+        "coreqs": "36-402",
+        "name": "Undergraduate Research",
+        "units": 9.0,
+        "department": "Statistics and Data Science",
+        "instructors": [
+            {
+                "Hours per week": 3.8,
+                "Interest in student learning": 5.0,
+                "Clearly explain course requirements": 5.0,
+                "Clear learning objectives & goals": 5.0,
+                "Instructor provides feedback to students to improve": 5.0,
+                "Demonstrate importance of subject matter": 5.0,
+                "Explains subject matter of course": 5.0,
+                "Show respect for all students": 5.0,
+                "Overall teaching rate": 5.0,
+                "Overall course rate": 5.0,
+                "Instructor name": "Peter Freeman"
+            },
+            {
+                "Hours per week": 8.3,
+                "Interest in student learning": 4.4,
+                "Clearly explain course requirements": 4.1,
+                "Clear learning objectives & goals": 4.2,
+                "Instructor provides feedback to students to improve": 4.7,
+                "Demonstrate importance of subject matter": 4.3,
+                "Explains subject matter of course": 4.3,
+                "Show respect for all students": 4.6,
+                "Overall teaching rate": 4.3,
+                "Overall course rate": 4.4,
+                "Instructor name": "Nynke Niezink"
+            },
+            {
+                "Hours per week": 8.7,
+                "Interest in student learning": 4.6,
+                "Clearly explain course requirements": 4.2,
+                "Clear learning objectives & goals": 4.3,
+                "Instructor provides feedback to students to improve": 4.6,
+                "Demonstrate importance of subject matter": 4.3,
+                "Explains subject matter of course": 4.3,
+                "Show respect for all students": 4.6,
+                "Overall teaching rate": 4.3,
+                "Overall course rate": 4.3,
+                "Instructor name": "Rebecca Nugent"
             }
         ]
     },
@@ -17091,32 +17026,6 @@
                 "Overall teaching rate": 4.8,
                 "Overall course rate": 4.6,
                 "Instructor name": "Alexander Reinhart"
-            }
-        ]
-    },
-    {
-        "number": "36-661",
-        "hours per week": 9.4,
-        "overall course rate": 4.9,
-        "desc": "Epidemiology is concerned with understanding factors that cause, prevent, and reduce diseases by studying associations between disease outcomes and their suspected determinants in human populations. Epidemiologic research requires an understanding of statistical methods and design. Epidemiologic data is typically discrete, i.e., data that arise whenever counts are made instead of measurements. In this course, methods for the analysis of categorical data are discussed with the purpose of learning how to apply them to data. The central statistical themes are building models, assessing fit and interpreting results. There is a special emphasis on generating and evaluating evidence from observational studies. Case studies and examples will be primarily from the public health sciences.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Special Topics:  Statistical Methods in Epidemiology",
-        "units": 9.0,
-        "department": "Statistics and Data Science",
-        "instructors": [
-            {
-                "Hours per week": 9.4,
-                "Interest in student learning": 4.9,
-                "Clearly explain course requirements": 4.9,
-                "Clear learning objectives & goals": 4.9,
-                "Instructor provides feedback to students to improve": 4.4,
-                "Demonstrate importance of subject matter": 4.9,
-                "Explains subject matter of course": 5.0,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 5.0,
-                "Overall course rate": 4.9,
-                "Instructor name": "Joel Greenhouse"
             }
         ]
     },
@@ -17351,6 +17260,32 @@
                 "Overall teaching rate": 4.9,
                 "Overall course rate": 4.8,
                 "Instructor name": "Alexander Reinhart"
+            }
+        ]
+    },
+    {
+        "number": "36-759",
+        "hours per week": 4.6,
+        "overall course rate": 3.5,
+        "desc": "This new course is intended for CNBC students, as an additional  option for fulfilling the computational core course requirement,  but it will also be open to Statistics and Machine Learning  students. It should be of interest to anyone wishing to see the  way statistical ideas play out within the brain sciences, and it  will provide a series of case studies on the role of stochastic  models in scientific investigation.  Statistical ideas have been part of neurophysiology and the brainsciences since the first stochastic description of spike trains, and the quantal hypothesis of neurotransmitter release, more than 50 years ago. Many contemporary theories of neural system behavior are built  with statistical models. For example, integrate-and-fire neurons are  usually assumed to be driven in part by stochastic noise; the role of  spike timing involves the distinction between Poisson and non-Poisson  neurons; and oscillations are characterized by decomposing variation  into frequency-based components.  In the visual system, V1 simple  cells are often described using linear-nonlinear Poisson models; in  the motor system, neural response may involve direction tuning; and  CA1 hippocampal receptive field plasticity has been characterized  using dynamic place models.  It has also been proposed that  perceptions, decisions, and actions result from optimal (Bayesian)  combination of sensory input with previously-learned regularities; and  some investigators report new insights from viewing whole-brain  pattern responses as analogous to statistical classifiers.  Throughout the field of statistics, models incorporating random ``noise components are used as an effective vehicle for data analysis. In neuroscience, however, the models also help form a conceptual framework for understanding neural function.  This course will examine some of the most important methods and  claims that have come from applying statistical thinking",
+        "prereqs": null,
+        "coreqs": null,
+        "name": "Statistical Models of the Brain",
+        "units": 12.0,
+        "department": "Statistics and Data Science",
+        "instructors": [
+            {
+                "Hours per week": 4.6,
+                "Interest in student learning": 3.9,
+                "Clearly explain course requirements": 4.2,
+                "Clear learning objectives & goals": 3.5,
+                "Instructor provides feedback to students to improve": 3.5,
+                "Demonstrate importance of subject matter": 4.0,
+                "Explains subject matter of course": 3.9,
+                "Show respect for all students": 3.6,
+                "Overall teaching rate": 3.9,
+                "Overall course rate": 3.5,
+                "Instructor name": "Robert Kass"
             }
         ]
     },
@@ -18804,7 +18739,7 @@
         "desc": "The first in a two-part sequence covering statistical machine learning aimed at quantitative finance. This first course covers tools and approaches for prediction, including both regression and classification. The focus is on understanding the foundations of the methods methods so that they can be both applied and modified. Topics include foundations of supervised learning, bias-variance tradeoffs, model validation and assessment, regularized and nonparametric regression, generalized additive models, support vector machines, and tree-based methods.",
         "prereqs": "46-923",
         "coreqs": null,
-        "name": "Statistical Machine Learning I",
+        "name": "Machine Learning I",
         "units": 6.0,
         "department": "Tepper School of Business",
         "instructors": [
@@ -18845,45 +18780,6 @@
                 "Show respect for all students": 4.8,
                 "Overall teaching rate": 4.7,
                 "Overall course rate": 4.7,
-                "Instructor name": "Chad Schafer"
-            }
-        ]
-    },
-    {
-        "number": "46-936",
-        "hours per week": 10.5,
-        "overall course rate": 4.4,
-        "desc": "This course will provide students with the basic concepts and techniques for statistical-based trading. It will present some of the standard approaches to statistical arbitrage including market neutral strategies such a pairs trading, value-based or contrarian methods, momentum-based strategies, cointegration-based trading, algorithmic and high-frequency trading. The course will address how to search for statistical arbitrage strategies based on short term and long-term patterns as well as multi-equity relationships. The course material will be drawn from the finance literature, and some material will be presented by professional hedge fund traders. Student will do projects that implement the statistical arbitrage concepts presented in the course.",
-        "prereqs": "46-921 and 46-923 and 46-926 and 46-929",
-        "coreqs": null,
-        "name": "Statistical Arbitrage",
-        "units": 6.0,
-        "department": "Tepper School of Business",
-        "instructors": [
-            {
-                "Hours per week": 10.6,
-                "Interest in student learning": 4.7,
-                "Clearly explain course requirements": 4.7,
-                "Clear learning objectives & goals": 4.7,
-                "Instructor provides feedback to students to improve": 4.6,
-                "Demonstrate importance of subject matter": 4.8,
-                "Explains subject matter of course": 4.7,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 4.8,
-                "Overall course rate": 4.7,
-                "Instructor name": "John Lehoczky"
-            },
-            {
-                "Hours per week": 10.4,
-                "Interest in student learning": 4.1,
-                "Clearly explain course requirements": 4.4,
-                "Clear learning objectives & goals": 4.4,
-                "Instructor provides feedback to students to improve": 4.3,
-                "Demonstrate importance of subject matter": 4.4,
-                "Explains subject matter of course": 4.3,
-                "Show respect for all students": 4.6,
-                "Overall teaching rate": 4.2,
-                "Overall course rate": 4.1,
                 "Instructor name": "Chad Schafer"
             }
         ]
@@ -19299,7 +19195,7 @@
         "prereqs": null,
         "coreqs": "62-122",
         "name": "Architecture Design Studio: Foundation I",
-        "units": 12.0,
+        "units": 15.0,
         "department": "Architecture",
         "instructors": [
             {
@@ -20098,32 +19994,6 @@
         ]
     },
     {
-        "number": "48-722",
-        "hours per week": 13.4,
-        "overall course rate": 4.4,
-        "desc": "This course introduces fundamentals and computational methods in building performance modeling. Topics include: modeling and design, overview of thermal, visual, and acoustical domain knowledge, integration of performance simulation in computer-aided design, introduction to the application of advanced computational building simulation tools, case studies and design assignments on the application of simulation in the evaluation and improvement of building performance.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Building Performance Modeling",
-        "units": 12.0,
-        "department": "Architecture",
-        "instructors": [
-            {
-                "Hours per week": 13.4,
-                "Interest in student learning": 4.6,
-                "Clearly explain course requirements": 4.6,
-                "Clear learning objectives & goals": 4.6,
-                "Instructor provides feedback to students to improve": 4.6,
-                "Demonstrate importance of subject matter": 4.7,
-                "Explains subject matter of course": 4.5,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 4.5,
-                "Overall course rate": 4.4,
-                "Instructor name": "Omer Karaguzel"
-            }
-        ]
-    },
-    {
         "number": "48-725",
         "hours per week": 8.9,
         "overall course rate": 4.7,
@@ -20241,6 +20111,32 @@
         ]
     },
     {
+        "number": "48-733",
+        "hours per week": 11.5,
+        "overall course rate": 4.7,
+        "desc": "Design of a boat is optimized for sail-driven locomotion. Buildings should be able to sail using free energy if wind, air, sun and internal heat sources to temper indoor environment, Brendon Lewitt. Based on this viewpoint, this course introduces fundamental knowledge in building physics in relation to a range of environmentally responsive building design principles and computational approaches for increased resiliency for human habitability with minimal reliance on mechanical systems. EPS course refreshes some of the fundamental building physics topics such as building thermodynamics (heat  mass transfer mechanisms), photometric quantification of light and luminous environment, human visual and thermal comfort, thermal modeling and the principles of generating electricity from sunlight (photoelectric effect). EPS course outlines a series of environmental design principles with emphasis on evidence-based design approaches and reviews of building case studies are evaluated against actual buildings in operation. Focus is also given to integration of multi-valent environmental design strategies into the early stages of performative architectures. EPS also introduces state-of-the-art architectural design  research oriented environmental performance simulation  visualization tools, methods and techniques (based on the algorithmic/parametric modeling ecosystem of RHINO-Grasshopper-DIVA-ArchSIM -Ladybug-Honeybee programs). Computational introductions will be accompanied with pre-established/seed workflows which are ready for future adaptation and extension by the students.",
+        "prereqs": null,
+        "coreqs": null,
+        "name": "Environmental Performance Simulation",
+        "units": 9.0,
+        "department": "Architecture",
+        "instructors": [
+            {
+                "Hours per week": 11.5,
+                "Interest in student learning": 4.7,
+                "Clearly explain course requirements": 4.8,
+                "Clear learning objectives & goals": 4.8,
+                "Instructor provides feedback to students to improve": 4.6,
+                "Demonstrate importance of subject matter": 4.8,
+                "Explains subject matter of course": 4.8,
+                "Show respect for all students": 4.9,
+                "Overall teaching rate": 4.8,
+                "Overall course rate": 4.7,
+                "Instructor name": "Omer Karaguzel"
+            }
+        ]
+    },
+    {
         "number": "48-734",
         "hours per week": 8.7,
         "overall course rate": 4.2,
@@ -20263,32 +20159,6 @@
                 "Overall teaching rate": 4.2,
                 "Overall course rate": 4.2,
                 "Instructor name": "Jakob Marsico"
-            }
-        ]
-    },
-    {
-        "number": "48-740",
-        "hours per week": 7.4,
-        "overall course rate": 4.5,
-        "desc": "Urban Design Methods and Theory is a required seminar course for the Master of Urban Design program. The course explores core urban design methods and theories organized into ten themes that progressively move through the urban design process, exploring key techniques, theoretical underpinnings and  historical examples. The first half focuses on approaches to analyzing the city, followed by the identification of goals and the framing of design opportunities. The second half explores a range of design methods and approaches, ending with an exploration of utopian ideals in urban design. The course holds as a basic tenet the notion that urban design is best examined at multiple scales: urban and suburban form, the structure of neighborhoods and blocks, infrastructure and landscape,and typologies of public spaces, streets and buildings. Also central to the approach is a belief that urban design should strive to act in the public interest, negotiating the often conflicting needs and desires of a range of actors in the urban landscape to work towards positive social and ecological outcomes. A wide variety of theoretical texts and methodologies are examined with a focus on the postmodern period during which the contemporary manifestation of the discipline emerged. Assignments include readings from seminal urban design texts, participating and leading reading discussions, and a three-part written and graphic project.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Urban Design Methods and Theory",
-        "units": 9.0,
-        "department": "Architecture",
-        "instructors": [
-            {
-                "Hours per week": 7.4,
-                "Interest in student learning": 4.3,
-                "Clearly explain course requirements": 4.5,
-                "Clear learning objectives & goals": 4.5,
-                "Instructor provides feedback to students to improve": 4.4,
-                "Demonstrate importance of subject matter": 4.6,
-                "Explains subject matter of course": 4.6,
-                "Show respect for all students": 4.8,
-                "Overall teaching rate": 4.4,
-                "Overall course rate": 4.5,
-                "Instructor name": "Jonathan Kline"
             }
         ]
     },
@@ -20367,71 +20237,6 @@
                 "Overall teaching rate": 3.7,
                 "Overall course rate": 3.8,
                 "Instructor name": "Marantha Dawkins"
-            }
-        ]
-    },
-    {
-        "number": "48-756",
-        "hours per week": 6.3,
-        "overall course rate": 3.9,
-        "desc": "The aim of this course is to teach advanced project scheduling and familiarize the students with the reporting nuances as practiced in the industry such as change management, resource charts, and project status reports. In this pursuit the objectives of this course are: 1) outline and discuss the established theoretical constructs of the subject; 2) demonstrate the dynamic nature of construction projects stemming from inherent uncertainties; and 3) hone students adaptability to the dynamism while conducting construction projects. This course will include both discussions on assigned readings and a studio based group project. The assigned readings would include chapters from recommended books and peer-reviewed journal and conference papers. It will be expected that students critique and deliberate on these readings on an online forum created by the instructor. In order to provide a real world experience to the students the second half of the semester will focus on development of a construction project with varying scenarios such as changes in resources and scope creep.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Project Planning and Reporting",
-        "units": null,
-        "department": "Architecture",
-        "instructors": [
-            {
-                "Hours per week": 6.7,
-                "Interest in student learning": 4.3,
-                "Clearly explain course requirements": 4.0,
-                "Clear learning objectives & goals": 4.3,
-                "Instructor provides feedback to students to improve": 3.6,
-                "Demonstrate importance of subject matter": 4.6,
-                "Explains subject matter of course": 4.3,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 3.9,
-                "Overall course rate": 4.0,
-                "Instructor name": "Elif Deniz Oguz Erkal"
-            },
-            {
-                "Hours per week": 5.9,
-                "Interest in student learning": 4.3,
-                "Clearly explain course requirements": 4.3,
-                "Clear learning objectives & goals": 4.3,
-                "Instructor provides feedback to students to improve": 4.5,
-                "Demonstrate importance of subject matter": 4.7,
-                "Explains subject matter of course": 4.0,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 3.9,
-                "Overall course rate": 3.7,
-                "Instructor name": "Lipika Swarup"
-            }
-        ]
-    },
-    {
-        "number": "48-759",
-        "hours per week": 11.8,
-        "overall course rate": 3.4,
-        "desc": "Whether designing a building, an infrastructure or an urban space, design can add value. What features create Design Added Value (DAV) in a capital investment projects? What is their value? And how to assess the design value for different stakeholders? These type of questions will be addressed in this course through a series of case studies pertaining to building, urban and infrastructure design. Students, also, will learn about different evaluation methods like Cost Benefit Analysis (CBA), Life Cycle Assessment (LCA) Triple Bottom Line (TBL), and benchmarking. At the end of this course the students will be able to identify DAV features, identify different stakeholders of a capital project, preform a first order costs and benefits estimation, compare and contrast alternative DAV features, and assess reliability of existing capital investment analysis.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Value Based Design Introduction",
-        "units": null,
-        "department": "Architecture",
-        "instructors": [
-            {
-                "Hours per week": 11.8,
-                "Interest in student learning": 3.8,
-                "Clearly explain course requirements": 3.2,
-                "Clear learning objectives & goals": 3.2,
-                "Instructor provides feedback to students to improve": 3.6,
-                "Demonstrate importance of subject matter": 3.5,
-                "Explains subject matter of course": 3.1,
-                "Show respect for all students": 4.0,
-                "Overall teaching rate": 3.1,
-                "Overall course rate": 3.4,
-                "Instructor name": "Nizar Eldaher"
             }
         ]
     },
@@ -20923,7 +20728,7 @@
         "desc": "This course is required in the final fall semester of the MII-PS Advanced Study degree. The masters essay will 1) assimilate the teachings of the program and the summer internship, 2) allow the student to put the context of the program in perspective with respect to the literature, 3) expose applications or extensions of the program teachings in the context of an application or field of study.  A written masters essay and public presentation will be required. Restricted to MII-PS Advanced Study students only.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Integrated Innovation Institute Masters Essay",
+        "name": "Integrated Innovation Institute Master's Essay",
         "units": 12.0,
         "department": "Integrated Innovation Institute",
         "instructors": [
@@ -21417,7 +21222,7 @@
         "desc": "This course is about the development of executable strategies for entrepreneurial efforts.  In order for entrepreneurs to be successful, the ability to create a business model and roadmap for execution is essential.  Strategy is about making decisions and having alternatives for courses of actions.  This course will focus on effective approaches and measures in order to make things happen under tight time and financial considerations.  The course will explore how to apply the tools of strategy and business models in order to deliver new business creation.  Topics include applying an evaluation process for the validity of a business concept, understanding the drivers for a strategic roadmap for new business execution, using a toolkit to shape a strategy with scenarios for choices of action, identifying the key measures of success. Through teams, students will form specific approaches for selected new business concepts and share them in class discussions.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Business Models and Strategy",
+        "name": "Business Models & Strategy",
         "units": 6.0,
         "department": "Integrated Innovation Institute",
         "instructors": [
@@ -22522,8 +22327,8 @@
         "desc": "Multiple introductory projects in interaction design, capitalizing on past design experience and utilizing skills being developed in parallel IxD and CD Labs, targeted at designing for services with a business emphasis, and designing for social innovation with a policy emphasis. This course is intended for MDES  MPS students in Design; all other students by permission of the instructor.",
         "prereqs": null,
         "coreqs": null,
-        "name": "MDES/MPS Studio I: Designing for Interactions",
-        "units": 12.0,
+        "name": "MDES/MPS Studio I/Lab: Designing for Interactions",
+        "units": 18.0,
         "department": "Design",
         "instructors": [
             {
@@ -22568,45 +22373,6 @@
         ]
     },
     {
-        "number": "51-725",
-        "hours per week": 6.1,
-        "overall course rate": 3.0,
-        "desc": "Fundamentals of interaction design through application of theory and iterative design methods, including specs, wireframes, storyboards, video, and simulations/demonstrations; emphasis on screen based design for mobile, tablet, and web; levels of scale from controls and applications to environments; technical skilling for prototyping, programming/coding, and computational thinking.  This course is intended for MDES  MPS students in Design; all other students by permission of the instructor.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Design Center: Interaction Design Lab",
-        "units": 12.0,
-        "department": "Design",
-        "instructors": [
-            {
-                "Hours per week": 6.4,
-                "Interest in student learning": 4.3,
-                "Clearly explain course requirements": 4.2,
-                "Clear learning objectives & goals": 3.9,
-                "Instructor provides feedback to students to improve": 3.6,
-                "Demonstrate importance of subject matter": 3.8,
-                "Explains subject matter of course": 3.9,
-                "Show respect for all students": 4.6,
-                "Overall teaching rate": 4.0,
-                "Overall course rate": 3.0,
-                "Instructor name": "Ashley Deal"
-            },
-            {
-                "Hours per week": 5.8,
-                "Interest in student learning": 4.2,
-                "Clearly explain course requirements": 4.2,
-                "Clear learning objectives & goals": 3.9,
-                "Instructor provides feedback to students to improve": 3.8,
-                "Demonstrate importance of subject matter": 4.0,
-                "Explains subject matter of course": 3.8,
-                "Show respect for all students": 4.4,
-                "Overall teaching rate": 3.9,
-                "Overall course rate": 3.0,
-                "Instructor name": "Raelynn Oleary"
-            }
-        ]
-    },
-    {
         "number": "51-729",
         "hours per week": 13.9,
         "overall course rate": 4.4,
@@ -22614,7 +22380,7 @@
         "prereqs": null,
         "coreqs": null,
         "name": "Communication Design Studio",
-        "units": 12.0,
+        "units": 15.0,
         "department": "Design",
         "instructors": [
             {
@@ -23231,58 +22997,6 @@
         ]
     },
     {
-        "number": "53-642",
-        "hours per week": 11.0,
-        "overall course rate": 3.4,
-        "desc": "Themed Entertainment Design (TED) Studio A, is a combination lecture and studio course which focuses on executing a client event from concept to delivery.  Students will be assigned to teams which will meet during set course studio hours. Additional meeting times will be required outside of studio hours.  The class will provide students with knowledge and experience in conceiving, planning, designing, analyzing, and executing themed events.  The class will also explore the analytics of the experience.  Lectures and discussions will focus on the importance of theming, guest experience, thru put and safety.  Existing events and installations will be used as case studies.    There will be two projects completed by the entire class over the semester.  (1) The class, as a team, will work with an existing client and provide a pre-show experience for guests attending a public event.  As part of this project, the class will work with the client to see how the event is put together, advertised, executed, and then fully analyze the flow and thru put of the event and overall guest reaction to the experience; (2) The class, as a team, will work with the Entertainment Technology Center (ETC) as their client to organize, execute, and analyze use of the ETC spaces during the ETC Fall Festival.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Themed Entertainment Design Studio",
-        "units": 12.0,
-        "department": "Entertainment Technology Pittsburgh",
-        "instructors": [
-            {
-                "Hours per week": 11.0,
-                "Interest in student learning": 3.0,
-                "Clearly explain course requirements": 2.7,
-                "Clear learning objectives & goals": 2.8,
-                "Instructor provides feedback to students to improve": 3.0,
-                "Demonstrate importance of subject matter": 3.2,
-                "Explains subject matter of course": 3.3,
-                "Show respect for all students": 4.0,
-                "Overall teaching rate": 2.8,
-                "Overall course rate": 3.2,
-                "Instructor name": "Ruth Comley"
-            },
-            {
-                "Hours per week": 11.0,
-                "Interest in student learning": 4.3,
-                "Clearly explain course requirements": 3.5,
-                "Clear learning objectives & goals": 3.8,
-                "Instructor provides feedback to students to improve": 4.2,
-                "Demonstrate importance of subject matter": 4.2,
-                "Explains subject matter of course": 3.7,
-                "Show respect for all students": 4.5,
-                "Overall teaching rate": 4.0,
-                "Overall course rate": 3.5,
-                "Instructor name": "John Dessler"
-            },
-            {
-                "Hours per week": 11.0,
-                "Interest in student learning": 3.8,
-                "Clearly explain course requirements": 3.3,
-                "Clear learning objectives & goals": 3.7,
-                "Instructor provides feedback to students to improve": 3.8,
-                "Demonstrate importance of subject matter": 3.8,
-                "Explains subject matter of course": 3.3,
-                "Show respect for all students": 4.0,
-                "Overall teaching rate": 3.7,
-                "Overall course rate": 3.7,
-                "Instructor name": "Shirley Saldamarco"
-            }
-        ]
-    },
-    {
         "number": "53-700",
         "hours per week": 5.6,
         "overall course rate": 4.1,
@@ -23390,10 +23104,10 @@
         "number": "54-011",
         "hours per week": 2.5,
         "overall course rate": 4.2,
-        "desc": "Drama majors only. Freshman Acting Warm Up is a three-day-a-week course which is designed to help the actor prepare mentally and physically for daily training and/or rehearsal.   The preparations are based in yoga exercises and are meant to help the actor gain a greater self-awareness, fuller breathing, a greater degree of being centered, and focused on the immediate moment.",
+        "desc": "TBD",
         "prereqs": null,
         "coreqs": "54-101",
-        "name": "Warmup",
+        "name": "Introduction to Alexander Technique",
         "units": 1.0,
         "department": "Drama",
         "instructors": [
@@ -26380,7 +26094,7 @@
         "number": "60-101",
         "hours per week": 10.9,
         "overall course rate": 4.3,
-        "desc": "Concept Studio: The Self and the Human Being is first of a sequence of five studio courses designed to develop a personal approach to generating art and to learning transferable conceptual skills. The topics of the first three Concept Studios are addressed through a sequence of structured, media-independent projects.  Open to freshmen admitted to the School of Art, or by instructor permission.",
+        "desc": "Concept Studio: The Self and the Human Being is first of a sequence of five studio courses designed to develop a personal approach to generating art and to learning transferable conceptual skills. The topics of the first three Concept Studios are addressed through a sequence of structured, media-independent projects.  Open to first-year students admitted to the School of Art, or by instructor permission.",
         "prereqs": null,
         "coreqs": null,
         "name": "Concept Studio: The Self and the Human Being",
@@ -26471,7 +26185,7 @@
         "number": "60-105",
         "hours per week": 6.0,
         "overall course rate": 4.3,
-        "desc": "Critical Studies 1 is the first part of a year-long course intended to introduce CMUs students to key readings in the history of artistic theory, studied in relation with the concurrent development of Western art. It is devoted to the period ranging from the 1500s to the end of the 1800s and covers major artwork and theories spanning from the Renaissance to Symbolism and Primitivism. The course is structured as a seminar discussion of theoretical texts, integrated with lectures. Readings will introduce students to the historical and critical background of the themes discussed in class and familiarize them with the varied methodologies and argumentative styles proper to art criticism, critical theory and philosophy. Open to freshmen in the School of Art, or by permission of the instructor.",
+        "desc": "Critical Studies 1 is the first part of a year-long course intended to introduce CMUs students to key readings in the history of artistic theory, studied in relation with the concurrent development of Western art. It is devoted to the period ranging from the 1500s to the end of the 1800s and covers major artwork and theories spanning from the Renaissance to Symbolism and Primitivism. The course is structured as a seminar discussion of theoretical texts, integrated with lectures. Readings will introduce students to the historical and critical background of the themes discussed in class and familiarize them with the varied methodologies and argumentative styles proper to art criticism, critical theory and philosophy. Open to first-year students in the School of Art, or by permission of the instructor.",
         "prereqs": null,
         "coreqs": null,
         "name": "Critical Theory in Art I",
@@ -26497,7 +26211,7 @@
         "number": "60-131",
         "hours per week": 10.1,
         "overall course rate": 4.6,
-        "desc": "An introduction to three-dimensional form. Various materials and methods are explored through projects covering a broad range of sculptural concerns. Art majors must complete one topic of 60-131 and a different topic of 60-132 to satisfy the 3DI requirement. Students are required to select two of the following four sections: Digital Fabrication; Small Metals; Assembly and Armature; and a fourth TBA topic. Materials fee may be required. Open to freshmen in the School of Art, or by instructor permission.",
+        "desc": "An introduction to three-dimensional form. Various materials and methods are explored through projects covering a broad range of sculptural concerns. Art majors must complete one topic of 60-131 and a different topic of 60-132 to satisfy the 3DI requirement. Students are required to select two of the following four sections: Digital Fabrication; Small Metals; Assembly and Armature; and Art and Arduino. Materials fee may be required. Open to first-year students in the School of Art, or by instructor permission.",
         "prereqs": null,
         "coreqs": null,
         "name": "Digital Fabrication",
@@ -26575,7 +26289,7 @@
         "number": "60-150",
         "hours per week": 10.4,
         "overall course rate": 4.2,
-        "desc": "This course focuses on the language, materials and concepts of drawing as foundation for all the visual arts.  Initial emphasis on the development of perceptual, analytical, and structural drawing skills with increasing attention to idea development.  Exposure to methods of creating pictorial and illusionistic space; recording the external world of light and form; and making visible the internal world of the heart, the mind, the soul.  Experience with line, texture, tone, shape and mass; in a variety of wet and dry drawing media. Open to freshmen in the School of Art, or by instructor permission.",
+        "desc": "This course focuses on the language, materials and concepts of drawing as foundation for all the visual arts.  Initial emphasis on the development of perceptual, analytical, and structural drawing skills with increasing attention to idea development.  Exposure to methods of creating pictorial and illusionistic space; recording the external world of light and form; and making visible the internal world of the heart, the mind, the soul.  Experience with line, texture, tone, shape and mass; in a variety of wet and dry drawing media. Open to first-year students in the School of Art, or by instructor permission.",
         "prereqs": null,
         "coreqs": null,
         "name": "2D Media Studio: Drawing",
@@ -26926,7 +26640,7 @@
         "number": "60-220",
         "hours per week": 13.3,
         "overall course rate": 4.2,
-        "desc": "With an emphasis on character animation, this course will explore the whole production pipeline of 3D Animation from initial concept to rendered result through the use of Maya. Through a series of technical assignments, in class demonstrations, and guest lectures from industry professionals, students will come to learn the basic principles of animation and work up to more advanced techniques. Some specific animation areas that will be covered include locomotion, pantomime/acting, dialogue, set driven keys, and blend shapes. Students will also learn more technical/advanced approaches to other production areas such as modeling, texturing, rigging, rendering/lighting, and layout.",
+        "desc": "Technical Character Animation is a deep dive into the fundamental concepts of character animation and The Illusion of Life.  This course will focus on building a foundation of body mechanics that demonstrate weight, balance, and authenticity. Through a series of strategically designed modules, students will gain a command of the 12 principles of animation, beginning with a ball bounce to more advanced block, spline, and polish workflows. This course is designed to give students exposure to the art of movement as it is done by animators in the fx, film, and game industries.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe Technical Character Animation",
@@ -27979,10 +27693,10 @@
         "number": "66-103",
         "hours per week": 7.4,
         "overall course rate": 3.8,
-        "desc": "The Appalachian region - which stretches from Georgia to New Yorks southern plateau - has a particular place in American history and memory. This course will examine the political, literary, economic and historical narratives that surround the region, as well as examining the role that Appalachia can play as a model for developing regions in other parts of the world.   This course fulfills the Freshman Seminar requirement for the Humanities Scholars Program. Enrollment is restricted to first-year HSP students.",
+        "desc": "The Appalachian region - which stretches from Georgia to New Yorks southern plateau - has a particular place in American history and memory. This course will examine the political, literary, economic and historical narratives that surround the region, as well as examining the role that Appalachia can play as a model for developing regions in other parts of the world.   This course fulfills the First-Year Seminar requirement for the Humanities Scholars Program. Enrollment is restricted to first-year HSP students.",
         "prereqs": null,
         "coreqs": null,
-        "name": "HSP Freshman Seminar:  Appalachia (for HSP students only)",
+        "name": "HSP First-Year Seminar:  Appalachia (for HSP students only)",
         "units": 9.0,
         "department": "Dietrich College Interdisciplinary",
         "instructors": [
@@ -28005,10 +27719,10 @@
         "number": "66-106",
         "hours per week": 4.6,
         "overall course rate": 4.2,
-        "desc": "The QSSS Freshman Seminar provides a fast-paced introduction to a range of methods in the quantitative social sciences.  Organized around a set of case studies, the course introduces the language and methods of empirical research through a combination of seminar-style discussions of academic papers, and hands-on lab work using the statistical software R.  Students will replicate results from a high-profile labor market discrimination paper, explore agent-based models of neighborhood segregation, and scrape Wikipedia data to examine imbalances in gender representation.  Enrollment restricted to first-year QSSS students.",
+        "desc": "The QSSS First-Year Seminar provides a fast-paced introduction to a range of methods in the quantitative social sciences.  Organized around a set of case studies, the course introduces the language and methods of empirical research through a combination of seminar-style discussions of academic papers, and hands-on lab work using the statistical software R.  Students will replicate results from a high-profile labor market discrimination paper, explore agent-based models of neighborhood segregation, and scrape Wikipedia data to examine imbalances in gender representation.  Enrollment restricted to first-year QSSS students.",
         "prereqs": null,
         "coreqs": null,
-        "name": "QSSS Freshman Seminar: Applied Quantitative Social Science I (for QSSS students",
+        "name": "QSSS First-Year Seminar: Applied Quantitative Social Science I (QSSS students)",
         "units": 9.0,
         "department": "Dietrich College Interdisciplinary",
         "instructors": [
@@ -28031,10 +27745,10 @@
         "number": "66-107",
         "hours per week": 5.8,
         "overall course rate": 4.2,
-        "desc": "Most of the major issues confronting humanity---such as climate change, financial collapse, ecosystem survival, terrorism, and disease epidemics---are the result of complex systems where the interactions of the pieces of the system create a whole that is rather different thanany of its parts. Unfortunately, traditional scientific methods that focus on reducing systems to their parts and then analyzing each part provide little insight into such systems. This seminar explores the behavior of complex systems as well as how to model and understand them using both traditional tools and computer-based approaches.",
+        "desc": "Most of the major issues confronting humanity---such as climate change, financial collapse, ecosystem survival, terrorism, and disease epidemics---are the result of complex systems where the interactions of the pieces of the system create a whole that is rather different than any of its parts. Unfortunately, traditional scientific methods that focus on reducing systems to their parts and then analyzing each part provide little insight into such systems. This seminar explores the behavior of complex systems as well as how to model and understand them using both traditional tools and computer-based approaches.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Freshman Seminar:  Modeling Complex Systems",
+        "name": "First-Year Seminar:  Modeling Complex Systems",
         "units": 9.0,
         "department": "Dietrich College Interdisciplinary",
         "instructors": [
@@ -28060,7 +27774,7 @@
         "desc": "Many consider climate change to be the most serious social, political, and environmental issue of the 21st century. As human activities increase the level of greenhouse gases in the atmosphere, scientists have established the reality of climate change and have estimated its impacts on human society and the natural world. Despite the scientific consensus on its existence, causes, and consequences, a substantial number of Americans and citizens of other countries still question these conclusions and a small but vocal group of doubters continue to challenge the science and scientific consensus on climate change.   In spite of some social division over these issues, governments at local, national, and international levels have made concerted efforts to craft policies to address climate change. These policies have shifted over time as the information, attitudes, and technology associated with climate change have evolved. In this course, we will explore the challenges and complexities of climate change by investigating the subject from a variety of angles: scientific, political, rhetorical, cultural, economic, technological, and ethical. Over the course of the semester, we will inquire: What is climate change? How do scientists know it is happening? Why is there public debate over it? What solutions are available? And what are the pros and cons of the different solutions?",
         "prereqs": null,
         "coreqs": null,
-        "name": "Grand Challenge Freshman Seminar: Climate Change",
+        "name": "Grand Challenge First-Year Seminar: Climate Change",
         "units": 9.0,
         "department": "Dietrich College Interdisciplinary",
         "instructors": [
@@ -28112,7 +27826,7 @@
         "desc": "Without language, there would be no politics. Politics is about persuading others to adopt policies, to vote for candidates, to get out and march. Politics is about careful choices of language to frame issues, to make others see those issues in our preferred way.  In this course, we will put the rhetoric of politics under the microscope, to identify its components and understand how they fit together into a powerful structure. We will use the tools of multiple disciplines in our analysis: rhetorical theory, both ancient and modern; cognitive science; contemporary discourse analysis; ethics; and philosophy of language.   We will ask what it means for political rhetoric to be propaganda. Well explore how political advertising uses marketing techniques, taking advantage of our innate biases and cognitive dispositions. We will look at how a skillful speaker can control the topic in a dialogue or a debate. And throughout, we will ask the question: is this ethical? Where does persuasion cross the boundary into manipulation, and does that matter? What type of rhetoric do we want our political process to rely on?   Our goal in this course is to provide students with the skills to recognize the rhetorical tools that political agents are using, and to develop their own responses in a skillful and informed way.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Grand Challenge Freshman Seminar: Political Rhetoric",
+        "name": "DC Grand Challenge First-Year Seminar: Political Rhetoric",
         "units": 9.0,
         "department": "Dietrich College Interdisciplinary",
         "instructors": [
@@ -28177,7 +27891,7 @@
         "desc": "In 1965 British mathematician I.J. Good wrote, An ultraintelligent machine could design even better machines; there would then unquestionably be an intelligence explosion, and the intelligence of man would be left far behind.  As we enter an age where companies like Uber are testing driverless cars in Pittsburgh and innovative interfaces like IBMs Watson can play Jeopardy and learn techniques for medical diagnoses, how are we to negotiate an intelligence explosion that for many individuals might threaten the very notions of what it means to be human?  The future of human-to-machine relationships will likely define our historical epoch and yet, many young technologists and humanists underestimate the downstream impact of technological innovations on human society.  Presently, we have little choice but to attend to this rapidly anxiety-ridden question.  This seminar will attend to the challenge of contemporary existential questions on what it means to be human (read not machine) in the context of a rapidly advancing technological age.  We will consider human narratives throughout history that exam how governments and individual citizens defined humanity in the context of slavery and colonialism as a framework for exploring and projecting what it means to be human in the age of rapidly advancing intelligent machines.  We will trace the technological advancements of the recent five decades and identify historical precedents and speculative narratives that help us to consider issues like labor, economic disparity, negotiations of power, human dignity and ethical responsibility within the context of human relations with advancing technological tools that are now coined, artificial intelligence.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Grand Challenge Fresman Seminar: Artificial Intelligence and Humanity",
+        "name": "DC Grand Challenge First-Year Seminar: Artificial Intelligence and Humanity",
         "units": 9.0,
         "department": "Dietrich College Interdisciplinary",
         "instructors": [
@@ -28291,7 +28005,7 @@
         "number": "66-221",
         "hours per week": 3.8,
         "overall course rate": 4.3,
-        "desc": "Topics for this course vary, to include such foci as intellectual property, introduction to U.S. law, great American trials, and the U.S. Constitution.  Topics and courses are designed to be broadly relevant and interesting for university undergraduates, and not narrowly tailored for students interested in law school.",
+        "desc": "This course provides students with an overview of patent, trademark, copyright, and trade secret laws.  Goals for the course include identifying intellectual property (IP) rights and understanding how to take the necessary steps to protect and enforce those rights.  Many recent developments in IP law will also be covered.",
         "prereqs": null,
         "coreqs": null,
         "name": "Topics of Law: Introduction to Intellectual Property Law",
@@ -28356,7 +28070,7 @@
         "number": "66-400",
         "hours per week": 2.7,
         "overall course rate": 3.7,
-        "desc": "The purpose of this course is to provide students admitted to the Dietrich College Senior Honors Program with a shared set of intellectual and practical sessions that will enhance their senior honors thesis experience.  The course will consist of seven bi-weekly 80-minute meetings.  Each will be organized around themes or topics related to the senior honors thesis experience.  Sessions will be discussion-based, offering opportunities for students to build communication practices on their research area and to encourage exchange across the various disciplines represented in respective projects.  Guest visitors will also be a common feature of the course.    Topics could include:   o The meaning(s) of Honors o Research Methods and Pace o Ethics in Research o Interdisciplinarity, or the Unity of Knowledge o Funding for Research o Preparing for and Delivering Effective Presentations o Translating Independent Research into Professional Development o Intellectual Property Rights, and Human Subjects Policy o Guest speakers invited to address and engage class members in discussion/debate of topics that lend themselves to   interdisciplinary discussion and debate (e.g., stem cell research, which calls into play science, ethics, etc.).   Course requirements will include mandatory attendance, occasional readings (where appropriate), and acting as co-leader for at least one session.  At courses end students will complete - (a) a written, formal preliminary thesis statement and action plan, endorsed by the thesis advisor, and (b) a brief oral presentation of the thesis statement and plan to the class.  All students will participate in critiques of fellow-students presentations and plans.     NOTE: This course meets on alternate Mondays and Thursdays.",
+        "desc": "The purpose of this course is to provide students admitted to the Dietrich College Senior Honors Program with a shared set of intellectual and practical sessions that will enhance their senior honors thesis experience.  The course will consist of seven bi-weekly 80-minute meetings.  Each will be organized around a theme and related topics that are relevant to the senior honors thesis experience, and that take advantage of both the high caliber and interdisciplinary diversity of the course members.  Guest visitors will also be a common feature of the course.   Topics could include: the meaning(s) of honors; getting started and keeping pace: the ebb and flow of an independent research project (including how to recognize and avoid procrastination; forging a successful relationship with your thesis advisor - the myth of the separation of research from writing; writing for publication); ethics in research; interdisciplinarity, or the unity of knowledge; funding for research; preparing for and delivering effective presentations; intellectual property rights, and human subjects policy.   Guest speakers invited to address and engage class members in discussion/debate of topics that lend themselves to interdisciplinary discussion and debate (e.g., stem cell research, which calls into play science, ethics, etc.).    Course requirements will include mandatory attendance, occasional readings (where appropriate), acting as co-leader for at least one session, and - at courses end - (a) a written, formal preliminary thesis statement and action plan, endorsed by the thesis advisor, and tentatively, (b) a brief oral presentation of the thesis statement and plan to the class + thesis advisors during the last class meeting.  All students will participate in critiques of fellow-students presentations and plans.",
         "prereqs": null,
         "coreqs": "66-501",
         "name": "Dietrich College Senior Honors Colloquium",
@@ -28460,7 +28174,7 @@
         "number": "67-324",
         "hours per week": 3.2,
         "overall course rate": 3.9,
-        "desc": "Mastering innovation processes and incorporating entrepreneurial methods into one?s career is a cornerstone of success.  Whether one endeavors into a startup or large company, successfully incorporating innovation and entrepreneurship will propel a career in software development, consulting, financial services, and many others.  Innovation and entrepreneurship is a discipline with established tools and methods that must be properly harnessed.  This course will expose and educate students to the discipline of innovation and entrepreneurship that will be portable to most any career and industry focus.   This course is open to Juniors and Seniors.",
+        "desc": "Mastering innovation processes and incorporating entrepreneurial methods into ones career is a cornerstone of success. Whether one endeavors into a startup or large company, successfully incorporating innovation and entrepreneurship will propel a career in software development, consulting, financial services, and many others. Innovation and entrepreneurship is a discipline with established tools and methods that must be properly harnessed in order to translate ideas into commercial successes. This course will expose and educate students to the discipline of innovation and entrepreneurship that will be portable to most any career and industry focus.  After the completion of this course students will be able to understand and differentiate among right sized innovation and entrepreneurial methodologies",
         "prereqs": null,
         "coreqs": null,
         "name": "Accelerating Innovation and Entrepreneurship",
@@ -28509,32 +28223,6 @@
         ]
     },
     {
-        "number": "67-364",
-        "hours per week": 8.3,
-        "overall course rate": 4.0,
-        "desc": "From empirical, to theoretical, to computational science, we are at the dawn of a new revolution---a fourth paradigm of science driven by data.  Like archaeological remnants, data, by its very nature, is a marker of what happened in the past. How can data be used to better understand this past and what is happening in the present?  How can data be leveraged to forecast what will happen in the future? Better still, how can data be used to mold what should happen in the future? In this course we will study descriptive, predictive, and prescriptive methods by which data can be used to gain insight and inform actions of people and organizations.  The real excitement of data science is in the doing.  This is an application oriented course requiring skill in algorithmic problem solving. We will use Python based data science tools.  While prior programming experience with Python will be helpful the course will strive to be self-contained.  If you have not programmed in Python before, you need to be comfortable programming in some language (e.g., Ruby, R, Java, C++) and will need to come up to speed with the Pythonic way of problem solving.",
-        "prereqs": "(36-200 or 36-201) and (15-112)",
-        "coreqs": null,
-        "name": "Practical Data Science",
-        "units": 9.0,
-        "department": "Dietrich College Information Systems",
-        "instructors": [
-            {
-                "Hours per week": 8.3,
-                "Interest in student learning": 4.6,
-                "Clearly explain course requirements": 4.3,
-                "Clear learning objectives & goals": 4.4,
-                "Instructor provides feedback to students to improve": 3.9,
-                "Demonstrate importance of subject matter": 4.6,
-                "Explains subject matter of course": 4.4,
-                "Show respect for all students": 4.8,
-                "Overall teaching rate": 4.4,
-                "Overall course rate": 4.0,
-                "Instructor name": "Raja Sooriamurthi"
-            }
-        ]
-    },
-    {
         "number": "67-442",
         "hours per week": 11.0,
         "overall course rate": 4.6,
@@ -28564,7 +28252,7 @@
         "number": "70-100",
         "hours per week": 5.9,
         "overall course rate": 3.8,
-        "desc": "The course provides a comprehensive overview of business, including how enterprises determine goals, strategies and operational tactics in competitive markets and the increasingly global environment. It covers different types of businesses - entrepreneurial and corporate, industries, markets, and economies. Students learn about the role of business in society, the various functional areas that make business work, and how companies develop plans and processes to achieve their goals for customers, shareholders, and employees. The course has special emphasis on providing a broad overview of business to augment students major area of study for their professional development.",
+        "desc": "The course is for non-Tepper BA students and provides a comprehensive overview of business, including how enterprises determine goals, strategies and operational tactics in competitive markets and the increasingly global environment. It covers different types of businesses - entrepreneurial and corporate, industries, markets, and economies. Students learn about the role of business in society, the various functional areas that make business work, and how companies develop plans and processes to achieve their goals for customers, shareholders, and employees. The course has special emphasis on providing a broad overview of business to augment students major area of study for their professional development. Declared Tepper BA students are not eligible to enroll.",
         "prereqs": null,
         "coreqs": null,
         "name": "TBA",
@@ -28720,10 +28408,10 @@
         "number": "70-205",
         "hours per week": 4.7,
         "overall course rate": 2.2,
-        "desc": "Business Leadership Endeavor (BLE) is a 3-year undergraduate business course sequence that provides students with personal development and professional preparation. 70-205 Business Leadership Analyst is a semester course that continues the BLE sequence for all Tepper School of Business BA students. Students registered for 70-205 track their progress on leadership development activities and competency building contributing to achievement of personal goals according to their development plan. Students should expect to devote time to planning, participating, and reflecting on activities in addition to completing an updated personal development plan for completion during their junior year. The outcome of the BLE course sequence is student readiness for a professional life of self reliant leadership and global citizenship.",
+        "desc": "Business Leadership Endeavor (BLE) is a required 3-mini course sequence offered to undergraduate business students only. BLE 70-205 is the second mini of the BLE course sequence. Each previous mini will serve as a pre-requisite for the next in sequence. BLE introduces students to their leadership journey via four development frameworks: student development, personal development, professional development, and community development. BLE 70-205 will help students assemble their fundamental building blocks in a way that supports their continued development. The course will continue to emphasize the importance of strong habits, meaningful networks, and ongoing skill development. Students will begin to connect this development with personal and professional goals.",
         "prereqs": "70-105",
         "coreqs": null,
-        "name": "Business Leadership Endeavor: Analyst",
+        "name": "Business Leadership Endeavor II",
         "units": 4.0,
         "department": "Business Administration",
         "instructors": [
@@ -29666,32 +29354,6 @@
         ]
     },
     {
-        "number": "70-449",
-        "hours per week": 9.2,
-        "overall course rate": 4.4,
-        "desc": "Interaction is a fundamental part of social science: firms market products to consumers, people share opinions and information with their friends, workers collaborate on projects, agents form alliances and coalitions. In this course, we will use the emerging field of social networks to put structure on this diverse mass of connections. Using a mixture of theoretical, empirical, and computational methods, we will learn about the structure and function of social networks. We will look at how an individuals position in a social network reflects her role in the community. We will learn to identify tastemakers and trendsetters by looking at how information moves through our increasingly connected society. We will consider how our own position in the social network affects our behavior, opinions, and outcomes. And we will explore where social networks come from, and what affects their structure. The material in this course will be interdisciplinary, drawn from the fields of math, computer science, physics, sociology, political science, and economics. By the end of the course, you will have the tools and knowledge needed to analyze social networks on your own. The course is capped with a project where you will use your skills to answer your own questions.",
-        "prereqs": "(73-230 or 36-200 or 36-201) and (36-201 or 70-207 or 36-207)",
-        "coreqs": null,
-        "name": "Social, Economic and Information Networks",
-        "units": 9.0,
-        "department": "Business Administration",
-        "instructors": [
-            {
-                "Hours per week": 9.2,
-                "Interest in student learning": 4.6,
-                "Clearly explain course requirements": 4.4,
-                "Clear learning objectives & goals": 4.4,
-                "Instructor provides feedback to students to improve": 4.0,
-                "Demonstrate importance of subject matter": 4.4,
-                "Explains subject matter of course": 4.4,
-                "Show respect for all students": 4.6,
-                "Overall teaching rate": 4.2,
-                "Overall course rate": 4.4,
-                "Instructor name": "Katharine Anderson"
-            }
-        ]
-    },
-    {
         "number": "70-453",
         "hours per week": 10.2,
         "overall course rate": 4.3,
@@ -29994,7 +29656,7 @@
         "number": "73-102",
         "hours per week": 7.3,
         "overall course rate": 3.2,
-        "desc": "A one-semester course that teaches the fundamentals of microeconomics. Students will learn how microeconomic analysis can explain market successes, market failures, and how government intervention might improve outcomes.   In addition to an investigation of firm behavior and consumer behavior, attention will be paid to:  Game Theory, Behavioral Economics, Economics of Time and Risk, Economics of Information, Experimental Economics, and Auctions and Market Design.   Students will also learn how to integrate basic data analysis and statistics. Not open to students who have received credit for 73-100.  (Lecture, 2 hours; Recitation, 1 hour).",
+        "desc": "A one-semester course that teaches the fundamentals of microeconomics. Students will learn how microeconomic analysis can explain market successes, market failures, how government intervention might improve outcomes, and the role of asymmetric information.   In addition to an investigation of firm behavior and consumer behavior, attention will be paid to:  Game Theory, Behavioral Economics, Economics of Time and Risk, Economics of Information, Experimental Economics, and Auctions and Market Design.   Students will also learn how to integrate basic data analysis and statistics. Not open to students who have received credit for 73-100. While there are no mathematical pre-requisites for this course, students are encouraged to enroll in 73-102 after theyve passed 21-111.  (Lecture, 2 hours; Recitation, 1 hour).",
         "prereqs": null,
         "coreqs": null,
         "name": "Principles of Microeconomics",
@@ -30189,7 +29851,7 @@
         "number": "73-230",
         "hours per week": 8.0,
         "overall course rate": 3.8,
-        "desc": "This course is a calculus-based study of microeconomics.  Topics in partial equilibrium analysis include supply and demand, consumer theory, theory of the firm, profit maximizing behavior, monopoly theory, and perfect competition.  The course concludes with an introduction to general equilibrium analysis and the welfare laws.  (Lecture, 3 hours; Recitation, 1 hour).  Minimum grade of C required in all economics pre-requisite courses.",
+        "desc": "This course is a multivariate calculus-based study of microeconomics.  Topics in partial equilibrium analysis include supply and demand, consumer theory, theory of the firm, profit maximizing behavior, monopoly theory, and perfect competition.  The course concludes with an introduction to general equilibrium analysis and the welfare laws.  (Lecture, 3 hours; Recitation, 1 hour).  Minimum grade of C required in all economics pre-requisite courses.",
         "prereqs": "(21-256 or 21-259 or 21-269 or 21-268) and (73-100 or 73-102)",
         "coreqs": null,
         "name": "Intermediate Microeconomics",
@@ -30345,8 +30007,8 @@
         "number": "73-270",
         "hours per week": 8.4,
         "overall course rate": 3.9,
-        "desc": "A writing course specifically designed for third-year Economics majors and additional majors. Students gain experience with technical writing techniques and skills needed for both their senior thesis and their eventual professional careers. The course emphasizes both individual and group projects. (Seminar, 3 hours). Minimum grade of C required in all economics pre-requisite courses.",
-        "prereqs": "(76-101) and (73-230 or 73-240)",
+        "desc": "A writing course specifically designed for second-year and  third-year Economics majors and additional majors. Students gain experience with technical writing techniques and skills needed for both their eventual professional careers. The course emphasizes both individual and group projects. (Seminar, 3 hours). Minimum grade of C required in all economics pre-requisite courses.",
+        "prereqs": "(76-101) and (73-240 or 73-230)",
         "coreqs": null,
         "name": "Professional Communication for Economists",
         "units": 9.0,
@@ -31906,8 +31568,8 @@
         "hours per week": 8.0,
         "overall course rate": 4.4,
         "desc": "This course is an introduction to the history, technology, aesthetics and ideology of film.  Our main focus is the narrative fiction film, but we will also discuss documentaries, avant-garde work and animation.  The central organizing principle is historical, but there are a number of recurring thematic concerns.  These include an examination of the basic principles of filmmaking, the development of film technology, the definition of film as both art and business, and the history of film as an object of critical and cultural study.  The goals of this course are threefold.  First, it will provide you with a solid grounding in the key issues and concepts of film studies.  Second, it will expand your ability to knowledgeably critique individual cinematic works and their relationship to the larger culture.  Lastly, it will provide you with experience in expressing your critiques in essay form.  Most films will be viewed during the mandatory, weekly class screening, though several films will be assigned for viewing outside of class (in addition to readings and written assignments).",
-        "prereqs": null,
-        "coreqs": "76-101",
+        "prereqs": "(76-101) or (76-102) or (76-106 and 76-107) or (76-106 and 76-108) or (76-107 and 76-108)",
+        "coreqs": null,
         "name": "Introduction to Film Studies",
         "units": 9.0,
         "department": "English",
@@ -32087,7 +31749,7 @@
         "number": "76-260",
         "hours per week": 7.2,
         "overall course rate": 4.7,
-        "desc": "Section A: This course serves as an introduction to the craft of fiction.  We will read a wide array of short stories, a novella, and a novel, and study the techniques and elements of literary fiction as they are displayed in the works of established writers.  I will expect you to read the assigned works carefully, giving ample time and consideration to these readings, and to come to class prepared to discuss them.  You will also be expected to spend a good deal of time on your own writing, to improve upon that work throughout the term, and to provide thoughtful criticism on your classmates work.  By the end of the semester, you should have a solid understanding of the elements of successful literary fiction, be able to write meaningful critiques of such writing, and be able to write and revise a complete short story.  At times, the class will be fun, but it will also entail a good deal of effort and time on your part.  Overall, you should see this class as an opportunity to develop and share your creative work, and to learn skills and new ways of thinking about writing.  Section B: This class introduces you to a variety of literary fiction, and invites you to try your hand at your own writing, while focusing on aspects of the craft. We read and discuss fiction to learn about the craft and about the world of the various stories.",
+        "desc": "This course serves as an introduction to the craft of fiction.  We will read a wide array of short stories, a novella, and a novel, and study the techniques and elements of literary fiction as they are displayed in the works of established writers.  I will expect you to read the assigned works carefully, giving ample time and consideration to these readings, and to come to class prepared to discuss them.  You will also be expected to spend a good deal of time on your own writing, to improve upon that work throughout the term, and to provide thoughtful criticism on your classmates work.  By the end of the semester, you should have a solid understanding of the elements of successful literary fiction, be able to write meaningful critiques of such writing, and be able to write and revise a complete short story.  At times, the class will be fun, but it will also entail a good deal of effort and time on your part.  Overall, you should see this class as an opportunity to develop and share your creative work, and to learn skills and new ways of thinking about writing.  Section B: This class introduces you to a variety of literary fiction, and invites you to try your hand at your own writing, while focusing on aspects of the craft. We read and discuss fiction to learn about the craft and about the world of the various stories.",
         "prereqs": "(76-101) or (76-102) or (76-106 and 76-107) or (76-106 and 76-108) or (76-107 and 76-108)",
         "coreqs": null,
         "name": "Survey of Forms: Fiction",
@@ -32500,45 +32162,6 @@
         ]
     },
     {
-        "number": "76-271",
-        "hours per week": 7.4,
-        "overall course rate": 4.6,
-        "desc": "Introduction to Professional and Technical Writing is designed specifically for declared majors in Professional or Technical Writing. The main work of the course is a series of five situation-based writing assignments spread over three broad and often overlapping areas - business/professional writing, media writing, and technical writing.   Typical assignments include resumes, instructions, proposals, and adaptations of specialized information for non-expert audiences. At least one of the assignments will be a group project. As a final project, you?ll create a portfolio of polished writing samples that you can use in applying for internships and employment.   The range of assignments in the course is designed to give you experience with a variety of writing situations that professional writers frequently encounter. The assignments also reflect options for specialization that you may wish to pursue in future coursework and in your career as a professional writer. As you work through the assignments, you should learn both current conventions for the kinds of writing you?ll be doing and a broadly applicable procedure for analyzing novel situations and adapting conventional forms (and creating new ones) to meet the unique demands of each new situation and task.",
-        "prereqs": "(76-101) or (76-102) or (76-106 and 76-107) or (76-106 and 76-108) or (76-107 and 76-108)",
-        "coreqs": null,
-        "name": "Introduction to Professional and Technical Writing",
-        "units": 9.0,
-        "department": "English",
-        "instructors": [
-            {
-                "Hours per week": 7.5,
-                "Interest in student learning": 4.6,
-                "Clearly explain course requirements": 4.6,
-                "Clear learning objectives & goals": 4.7,
-                "Instructor provides feedback to students to improve": 4.6,
-                "Demonstrate importance of subject matter": 4.7,
-                "Explains subject matter of course": 4.8,
-                "Show respect for all students": 4.6,
-                "Overall teaching rate": 4.5,
-                "Overall course rate": 4.5,
-                "Instructor name": "Andrew Gordon"
-            },
-            {
-                "Hours per week": 7.4,
-                "Interest in student learning": 4.9,
-                "Clearly explain course requirements": 4.6,
-                "Clear learning objectives & goals": 4.6,
-                "Instructor provides feedback to students to improve": 4.5,
-                "Demonstrate importance of subject matter": 4.8,
-                "Explains subject matter of course": 4.5,
-                "Show respect for all students": 4.8,
-                "Overall teaching rate": 4.6,
-                "Overall course rate": 4.7,
-                "Instructor name": "Necia Werner"
-            }
-        ]
-    },
-    {
         "number": "76-292",
         "hours per week": 9.8,
         "overall course rate": 4.6,
@@ -32906,7 +32529,7 @@
         "number": "76-391",
         "hours per week": 8.4,
         "overall course rate": 4.8,
-        "desc": "This course provides students who have already learned the foundation of written communication with an opportunity to develop the ability to analyze and create visual-verbal synergy in printed documents. Students will be introduced to the basic concepts and vocabulary, as well as the practical issues of visual communication design through a series of hands-on projects in various rhetorical situations. Assigned readings will complement the projects in exploring document design from historical, theoretical, and technological perspectives. Class discussions and critiquing are an essential part of this course. Adobe InDesign, Photoshop, and Illustrator will be taught in class, and used to create the assigned projects",
+        "desc": "This course provides students who have already learned the foundation of written communication with an opportunity to develop the ability to analyze and create visual-verbal synergy in printed documents. Students will be introduced to the basic concepts and vocabulary, as well as the practical issues of visual communication design through a series of hands-on projects in various rhetorical situations. Assigned readings will complement the projects in exploring document design from historical, theoretical, and technological perspectives. Class discussions and critiquing are an essential part of this course. Adobe InDesign, Photoshop, and Illustrator will be taught in class, and used to create the assigned projects.",
         "prereqs": "76-270 or 76-271",
         "coreqs": null,
         "name": "Document and Information Design",
@@ -33452,7 +33075,7 @@
         "number": "79-104",
         "hours per week": 6.9,
         "overall course rate": 4.5,
-        "desc": "Human activity transcends political, geographical, and cultural boundaries. From wars to social movements, technological innovations to environmental changes, our world has long been an interconnected one. Acquiring the ability to understand such transnational and even worldwide processes is an indispensable part of any college education. This course provides students with an opportunity to develop the skills and perspectives needed to understand the contemporary world through investigating its global history. All sections are comparable in their composition of lectures and recitations, required amounts of reading, and emphasis on written assignments as the central medium of assessment. The sections all aim to help students: (1) master knowledge through interaction with the instructors, reading material, and other students, (2) think critically about the context and purpose of any given information, (3) craft effective verbal and written arguments by combining evidence, logic, and creativity, and (4) appreciate the relevance of the past in the present and future. For descriptions of specific sections, see First Year Experience at the Dietrich College General Education Website: http://www.hss.cmu.edu/gened/.",
+        "desc": "Human activity transcends political, geographical, and cultural boundaries. From wars to social movements, technological innovations to environmental changes, our world has long been an interconnected one. Acquiring the ability to understand such transnational and even worldwide processes is an indispensable part of any college education. This course provides students with an opportunity to develop the skills and perspectives needed to understand the contemporary world through investigating its global history. All sections are comparable in their composition of lectures and recitations, required amounts of reading, and emphasis on written assignments as the central medium of assessment. The sections all aim to help students: (1) master knowledge through interaction with the instructors, reading material, and other students, (2) think critically about the context and purpose of any given information, (3) craft effective verbal and written arguments by combining evidence, logic, and creativity, and (4) appreciate the relevance of the past in the present and future. For descriptions of specific sections, see First Year Experience at the Dietrich College General Education Website:http://www.hss.cmu.edu/gened/topics-79104.html",
         "prereqs": null,
         "coreqs": null,
         "name": "History of Democracy",
@@ -33530,7 +33153,7 @@
         "number": "79-200",
         "hours per week": 7.2,
         "overall course rate": 4.0,
-        "desc": "This course introduces students to methods and materials that historians use to study the past. Its goals are: first, to familiarize students with ways that historians think about their research, how they carry it out, and how they debate findings with other historians; second, to train students in best practices for doing historical research in primary and secondary sources. We discuss how to ask questions about the past and develop a one-semester research topic, find appropriate primary and secondary sources, take notes from those sources, and write a paper that answers an original question using skills we have studied. In the Fall 2019 semester, we will use the topic of the history of African slavery in the New World (the US, Caribbean, and Latin America) and the Old World (Africa and the Middle East).  Although the institution of slavery dates back to antiquity across many of the worlds cultures, the trans-Atlantic slave trade and its legal abolition transformed many of the institutions through which people of sub-Saharan Africa were enslaved in the 18th and 19th centuries. Historians of the Atlantic World and the Islamic World have struggled to define slavery and the changing category of slave and to understand the experiences of the men, women, and children held in bondage by these institutions.  The first part of the class will consist of readings from primary sources such as eyewitness accounts, memoirs, poetry, and film to understand the meanings that participants gave to the experience of slavery. We also read secondary accounts of the way in which historians debate the meaning of slave and its transformation over time. Work includes reading and discussing course texts, completing short assignments, sharing writing-in-progress, oral reports to classmates, and a final research paper of 10-15-pages.",
+        "desc": "This course introduces students to methods and materials that historians use to study the past. Its goals are: first, to familiarize students with ways that historians think about their research, how they carry it out, and how they debate findings with other historians; second, to train students in best practices for doing historical research in primary and secondary sources. We discuss how to ask questions about the past and develop a one-semester research topic, find appropriate primary and secondary sources, take notes from those sources, and write a paper that answers an original question using skills we have studied.  In the Fall 2019 semester, we will use the topic of the history of African slavery in the New World (the US, Caribbean, and Latin America) and the Old World (Africa and the Middle East). Although the institution of slavery dates back to antiquity across many of the worlds cultures, the trans-Atlantic slave trade and its legal abolition transformed many of the institutions through which people of sub-Saharan Africa were enslaved in the 18th and 19th centuries. Historians of the Atlantic World and the Islamic World have struggled to define slavery and the changing category of slave and to understand the experiences of the men, women, and children held in bondage by these institutions. The first part of the class will consist of readings from primary sources such as eyewitness accounts, memoirs, poetry, and film to understand the meanings that participants gave to the experience of slavery. We also read secondary accounts of the way in which historians debate the meaning of slave and its transformation over time. Work includes reading and discussing course texts, completing short assignments, sharing writing-in-progress, oral reports to classmates, and a final research paper of 10-15-pages.  The topical focus for 79-200 during the Spring 2020 semester will be announced in October 2019.",
         "prereqs": null,
         "coreqs": null,
         "name": "Intro Historical Research, The Slave Experience",
@@ -33582,7 +33205,7 @@
         "number": "79-205",
         "hours per week": 6.7,
         "overall course rate": 4.4,
-        "desc": "[Note: students who have already taken this course under its former title, 79-205, 20th  21st Century Europe, may not enroll.]  This course surveys the history of Europe from 1900 to 2000 and beyond.  While it covers major political trends and social changes in 20th century Europe, it concentrates on the following themes: The end of empire and the rise of the nation-state and ethno-nationalism in Europe; the extraordinary violence of two World Wars and the Spanish Civil War -- and their continuing impact on politics, society, and culture; social and political movements/regimes of the far right and of the socialist/communist left; the rise and crisis of the European welfare state and of the European Union; the wars of the 1990s in the former Yugoslavia; conflicts within the European Union such as Brexit and the crisis between Spain  Catalonia; contemporary debates over historical memory of the Spanish Civil War, World WWII and the Balkan wars; cultural and political controversies surrounding Islam and Muslims and re-emergent antisemitism in Europe.",
+        "desc": "This course surveys the history of Europe from 1900 to 2000 and beyond.  While it covers major political trends and social changes in 20th century Europe, it concentrates on the following themes: The end of empire and the rise of the nation-state and ethno-nationalism in Europe; the extraordinary violence of two World Wars and the Spanish Civil War -- and their continuing impact on politics, society, and culture; social and political movements/regimes of the far right and of the socialist/communist left; the rise and crisis of the European welfare state and of the European Union; the wars of the 1990s in the former Yugoslavia; conflicts within the European Union such as Brexit and the crisis between Spain  Catalonia; contemporary debates over historical memory of the Spanish Civil War, World WWII and the Balkan wars; cultural and political controversies surrounding Islam and Muslims and re-emergent antisemitism in Europe.",
         "prereqs": null,
         "coreqs": null,
         "name": "20th Century Europe",
@@ -33601,6 +33224,32 @@
                 "Overall teaching rate": 4.3,
                 "Overall course rate": 4.4,
                 "Instructor name": "Michal Friedman"
+            }
+        ]
+    },
+    {
+        "number": "79-209",
+        "hours per week": 6.2,
+        "overall course rate": 4.1,
+        "desc": "How do historians determine how and why episodes in the past transpired? This course takes students behind the scenes and acquaints them with the techniques by which historians practice their craft in interpreting historical events. Using dramatic case studies in American history, we will examine a wide array of tools and sources at the historians disposal, among them oral evidence, photographs and images, maps, official documents, memoirs, psycho-history, media and popular culture. Through in-class workshops and solo and group assignments, students will experiment with different methods of historical analysis using a variety of source material. Students will develop a familiarity with the historians toolbox and a new-found appreciation for the painstaking efforts that go into producing the history books they may otherwise take for granted.",
+        "prereqs": null,
+        "coreqs": null,
+        "name": "The Art of Historical Detection",
+        "units": 6.0,
+        "department": "History",
+        "instructors": [
+            {
+                "Hours per week": 6.2,
+                "Interest in student learning": 4.4,
+                "Clearly explain course requirements": 4.4,
+                "Clear learning objectives & goals": 4.4,
+                "Instructor provides feedback to students to improve": 4.2,
+                "Demonstrate importance of subject matter": 4.5,
+                "Explains subject matter of course": 4.4,
+                "Show respect for all students": 4.4,
+                "Overall teaching rate": 4.3,
+                "Overall course rate": 4.1,
+                "Instructor name": "Laurie Eisenberg"
             }
         ]
     },
@@ -33627,6 +33276,32 @@
                 "Overall teaching rate": 4.8,
                 "Overall course rate": 4.7,
                 "Instructor name": "Noah Theriault"
+            }
+        ]
+    },
+    {
+        "number": "79-214",
+        "hours per week": 7.0,
+        "overall course rate": 3.4,
+        "desc": "This course asks a simple question with a complex answer:  Why is it that the modern history of the French capital has been so marked by uprisings that challenged and sometimes overthrew the existing political regime?  What accounts for this political instability?  We answer these questions by studying a selection of well-known examples of Paris uprisings from the period of great the French Revolution (began 1789) through May, 1968. We examine major causes of the revolt, the kinds of people who led and followed it, and its consequences in the short- and longer-term.  We also learn about the culture that surrounded political and social movements through eyewitness accounts, speeches, literature and the arts.  While we are doing this, well try to learn as much as we can about continuities and changes in the city itself -- its population and built environment.  Coursework will consist of attending lectures, responding orally and in writing to assigned readings and several films, and a comparative final essay.",
+        "prereqs": null,
+        "coreqs": null,
+        "name": "Paris in Revolt: History, Literature, Film",
+        "units": 6.0,
+        "department": "History",
+        "instructors": [
+            {
+                "Hours per week": 7.0,
+                "Interest in student learning": 3.9,
+                "Clearly explain course requirements": 3.9,
+                "Clear learning objectives & goals": 4.1,
+                "Instructor provides feedback to students to improve": 4.0,
+                "Demonstrate importance of subject matter": 3.4,
+                "Explains subject matter of course": 3.8,
+                "Show respect for all students": 4.0,
+                "Overall teaching rate": 3.6,
+                "Overall course rate": 3.4,
+                "Instructor name": "Katherine Lynch"
             }
         ]
     },
@@ -33738,7 +33413,7 @@
         "number": "79-262",
         "hours per week": 9.5,
         "overall course rate": 4.5,
-        "desc": "[Note: students who have already taken this course under its former title 79-262, Modern China, may not enroll.]   This course is an introduction to major themes in twentieth-century Chinese history, including the transition from empire to nation, revolution, social change and modernization, western and Japanese imperialism, the rise of the party-state, Chinese socialism, economic liberalization and the so-called Chinese Dream.  The first half of the class is devoted to the period between the fall of the imperial system and the founding of the Peoples Republic of China (1911-1949).  If the victory of the Chinese Communist Party and development of the socialist state are to be considered in historical context, it is necessary to first understand the political, cultural, economic and intellectual currents that immediately preceded them. During the second half of the course, we will examine the Maoist period (1949-1976). We will investigate the Chinese Communist Party as both a state-building institution and an engine of social transformation, and consider the tensions these dual roles produced.  Finally, we will look at the Reform Period (1978-present), and reflect on a newly robust Chinas attempts to come to terms with its own recent past and what the consequences might be for both China and the world.",
+        "desc": "This course is an introduction to major themes in twentieth-century Chinese history, including the transition from empire to nation, revolution, social change and modernization, western and Japanese imperialism, the rise of the party-state, Chinese socialism, economic liberalization and the so-called Chinese Dream.  The first half of the class is devoted to the period between the fall of the imperial system and the founding of the Peoples Republic of China (1911-1949).  If the victory of the Chinese Communist Party and development of the socialist state are to be considered in historical context, it is necessary to first understand the political, cultural, economic and intellectual currents that immediately preceded them. During the second half of the course, we will examine the Maoist period (1949-1976). We will investigate the Chinese Communist Party as both a state-building institution and an engine of social transformation, and consider the tensions these dual roles produced.  Finally, we will look at the Reform Period (1978-present), and reflect on a newly robust Chinas attempts to come to terms with its own recent past and what the consequences might be for both China and the world.",
         "prereqs": null,
         "coreqs": null,
         "name": "Modern China: From the Birth of Mao ... to Now",
@@ -33764,7 +33439,7 @@
         "number": "79-264",
         "hours per week": 9.5,
         "overall course rate": 4.3,
-        "desc": "[Note: students who have already taken this course under its former title 79-264, Tibet in History and Imagination, may not enroll.]   This course is an introduction to the Tibet Question, the dispute over whether Tibet should be part of China, an independent nation-state, or, as the current Dalai Lama now advocates, something in between. History often serves as the battleground on which competing visions of the nation are fought - who should be included and excluded, where natural boundaries begin and end. This almost always requires a process of simplification in which inconvenient details are forgotten or repurposed in the service of national agendas. The Tibet Question is a telling example. In this class, we investigate the historical relationship between China and Tibet from the 13th century through the present, and note the ways advocates on both sides of the Tibet Question have constructed historical narratives (propaganda) in support of their political positions. We will also discuss the prospects for a political solution and consider the lessons the Tibet Question may hold for understanding other outstanding historical disputes.",
+        "desc": "This course is an introduction to the Tibet Question, the dispute over whether Tibet should be part of China, an independent nation-state, or, as the current Dalai Lama now advocates, something in between. History often serves as the battleground on which competing visions of the nation are fought - who should be included and excluded, where natural boundaries begin and end. This almost always requires a process of simplification in which inconvenient details are forgotten or repurposed in the service of national agendas. The Tibet Question is a telling example. In this class, we investigate the historical relationship between China and Tibet from the 13th century through the present, and note the ways advocates on both sides of the Tibet Question have constructed historical narratives (propaganda) in support of their political positions. We will also discuss the prospects for a political solution and consider the lessons the Tibet Question may hold for understanding other outstanding historical disputes.",
         "prereqs": null,
         "coreqs": null,
         "name": "Tibet and China: History and Propaganda",
@@ -33833,7 +33508,7 @@
         "prereqs": null,
         "coreqs": null,
         "name": "Anti-Semitism Then and Now: Perspectives from the Middle Ages to the Present",
-        "units": 9.0,
+        "units": 6.0,
         "department": "History",
         "instructors": [
             {
@@ -33894,7 +33569,7 @@
         "number": "79-300",
         "hours per week": 8.5,
         "overall course rate": 4.8,
-        "desc": "[Note: students who have already taken this course under the title, 79-300, History of American Public Policy, may also enroll in Guns in American History: Culture, Violence, and Politics.] This course will describe and analyze aspects of the development of law and public policy related to guns in the United States from the colonial era to the present. Students will be expected to synthesize perspectives from social history, ethnography, public health, criminology, policy analysis, and legal scholarship. They will also engage the critical examination of popular culture and media representations of gun cultures and gun violence. Particular emphasis will be placed on changing views about the authority of the government to intervene in the production and ownership of guns, as well as the best way to balance individual and collective interests in a pluralistic society. Assignments may include reading quizzes, in-class debates, policy position papers, and film/documentary reviews.",
+        "desc": "This course will describe and analyze aspects of the development of law and public policy related to guns in the United States from the colonial era to the present. Students will be expected to synthesize perspectives from social history, ethnography, public health, criminology, policy analysis, and legal scholarship. They will also engage the critical examination of popular culture and media representations of gun cultures and gun violence. Particular emphasis will be placed on changing views about the authority of the government to intervene in the production and ownership of guns, as well as the best way to balance individual and collective interests in a pluralistic society. Assignments may include reading quizzes, in-class debates, policy position papers, and film/documentary reviews.",
         "prereqs": null,
         "coreqs": null,
         "name": "Guns in American History: Culture, Violence, and Politics",
@@ -33933,7 +33608,7 @@
         "number": "79-313",
         "hours per week": 5.9,
         "overall course rate": 3.8,
-        "desc": "What is home? What does it mean to belong, or not belong? What does it mean to be mobile? Is mobility a privilege or a curse? How do experiences of migration, exile, and displacement shift ones understanding of home? This course will examine the emerging patterns of migration, mobility, and displacement in 20th century US and Europe, as well as in todays world. We will engage with anthropological and historical analyses of global migrations of people, capital, and ideas; social inequalities; and new forms of political control (surveillance, profiling, militarization of borders, and race-related forms of rejection and violence).",
+        "desc": "What is home? What does it mean to belong, or not belong? What does it mean to be mobile? Is mobility a privilege or a curse? How do experiences of migration, exile, and displacement shift ones understanding of home? This course will examine the modern patterns of migration, mobility, and displacement, with a particular focus on the US and Europe in the 20th and 21st centuries. We will engage with anthropological and historical analyses of global migrations of people, capital, and ideas; social inequalities; and new forms of political control (surveillance, profiling, militarization of borders, and race-related forms of rejection and violence). The course will rely on seminar discussions and interactive lecturesa combination of lecture and discussion, which will productively challenge the students to engage with the material in a critical manner and will help them contextualize and enrich the knowledge they gain from the course readings.",
         "prereqs": null,
         "coreqs": null,
         "name": "\"Unwanted\": Refugees, Asylum Seekers, and Patterns of Global Migration",
@@ -34219,7 +33894,7 @@
         "number": "79-383",
         "hours per week": 8.4,
         "overall course rate": 4.6,
-        "desc": "[Note: students who have already taken this course as a mini course under the title 79-383/A2, Capitalism: The History, may not enroll.] What is capitalism?  How does it differ from systems that preceded it, and how did it come to revolutionize the globe?  This course will cover the development of capitalism from the 16th century to the present.  We will examine the theories of  Karl Marx and Adam Smith, who both attempted to theorize the new system of labor organization.  We will look at how the transition from feudalism to capitalism took place, and the impact of new world slavery, commodity production,  and the role of women and the household.  We will examine how the factory system developed as well as the process of deindustrialization in Americas rust belt cities. We will examine globalization, the latest dynamic phase of capitalism, and its impact on people throughout the world.  Finally, we will discuss the advent of robotization, the loss of industrial jobs, and the impact of casual labor, low wages, and unemployment on democracy, the prison system, and the rise of a technocratic elite.",
+        "desc": "What is capitalism?  How does it differ from the systems that preceded it, and how did it come to revolutionize the globe?  This course will cover the development of capitalism from the 16th century to the present.  We will examine the theories of Karl Marx and Adam Smith, who both attempted to theorize the new, emerging system.  We will look at how the transition from feudalism to capitalism took place, and the impact of new world slavery, commodity production, and the role of women and the household.  We will examine the development and demise of the factory system and deindustrialization in Americas rust belt cities. We will examine globalization, the latest dynamic phase of capitalism, and its impact on people and the environment. Finally, we will discuss the advent of robotization, and the impact of casual labor, low wages, and unemployment on democracy, the prison system, and the rise of a new technocratic elite.",
         "prereqs": null,
         "coreqs": null,
         "name": "The History of Capitalism",
@@ -34440,7 +34115,7 @@
         "number": "80-130",
         "hours per week": 7.0,
         "overall course rate": 4.4,
-        "desc": "Philosophical ethicsor moral philosophycovers a lot of ground. It asks and tries to answer questions like: Whats good in life? What matters? What should I (and others) do? How should I (and others) act? What kinds of things out there must be treated ethically? Do we have moral duties to (at least some) non-human animals? Is morality subjective? Are there actually any objective moral truths? Morally speaking, what (if anything) is the difference between killing someone, and simply letting them die? In trying to answer these questions (and others), well engage in some wonderfully weird thought experiments, class discussions, smaller group discussions, debates, etc. Well study and critique several moral theories which try to explain and help guide our moral judgments, and well try to apply these theories to real-life moral controversies. Past classes covered topics including drug prohibition, abortion, euthanasia, and physician-assisted suicide.  \tThis is an introductory philosophy class, so youll be learning how to read, critique, do, and write philosophy generally, not just ethics. Considerable time and effort, both in lectures and in recitations, will be spent helping you learn to recognize and evaluate philosophical arguments, as well as empowering you to create, improve, and defend your own arguments in class assignments.",
+        "desc": "Philosophical ethics, or moral philosophy, covers a lot of ground. It asks and tries to answer questions like: Whats good in life? What matters? What should I (and others) do? How should I (and others) act? What kinds of things out there must be treated ethically? Do we have moral duties to (at least some) non-human animals? Is morality subjective? Are there actually any objective moral truths? Morally speaking, what (if anything) is the difference between killing someone, and simply letting them die? In trying to answer these questions (and others), well engage in some wonderfully weird thought experiments, class discussions, smaller group discussions, debates, etc. Well study and critique several moral theories which try to explain and help guide our moral judgments, and well try to apply these theories to real-life moral controversies. Past classes covered topics including drug prohibition, abortion, euthanasia, and physician-assisted suicide. This is an introductory philosophy class, so youll be learning how to read, critique, do, and write philosophy generally, not just ethics. Considerable time and effort, both in lectures and in recitations, will be spent helping you learn to recognize and evaluate philosophical arguments, as well as empowering you to create, improve, and defend your own arguments in class assignments.",
         "prereqs": null,
         "coreqs": null,
         "name": "Introduction to Ethics",
@@ -34883,7 +34558,7 @@
         "hours per week": 8.6,
         "overall course rate": 3.1,
         "desc": "Among the most significant developments in modern logic is the formal analysis of the notions of provability and logical consequence for the logic of relations and quantification, known as first-order logic. These notions are related by the soundness and completeness theorems: a logical formula is provable if and only if it is true under every interpretation. This course provides a formal specification of the syntax and semantics of first-order logic and then proves the soundness and completeness theorems. Other topics may include: basic model theory, intuitionistic, modal, and higher-order logics.",
-        "prereqs": "80-212 or 80-211 or 15-251 or 80-210 or 21-127",
+        "prereqs": "15-251 or 21-127 or 80-211 or 80-210",
         "coreqs": null,
         "name": "Formal Logic",
         "units": 9.0,
@@ -36005,32 +35680,6 @@
                 "Show respect for all students": 4.8,
                 "Overall teaching rate": 4.7,
                 "Overall course rate": 4.6,
-                "Instructor name": "Fumie Goto"
-            }
-        ]
-    },
-    {
-        "number": "82-174",
-        "hours per week": 8.0,
-        "overall course rate": 4.4,
-        "desc": "This course is a sequel to Introduction to Japanese I (82-173) for students with no background in Japanese.  Since the course covers the second half of the 82-171 in one semester, it is suitable for those students who need lots of practice time both in and outside class. It continues to further the development of communicative language proficiency through oral practice, aural comprehension, reading, writing, and the study of cultural aspects of Japanese society. The elementary level is also designed to help students learn to reflect upon and draw upon strategies used by good language learners in their second language study. Regular homework, quizzes, tests, presentations, and class participation are mandatory (three in-class hours per week plus six hours of required homework The elementary level is also designed to help students learn to reflect and draw upon strategies used by good language learners in their second language study. Upon completion of this course, students can take 82-172.",
-        "prereqs": "82-173",
-        "coreqs": null,
-        "name": "Introduction to Japanese II",
-        "units": 9.0,
-        "department": "Modern Languages",
-        "instructors": [
-            {
-                "Hours per week": 8.0,
-                "Interest in student learning": 4.8,
-                "Clearly explain course requirements": 4.7,
-                "Clear learning objectives & goals": 4.7,
-                "Instructor provides feedback to students to improve": 4.7,
-                "Demonstrate importance of subject matter": 4.6,
-                "Explains subject matter of course": 4.7,
-                "Show respect for all students": 4.8,
-                "Overall teaching rate": 4.7,
-                "Overall course rate": 4.4,
                 "Instructor name": "Fumie Goto"
             }
         ]
@@ -37170,7 +36819,7 @@
         "number": "82-415",
         "hours per week": 4.8,
         "overall course rate": 4.4,
-        "desc": "This repeatable course explores target cultures through a thematic or conceptual focus. Students critically analyze authentic documents through, for example, historical, biographical, filmic, artistic, literary, musical, and theoretical perspectives, while improving and expanding their language skills.     FALL 2019: FLa France au Moyen Orient",
+        "desc": "This repeatable course explores target cultures through a thematic or conceptual focus. Students critically analyze authentic documents through, for example, historical, biographical, filmic, artistic, literary, musical, and theoretical perspectives, while improving and expanding their language skills.     FALL 2019: La France au Moyen Orient",
         "prereqs": "82-305 and 82-303 and 82-304",
         "coreqs": null,
         "name": "La France au Moyen Orient",
@@ -38743,7 +38392,7 @@
         "number": "85-444",
         "hours per week": 5.9,
         "overall course rate": 4.9,
-        "desc": "The primary goal of this course is to introduce you to social psychological theory and research on the topic of relationships.  Although a variety of relationship phenomena will be discussed, a heavy emphasis will be placed on research that addresses fundamental processes in close relationships.  The coverage of material will include a review of historical roots and classic approaches to the scientific study of relationships, as well as exciting new research and theory on particular subtopics.  The majority of class time is spent discussing and evaluating recent research. Special emphasis also is given to learning and critically evaluating the methodological tools that are used to study close relationships.  The goal is for students to leave this course with a broad overview of the field and an in-depth understanding of particular subtopics.      This is an advanced seminar in which students will be expected to read original research articles and chapters on assigned topics and come to class prepared to discuss the material.  Readings will consist of theoretical and empirical articles from psychology journals and related sources.  Additional course requirements will involve short, weekly writing assignments, student presentations of research articles, and a written research proposal.  Over the course of the semester, students will design and carry out a small-scale, original investigation on a relationships topic of interest.",
+        "desc": "The primary goal of this course is to introduce you to social psychological theory and research on the topic of relationships.  Although a variety of relationship phenomena will be discussed, a heavy emphasis will be placed on research that addresses fundamental processes in close relationships.  The coverage of material will include a review of historical roots and classic approaches to the scientific study of relationships, as well as exciting new research and theory on particular subtopics.  The majority of class time is spent discussing and evaluating recent research. Special emphasis also is given to learning and critically evaluating the methodological tools that are used to study close relationships.  This is an advanced seminar in which students will be expected to read original research articles and chapters on assigned topics and come to class prepared to discuss the material.  Readings will consist of theoretical and empirical articles from psychology journals and related sources.  Additional course requirements will involve short, weekly writing assignments, student presentations of research articles, and a written research proposal.  Over the course of the semester, students will design and carry out a small-scale, original investigation on a relationships topic of interest.",
         "prereqs": null,
         "coreqs": null,
         "name": "relationships",
@@ -39279,7 +38928,7 @@
         "desc": "The course will study womens political participation in the U.S. and in selected countries across the world. Among the topics covered in the lectures, discussions and presentations are the expansion of political and voting rights, the role of women as political leaders, and the overall participation of women in the political process. Within the U.S., we will pay special attention to the situation of both racial and sexual minorities. We will also analyze the evolution of womens economic rights in the U.S. and selected countries, the impact that selected social policies have on women, and the social movements that have been at the center of the process of change. We will also look at the role of women in conflict areas and under dictatorships.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Gender, Politics & Social Movements",
+        "name": "Gender, Race, Politics & Social Movements",
         "units": 12.0,
         "department": "Public Policy & Mgt:Sch of Pub Pol & Mgt",
         "instructors": [
@@ -39676,32 +39325,6 @@
         ]
     },
     {
-        "number": "90-725",
-        "hours per week": 6.6,
-        "overall course rate": 3.0,
-        "desc": "Information provided by external financial reporting (financial statements) is compiled too late and is too aggregated for managers to use in making strategic decisions. However, this same accounting information can be accessed, disaggregated and analyzed to get the information necessary for strategic planning.    Purpose: The purpose of this class is to familiarize students with the language and techniques of managerial accounting and to develop and sharpen analytic abilities.  This course focuses as much as possible on the practical application of managerial analysis. Students will learn the key analytical skills for both planning and evaluating past performance.    This course relies heavily on performing calculations (number crunching) and interpreting the results. Material is presented in a combination of lecture and modeling cases. It is assumed that participants have a general knowledge of accounting as well as a basic knowledge of Excel.   Objectives of the course: - Master common managerial accounting techniques like Cost Volume Profit Analysis, Product and service costing and the impact on pricing, overhead allocation, Activity Based Costing, budgeting and performance analysis and long term Investment decision making..   - Make and communicate recommendations that are supported by relevant data.   - Develop skills to build flexible financial models and to use sensitivity analysis to evaluate opportunities and deal with problems skillfully.      Format: The sessions each week are generally divided into two parts, lecture and a lab in which students implement managerial accounting techniques by developing models in Excel.  Homework assignments will ask students to evaluate a business situation, make, and support their decision based on their analysis.",
-        "prereqs": "95-715 or 90-723",
-        "coreqs": null,
-        "name": "Management Accounting",
-        "units": 6.0,
-        "department": "Public Policy & Mgt:Sch of Pub Pol & Mgt",
-        "instructors": [
-            {
-                "Hours per week": 6.6,
-                "Interest in student learning": 3.4,
-                "Clearly explain course requirements": 3.5,
-                "Clear learning objectives & goals": 3.5,
-                "Instructor provides feedback to students to improve": 2.9,
-                "Demonstrate importance of subject matter": 3.5,
-                "Explains subject matter of course": 3.3,
-                "Show respect for all students": 3.3,
-                "Overall teaching rate": 3.1,
-                "Overall course rate": 3.0,
-                "Instructor name": "Lynne Pastor"
-            }
-        ]
-    },
-    {
         "number": "90-728",
         "hours per week": 10.6,
         "overall course rate": 4.3,
@@ -39854,32 +39477,6 @@
                 "Overall teaching rate": 5.0,
                 "Overall course rate": 4.2,
                 "Instructor name": "Beverley Wheeler"
-            }
-        ]
-    },
-    {
-        "number": "90-743",
-        "hours per week": 6.2,
-        "overall course rate": 3.5,
-        "desc": null,
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Urban and Regional Economic Development",
-        "units": 12.0,
-        "department": "Public Policy & Mgt:Sch of Pub Pol & Mgt",
-        "instructors": [
-            {
-                "Hours per week": 6.2,
-                "Interest in student learning": 3.8,
-                "Clearly explain course requirements": 3.5,
-                "Clear learning objectives & goals": 3.6,
-                "Instructor provides feedback to students to improve": 3.7,
-                "Demonstrate importance of subject matter": 3.9,
-                "Explains subject matter of course": 3.6,
-                "Show respect for all students": 4.7,
-                "Overall teaching rate": 3.5,
-                "Overall course rate": 3.5,
-                "Instructor name": "Jerome Paytas"
             }
         ]
     },
@@ -40043,7 +39640,7 @@
         "number": "90-783",
         "hours per week": 8.9,
         "overall course rate": 4.0,
-        "desc": "The Policy Innovation Lab is a new initiative that connects students with actual, current state-level policy challenges, and connects state-level policy makers with solutions to those challenges. This course is an experiment in improving public policy through by working outside the traditional structures of government.  In order to be successful, this course will embrace a culture that expects and encourages rapid experimentation, a willingness to fail early in order to discover a solution that ultimately works, and a flat structure that provides students with an opportunity to deliver for our government partners.  Students will work to solve pressing challenges by redefining the problem in terms of understanding the affected users of systems, conducting user-centered research, designing solutions, testing those same solutions, and iteratively improving those outcomes.  This course is designed to take advantage of recent lessons learned in applied innovation in government entities around the world.  The actual outcomes will be heavily dependent on both the needs of the problem sets for each course as well as the skills of the students.   The course will apply some methodologies commonplace in industry like agile, design-thinking, and open source to deliver products and services that have the potential to live on beyond the course.  For public-facing projects, work will be done in a transparent manner where possible in order to encourage external participation.   Some examples of potential outcomes might include prototyping a service to match entrepreneurs with funding opportunities in government; a GIS-based web application to connect those looking for housing assistance programs with government services; or an economic impact analysis of a particular industry or sector.",
+        "desc": "The Policy Innovation Lab is a new initiative that connects students with actual policy challenges and introduces an agile, design-driven framework to rapidly create solutions to those challenges. This course is an experiment in improving public policy through by working outside the traditional structures of government.  For Fall 2019, the Policy Innovation Lab will be partnering with Metro21 to investigate smart city policy challenges across five different municipalities.  Students will be investigating a number of problem spaces and building policy-driven prototypes driven by user research.   Students will work to solve pressing challenges by redefining the problem in terms of understanding the affected users of systems, conducting user-centered research, designing solutions, testing those same solutions, and iteratively improving those outcomes. This course is designed to take advantage of recent lessons learned in applied innovation in government entities around the world. The actual outcomes will be heavily dependent on both the needs of the problem sets for each course as well as the skills of the students. The course will apply some methodologies commonplace in industry like agile, design-thinking, and open source to deliver products and services that have the potential to live on beyond the course. For public-facing projects, work will be done in a transparent manner where possible in order to encourage external participation.  Students will be expected to embrace a culture that expects and encourages rapid iteration, express a willingness to fail early in order to discover a solution that ultimately works, and a flat structure that provides students with an opportunity to deliver for our government partners.",
         "prereqs": null,
         "coreqs": null,
         "name": "Policy Innovation Lab",
@@ -40251,10 +39848,10 @@
         "number": "90-836",
         "hours per week": 6.6,
         "overall course rate": 3.8,
-        "desc": "Health Policy and Delivery Systems is a foundation course intended to introduce students to many of the broad subjects that will be detailed in more advanced course work. This introduction provides a framework to aid students in navigating from public policy through to healthcare delivery.  Public policy is the study of the written and unwritten principles on which law is based.  Laws and regulations translate policy into action. Public policy and laws form the basis of health policy. Health policy is supported by:      - Public health initiatives focused on preventing disease, prolonging life and promoting health for the entire population. (i.e. diabetes awareness)     - Population health is interested in the outcomes of individual groups and the distribution of outcomes among the groups. (i.e. income equality and infant mortality)     - Healthcare delivery is focused on access, quality, and cost. At this time in our history, Healthcare Reform best embodies the intent of this aspect of health policy.  Through the use of group assignments, students will create a model which links the external environment into healthcare delivery profitability. Modeling is a form of combining individual technical components with the greater knowledge and conceptualization of the entire process. Its promise is to promote better decision making by envisioning how micro decisions interconnect to mission, goals, and outcomes.",
+        "desc": "Health Systems is a foundation course intended to introduce students to many of the broad subjects that will be detailed in more advanced course work. This introduction provides a framework to aid students in navigating from public policy through to healthcare delivery.  Public policy is the study of the written and unwritten principles on which law is based.  Laws and regulations translate policy into action. Public policy and laws form the basis of health policy. Health policy is supported by:      - Public health initiatives focused on preventing disease, prolonging life and promoting health for the entire population. (i.e. diabetes awareness)     - Population health is interested in the outcomes of individual groups and the distribution of outcomes among the groups. (i.e. income equality and infant mortality)     - Healthcare delivery is focused on access, quality, and cost. At this time in our history, Healthcare Reform best embodies the intent of this aspect of health policy.  Through the use of group assignments, students will create a model which links the external environment into healthcare delivery profitability. Modeling is a form of combining individual technical components with the greater knowledge and conceptualization of the entire process. Its promise is to promote better decision making by envisioning how micro decisions interconnect to mission, goals, and outcomes.",
         "prereqs": null,
         "coreqs": null,
-        "name": "Health Policy and Management Systems",
+        "name": "Health Systems",
         "units": 6.0,
         "department": "Public Policy & Mgt:Sch of Pub Pol & Mgt",
         "instructors": [
@@ -40296,6 +39893,32 @@
                 "Overall teaching rate": 4.1,
                 "Overall course rate": 4.0,
                 "Instructor name": "Timothy Zak"
+            }
+        ]
+    },
+    {
+        "number": "90-860",
+        "hours per week": 7.2,
+        "overall course rate": 4.6,
+        "desc": "From the dawn of the New Deal through the presidency of Barack Obama, the U.S. led the development of an open, global system of relatively free trade and global capital flows.  In the current political environment, leaders on both the American political left (like Senator Bernie Sanders) and the political right (like Donald Trump), have called into question this bipartisan consensus in favor of freer trade and investment.  Was that consensus wrong?  Is globalization good or bad for the U.S. economy?  What are the impacts of globalization on the rest of the world?   How has economic globalization impacted the environment and income inequality in the U.S. and around the world?  This course provides future policy makers and managers with the knowledge and analytical tools necessary to understand economic globalization and its effects. These issues will be studied using the analytical tools and concepts of international economics.  Guest lectures and case studies will provide a range of perspectives on current policy debates. The course will also examine science-based policies that could maximize the benefits and minimize the disruption generated by globalization.  The course instructor, Lee Branstetter, was the senior economist for international trade and investment on the staff of President Obamas Council of Economic Advisers in 2011-2012.  He is currently a Full Professor of Economics and Public Policy at the Heinz College, Director of the Future of Work Initiative at Carnegie Mellons Block Center for Technology and Society, and a nonresident senior fellow of the Peterson Institute for International Economics, the worlds leading think tank focused on international economic policy issues.",
+        "prereqs": null,
+        "coreqs": null,
+        "name": "Policy in a Global Economy",
+        "units": 12.0,
+        "department": "Public Policy & Mgt:Sch of Pub Pol & Mgt",
+        "instructors": [
+            {
+                "Hours per week": 7.2,
+                "Interest in student learning": 4.8,
+                "Clearly explain course requirements": 4.6,
+                "Clear learning objectives & goals": 4.6,
+                "Instructor provides feedback to students to improve": 4.4,
+                "Demonstrate importance of subject matter": 4.8,
+                "Explains subject matter of course": 4.5,
+                "Show respect for all students": 4.9,
+                "Overall teaching rate": 4.7,
+                "Overall course rate": 4.6,
+                "Instructor name": "Brian Kovak"
             }
         ]
     },
@@ -40660,32 +40283,6 @@
                 "Overall teaching rate": 4.5,
                 "Overall course rate": 4.4,
                 "Instructor name": "Timothy Oloughlin"
-            }
-        ]
-    },
-    {
-        "number": "91-867",
-        "hours per week": 7.5,
-        "overall course rate": 3.8,
-        "desc": "Nonprofit Management (91867) is an introductory course designed to provide students with a broad understanding of how nonprofit organizations are organized and managed, and how effective nonprofit governance practices generate engaged board members and high-functioning boards of directors. Students will learn about the purpose and function of a nonprofit organization in the United States, nonprofit board structure, board roles and responsibilities, the hiring and evaluation of the chief executive and personnel, board fiduciary responsibilities, board legal and ethical responsibilities, board member recruitment and training, and the role of the board and staff in strategic planning, fundraising, and advocacy. By the end of the course, students will have gained a greater understanding of nonprofit principles and best practices along with the knowledge necessary to be an effective and highly-engaged board member, nonprofit staff member, or volunteer.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Nonprofit Management & Governance",
-        "units": 6.0,
-        "department": "Public Management:Sch of Pub Pol & Mgt",
-        "instructors": [
-            {
-                "Hours per week": 7.5,
-                "Interest in student learning": 4.5,
-                "Clearly explain course requirements": 4.2,
-                "Clear learning objectives & goals": 4.3,
-                "Instructor provides feedback to students to improve": 3.8,
-                "Demonstrate importance of subject matter": 4.0,
-                "Explains subject matter of course": 3.8,
-                "Show respect for all students": 5.0,
-                "Overall teaching rate": 3.8,
-                "Overall course rate": 3.8,
-                "Instructor name": "Leslie Donaldson"
             }
         ]
     },
@@ -41743,32 +41340,6 @@
         ]
     },
     {
-        "number": "94-840",
-        "hours per week": 5.5,
-        "overall course rate": 4.3,
-        "desc": "Technology startups are not just smaller versions of large corporations. Instead they are unique adventures requiring their own agile approach to grow. This class will cover best practices for developing a startup with a primary focus on high growth technology startups. These are a particularly interesting segment because of the rapid development of social  cloud platforms often allow scalable traction from a small seed round or even bootstrapping.  While that is the focus, many principals are also applicable for large companies looking to grow by entering new markets. Also because most technology startups dont fail because of technology limitations but from lack of market demand many of the principals are universally applicable to iterative customer focused development.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "Lean Entrepreneurship",
-        "units": 6.0,
-        "department": "Heinz College Wide Courses",
-        "instructors": [
-            {
-                "Hours per week": 5.5,
-                "Interest in student learning": 4.2,
-                "Clearly explain course requirements": 4.1,
-                "Clear learning objectives & goals": 4.3,
-                "Instructor provides feedback to students to improve": 3.6,
-                "Demonstrate importance of subject matter": 4.3,
-                "Explains subject matter of course": 4.3,
-                "Show respect for all students": 4.5,
-                "Overall teaching rate": 4.3,
-                "Overall course rate": 4.3,
-                "Instructor name": "Sean Ammirati"
-            }
-        ]
-    },
-    {
         "number": "94-842",
         "hours per week": 10.7,
         "overall course rate": 3.6,
@@ -41860,32 +41431,6 @@
         ]
     },
     {
-        "number": "94-843",
-        "hours per week": 5.2,
-        "overall course rate": 4.6,
-        "desc": "This research seminar allows students to focus time and energy on subject material addressing arts management and technology.   The course provides interested students with the tools and techniques to engage in professional level research.  Additionally, students learn approaches for creating and curating content for a professional web platform via written, visual, audio, or video formats.  Students will engage in all aspects of research, writing and content creation for publishing on an online platform.   The content created serves AMT Lab (www.amt-lab.org) readers: arts management professionals working in the field.  To that end, research topic areas are framed by surveys to the field. Students work on their own topics of interest within an editorial scope created by the AMT Lab Executive Director in concert with the Chief Editor.",
-        "prereqs": "94-702 or 94-701 or 90-717 or 93-717 or 91-717 or 95-717",
-        "coreqs": null,
-        "name": "Research Seminar in Arts Management and Technology",
-        "units": 6.0,
-        "department": "Heinz College Wide Courses",
-        "instructors": [
-            {
-                "Hours per week": 5.2,
-                "Interest in student learning": 4.6,
-                "Clearly explain course requirements": 4.5,
-                "Clear learning objectives & goals": 4.4,
-                "Instructor provides feedback to students to improve": 4.6,
-                "Demonstrate importance of subject matter": 4.6,
-                "Explains subject matter of course": 4.5,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 4.7,
-                "Overall course rate": 4.6,
-                "Instructor name": "Brett Crawford"
-            }
-        ]
-    },
-    {
         "number": "94-845",
         "hours per week": 8.3,
         "overall course rate": 4.0,
@@ -41908,32 +41453,6 @@
                 "Overall teaching rate": 4.0,
                 "Overall course rate": 4.0,
                 "Instructor name": "Zhen Qian"
-            }
-        ]
-    },
-    {
-        "number": "94-850",
-        "hours per week": 4.8,
-        "overall course rate": 3.9,
-        "desc": "In the Science of Growth course, we spend a mini focused on how a company or a product scales and to identify and reinforce sustainable growth practices.  We look at twenty companies in pairs that have achieved product-market fit at about the same point in history with the same general target customer. Some have gone on to achieve real scale while others languished.  For the startups that achieve scale, they generate wealth for founders and early investors. More importantly, many changed the world. Steve Jobs spoke of the ability to dent the universe by creating something truly revolutionary used by millions of people. In this course, well codify a set of best practices and vocabulary to increase the probability of having that kind of impact.",
-        "prereqs": null,
-        "coreqs": null,
-        "name": "The Science of Growth",
-        "units": 6.0,
-        "department": "Heinz College Wide Courses",
-        "instructors": [
-            {
-                "Hours per week": 4.8,
-                "Interest in student learning": 4.0,
-                "Clearly explain course requirements": 4.1,
-                "Clear learning objectives & goals": 4.3,
-                "Instructor provides feedback to students to improve": 3.5,
-                "Demonstrate importance of subject matter": 4.1,
-                "Explains subject matter of course": 4.1,
-                "Show respect for all students": 4.6,
-                "Overall teaching rate": 3.9,
-                "Overall course rate": 3.9,
-                "Instructor name": "Sean Ammirati"
             }
         ]
     },
@@ -43121,45 +42640,6 @@
         ]
     },
     {
-        "number": "95-778",
-        "hours per week": 7.4,
-        "overall course rate": 3.4,
-        "desc": "This course introduces students to advanced features in R to prepare them for a career in Data Science. Students will be exposed to the Tidyverse framework, the advanced method of manipulating data within R as well as the data science lifecycle that is encompassed within RStudio. The course will cover data wrangling, advanced data visualization (including d3), and the modeling paradigm of Machine Learning. These are the skills that allow data science to happen, and students will get the practices by doing each of these things with R. Students will also be exposed to daily routines of data science and will be given problems from industry to solve. Further, the course will expose students to data science application lifecycle using Git for version control and GitLab for communication and collaboration of data science projects.",
-        "prereqs": "90-711 or 95-796",
-        "coreqs": null,
-        "name": "R for Data Science",
-        "units": 6.0,
-        "department": "Information Systems:Sch of IS & Mgt",
-        "instructors": [
-            {
-                "Hours per week": 7.0,
-                "Interest in student learning": 3.6,
-                "Clearly explain course requirements": 3.5,
-                "Clear learning objectives & goals": 3.5,
-                "Instructor provides feedback to students to improve": 3.3,
-                "Demonstrate importance of subject matter": 3.7,
-                "Explains subject matter of course": 3.5,
-                "Show respect for all students": 4.2,
-                "Overall teaching rate": 3.4,
-                "Overall course rate": 3.3,
-                "Instructor name": "Akbar Esfahani"
-            },
-            {
-                "Hours per week": 8.7,
-                "Interest in student learning": 4.5,
-                "Clearly explain course requirements": 4.6,
-                "Clear learning objectives & goals": 4.4,
-                "Instructor provides feedback to students to improve": 4.2,
-                "Demonstrate importance of subject matter": 4.5,
-                "Explains subject matter of course": 4.0,
-                "Show respect for all students": 4.9,
-                "Overall teaching rate": 4.2,
-                "Overall course rate": 3.9,
-                "Instructor name": "Steven Ways"
-            }
-        ]
-    },
-    {
         "number": "95-791",
         "hours per week": 12.5,
         "overall course rate": 3.9,
@@ -43648,7 +43128,7 @@
         "prereqs": null,
         "coreqs": null,
         "name": "Network Traffic Analysis",
-        "units": 12.0,
+        "units": 6.0,
         "department": "Information Systems:Sch of IS & Mgt",
         "instructors": [
             {
@@ -44164,7 +43644,7 @@
         "number": "99-153",
         "hours per week": 3.2,
         "overall course rate": 4.6,
-        "desc": "PLEASE NOTE THAT THE MINDFUL LIVING COURSE WILL MEET IN THE ACTIVITIES ROOM IN THE COHON UNIVERSITY CENTER. The goal of this course is to increase students internal resources for meeting stress through mindfulness-based meditation training. Each week, students will be trained in formal mindfulness meditation practices and asked to meditate at home with the help of brief guided meditation recordings. Students will also be given weekly informal mindfulness practice suggestions to help them translate the skills of formal meditation practice into daily life. Class meetings will give students the weekly opportunity for reflection, discussion, and questions based on their experience of formal and informal practice assignments.",
+        "desc": "The goal of this course is to increase students internal resources for meeting stress through mindfulness-based meditation training. Each week, students will be trained in formal mindfulness meditation practices and asked to meditate at home with the help of brief guided meditation recordings. Students will also be given weekly informal mindfulness practice suggestions to help them translate the skills of formal meditation practice into daily life. Class meetings will give students the weekly opportunity for reflection, discussion, and questions based on their experience of formal and informal practice assignments.",
         "prereqs": null,
         "coreqs": null,
         "name": "Mindful Living",
@@ -44255,7 +43735,7 @@
         "number": "99-352",
         "hours per week": 5.3,
         "overall course rate": 5.0,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are TBA. Textiles are a ubiquitous part of our everyday tactile experience. This workshop series aims to introduce textile techniques to participants with diverse backgrounds across the CMU campus. The fabrication skills and concepts that will be covered in this course will be taught from an interdisciplinary approach to merge practices in arts and technology. Students will learn methods of working with fabric such as hand and machine sewing, felting and knitting, along with merging aspects of digital fabrication and physical computing using flexible materials. Through discussions and demos, participants will have the opportunity to explore new methods of fabrication to integrate into their own practice.",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are Sep 14, Sep 21, Sep 28. Textiles are a ubiquitous part of our everyday tactile experience. This workshop series aims to introduce textile techniques to participants with diverse backgrounds across the CMU campus. The fabrication skills and concepts that will be covered in this course will be taught from an interdisciplinary approach to merge practices in arts and technology. Students will learn methods of working with fabric such as hand and machine sewing, felting and knitting, along with merging aspects of digital fabrication and physical computing using flexible materials. Through discussions and demos, participants will have the opportunity to explore new methods of fabrication to integrate into their own practice.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: Soft Fabrication Skills",
@@ -44281,7 +43761,7 @@
         "number": "99-353",
         "hours per week": 2.2,
         "overall course rate": 4.4,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are TBA. The specific meeting dates for the A2 section of this micro course are TBA. This micro course is an introduction to Computer Aided Design (CAD) and the use of laser cutters for fabrication. Students will learn the basics of SolidWorks, a popular CAD package. They will also receive hands-on training in the use of laser cutters to turn their designs into physical objects. Students who complete this course PLUS the separate fire safety training will be able to use the IDeATe facility (Hunt Library) laser cutters on their own for future course work or personal projects.",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are Sep 28, Oct 5, Oct 12. The specific meeting dates for the A2 section of this micro course are Oct 27, Nov 3, Nov 10. This micro course is an introduction to Computer Aided Design (CAD) and the use of laser cutters for fabrication. Students will learn the basics of SolidWorks, a popular CAD package. They will also receive hands-on training in the use of laser cutters to turn their designs into physical objects. Students who complete this course PLUS the separate fire safety training will be able to use the IDeATe facility (Hunt Library) laser cutters on their own for future course work or personal projects.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: CAD and Laser Cutting",
@@ -44320,7 +43800,7 @@
         "number": "99-355",
         "hours per week": 5.7,
         "overall course rate": 4.7,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are TBA. The specific meeting dates for the A2 section of this micro course are TBA. This workshop aims to demystify the Arduino microcontroller through hands-on work in the lab creating simple machines with embodied behaviors. The Arduino is a versatile resource for physical projects for students in all disciplines. This course brings students over the beginners threshold to a basic understanding of the use, terminology, and potential of the Arduino. The skills and concepts taught in this course are presented from an interdisciplinary approach which merges practices in arts and technology. The first portion will teach the essential skills for creating a simple sensor-driven physical computing system, and the second portion will reinforce those skills by making a simple interactive project. The course has no technical prerequisites, although uses a little bit of algebra-level math. Undergraduate students, graduate students, faculty and staff interested in learning new skills in an interdisciplinary environment are welcome",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are Sep 20, Sep 27, Oct 4. The specific meeting dates for the A2 section of this micro course are Nov 1, Nov 8, Nov 15. This workshop aims to demystify the Arduino microcontroller through hands-on work in the lab creating simple machines with embodied behaviors. The Arduino is a versatile resource for physical projects for students in all disciplines. This course brings students over the beginners threshold to a basic understanding of the use, terminology, and potential of the Arduino. The skills and concepts taught in this course are presented from an interdisciplinary approach which merges practices in arts and technology. The first portion will teach the essential skills for creating a simple sensor-driven physical computing system, and the second portion will reinforce those skills by making a simple interactive project. The course has no technical prerequisites, although uses a little bit of algebra-level math. Undergraduate students, graduate students, faculty and staff interested in learning new skills in an interdisciplinary environment are welcome",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: Introduction to Arduino",
@@ -44346,7 +43826,7 @@
         "number": "99-357",
         "hours per week": 4.6,
         "overall course rate": 4.6,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are TBA. The specific meeting dates for the A2 section of this micro course are TBA. Pragmatic Photography is a digital imaging course for the non-photographer. A tech-first approach provides a strong grounding in the core concepts and techniques of image-based media. This course will enable students to create photographs for project documentation. This class will not require special cameras or software; students will use commonly-available photo-editing software to create images using DSLRs, point and click cameras, or their cell phones. The course focuses on general principles that apply across different equipment and software.",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are Sep 22, Sep 29, Oct 6. The specific meeting dates for the A2 section of this micro course are Oct 26, Nov 2, Nov 9. Pragmatic Photography is a digital imaging course for the non-photographer. A tech-first approach provides a strong grounding in the core concepts and techniques of image-based media. This course will enable students to create photographs for project documentation. This class will not require special cameras or software; students will use commonly-available photo-editing software to create images using DSLRs, point and click cameras, or their cell phones. The course focuses on general principles that apply across different equipment and software.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: Pragmatic Phototgraphy",
@@ -44372,7 +43852,7 @@
         "number": "99-358",
         "hours per week": 5.0,
         "overall course rate": 4.7,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are TBA. The specific meeting dates for the A2 section of this micro course are TBA. This course is designed for students with little to no experience working with game engines as entry point into the field of game development.  Students will learn the basics of the Unity3D engine, and to creatively and effectively build their own simple games.  This course will cover topics such as navigating and using the engine, basic game programming in C, user interface development and introductory game design principles.  Students will be assessed based on the functionality of their games and will receive further feedback on their implementation, execution and creativity.",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are Sep 14, Sep 21, Sep 28. The specific meeting dates for the A2 section of this micro course are Oct 27, Nov 3, Nov 10. This course is designed for students with little to no experience working with game engines as entry point into the field of game development.  Students will learn the basics of the Unity3D engine, and to creatively and effectively build their own simple games.  This course will cover topics such as navigating and using the engine, basic game programming in C, user interface development and introductory game design principles.  Students will be assessed based on the functionality of their games and will receive further feedback on their implementation, execution and creativity.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: Introduction to the Unity Game Engine",
@@ -44398,7 +43878,7 @@
         "number": "99-359",
         "hours per week": 5.1,
         "overall course rate": 4.5,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are TBA. The specific meeting dates for the A2 section of this micro course are TBA. This workshop is a hands-on introduction to the expansive world of 3D printing. 3D printing is a popular and versatile technology for quickly prototyping ideas. Students learn prototyping basics and the Fusion360 CAD software to create their own unique projects.  Computer-controlled manufacturing process is driven by CAD design. The class time will explore the capabilities of 3D modeling and their transformation into a printable format. No technical experience is required, although basic knowledge of digital media creation, such as vector drawings, is helpful.",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A1 section of this micro course are Sep 22, Sep 29, Oct 6. The specific meeting dates for the A2 section of this micro course are Oct 26, Nov 2, Nov 9. This workshop is a hands-on introduction to the expansive world of 3D printing. 3D printing is a popular and versatile technology for quickly prototyping ideas. Students learn prototyping basics and the Fusion360 CAD software to create their own unique projects.  Computer-controlled manufacturing process is driven by CAD design. The class time will explore the capabilities of 3D modeling and their transformation into a printable format. No technical experience is required, although basic knowledge of digital media creation, such as vector drawings, is helpful.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: 3D Modeling and 3D Printing",
@@ -44437,7 +43917,7 @@
         "number": "99-360",
         "hours per week": 4.6,
         "overall course rate": 4.5,
-        "desc": "PLEASE NOTE: The specific meeting dates for the A2 section of this micro course are TBA. In this class, students learn to create active, responsive and flexible artifacts using microcontrollers, electroluminescence wire, muscle wire, and electronics embedded fabric. This course also provides an overview of what has been done in the field, the current state of the art in e-textiles, and the possibilities and difficulties that arise from working with flexible materials.",
+        "desc": "PLEASE NOTE: The specific meeting dates for the A2 section of this micro course are Nov 10, Nov 17, Nov 24. In this class, students learn to create active, responsive and flexible artifacts using microcontrollers, electroluminescence wire, muscle wire, and electronics embedded fabric. This course also provides an overview of what has been done in the field, the current state of the art in e-textiles, and the possibilities and difficulties that arise from working with flexible materials.",
         "prereqs": null,
         "coreqs": null,
         "name": "IDeATe: E-Textiles",

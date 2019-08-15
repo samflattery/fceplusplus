@@ -80,9 +80,7 @@ class NewReplyTableViewCell: UITableViewCell, UITextViewDelegate {
         
         let timePosted = String(currentDateTime.timeIntervalSince1970)
 
-        
         let user = PFUser.current()! // there will always be a user if this cell is active
-        
         
         // format the comment data as it is in the database
         let replyData = ["replyText": newReplyText,

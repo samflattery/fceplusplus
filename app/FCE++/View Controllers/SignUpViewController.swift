@@ -189,23 +189,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func welcomeUser() {
         
-        let alert = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
-        
-        let titleString = "Welcome!"
-        var attributedTitle = NSMutableAttributedString()
-        attributedTitle = NSMutableAttributedString(string: titleString, attributes: [NSAttributedString.Key.font:UIFont(name: "IowanOldSt OSF BT", size: 21.0)!])
-        attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 166/255, green: 25/255, blue: 46/255, alpha: 1), range: NSRange(location:0,length: titleString.count))
-        alert.setValue(attributedTitle, forKey: "attributedTitle")
-        
-        let messageString = "Use the course selection wheel to select courses that you have taken or are interested in taking. The most recent comments from these courses will be displayed on the home screen. These courses can be changed at any time by pressed the ℹ️ button on the home screen"
-        var attributedMessage = NSMutableAttributedString()
-        attributedMessage = NSMutableAttributedString(string: messageString, attributes: [NSAttributedString.Key.font:UIFont(name: "IowanOldStyleW01-Roman", size: 16.0)!])
-        alert.setValue(attributedMessage, forKey: "attributedMessage")
-        
+        let alert = formattedAlert(titleString: "Welcome!", messageString: "Use the course selection wheel to select courses that you have taken or are interested in taking. The most recent comments from these courses will be displayed on the home screen. These courses can be changed at any time by pressed the ℹ️ button on the home screen")
         let action = UIAlertAction(title: "OK", style: .cancel, handler: selectCoursesButtonPressed(_:))
         alert.addAction(action)
-        alert.view.tintColor = UIColor(red: 166/255, green: 25/255, blue: 49/255, alpha: 1)
-        
         
         present(alert, animated: true)
     }
@@ -297,8 +283,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 SVProgressHUD.dismiss()
-                let alert = UIAlertController(title: "Signed up!", message: "You should get a verification email on \(andrewID).andrew.cmu.edu shortly. If you don't get an email, check your spam folder. Login when you have verified your email!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let alert = formattedAlert(titleString: "Signed up!", messageString: "You should get a verification email on \(andrewID).andrew.cmu.edu shortly. If you don't get an email, check your spam folder. Login when you have verified your email!")
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
                 SVProgressHUD.dismiss()

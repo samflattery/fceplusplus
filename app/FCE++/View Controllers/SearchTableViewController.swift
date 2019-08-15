@@ -43,6 +43,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     let searchController = UISearchController(searchResultsController: nil)
     let refreshController = UIRefreshControl()
     
+    var cellHeights = [IndexPath : CGFloat]() // a dictionary of cell heights to avoid jumpy table
+    
     var isSearching: Bool { // is the user currently typing a search
         return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
     }
@@ -291,6 +293,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
 
     //MARK:- Table View Delegates
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // save the height of each cell in the dictionary for faster calculations
+        // makes the table transitions smoother
+        cellHeights[indexPath] = cell.frame.size.height
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeights[indexPath] ?? 50.0
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !isSearching {
             if isLoadingComments {

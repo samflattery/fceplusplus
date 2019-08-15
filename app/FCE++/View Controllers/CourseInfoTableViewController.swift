@@ -59,7 +59,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         }
         
         getComments()
-
     }
     
     func registerNibs() {
@@ -320,68 +319,18 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                     } else {
                         alertMessage = "This comment has \(numReplies) replies that other students may find useful! Consider making the comment anonymous!"
                     }
-                    let alert = UIAlertController(title: "Are you sure?", message: alertMessage, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+                    let alert = formattedAlert(titleString: "Are you sure?", messageString: alertMessage)
+
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
                         //Cancel Action
                     }))
-                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+                    alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (_) in
                         // remove the comment from the indexPath.row of the comment obj array
                         // fetch, rewrite and save the comment obj
                         // refresh the table
                         // manually change the height dictionary
-
-                        SVProgressHUD.show(withStatus: "Deleting...")
-                        self.commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
-                            // have to fetch in case someone made a new comment in the meantime
-                            if let object = object { // if it succeeds to fetch any updates
-                                var comments = object["comments"] as! [[String : Any]] // the current comments
-                                comments.remove(at: indexPath.row)
-                                
-                                object["comments"] = comments
-                                // delete the comment and rewrite the old comments
-                       
-                                object.saveInBackground(block: { (success: Bool, error: Error?) in
-                                    if success {
-                                        SVProgressHUD.showSuccess(withStatus: "Deleted")
-                                        SVProgressHUD.dismiss(withDelay: 1)
-
-                                        // update the courseComments with the new comments
-                                        self.courseComments = (object["comments"] as! CourseComments)
-                                        self.commentObj = object
-
-                                        self.cellHeights.removeValue(forKey: indexPath)
-
-                                        // shift the heights of each IndexPath after the deleted cell
-                                        // to the one before it as the table will be shifted up one cell
-                                        for height in self.cellHeights where height.key.section != 0 {
-                                            let i = height.key
-                                            if i.row > indexPath.row {
-                                                self.cellHeights[i] = self.cellHeights[IndexPath(item: i.row-1, section: 1)]
-                                            }
-                                        }
-                                        
-                                        self.tableView.beginUpdates()
-                                        self.tableView.deleteRows(at: [indexPath], with: .left)
-                                        self.tableView.endUpdates()
-                     
-                                    } else if let error = error {
-                                        SVProgressHUD.showError(withStatus: error.localizedDescription)
-                                        SVProgressHUD.dismiss(withDelay: 1)
-                                    } else {
-                                        SVProgressHUD.showError(withStatus: "Something went wrong")
-                                        SVProgressHUD.dismiss(withDelay: 1)
-                                    }
-                                })
-                            } else if let error = error {
-                                SVProgressHUD.showError(withStatus: error.localizedDescription)
-                                SVProgressHUD.dismiss(withDelay: 1.5)
-                            } else {
-                                SVProgressHUD.showError(withStatus: "Something went wrong")
-                                SVProgressHUD.dismiss(withDelay: 1)
-                            }
-                        }
+                        self.deleteComment(atIndexPath: indexPath)
                     }))
- 
                     self.present(alert, animated: true, completion: nil)
                 }
                 let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
@@ -399,6 +348,59 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             }
         }
         return editActions
+    }
+    
+    func deleteComment(atIndexPath indexPath: IndexPath) {
+        SVProgressHUD.show(withStatus: "Deleting...")
+        self.commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
+            // have to fetch in case someone made a new comment in the meantime
+            if let object = object { // if it succeeds to fetch any updates
+                var comments = object["comments"] as! [[String : Any]] // the current comments
+                comments.remove(at: indexPath.row)
+                
+                object["comments"] = comments
+                // delete the comment and rewrite the old comments
+                
+                object.saveInBackground(block: { (success: Bool, error: Error?) in
+                    if success {
+                        SVProgressHUD.showSuccess(withStatus: "Deleted")
+                        SVProgressHUD.dismiss(withDelay: 1)
+                        
+                        // update the courseComments with the new comments
+                        self.courseComments = (object["comments"] as! CourseComments)
+                        self.commentObj = object
+                        
+                        self.cellHeights.removeValue(forKey: indexPath)
+                        
+                        // shift the heights of each IndexPath after the deleted cell
+                        // to the one before it as the table will be shifted up one cell
+                        for height in self.cellHeights where height.key.section != 0 {
+                            let i = height.key
+                            if i.row > indexPath.row {
+                                self.cellHeights[i] = self.cellHeights[IndexPath(item: i.row-1, section: 1)]
+                            }
+                        }
+                        
+                        self.tableView.beginUpdates()
+                        self.tableView.deleteRows(at: [indexPath], with: .left)
+                        self.tableView.endUpdates()
+                        
+                    } else if let error = error {
+                        SVProgressHUD.showError(withStatus: error.localizedDescription)
+                        SVProgressHUD.dismiss(withDelay: 1)
+                    } else {
+                        SVProgressHUD.showError(withStatus: "Something went wrong")
+                        SVProgressHUD.dismiss(withDelay: 1)
+                    }
+                })
+            } else if let error = error {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                SVProgressHUD.dismiss(withDelay: 1.5)
+            } else {
+                SVProgressHUD.showError(withStatus: "Something went wrong")
+                SVProgressHUD.dismiss(withDelay: 1)
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -426,7 +428,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             infoCell.descriptionLabel.text = course.desc ?? "No description available"
             infoCell.prereqsDetailsLabel.text = course.prereqs ?? "None"
             infoCell.coreqDetailsLabel.text = course.coreqs ?? "None"
-
             return infoCell
         }
         else if segmentControl.selectedSegmentIndex == 1 {
@@ -521,11 +522,12 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     //MARK:- NewCommentCellDelegate
     func askToSave(withData data: [String: Any], toIndex index: Int) {
-        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to save these changes?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+        let alert = formattedAlert(titleString: "Are you sure?", messageString: "Are you sure you want to save these changes?")
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             return
         }))
-        alert.addAction(UIAlertAction(title: "Save", style: .destructive, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
             // update the existing comment
             self.didPostComment(withData: data, wasEdited: true, atIndex: index)
         }))
@@ -533,11 +535,12 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     }
     
     func askToCancel(atIndex index: Int) {
-        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to cancel these changes?", preferredStyle: .alert)
+        let alert = formattedAlert(titleString: "Are you sure?", messageString: "Are you sure you want to cancel these changes?")
+
         alert.addAction(UIAlertAction(title: "Don't Cancel", style: .default, handler: { _ in
             return
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             self.didCancelComment(atIndex: index)
         }))
         present(alert, animated: true, completion: nil)
@@ -552,8 +555,9 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             return
         }
         
-        
-        if !edited {
+        if edited {
+            // TODO - loading cell for updated comment?
+        } else {
             isLoadingNewComment = true
             if noCommentsToDisplay {
                 noCommentsToDisplay = false
@@ -563,8 +567,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .top)
                 tableView.endUpdates()
             }
-        } else {
-            // TODO - loading cell for updated comment?
         }
         commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
             // have to fetch in case someone made a new comment in the meantime
