@@ -145,7 +145,7 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 || section == 1 || noRepliesToShow {
+        if section == 0 || section == 1 {
             return 1
         } else {
             return isLoadingNewReply ? commentReplies.count + 1 : commentReplies.count
@@ -183,8 +183,6 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             if PFUser.current() == nil {
                 return false
             } else if isEditingReply && indexPath.row == editingIndex {
-                return false
-            } else if noRepliesToShow {
                 return false
             } else if isLoadingNewReply {
                 if indexPath.row == 0 {
@@ -308,8 +306,12 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
             commentCell.dateLabel.text = dateString
     
             if comment["andrewID"] as? String == PFUser.current()?.username {
+                if comment["anonymous"] as! Bool {
+                    commentCell.andrewIDLabel.text = "You (anonymous)"
+                } else {
+                    commentCell.andrewIDLabel.text = "You"
+                }
                 commentCell.starImage.isHidden = false
-                commentCell.andrewIDLabel.text = "You"
             } else {
                 commentCell.starImage.isHidden = true
                 if comment["anonymous"] as! Bool {
@@ -331,10 +333,6 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 return guestCell
             }
         } else { // display the replies
-            if noRepliesToShow {
-                let noRepliesCell = tableView.dequeueReusableCell(withIdentifier: "NoRepliesCell", for: indexPath)
-                return noRepliesCell
-            }
             if i == 0 && isLoadingNewReply {
                 let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                 loadingCell.spinner.startAnimating()
@@ -361,7 +359,9 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 if commentReply["andrewID"] as? String == PFUser.current()?.username {
                     replyCell.starImage.isHidden = false
                     replyCell.andrewIDLabel.text = "You"
+                    replyCell.selectionStyle = .default
                 } else {
+                    replyCell.selectionStyle = .none
                     replyCell.starImage.isHidden = true
                     if commentReply["anonymous"] as! Bool {
                         replyCell.andrewIDLabel.text = "Anonymous"

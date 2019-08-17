@@ -10,7 +10,6 @@
 		0A0F70F922FE2E66004F1861 /* InstructorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70F822FE2E66004F1861 /* InstructorTableViewCell.swift */; };
 		0A0F70FB22FEDD82004F1861 /* InstructorInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70FA22FEDD82004F1861 /* InstructorInfoTableViewController.swift */; };
 		0A0F70FD22FF0FAD004F1861 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */; };
-		0A0F70FF23004BA9004F1861 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0F70FE23004BA9004F1861 /* FilterCell.xib */; };
 		0A0F710723019CE5004F1861 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F710623019CE5004F1861 /* TimeManager.swift */; };
 		0A14938322B01AA0008CF495 /* NewReply.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A14938222B01AA0008CF495 /* NewReply.xib */; };
 		0A14938522B01C87008CF495 /* NewReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */; };
@@ -48,13 +47,12 @@
 		0A0F70F822FE2E66004F1861 /* InstructorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorTableViewCell.swift; sourceTree = "<group>"; };
 		0A0F70FA22FEDD82004F1861 /* InstructorInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorInfoTableViewController.swift; sourceTree = "<group>"; };
 		0A0F70FC22FF0FAD004F1861 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		0A0F70FE23004BA9004F1861 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		0A0F710623019CE5004F1861 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		0A14938222B01AA0008CF495 /* NewReply.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewReply.xib; sourceTree = "<group>"; };
 		0A14938422B01C87008CF495 /* NewReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReplyTableViewCell.swift; sourceTree = "<group>"; };
 		0A14938622B02664008CF495 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommentCell.xib; path = ../CommentCell.xib; sourceTree = "<group>"; };
 		0A2B92F2230574C400582059 /* FormatAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAlert.swift; sourceTree = "<group>"; };
-		0A38A06522A98E63009D12D5 /* FCE++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FCE++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A38A06522A98E63009D12D5 /* fceplusplus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fceplusplus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A38A06822A98E63009D12D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A38A06A22A98E63009D12D5 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		0A38A06D22A98E63009D12D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				0A705B2A22C01DA8002DE02A /* LaunchScreen.storyboard */,
 				0A9B632222F5BBFB00B6CF2F /* NewCommentCell.xib */,
 				0A9B632A22FE091B00B6CF2F /* InstructorCell.xib */,
-				0A0F70FE23004BA9004F1861 /* FilterCell.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -129,7 +126,7 @@
 		0A38A06622A98E63009D12D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A38A06522A98E63009D12D5 /* FCE++.app */,
+				0A38A06522A98E63009D12D5 /* fceplusplus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,7 +233,7 @@
 			);
 			name = "FCE++";
 			productName = "FCE++";
-			productReference = 0A38A06522A98E63009D12D5 /* FCE++.app */;
+			productReference = 0A38A06522A98E63009D12D5 /* fceplusplus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +288,6 @@
 				0A705B2B22C01DA8002DE02A /* LaunchScreen.storyboard in Resources */,
 				0A14938322B01AA0008CF495 /* NewReply.xib in Resources */,
 				0AF996AC22BEF1FB00E945C5 /* Iowan Old Style W01 Roman.ttf in Resources */,
-				0A0F70FF23004BA9004F1861 /* FilterCell.xib in Resources */,
 				0A9B632322F5BBFB00B6CF2F /* NewCommentCell.xib in Resources */,
 				0A9B632B22FE091B00B6CF2F /* InstructorCell.xib in Resources */,
 				0A14938722B02664008CF495 /* CommentCell.xib in Resources */,
@@ -515,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samflattery.fce;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fceplusplus;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -535,7 +531,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samflattery.fce;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fceplusplus;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

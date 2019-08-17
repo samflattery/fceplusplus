@@ -228,7 +228,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
             } else { // if it's not a number, filter by course name
                 return self.courses.filter {
-                    $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false
+                    $0.number.contains(searchTerm) ||
+                    ($0.name?.lowercased().contains(searchTerm.lowercased()) ?? false)
                 }
             }
             

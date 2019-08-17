@@ -209,10 +209,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             } else if PFUser.current() != nil && indexPath.section == 0 {
                 return
             } else {
-                if noCommentsToDisplay {
-                    // if they click on noCommentCell, do nothing
-                    return
-                }
                 if failedToLoad {
                     // if the comments have failed to load, tapping the failed to load cell
                     // will refresh the loading
@@ -270,9 +266,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 return 1
             } else {
                 if let comments = courseComments {
-                    if noCommentsToDisplay {
-                        return 1
-                    }
                     return isLoadingNewComment ? comments.count + 1 : comments.count
                 } else { // there were no comments to show so just show failed to load cell
                     return 1
@@ -288,6 +281,15 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         return nil
     }
     
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if segmentControl.selectedSegmentIndex == 2 && section == 1 {
+            if noCommentsToDisplay {
+                return "This course has no comments so far. Be the first to leave one!"
+            }
+        }
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let i = indexPath.row
         if segmentControl.selectedSegmentIndex == 2 && indexPath.section == 1 {
@@ -296,8 +298,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             } else if isEditingComment && editingIndex == i {
                 return false
             } else if isLoadingNewComment && i == 0 {
-                return false
-            } else if noCommentsToDisplay {
                 return false
             } else if (courseComments?[isLoadingNewComment ? i - 1 : i]["andrewID"] as! String) == PFUser.current()?.username {
                 return true
@@ -418,6 +418,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "CourseInfoCell", for: indexPath) as! CourseInfoTableViewCell
             infoCell.numberLabel.text = course.number
             infoCell.nameLabel.text = course.name ?? "No name available"
+            infoCell.departmentLabel.text = course.department ?? "No department available"
             if let units = course.units {
                 infoCell.unitsLabel.text = "Units: \(String(format: "%.1f", units))"
             } else {
@@ -457,10 +458,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                 }
             }
             else {
-                if noCommentsToDisplay {
-                    let noCommentCell = tableView.dequeueReusableCell(withIdentifier: "NoCommentsCell", for: indexPath)
-                    return noCommentCell
-                }
                 if (i == 0 && isLoadingNewComment) || (isLoadingEditedComment && i == editingIndex) {
                     // if the user posted a new comment, display the loading cell
                     let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
@@ -499,7 +496,11 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
                         
                         if commentInfo["andrewID"] as? String == PFUser.current()?.username {
                             commentCell.starImage.isHidden = false
-                            commentCell.andrewIDLabel.text = "You"
+                            if commentInfo["anonymous"] as! Bool {
+                                commentCell.andrewIDLabel.text = "You (anonymous)"
+                            } else {
+                                commentCell.andrewIDLabel.text = "You"
+                            }
                         } else {
                             commentCell.starImage.isHidden = true
                             if commentInfo["anonymous"] as! Bool {

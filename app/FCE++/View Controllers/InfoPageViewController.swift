@@ -157,7 +157,9 @@ class InfoPageViewController: UIViewController {
                     return self.courses.filter { $0.number.contains(searchTerm) }
                 }
             } else { // if it's not a number, filter by course name
-                return self.courses.filter { $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false }
+                return self.courses.filter { $0.number.contains(searchTerm) ||
+                    ($0.name?.lowercased().contains(searchTerm.lowercased()) ?? false)
+                }
             }
 
         }

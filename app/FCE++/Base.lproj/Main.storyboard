@@ -21,13 +21,13 @@
         <!--Home-->
         <scene sceneID="5bt-TL-tLK">
             <objects>
-                <tableViewController id="KDz-kr-j3c" customClass="SearchTableViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KDz-kr-j3c" customClass="SearchTableViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="1r0-fy-ggF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="103" id="qSv-hW-aVD" customClass="SearchResultCell" customModule="FCE__" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="103" id="qSv-hW-aVD" customClass="SearchResultCell" customModule="fceplusplus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="103"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qSv-hW-aVD" id="fTc-JC-nfC">
@@ -72,7 +72,7 @@
                                     <outlet property="numberLabel" destination="8O4-PM-dwe" id="Uyo-ZG-P08"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" rowHeight="100" id="dNZ-fq-RoN" customClass="GuestCommentCell" customModule="FCE__" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" rowHeight="100" id="dNZ-fq-RoN" customClass="GuestCommentCell" customModule="fceplusplus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="158.33333333333334" width="375" height="100.00000000000003"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dNZ-fq-RoN" id="3BM-5I-DJZ">
@@ -100,7 +100,7 @@
                                     <outlet property="loginButton" destination="ojo-ZO-zhQ" id="NK2-cA-1zq"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentPreview" rowHeight="353" id="zo2-Ba-FTz" customClass="CommentPreviewCell" customModule="FCE__" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentPreview" rowHeight="353" id="zo2-Ba-FTz" customClass="CommentPreviewCell" customModule="fceplusplus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="258.33333333333337" width="375" height="353"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zo2-Ba-FTz" id="ehc-pn-lrn">
@@ -211,7 +211,7 @@
         <!--Info Page View Controller-->
         <scene sceneID="Xzc-lE-zNU">
             <objects>
-                <viewController id="3EN-bV-a9h" customClass="InfoPageViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3EN-bV-a9h" customClass="InfoPageViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVw-H0-VUa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,7 @@
         <!--Course Info Table View Controller-->
         <scene sceneID="dTN-m8-OoZ">
             <objects>
-                <tableViewController id="yYW-RS-tm2" customClass="CourseInfoTableViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yYW-RS-tm2" customClass="CourseInfoTableViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="FTZ-Pl-sEC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,13 +376,13 @@
         <!--Comment Replies View Controller-->
         <scene sceneID="NDj-4E-o13">
             <objects>
-                <tableViewController id="YhK-5T-Bu6" customClass="CommentRepliesViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="YhK-5T-Bu6" customClass="CommentRepliesViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="V9l-Vi-B7J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReplyCell" rowHeight="113" id="AgD-51-heF" customClass="CommentReplyCell" customModule="FCE__" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReplyCell" rowHeight="113" id="AgD-51-heF" customClass="CommentReplyCell" customModule="fceplusplus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AgD-51-heF" id="9Vk-kh-vUM">
@@ -474,7 +474,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="9nS-ff-TvM">
             <objects>
-                <viewController storyboardIdentifier="SignUpScreen" id="fsI-7I-Q4g" customClass="SignUpViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpScreen" id="fsI-7I-Q4g" customClass="SignUpViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBB-jr-STL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,7 +618,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="3je-iI-hvV">
             <objects>
-                <viewController id="sFO-gx-SEF" customClass="ResetPasswordViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sFO-gx-SEF" customClass="ResetPasswordViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DPE-9M-ju7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -704,13 +704,13 @@
         <!--Instructor Name-->
         <scene sceneID="Du1-NW-7UM">
             <objects>
-                <tableViewController id="6Ii-JS-Avp" customClass="InstructorInfoTableViewController" customModule="FCE__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6Ii-JS-Avp" customClass="InstructorInfoTableViewController" customModule="fceplusplus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Wnq-Dn-lUD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InstructorInfoCell" rowHeight="126" id="6R0-sH-cgN" customClass="InstructorCell" customModule="FCE__" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InstructorInfoCell" rowHeight="126" id="6R0-sH-cgN" customClass="InstructorCell" customModule="fceplusplus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6R0-sH-cgN" id="awq-gO-bGp">

@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Iowan Old Style W01 Roman.ttf">
-            <string>IowanOldStyleW01-Roman</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -23,24 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FCE++" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Saz-Cw-HTN">
-                                <rect key="frame" x="84.5" y="284" width="245" height="85"/>
-                                <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="68"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="1Yc-fI-3Zz">
-                                <rect key="frame" x="87" y="131" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FCE++" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-yu-Wrb">
+                                <rect key="frame" x="50" y="74" width="314" height="16"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.65098039220000004" green="0.098039215690000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Saz-Cw-HTN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Ph-Ii-Ey8"/>
-                            <constraint firstItem="1Yc-fI-3Zz" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="87" id="dBl-vC-fDN"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="1Yc-fI-3Zz" secondAttribute="trailing" constant="87" id="fa3-ap-GZO"/>
-                            <constraint firstItem="Saz-Cw-HTN" firstAttribute="top" secondItem="1Yc-fI-3Zz" secondAttribute="bottom" constant="25" id="p2N-SZ-Y3K"/>
-                            <constraint firstItem="Saz-Cw-HTN" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="240" id="sZ8-CW-RHX"/>
-                            <constraint firstItem="1Yc-fI-3Zz" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="87" id="wjr-ch-RyQ"/>
+                            <constraint firstItem="M8n-yu-Wrb" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="30" id="Fdz-ZN-6p5"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="M8n-yu-Wrb" secondAttribute="trailing" constant="50" id="QZF-Sy-yny"/>
+                            <constraint firstItem="M8n-yu-Wrb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="50" id="uDT-XT-yMr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
@@ -51,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo2" width="532" height="113"/>
+        <image name="FCE++" width="1715" height="364.5"/>
     </resources>
 </document>
