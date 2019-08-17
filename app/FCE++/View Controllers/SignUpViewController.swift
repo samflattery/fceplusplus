@@ -210,7 +210,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             // selected items is the array of courses that are selected in the menu
             var selectedCourses = [String]()
             for course in selectedItems {
-                // selected courses is the array of course numbers to be stored in the cloud
+                // selected courses is the array of course numbers to be stored on the server
                 selectedCourses.append(course.number)
             }
             self?.setUserCourses(selectedCourses)

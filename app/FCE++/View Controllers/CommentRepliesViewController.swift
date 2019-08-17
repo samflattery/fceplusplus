@@ -172,6 +172,13 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 2 && noRepliesToShow {
+            return "This comment has no replies so far.  Be the first to leave one!"
+        }
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if PFUser.current() == nil && indexPath.section == 1 {
             showLoginScreen()

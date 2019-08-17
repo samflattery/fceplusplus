@@ -145,7 +145,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             }
             switch selectedItems[0] {
             case "By Course Number (default)":
-                self.filteredCourses.sort(by: { $0.number < $1.number } )
+                sortCoursesByNumber(&self.filteredCourses, number: self.searchController.searchBar.text!)
             case "By Course Name":
                 self.filteredCourses.sort(by: {
                     switch ($0.name == nil, $1.name == nil){
@@ -312,7 +312,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             } else if let comments = commentsToShow {
                 // if there are comments, show them
                 if noCommentsToShow {
-                    return 1
+                    return 0
                 } else {
                     return comments.comments.count
                 }
@@ -339,6 +339,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         return "Search results"
     }
     
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if !isSearching {
+            if noCommentsToShow {
+                return "Click the info icon in the top left to add some courses.  The most recent comments from these courses will be displayed here!"
+            }
+        }
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -351,11 +360,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                 loadingCell.spinner.startAnimating()
                 return loadingCell
-            }
-            
-            if noCommentsToShow {
-                let noCommentsCell = tableView.dequeueReusableCell(withIdentifier: "NoCommentsToShow", for: indexPath)
-                return noCommentsCell
             }
             
             if commentsToShow != nil {
@@ -401,9 +405,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 showLoginScreen()
             } else {
                 // perform the segue to the comment replies
-                if noCommentsToShow {
-                    return
-                }
                 if commentsToShow != nil {
                     performSegue(withIdentifier: "ShowRepliesFromHome", sender: indexPath.row)
                 }
@@ -433,25 +434,26 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     func filterContentForSearchText(_ searchTerm: String) {
-        filteredCourses = courses.filter { ( course : Course) -> Bool in
-            if let _ = Int(searchTerm) { // if it's a number
-                if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
-                    // if it's in the form xxxxx then convert to xx-xxx
-                    let firstTwoIndex = searchTerm.index(searchTerm.startIndex, offsetBy: 2)
-                    return course.number.contains(searchTerm[..<firstTwoIndex] + "-" + searchTerm[firstTwoIndex...])
-                }
+        if isCourseNumber(searchTerm) {
+            let formattedSearchTerm = reformattedNumber(searchTerm)
+            filteredCourses = courses.filter { (course : Course) -> Bool in
+                courseContainsNumber(course, number: formattedSearchTerm)
             }
-            var hasInstructor = false
-                for instructor in course.instructors {
-                    if instructor.name.lowercased().contains(searchTerm.lowercased()) {
-                        // if any of the instructors match then the course has that instructor
-                        hasInstructor = true
-                        break
+            sortCoursesByNumber(&filteredCourses, number: formattedSearchTerm)
+        } else {
+            filteredCourses = courses.filter { (course : Course) -> Bool in
+                var hasInstructor = false
+                    for instructor in course.instructors {
+                        if instructor.name.lowercased().contains(searchTerm.lowercased()) {
+                            // if any of the instructors match then the course has that instructor
+                            hasInstructor = true
+                            break
+                        }
                     }
-                }
-            // filters by number, instructor, description and name
-            return course.number.contains(searchTerm) || hasInstructor || (course.desc?.lowercased().contains(searchTerm.lowercased()) ?? false) ||
-                (course.name?.lowercased().contains(searchTerm.lowercased()) ?? false)
+                // filters by number, instructor, description and name
+                return hasInstructor || (course.desc?.lowercased().contains(searchTerm.lowercased()) ?? false) ||
+                    (course.name?.lowercased().contains(searchTerm.lowercased()) ?? false)
+            }
         }
         tableView.reloadData()
     }
