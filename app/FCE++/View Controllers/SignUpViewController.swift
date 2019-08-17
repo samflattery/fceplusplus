@@ -217,24 +217,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         selectionMenu.showSearchBar { (searchTerm) -> ([Course]) in
-            if let _ = Int(searchTerm) { // if it's a number
-                if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
-                    // if it's in the form xxxxx then convert to xx-xxx
-                    let firstTwoIndex = searchTerm.index(searchTerm.startIndex, offsetBy: 2)
-                    let hyphenatedSearchTerm = searchTerm[..<firstTwoIndex] + "-" + searchTerm[firstTwoIndex...]
-                    return self.courses.filter { $0.number.contains(hyphenatedSearchTerm) }
-                } else { // just filter by course number
-                    return self.courses.filter { $0.number.contains(searchTerm) }
-                }
+            if isCourseNumber(searchTerm) {
+                return resultsForSearch(self.courses, number: searchTerm)
             } else { // if it's not a number, filter by course name
                 return self.courses.filter {
-                    $0.number.contains(searchTerm) ||
-                    ($0.name?.lowercased().contains(searchTerm.lowercased()) ?? false)
+                    $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false
                 }
             }
-            
         }
-        selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
+    selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
     }
 
     func setUserCourses(_ courses: [String]) {

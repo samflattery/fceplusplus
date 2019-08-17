@@ -52,6 +52,13 @@ class InfoPageViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: Any) {
         if PFUser.current() != nil {
             
+            let reachability = Reachability()!
+            if reachability.connection == .none {
+                SVProgressHUD.showError(withStatus: "No internet connection, cannot log out")
+                SVProgressHUD.dismiss(withDelay: 1)
+                return
+            }
+            
             SVProgressHUD.show()
             PFUser.logOutInBackground { (error: Error?) in
                 if let error = error {
@@ -109,6 +116,13 @@ class InfoPageViewController: UIViewController {
         
         selectionMenu.onDismiss = { selectedItems in
             // selected items is the array of courses that are selected in the menu
+            let reachability = Reachability()!
+            if reachability.connection == .none {
+                SVProgressHUD.showError(withStatus: "Could not update courses - no internet connection")
+                SVProgressHUD.dismiss(withDelay: 2)
+                return
+            }
+            
             for course in selectedItems {
                 // selected courses is the array of course numbers to be stored in the cloud
                 self.newHighlightedCourses.append(course.number)
@@ -147,22 +161,15 @@ class InfoPageViewController: UIViewController {
         }
 
         selectionMenu.showSearchBar { (searchTerm) -> ([Course]) in
-            if let _ = Int(searchTerm) { // if it's a number
-                if searchTerm.count > 2 && searchTerm.firstIndex(of: "-") == nil {
-                    // if it's in the form xxxxx then convert to xx-xxx
-                    let firstTwoIndex = searchTerm.index(searchTerm.startIndex, offsetBy: 2)
-                    let hyphenatedSearchTerm = searchTerm[..<firstTwoIndex] + "-" + searchTerm[firstTwoIndex...]
-                    return self.courses.filter { $0.number.contains(hyphenatedSearchTerm) }
-                } else { // just filter by course number
-                    return self.courses.filter { $0.number.contains(searchTerm) }
-                }
+            if isCourseNumber(searchTerm) {
+                return resultsForSearch(self.courses, number: searchTerm)
             } else { // if it's not a number, filter by course name
-                return self.courses.filter { $0.number.contains(searchTerm) ||
-                    ($0.name?.lowercased().contains(searchTerm.lowercased()) ?? false)
+                return self.courses.filter {
+                    $0.name?.lowercased().contains(searchTerm.lowercased()) ?? false
                 }
             }
-
         }
+
         selectionMenu.show(style: .actionSheet(title: nil, action: "Done", height: nil), from: self)
     }
     

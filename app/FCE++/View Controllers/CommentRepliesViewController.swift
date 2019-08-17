@@ -242,6 +242,14 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
     
     func deleteReply(atIndexPath indexPath : IndexPath) {
         SVProgressHUD.show(withStatus: "Deleting...")
+        
+        let reachability = Reachability()!
+        if reachability.connection == .none {
+            SVProgressHUD.showError(withStatus: "Failed to delete reply")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
+        
         self.commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
             // have to fetch in case someone made a new comment in the meantime
             if let object = object { // if it succeeds to fetch any updates

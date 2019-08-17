@@ -39,6 +39,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     var commentsToShow: CommentsToShow?
     var isLoadingComments = false
     var noCommentsToShow = false
+    var failedToLoad = false // if Parse fails to load comments, show a footer
     
     let searchController = UISearchController(searchResultsController: nil)
     let refreshController = UIRefreshControl()
@@ -145,7 +146,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             }
             switch selectedItems[0] {
             case "By Course Number (default)":
-                sortCoursesByNumber(&self.filteredCourses, number: self.searchController.searchBar.text!)
+                self.filteredCourses = sortCoursesByNumber(self.filteredCourses, number: self.searchController.searchBar.text!)
             case "By Course Name":
                 self.filteredCourses.sort(by: {
                     switch ($0.name == nil, $1.name == nil){
@@ -193,8 +194,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         let reachability = Reachability()!
         if reachability.connection == .none && !query.hasCachedResult {
             commentsToShow = nil
+            self.failedToLoad = true
             tableView.reloadData()
-            SVProgressHUD.showError(withStatus: "Could not display comments - no internet connection")
+            SVProgressHUD.showError(withStatus: "Could not display comments. Pull to refresh to try again")
             SVProgressHUD.dismiss(withDelay: 1)
             return
         }
@@ -207,6 +209,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         
         query.cachePolicy = .networkElseCache // first try network to get up to date, then cache
+//        query.cachePolicy = .networkOnly // first try network to get up to date, then cache
+
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             self.isLoadingComments = false
             self.refreshControl?.endRefreshing()
@@ -253,10 +257,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 }
             } else if let error = error {
                 // failed to get comments for some reason
-                // show a tap to refresh button or something?????
+                self.failedToLoad = true
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
                 SVProgressHUD.dismiss(withDelay: 1)
             } else {
+                self.failedToLoad = true
                 SVProgressHUD.showError(withStatus: "Failed to load comments")
                 SVProgressHUD.dismiss(withDelay: 1)
             }
@@ -303,7 +308,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         return cellHeights[indexPath] ?? 50.0
     }
     
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !isSearching {
             if isLoadingComments {
@@ -316,8 +320,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 } else {
                     return comments.comments.count
                 }
+            } else if PFUser.current() == nil {
+                return 1 // a cell that redirects to login
             } else {
-                return 1 // a cell that redirects to login / FAILED TO LOAD CELL??
+                return 0 // failed to load, show the footer
             }
         } else {
             return filteredCourses.count // the number of search results
@@ -343,6 +349,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if !isSearching {
             if noCommentsToShow {
                 return "Click the info icon in the top left to add some courses.  The most recent comments from these courses will be displayed here!"
+            } else if failedToLoad {
+                return "Failed to load comments. Pull to refresh to try again"
             }
         }
         return nil
@@ -435,11 +443,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     func filterContentForSearchText(_ searchTerm: String) {
         if isCourseNumber(searchTerm) {
-            let formattedSearchTerm = reformattedNumber(searchTerm)
-            filteredCourses = courses.filter { (course : Course) -> Bool in
-                courseContainsNumber(course, number: formattedSearchTerm)
-            }
-            sortCoursesByNumber(&filteredCourses, number: formattedSearchTerm)
+            filteredCourses = resultsForSearch(self.courses, number: searchTerm)
         } else {
             filteredCourses = courses.filter { (course : Course) -> Bool in
                 var hasInstructor = false

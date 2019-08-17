@@ -56,12 +56,12 @@ func courseContainsNumber(_ course: Course, number num: String) -> Bool {
     return course.number.contains(num)
 }
 
-func sortCoursesByNumber( _ courses: inout [Course], number num: String) {
+func sortCoursesByNumber( _ courses: [Course], number num: String) -> [Course] {
     
     // will always be <= 5 by isCourseNumber and reformattedNumber
     let searchLength = num.count
     
-    courses.sort(by : {
+    return courses.sorted (by : {
         switch ($0.number.prefix(searchLength).contains(num), $1.number.prefix(searchLength).contains(num)) {
             /*
              4 cases: neither start with the search term, both start with the
@@ -77,7 +77,15 @@ func sortCoursesByNumber( _ courses: inout [Course], number num: String) {
         case (false, false):
             return $0.number < $1.number
         }
-    }
-    )
+    })
 }
 
+func resultsForSearch(_ courses: [Course], number num: String) -> [Course] {
+    
+    let formattedSearchTerm = reformattedNumber(num)
+    let filtered = courses.filter { (course : Course) -> Bool in
+        courseContainsNumber(course, number: formattedSearchTerm)
+    }
+    return sortCoursesByNumber(filtered, number: formattedSearchTerm)
+    
+}

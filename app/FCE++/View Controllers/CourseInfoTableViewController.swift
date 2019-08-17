@@ -96,8 +96,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if reachability.connection == .none && !query!.hasCachedResult {
             tableView.reloadData()
             failedToLoad = true
-            SVProgressHUD.showError(withStatus: "No internet connection. Cannot load comments")
-            SVProgressHUD.dismiss(withDelay: 1)
             courseComments = nil
             commentObj = nil
             return
@@ -146,6 +144,10 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         } else { // comments segment
             tableView.refreshControl = refreshController
             refreshControl?.addTarget(self, action: #selector(refreshComments), for: .valueChanged)
+            if failedToLoad {
+                SVProgressHUD.showError(withStatus: "Failed to load comments")
+                SVProgressHUD.dismiss(withDelay: 1)
+            }
         }
     }
     
@@ -259,7 +261,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 0 {
             return 1
         } else if segmentControl.selectedSegmentIndex == 1 {
-//            return 11 // one for each piece of instructor info
             return course.instructors.count
         } else {
             if section == 0 {
@@ -267,8 +268,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             } else {
                 if let comments = courseComments {
                     return isLoadingNewComment ? comments.count + 1 : comments.count
-                } else { // there were no comments to show so just show failed to load cell
-                    return 1
+                } else { // there were no comments to show so only show failed footer
+                    return 0
                 }
             }
         }
@@ -285,6 +286,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         if segmentControl.selectedSegmentIndex == 2 && section == 1 {
             if noCommentsToDisplay {
                 return "This course has no comments so far. Be the first to leave one!"
+            } else if failedToLoad {
+                return "Failed to load comments. Pull to refresh to try again"
             }
         }
         return nil
@@ -352,6 +355,14 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     
     func deleteComment(atIndexPath indexPath: IndexPath) {
         SVProgressHUD.show(withStatus: "Deleting...")
+        
+        let reachability = Reachability()!
+        if reachability.connection == .none {
+            SVProgressHUD.showError(withStatus: "Failed to delete comment")
+            SVProgressHUD.dismiss(withDelay: 1)
+            return
+        }
+        
         self.commentObj?.fetchInBackground { (object: PFObject?, error: Error?) in
             // have to fetch in case someone made a new comment in the meantime
             if let object = object { // if it succeeds to fetch any updates
@@ -407,11 +418,11 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
         let i = indexPath.row
         let j = indexPath.section
         
-        if failedToLoad && segmentControl.selectedSegmentIndex == 2 {
-            // only display the failed to load cell
-            let failedToLoadCell = tableView.dequeueReusableCell(withIdentifier: "FailedToLoad", for: indexPath)
-            return failedToLoadCell
-        }
+//        if failedToLoad && segmentControl.selectedSegmentIndex == 2 {
+//            // only display the failed to load cell
+//            let failedToLoadCell = tableView.dequeueReusableCell(withIdentifier: "FailedToLoad", for: indexPath)
+//            return failedToLoadCell
+//        }
 
         if segmentControl.selectedSegmentIndex == 0 {
             // the course information segment's cells
