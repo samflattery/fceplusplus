@@ -5,3 +5,4 @@ ServerInfo.swift
 signingCertificate.p12
 2018table.csv
 FCEtable.csv
+output.json
