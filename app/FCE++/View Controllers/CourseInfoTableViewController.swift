@@ -417,12 +417,6 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let i = indexPath.row
         let j = indexPath.section
-        
-//        if failedToLoad && segmentControl.selectedSegmentIndex == 2 {
-//            // only display the failed to load cell
-//            let failedToLoadCell = tableView.dequeueReusableCell(withIdentifier: "FailedToLoad", for: indexPath)
-//            return failedToLoadCell
-//        }
 
         if segmentControl.selectedSegmentIndex == 0 {
             // the course information segment's cells
@@ -446,8 +440,7 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             // the instructor segment's cells
             let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorTableViewCell
             instructorCell.hasDisclosureIndicator(true)
-//            instructorCell.instructorLabel.text = course.instructors[i].name
-            instructorCell.instructorLabel.text = "Instructor " + String(i)
+            instructorCell.instructorLabel.text = course.instructors[i].name
             instructorCell.ratingStars.rating = course.instructors[i].teachingRate
             instructorCell.ratingLabel.text = "(\(String(format: "%.1f", course.instructors[i].teachingRate)))"
             instructorCell.hoursLabel.text = String(format: "%.1f", course.instructors[i].hours)
