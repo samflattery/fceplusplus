@@ -132,7 +132,7 @@ if __name__ == '__main__':
    
     # uncomment this to re-scrape all of the course information
     # warning - takes 5-10 minutes to scrape all of the data
-    refresh_data()
+    # refresh_data()
 
     # loads the course data from the json
     with open("./docs/course_descriptions.json") as f:

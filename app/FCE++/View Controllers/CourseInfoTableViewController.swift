@@ -446,7 +446,8 @@ class CourseInfoTableViewController: UITableViewController, UITextFieldDelegate,
             // the instructor segment's cells
             let instructorCell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as! InstructorTableViewCell
             instructorCell.hasDisclosureIndicator(true)
-            instructorCell.instructorLabel.text = course.instructors[i].name
+//            instructorCell.instructorLabel.text = course.instructors[i].name
+            instructorCell.instructorLabel.text = "Instructor " + String(i)
             instructorCell.ratingStars.rating = course.instructors[i].teachingRate
             instructorCell.ratingLabel.text = "(\(String(format: "%.1f", course.instructors[i].teachingRate)))"
             instructorCell.hoursLabel.text = String(format: "%.1f", course.instructors[i].hours)

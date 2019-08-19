@@ -257,9 +257,6 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 var replies = comments[self.commentIndex]["replies"] as! [[String : Any]]
                 replies.remove(at: indexPath.row)
                 comments[self.commentIndex]["replies"] = replies
-                
-                
-                
                 object["comments"] = comments
                 // delete the reply and rewrite the old comments
                 
@@ -373,15 +370,19 @@ class CommentRepliesViewController: UITableViewController, NewReplyTableViewCell
                 
                 if commentReply["andrewID"] as? String == PFUser.current()?.username {
                     replyCell.starImage.isHidden = false
-                    replyCell.andrewIDLabel.text = "You"
                     replyCell.selectionStyle = .default
+                    if commentReply["anonymous"] as! Bool {
+                        replyCell.andrewIDLabel.text = "You (anonymous)"
+                    } else {
+                        replyCell.andrewIDLabel.text = "You"
+                    }
                 } else {
                     replyCell.selectionStyle = .none
                     replyCell.starImage.isHidden = true
                     if commentReply["anonymous"] as! Bool {
                         replyCell.andrewIDLabel.text = "Anonymous"
                     } else {
-                        replyCell.andrewIDLabel.text = comment["andrewID"] as? String
+                        replyCell.andrewIDLabel.text = commentReply["andrewID"] as? String
                     }
                 }
                 return replyCell

@@ -84,7 +84,7 @@ func resultsForSearch(_ courses: [Course], number num: String) -> [Course] {
     
     let formattedSearchTerm = reformattedNumber(num)
     let filtered = courses.filter { (course : Course) -> Bool in
-        courseContainsNumber(course, number: formattedSearchTerm)
+        courseContainsNumber(course, number: formattedSearchTerm) || courseContainsNumber(course, number: num)
     }
     return sortCoursesByNumber(filtered, number: formattedSearchTerm)
     

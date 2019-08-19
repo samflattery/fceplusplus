@@ -111,19 +111,19 @@
                                             <rect key="frame" x="16" y="11" width="343" height="331"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Course number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3l-9R-thr">
-                                                    <rect key="frame" x="0.0" y="5" width="118" height="21.333333333333332"/>
-                                                    <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="5.0000000000000018" width="132" height="23.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="19"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Big heading goes here may span up to two or three lines with all of heading text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-GW-Ots">
-                                                    <rect key="frame" x="0.0" y="26.333333333333336" width="343" height="82.333333333333314"/>
+                                                    <rect key="frame" x="0.0" y="28.666666666666664" width="343" height="82.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleOSFBT-Bold" family="IowanOldSt OSF BT" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqK-jx-yGq">
-                                                    <rect key="frame" x="0.0" y="113.66666666666669" width="343" height="134"/>
+                                                    <rect key="frame" x="0.0" y="116" width="343" height="134"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique tellus libero, ac vehicula mi congue ut. Donec scelerisque scelerisque dui, ullamcorper placerat metus egestas at. Nulla lacinia 
 </string>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
@@ -131,7 +131,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" text="2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U48-it-ZNc">
-                                                    <rect key="frame" x="0.0" y="252.66666666666671" width="68" height="73.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="255" width="68" height="71"/>
                                                     <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -168,28 +168,6 @@
                                     <outlet property="dateLabel" destination="U48-it-ZNc" id="SFK-SO-UBY"/>
                                     <outlet property="headerLabel" destination="W9a-GW-Ots" id="BT1-Vo-UrV"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoCommentsToShow" rowHeight="142" id="WWJ-Bk-a0I">
-                                <rect key="frame" x="0.0" y="611.33333333333337" width="375" height="142"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WWJ-Bk-a0I" id="7iA-Kp-ge1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="141.66666666666666"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the info icon in the top left to add some courses.  The most recent comments from these courses will be displayed here!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyq-KR-fWP">
-                                            <rect key="frame" x="16" y="21" width="343" height="100"/>
-                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="dyq-KR-fWP" firstAttribute="leading" secondItem="7iA-Kp-ge1" secondAttribute="leadingMargin" id="HI8-XV-YcP"/>
-                                        <constraint firstItem="dyq-KR-fWP" firstAttribute="top" secondItem="7iA-Kp-ge1" secondAttribute="topMargin" constant="10" id="NfM-au-rsX"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dyq-KR-fWP" secondAttribute="bottom" constant="10" id="gnh-Gw-TOz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dyq-KR-fWP" secondAttribute="trailing" id="lFf-nC-mmI"/>
-                                    </constraints>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -318,30 +296,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoCommentsCell" rowHeight="133" id="2G1-Rr-wcf">
-                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="133"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2G1-Rr-wcf" id="xGn-zZ-aga">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="132.66666666666666"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This course has no comments so far.  Be the first to leave one!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcm-sA-kog">
-                                            <rect key="frame" x="16" y="21" width="343" height="91"/>
-                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="xcm-sA-kog" firstAttribute="top" secondItem="xGn-zZ-aga" secondAttribute="topMargin" constant="10" id="4wi-Oq-jZ0"/>
-                                        <constraint firstItem="xcm-sA-kog" firstAttribute="leading" secondItem="xGn-zZ-aga" secondAttribute="leadingMargin" id="9Xw-gw-rvc"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="xcm-sA-kog" secondAttribute="bottom" constant="10" id="Ceb-9D-qpT"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="xcm-sA-kog" secondAttribute="trailing" id="LWF-ol-Y8k"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="yYW-RS-tm2" id="kSD-wy-Gfr"/>
                             <outlet property="delegate" destination="yYW-RS-tm2" id="dgF-n3-AMY"/>
@@ -390,7 +344,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reply body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KM-rq-Fes">
-                                            <rect key="frame" x="16" y="11.000000000000004" width="343" height="62.333333333333343"/>
+                                            <rect key="frame" x="16" y="18.000000000000004" width="343" height="55.333333333333343"/>
                                             <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -417,7 +371,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="LWr-x6-yYA" firstAttribute="centerY" secondItem="UPJ-pS-DSU" secondAttribute="centerY" id="7i6-KX-zcT"/>
-                                        <constraint firstItem="6KM-rq-Fes" firstAttribute="top" secondItem="9Vk-kh-vUM" secondAttribute="topMargin" id="F12-0A-TG1"/>
+                                        <constraint firstItem="6KM-rq-Fes" firstAttribute="top" secondItem="9Vk-kh-vUM" secondAttribute="topMargin" constant="7" id="F12-0A-TG1"/>
                                         <constraint firstItem="6KM-rq-Fes" firstAttribute="leading" secondItem="9Vk-kh-vUM" secondAttribute="leadingMargin" id="H9A-yr-3DK"/>
                                         <constraint firstItem="2ks-nL-HCR" firstAttribute="trailing" secondItem="9Vk-kh-vUM" secondAttribute="trailingMargin" id="KPu-hq-4R1"/>
                                         <constraint firstItem="LWr-x6-yYA" firstAttribute="leading" secondItem="9Vk-kh-vUM" secondAttribute="leadingMargin" id="WQ8-8p-r2Z"/>
@@ -436,28 +390,6 @@
                                     <outlet property="replyLabel" destination="6KM-rq-Fes" id="NqI-k2-XTj"/>
                                     <outlet property="starImage" destination="UPJ-pS-DSU" id="Fqu-PS-gSe"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoRepliesCell" rowHeight="110" id="e5B-5e-kog">
-                                <rect key="frame" x="0.0" y="168.33333333333334" width="375" height="110.00000000000003"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e5B-5e-kog" id="hzg-VV-jJx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109.66666666666667"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This comment has no replies so far.  Be the first to leave one!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avI-mh-1Gx">
-                                            <rect key="frame" x="16" y="21" width="343" height="68"/>
-                                            <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="avI-mh-1Gx" firstAttribute="leading" secondItem="hzg-VV-jJx" secondAttribute="leadingMargin" id="1fw-CK-OMB"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="avI-mh-1Gx" secondAttribute="trailing" id="B2n-MH-haf"/>
-                                        <constraint firstItem="avI-mh-1Gx" firstAttribute="top" secondItem="hzg-VV-jJx" secondAttribute="topMargin" constant="10" id="WXJ-QA-cco"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="avI-mh-1Gx" secondAttribute="bottom" constant="10" id="cB3-AG-4Eh"/>
-                                    </constraints>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -486,7 +418,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyleW01-Roman" family="IowanOldStyleW01-Roman" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="andrewID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-ws-6Vg">
                                 <rect key="frame" x="62.666666666666657" y="286" width="249.99999999999997" height="30"/>
@@ -773,6 +705,7 @@
         <image name="star" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tPs-cE-Lwj"/>
         <segue reference="lwZ-0G-G9s"/>
         <segue reference="jQ8-8H-fMb"/>
         <segue reference="IEO-sG-2BC"/>
