@@ -16,7 +16,6 @@ protocol CommentRepliesViewControllerDelegate {
     // if the user comes to this page from the searchVC, the indices that this comment
     // is at will be sent to the delegate to be updated
     func updateCourseInfoObject(toObject object: PFObject, commentIndices indices: (Int, Int)!, commentIndex index: Int!)
-    
 }
 
 class CommentRepliesViewController: UITableViewController, NewReplyTableViewCellDelegate, GuestCommentCellDelegate {

@@ -4,5 +4,7 @@ controlflow.md
 ServerInfo.swift
 signingCertificate.p12
 2018table.csv
-FCEtable.csv
+2019table.csv
 output.json
+.DS_Store
+.tmux-status.conf

@@ -9,7 +9,7 @@ import cmu_course_api
 import pandas as pd
 
 """
-Adapted from Marat Valiev's CMUnits FCE parser: 
+Adapted from Marat Valiev's CMUnits FCE parser:
 https://github.com/cmu-student-government/cmunit
 
 Uses Scottylab's cmu_course_api to scrape course descriptions and prereqs
@@ -71,7 +71,7 @@ The goal is to get a json like:
         ...
     },
     ...
-]    
+]
 """
 
 def format_hyphen(s):
@@ -82,13 +82,15 @@ def format_hyphen(s):
         s = str(int(s))
         return s[0:2] + "-" + s[2:6]
 
-def refresh_data():
-    #reloads the course descriptions and prereqs
+def refresh_data(desc_filename):
+    # reloads the course descriptions and prereqs
+    # seems like argparse won't let you open a file as r/w so just reopen it
+    # as write (string passed in)
     fall = cmu_course_api.get_course_data('F')
     spring = cmu_course_api.get_course_data('S')
     spring.update(fall)
     all_data = spring
-    with open("./docs/course_descriptions.json", "w") as f:
+    with open(desc_filename, "w") as f:
         json.dump(all_data["courses"], f)
 
 if __name__ == '__main__':
@@ -96,17 +98,24 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="Compile CSV exported from FCE into a machine-readable "
                     "format")
-    parser.add_argument('--callback', default="", nargs="?",
-                        help='JSONP callback to enable cross-domain requests. '
-                             'Default: none')
-    parser.add_argument('-i', '--input', default="docs/FCEtable.csv", nargs="?",
+    parser.add_argument('-r', '--refresh', action='store_true',
+                        help='True if want to refresh the course data from the '
+                             'course descriptions\n'
+                             'Warning: takes 5-10 mins\n'
+                             'Default: False')
+    parser.add_argument('-i', '--input', default="docs/2020Table.csv", nargs="?",
                         type=argparse.FileType('r'),
-                        help='Input CSV file, exported from cmu.smartevals.com.'
-                             ' Default: ./docs/FCEtable.csv.')
+                        help='Input CSV file, exported from cmu.smartevals.com.\n'
+                             'Default: ./docs/2020Table.csv.')
     parser.add_argument('-o', '--output', default="docs/output.json", nargs="?",
                         type=argparse.FileType('w'),
-                        help='Filename to export JSON data. '
+                        help='Filename to export JSON data. \n'
                              'Default: ./docs/output.json')
+    parser.add_argument('-c', '--desc', default="docs/course_descriptions.json", nargs="?",
+                        type=argparse.FileType('r'),
+                        help='Location of course descriptions data. \n'
+                             'Default: ./docs/course_descriptions.json')
+
     args = parser.parse_args()
 
     df = pd.read_csv(args.input).rename(
@@ -119,30 +128,27 @@ if __name__ == '__main__':
     df['Hours per week'] = df[['Hrs Per Week', 'Hrs Per Week 5', 'Hrs Per Week 8']].max(axis=1)
     df = df[pd.notnull(df['Hours per week']) & (df['Num Respondents'] >= 5)]
 
-    # get course name like 'xx-xxx' 
+    # get course name like 'xx-xxx'
     df['course id'] = df['Course ID'].map(
         lambda s: format_hyphen(s))
 
     # Summer courses are usually more intensive and thus not representative
-    # The FCE csv I have downloaded uses the following code to represent semesters:
-    # 150 = Summer, 140 = Spring, 120 = Fall
-    df = df[df["Semester"] != 150]
+    df = df[df["Semester"] != 'Summer']
     # information older than two years is probably not relevant
     df = df[df['year'] > 2016]
-   
-    # uncomment this to re-scrape all of the course information
-    # warning - takes 5-10 minutes to scrape all of the data
-    # refresh_data()
+
+    # rescrape all of the course data
+    if args.refresh:
+        refresh_data(args.desc.name)
 
     # loads the course data from the json
-    with open("./docs/course_descriptions.json") as f:
-        course_data = json.load(f)
+    course_data = json.load(args.desc)
 
     # the headings that will be used from the course data json
-    headings = ['name', 'department', 'units', 'desc', 'prereqs', 
+    headings = ['name', 'department', 'units', 'desc', 'prereqs',
                 'prereqs_obj', 'coreqs', 'coreqs_obj']
 
-    courses = [] 
+    courses = []
     # loop through each course
     for course_name, course_info in df.groupby("course id"):
         # average its hours and rating
@@ -163,11 +169,11 @@ if __name__ == '__main__':
             continue
         instructor_list = [] # list of each instructor and their ratings from the FCE
         for name, instructor_info in course_info.groupby("instructor"):
-            avg_info = instructor_info[["Hours per week", 'Interest in student learning', 
-                'Clearly explain course requirements', 'Clear learning objectives & goals', 
-                'Instructor provides feedback to students to improve', 
+            avg_info = instructor_info[["Hours per week", 'Interest in student learning',
+                'Clearly explain course requirements', 'Clear learning objectives & goals',
+                'Instructor provides feedback to students to improve',
                 'Demonstrate importance of subject matter', 'Explains subject matter of course',
-                'Show respect for all students', 'Overall teaching rate', 
+                'Show respect for all students', 'Overall teaching rate',
                 'Overall course rate']].mean(axis=0).round(1)
             # append each instructor's json to the list
             instructor_dict = json.loads(avg_info.to_json(orient='index'))
@@ -191,8 +197,7 @@ if __name__ == '__main__':
         courses.append(course)
 
     # write it all to the output file
-    with open("docs/output.json", "w") as write_file:
-        print("Writing to file...")
-        json.dump(courses, write_file, indent=4)
+    print("Writing to file...")
+    json.dump(courses, args.output, indent=4)
 
     print("Done")
